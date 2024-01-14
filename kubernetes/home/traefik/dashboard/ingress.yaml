@@ -17,5 +17,5 @@ spec:
       services:
         - name: api@internal
           kind: TraefikService
-#  tls:
-#    secretName: local-opryga-com-staging-tls
+  tls:
+    secretName: local-opryga-com-tls # give it the ole tls cert
