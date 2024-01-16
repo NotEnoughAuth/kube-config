@@ -9,12 +9,12 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`www.nginx.oplabs.us`)
+    - match: Host(`www.nginx.local.opryga.com`)
       kind: Rule
       services:
         - name: nginx
           port: 80
-    - match: Host(`nginx.oplabs.us`)
+    - match: Host(`nginx.local.opryga.com`)
       kind: Rule
       services:
         - name: nginx
@@ -22,4 +22,4 @@ spec:
       middlewares:
         - name: default-headers
   tls:
-    secretName: oplabs-us-tls
+    secretName: local-opryga-com-tls
