@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: oplabs-us
+  namespace: default # Same namespace as service you are using
+spec:
+  secretName: oplabs-us-tls
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: "*.oplabs.us"
+  dnsNames:
+  - "oplabs.us"
+  - "*.oplabs.us"
