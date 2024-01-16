@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: leaderboard
+  namespace: external
+spec:
+  ports:
+    - name: leaderboard-port
+      port: 80
+      targetPort: 80
+      protocol: TCP
