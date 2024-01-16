@@ -2,7 +2,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: oplabs-us
-  namespace: default # Same namespace as service you are using
+  namespace: external # Same namespace as service you are using
 spec:
   secretName: oplabs-us-tls
   issuerRef:
