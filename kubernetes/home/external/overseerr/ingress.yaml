@@ -13,6 +13,7 @@ spec:
       kind: Rule
       middlewares:
         - name: default-headers
+          namespace: default
       services:
         - name: overseerr
           port: 5055
