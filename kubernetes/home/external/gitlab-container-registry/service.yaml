@@ -1,11 +1,11 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: leaderboard
+  name: container-registry
   namespace: external
 spec:
   ports:
-    - name: leaderboard-port
-      port: 80
-      targetPort: 80
+    - name: container-registry-port
+      port: 5050
+      targetPort: 5050
       protocol: TCP
