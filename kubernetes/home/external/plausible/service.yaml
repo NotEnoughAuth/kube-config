@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: plausible
+  namespace: external
+spec:
+  ports:
+    - name: plausible-port
+      port: 8000
+      targetPort: 8000
+      protocol: TCP
