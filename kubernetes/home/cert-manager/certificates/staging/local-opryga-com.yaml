@@ -1,7 +1,7 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: local-opryga-com
+  name: local-opryga-com-staging
   namespace: default # Same namespace as service you are using
 spec:
   secretName: local-opryga-com-staging-tls
