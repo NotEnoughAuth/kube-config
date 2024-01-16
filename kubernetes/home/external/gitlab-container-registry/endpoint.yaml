@@ -9,4 +9,4 @@ subsets:
     ports:
       - name: container-registry-port
         protocol: TCP
-        port: 80
+        port: 5050
