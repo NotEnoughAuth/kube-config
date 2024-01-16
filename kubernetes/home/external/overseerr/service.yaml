@@ -4,9 +4,7 @@ metadata:
   name: overseerr
   namespace: external
 spec:
-  type: ExternalName
   ports:
     - name: http
       port: 5055
       targetPort: 5055
-  externalName: 10.27.10.8
