@@ -5,6 +5,7 @@ metadata:
   namespace: external
 spec:
   ports:
-    - name: http
+    - name: overseerr-port
       port: 5055
       targetPort: 5055
+      protocol: TCP
