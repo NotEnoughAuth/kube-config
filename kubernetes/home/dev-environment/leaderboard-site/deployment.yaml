@@ -1,12 +1,16 @@
-apiVersion: apps/v1
 kind: Deployment
+apiVersion: apps/v1
 metadata:
   name: leaderboard-site
-  namespace: dev-environment
+  namespace: default
   labels:
     app: leaderboard-site
 spec:
   replicas: 3
+  progressDeadlineSeconds: 600
+  revisionHistoryLimit: 2
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: leaderboard-site
@@ -16,6 +20,6 @@ spec:
         app: leaderboard-site
     spec:
       containers:
-        - name: leaderboard-site
-          image: "registry.opryga.com/root/leaderboard-site:dev-21"
-          imagePullPolicy: IfNotPresent
+      - name: leaderboard-site
+        image: "registry.opryga.com/root/leaderboard-site:dev-21"
+        imagePullPolicy: IfNotPresent
