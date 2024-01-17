@@ -19,6 +19,3 @@ spec:
         - name: leaderboard-site
           image: "registry.opryga.com/root/leaderboard-site:dev-21"
           imagePullPolicy: IfNotPresent
-          ports:
-          - containerPort: 80
-            hostPort: 80
