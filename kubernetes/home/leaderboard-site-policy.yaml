@@ -8,7 +8,7 @@ spec:
   imageRepositoryRef:
     name: leaderboard-site
   filterTags:
-    pattern: '^dev-?P<build>'
+    pattern: '^dev-(?P<build>.*)$'
     extract: '$build'
   policy:
     numerical:
