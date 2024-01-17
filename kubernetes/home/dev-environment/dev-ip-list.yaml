@@ -1,0 +1,9 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: dev-ip-list
+  namespace: dev-environment
+spec:
+  ipWhiteList:
+    sourceRange:
+      - 10.27.0.0/16

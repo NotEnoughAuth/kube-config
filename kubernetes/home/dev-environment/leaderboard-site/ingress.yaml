@@ -15,6 +15,7 @@ spec:
         - name: leaderboard-site
           port: 80
       middlewares:
-        - name: dev-headers
+        - name: default-headers
+        - name: dev-ip-list
   tls:
     secretName: dev-opryga-com-tls
