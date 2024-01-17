@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: dev-opryga-com
+  namespace: dev-environment # Same namespace as service you are using
+spec:
+  secretName: dev-opryga-com-tls
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: "*.dev.opryga.com"
+  dnsNames:
+  - "dev.opryga.com"
+  - "*.dev.opryga.com"

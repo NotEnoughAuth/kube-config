@@ -1,0 +1,12 @@
+piVersion: v1
+kind: Service
+metadata:
+  name: leaderboard-site
+  namespace: dev-environment
+spec:
+  selector:
+    app: leaderboard-site
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

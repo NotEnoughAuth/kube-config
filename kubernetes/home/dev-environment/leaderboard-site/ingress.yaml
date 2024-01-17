@@ -1,0 +1,20 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: leaderboard-site
+  namespace: dev-environment
+  annotations: 
+    kubernetes.io/ingress.class: traefik-external
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`leaderboard.dev.opryga.com`)
+      kind: Rule
+      services:
+        - name: leaderboard-site
+          port: 80
+      middlewares:
+        - name: dev-headers
+  tls:
+    secretName: dev-opryga-com-tls

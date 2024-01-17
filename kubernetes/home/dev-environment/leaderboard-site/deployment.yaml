@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: leaderboard-site
+  namespace: dev-environment
+  labels:
+    app: leaderboard-site
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: leaderboard-site
+  template:
+    metadata:
+      labels:
+        app: leaderboard-site
+    spec:
+      containers:
+        - name: leaderboard-site
+          image: "registry.opryga.com/root/leaderboard-site:dev-21"
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 80
+            hostPort: 80
