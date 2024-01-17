@@ -21,6 +21,6 @@ spec:
     spec:
       containers:
       - name: leaderboard-site
-        image: "registry.opryga.com/root/leaderboard-site:dev-26"
+        image: "registry.opryga.com/root/leaderboard-site:dev-27"
         # image: "nginx:latest"
         imagePullPolicy: IfNotPresent
