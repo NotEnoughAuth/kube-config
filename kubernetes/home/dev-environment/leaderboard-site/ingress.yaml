@@ -16,6 +16,6 @@ spec:
           port: 80
       middlewares:
         - name: default-headers
-        - name: dev-ip-list
+        # - name: dev-ip-list 
   tls:
     secretName: dev-opryga-com-tls
