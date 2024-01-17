@@ -19,7 +19,7 @@ spec:
   interval: 30m0s
   sourceRef:
     kind: GitRepository
-    name: kube-config
+    name: flux-system
   update:
     path: ./kuberntes/home
     strategy: Setters
