@@ -1,21 +1,20 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: leaderboard-site
-  namespace: dev-environment
+  name: gitlab-ingress
+  namespace: external
   annotations: 
     kubernetes.io/ingress.class: traefik-external
 spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`leaderboard.dev.opryga.com`)
+    - match: Host(`gitlab.opryga.com`)
       kind: Rule
-      services:
-        - name: leaderboard-site
-          port: 80
       middlewares:
         - name: default-headers
-        - name: dev-ip-list 
+      services:
+        - name: gitlab
+          port: 80
   tls:
-    secretName: dev-opryga-com-tls
+    secretName: opryga-com-tls

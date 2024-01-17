@@ -24,3 +24,5 @@ spec:
         image: "registry.opryga.com/root/leaderboard-site:dev-28" # {"$imagepolicy": "flux-system:leaderboard-site"}
         # image: "nginx:latest"
         imagePullPolicy: IfNotPresent
+      imagePullSecrets:
+      - name: regcred # pass the regcred secret to log into the private repo
