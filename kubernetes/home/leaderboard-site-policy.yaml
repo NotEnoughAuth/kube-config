@@ -5,6 +5,8 @@ metadata:
   name: leaderboard-site
   namespace: flux-system
 spec:
+  imageRepositoryRef:
+    name: leaderboard-site
   filterTags:
     pattern: '^dev-?P<build>'
     extract: '$build'
