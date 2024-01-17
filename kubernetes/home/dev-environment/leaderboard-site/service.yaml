@@ -7,6 +7,6 @@ spec:
   selector:
     app: leaderboard-site
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
+  - name: http
+    targetPort: 80
+    port: 80

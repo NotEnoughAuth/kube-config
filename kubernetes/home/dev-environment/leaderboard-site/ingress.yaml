@@ -9,11 +9,6 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`www.leaderboard.dev.opryga.com`)
-      kind: Rule
-      services:
-        - name: leaderboard-site
-          port: 80
     - match: Host(`leaderboard.dev.opryga.com`)
       kind: Rule
       services:
