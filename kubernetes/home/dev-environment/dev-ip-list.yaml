@@ -8,4 +8,4 @@ spec:
     sourceRange:
       - 10.27.20.0/24
     ipStrategy:
-      depth: 3
+      depth: 4
