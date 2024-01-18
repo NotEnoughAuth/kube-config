@@ -6,4 +6,4 @@ metadata:
 spec:
   ipWhiteList:
     sourceRange:
-      - 10.27.0.0/16
+      - 10.27.10.0/24
