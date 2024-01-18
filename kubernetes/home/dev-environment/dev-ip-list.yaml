@@ -7,3 +7,5 @@ spec:
   ipWhiteList:
     sourceRange:
       - 10.27.20.0/24
+    ipStrategy:
+      depth: 2
