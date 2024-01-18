@@ -5,7 +5,7 @@ metadata:
   namespace: dev-environment
   annotations: 
     kubernetes.io/ingress.class: traefik-external
-    traefik.ingress.kubernetes.io/router.middlewares: traefik-dev-ip-list@kubernetescrd
+    # traefik.ingress.kubernetes.io/router.middlewares: traefik-dev-ip-list@kubernetescrd
 spec:
   entryPoints:
     - websecure
@@ -16,7 +16,8 @@ spec:
         - name: leaderboard-site
           port: 80
       middlewares:
+        - name: dev-ip-list 
         - name: default-headers
-        # - name: dev-ip-list 
+        
   tls:
     secretName: dev-opryga-com-tls
