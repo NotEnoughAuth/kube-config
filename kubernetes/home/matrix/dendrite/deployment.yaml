@@ -36,11 +36,12 @@ spec:
 
       volumes:
         - name: config
-          secret:
-            secretName: matrix-config
+          projected:
+            sources:
+              - secret:
+                name: matrix-config
+              - secret:
+                name: matrix-key
         - name: media
           persistentVolumeClaim:
             claimName: media-matrix-pvc
-        - name: key
-          secret:
-            secretName: matrix-key
