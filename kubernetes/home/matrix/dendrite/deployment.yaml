@@ -28,8 +28,8 @@ spec:
           volumeMounts:
           - name: config
             mountPath: /etc/dendrite
-          # - name: media
-          #   mountPath: /var/dendrite/media
+          - name: media
+            mountPath: /media
 
       volumes:
         # - name: config
@@ -50,9 +50,8 @@ spec:
         - name: config
           secret:
             secretName: matrix-config
-
-        # - name: media
-        #   persistentVolumeClaim:
-        #     claimName: media-matrix-pvc
+        - name: media
+          persistentVolumeClaim:
+            claimName: media-matrix-pvc
 
         #Changing some stuff so things can commit
