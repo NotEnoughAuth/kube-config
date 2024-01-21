@@ -29,10 +29,7 @@ spec:
           - name: config
             mountPath: /etc/dendrite
           - name: media
-            mountPath: 
-          - name: key
-            readOnly: true
-            mountPath: /etc/dendrite
+            mountPath: /var/dendrite/media
 
       volumes:
         - name: config
