@@ -20,11 +20,11 @@ spec:
       containers:
         - name: dendrite-matrix
           image: matrixdotorg/dendrite-monolith:v0.13.5
-          # ports:
-          # - containerPort: 8008
-          #   hostPort: 8008
-          # - containerPort: 8448
-          #   hostPort: 8448
+          ports:
+          - containerPort: 8008
+            hostPort: 8008
+          - containerPort: 8448
+            hostPort: 8448
           volumeMounts:
           - name: config
             mountPath: /etc/dendrite
