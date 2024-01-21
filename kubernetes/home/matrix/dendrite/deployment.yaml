@@ -32,21 +32,24 @@ spec:
           #   mountPath: /var/dendrite/media
 
       volumes:
+        # - name: config
+        #   projected:
+        #     sources:
+        #       - secret:
+        #         name: matrix-config
+        #         items:
+        #           - key: dendrite.yaml
+        #       - secret:
+        #         name: matrix-key
+        #         items:
+        #           - key: matrix_key.pem
+        #             mode: 511
+        #       # - persistentVolumeClaim:
+        #       #   claimName: media-matrix-pvc
+        #       #   items:
         - name: config
-          projected:
-            sources:
-              - secret:
-                name: matrix-config
-                items:
-                  - key: dendrite.yaml
-              - secret:
-                name: matrix-key
-                items:
-                  - key: matrix_key.pem
-                    mode: 511
-              # - persistentVolumeClaim:
-              #   claimName: media-matrix-pvc
-              #   items:
+          secret:
+            secretName: matrix-config
 
         # - name: media
         #   persistentVolumeClaim:
