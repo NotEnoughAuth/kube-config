@@ -1,0 +1,20 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: dendrite-matrix
+  namespace: matrix
+  annotations: 
+    kubernetes.io/ingress.class: traefik-external
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`matrix.oplabs.us`)
+      kind: Rule
+      services:
+        - name: dendrite-matrix
+          port: 8448
+      middlewares:
+        - name: default-headers
+  tls:
+    secretName: opryga-us-tls
