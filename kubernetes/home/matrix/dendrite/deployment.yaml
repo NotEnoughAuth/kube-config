@@ -30,7 +30,8 @@ spec:
             mountPath: /etc/dendrite
           - name: media
             mountPath: /media
-
+          - name: jetstream
+            mountPath: /var/dendrite
       volumes:
         # - name: config
         #   projected:
@@ -53,5 +54,8 @@ spec:
         - name: media
           persistentVolumeClaim:
             claimName: media-matrix-pvc
+        - name: jetstream
+          persistentVolumeClaim:
+            claimName: jetstream-pvc
 
         #Changing some stuff so things can commit
