@@ -13,7 +13,7 @@ spec:
       kind: Rule
       services:
         - name: dendrite-matrix
-          port: 8448
+          port: 8008
       middlewares:
         - name: default-headers
   tls:
