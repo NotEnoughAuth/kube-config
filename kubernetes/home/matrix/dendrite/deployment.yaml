@@ -37,8 +37,13 @@ spec:
             sources:
               - secret:
                 name: matrix-config
+                items:
+                  - key: dendrite.yaml
               - secret:
                 name: matrix-key
+                items:
+                  - key: matrix_key.pem
+                    mode: 511
               # - persistentVolumeClaim:
               #   claimName: media-matrix-pvc
               #   items:
