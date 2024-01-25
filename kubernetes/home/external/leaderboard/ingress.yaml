@@ -9,7 +9,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`leaderboard.oplabs.us`)
+    - match: Host(`leaderboard.old.oplabs.us`)
       kind: Rule
       middlewares:
         - name: default-headers

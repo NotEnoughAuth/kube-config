@@ -1,0 +1,28 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: leaderboard-site
+  namespace: prod-environment
+  labels:
+    app: leaderboard-site
+spec:
+  replicas: 3
+  progressDeadlineSeconds: 600
+  revisionHistoryLimit: 2
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: leaderboard-site
+  template:
+    metadata:
+      labels:
+        app: leaderboard-site
+    spec:
+      containers:
+      - name: leaderboard-site
+        image: "registry.opryga.com/root/leaderboard-site:prod-36" # {"$imagepolicy": "flux-system:leaderboard-site"}
+        # image: "nginx:latest"
+        imagePullPolicy: IfNotPresent
+      imagePullSecrets:
+      - name: regcred # pass the regcred secret to log into the private repo
