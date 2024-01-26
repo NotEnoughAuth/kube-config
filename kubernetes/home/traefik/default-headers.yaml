@@ -14,7 +14,4 @@ spec:
     customFrameOptionsValue: SAMEORIGIN
     customRequestHeaders:
       X-Forwarded-Proto: https
-  forwardAuth:
-    address: https://whoami.local.opryga.com/
-    trustForwardHeader: true
     
