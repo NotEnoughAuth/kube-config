@@ -21,5 +21,6 @@ spec:
           port: 80
       middlewares:
         - name: default-headers
+        - name: ip-list
   tls:
     secretName: local-opryga-com-tls
