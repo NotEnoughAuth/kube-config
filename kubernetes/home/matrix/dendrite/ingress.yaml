@@ -9,7 +9,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`matrix.oplabs.us`) + Path(`/_synapse/admin`)
+    - match: Host(`matrix.oplabs.us`) && Path(`/_synapse/admin`)
       kind: Rule
       services:
         - name: dendrite-matrix
@@ -17,7 +17,7 @@ spec:
       middlewares:
         - name: default-headers
         - name: matrix-ip-list
-    - match: Host(`matrix.oplabs.us`) + Path(`/_matrix`)
+    - match: Host(`matrix.oplabs.us`) && Path(`/_matrix`)
       kind: Rule
       services:
         - name: dendrite-matrix
