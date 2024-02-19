@@ -16,7 +16,7 @@ spec:
         - name: leaderboard-site
           port: 80
       middlewares:
-        - name: dev-ip-list 
+        # - name: dev-ip-list 
         - name: default-headers
         - name: sso-auth
         
