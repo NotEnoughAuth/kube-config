@@ -47,8 +47,10 @@ spec:
                 secretKeyRef:
                   name: authenticationserver
                   key: jwtsecret
+            - name: COOKIE_DOMAIN
+              value: "opryga.com"
             - name: LOG_LEVEL
-              value: trace
+              value: debug
           resources:
             limits:
               memory: "512Mi"
