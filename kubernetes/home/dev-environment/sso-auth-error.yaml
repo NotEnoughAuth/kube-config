@@ -7,4 +7,4 @@ spec:
   errors:
     status:
       - "401-403"
-    query: "/oauth2/sign_in"
+    query: "/oauth2/sign_in?rd={url}"
