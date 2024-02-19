@@ -1,13 +1,13 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: opryga-com
-  namespace: ms-sso
-  secretName: opryga-com-tls
+  name: auth-opryga-com
+  namespace: ms-sso # Same namespace as service you are using
+spec:
+  secretName: auth-opryga-com-tls
   issuerRef:
     name: letsencrypt-production
     kind: ClusterIssuer
-  commonName: "*.opryga.com"
+  commonName: "auth.opryga.com"
   dnsNames:
-  - "opryga.com"
-  - "*.opryga.com"
+  - "auth.opryga.com"

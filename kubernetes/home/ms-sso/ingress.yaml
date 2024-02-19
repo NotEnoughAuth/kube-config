@@ -14,4 +14,4 @@ spec:
         - name: traefikauth
           port: 80
   tls:
-    secretName: opryga-com-tls
+    secretName: auth-opryga-com-tls
