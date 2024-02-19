@@ -5,7 +5,9 @@ metadata:
   namespace: dev-environment
 spec:
   forwardAuth:
-    address: https://auth.opryga.com/oauth2/auth
+    address: https://auth.opryga.com/
     trustForwardHeader: true
     authResponseHeaders:
       - "X-Forwarded-User"
+      - X-Auth-Request-Access-Token
+      - Authorization
