@@ -7,7 +7,7 @@ spec:
   forwardAuth:
     address: https://auth.opryga.com/
     trustForwardHeader: true
-    # authResponseHeaders:
-    #   - "X-Forwarded-User"
-    #   - X-Auth-Request-Access-Token
-    #   - Authorization
+    authResponseHeaders:
+      - "X-Forwarded-User"
+      - X-Auth-Request-Access-Token
+      - Authorization
