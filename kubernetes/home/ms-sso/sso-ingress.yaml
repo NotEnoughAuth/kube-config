@@ -1,7 +1,7 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: traefikauth-route
+  name: oauth-route
   namespace: ms-sso
   annotations: 
     kubernetes.io/ingress.class: traefik-external
