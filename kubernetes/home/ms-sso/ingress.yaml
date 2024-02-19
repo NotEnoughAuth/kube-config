@@ -13,6 +13,6 @@ spec:
       kind: Rule
       services:
         - name: traefikauth
-          port: 4181
+          port: 4180
   tls:
     secretName: auth-opryga-com-tls
