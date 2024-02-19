@@ -28,6 +28,7 @@ spec:
             - --http-address=0.0.0.0:4180
             - --https-address=0.0.0.0:4430
             - --upstream=static://202
+            - --reverse-proxy=true
           env:
             - name: OAUTH2_PROXY_STANDARD_LOGGING
               value: "true"
@@ -37,8 +38,6 @@ spec:
               value: "true"
             - name: OAUTH2_PROXY_EMAIL_DOMAINS
               value: "*"
-            - name: OAUTH2_PROXY_REVERSE_PROXY
-              value: "true"
             - name: OAUTH2_PROXY_PROVIDER
               value: "azure"
             - name: OAUTH2_PROXY_OIDC_ISSUER_URL
