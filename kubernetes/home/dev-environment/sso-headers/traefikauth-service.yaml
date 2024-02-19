@@ -10,4 +10,5 @@ spec:
       protocol: TCP
       port: 443
       targetPort: 443
+      servicePort: 443
   externalName: auth.opryga.com
