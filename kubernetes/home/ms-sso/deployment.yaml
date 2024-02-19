@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: traefikauth
-          image: ghcr.io/jordemort/traefik-forward-auth:latest
+          image: thomseddon/traefik-forward-auth:latest
           ports:
             - containerPort: 4181
               protocol: TCP

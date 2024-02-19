@@ -4,6 +4,8 @@ metadata:
   name: sso-auth
   namespace: dev-environment
 spec:
-  plugin:
-    oidcAuth:
-      source: oidcSource
+  forwardAuth:
+    address: http://auth.opryga.com
+    trustForwardHeader: true
+    authResponseHeaders:
+      - "X-Forwarded-User"
