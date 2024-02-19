@@ -1,13 +1,13 @@
-apiVersion: traefik.containo.us/v1alpha1
-kind: Middleware
-metadata:
-  name: sso-auth-error
-  namespace: dev-environment
-spec:
-  errors:
-    status:
-      - "401-403"
-    service:
-      name: traefikauth
-      port: 80
-    query: "/oauth2/sign_in?rd={url}"
+# apiVersion: traefik.containo.us/v1alpha1
+# kind: Middleware
+# metadata:
+#   name: sso-auth-error
+#   namespace: dev-environment
+# spec:
+#   errors:
+#     status:
+#       - "401-403"
+#     service:
+#       name: traefikauth
+#       port: 80
+#     query: "/oauth2/sign_in?rd={url}"
