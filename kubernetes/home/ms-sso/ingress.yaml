@@ -1,0 +1,17 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefikauth-route
+  namespace: default
+spec:
+  entryPoints:
+    - web
+    - websecure
+  routes:
+    - match: Host(`auth.opryga.com`)
+      kind: Rule
+      services:
+        - name: traefikauth
+          port: 80
+  tls:
+    secretName: opryga-com-tls

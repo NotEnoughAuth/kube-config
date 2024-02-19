@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: opryga-com
+  namespace: ms-sso
+  secretName: opryga-com-tls
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: "*.opryga.com"
+  dnsNames:
+  - "opryga.com"
+  - "*.opryga.com"
