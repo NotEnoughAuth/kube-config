@@ -7,4 +7,7 @@ spec:
   errors:
     status:
       - "401-403"
+    service:
+      name: traefikauth
+      port: 80
     query: "/oauth2/sign_in?rd={url}"
