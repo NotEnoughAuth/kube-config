@@ -21,6 +21,9 @@ spec:
       containers:
         - name: traefikauth
           image: thomseddon/traefik-forward-auth:2
+          ports:
+            - containerPort: 4181
+              protocol: TCP
           env:
             - name: DEFAULT_PROVIDER
               value: "oidc"
