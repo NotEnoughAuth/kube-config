@@ -5,5 +5,5 @@ metadata:
   namespace: dev-environment
 spec:
   plugin:
-    oAuthClientCredentials:
-      source: clientCredsSource
+    oidcAuth:
+      source: oidcSource

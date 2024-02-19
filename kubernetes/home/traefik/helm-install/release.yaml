@@ -61,6 +61,8 @@ spec:
       type: LoadBalancer
       externalTrafficPolicy: Local
     authSources:
-      clientCredsSource:
-        oAuthClientCredentials:
-          url: https://login.microsoftonline.com/0f66779e-3ed1-4d8f-a252-0bff25a74977/oauth2/v2.0/authorize
+      oidcSource:
+        oidc:
+          issuer: https://login.microsoftonline.com/0f66779e-3ed1-4d8f-a252-0bff25a74977/v2.0/.well-known/openid-configuration
+          clientID: f8c52c36-78f6-478e-9bf3-35b9270c02a0
+          clientSecret: tAn8Q~AUNQj-g5K8N2Tf.f2lWWuYp_lMqGZVOcQo
