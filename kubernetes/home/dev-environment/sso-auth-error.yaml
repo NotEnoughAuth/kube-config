@@ -10,4 +10,4 @@ spec:
     service:
       name: traefikauth
       port: 80
-    query: "/oauth2/start"
+    query: "/oauth2/sign_in?rd={url}"
