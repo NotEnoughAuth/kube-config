@@ -25,6 +25,8 @@ spec:
             - containerPort: 4180
               protocol: TCP
           env:
+            - name: OAUTH2_PROXY_EMAIL_DOMAIN
+              value: "*"
             - name: OAUTH2_PROXY_REVERSE_PROXY
               value: "true"
             - name: OAUTH2_PROXY_PROVIDER
