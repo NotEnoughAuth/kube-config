@@ -18,7 +18,7 @@ spec:
       middlewares:
         # - name: dev-ip-list 
         - name: default-headers
-        # - name: sso-auth
+        - name: sso-auth
         
   tls:
     secretName: dev-opryga-com-tls
