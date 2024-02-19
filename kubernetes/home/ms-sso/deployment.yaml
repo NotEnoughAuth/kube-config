@@ -24,6 +24,9 @@ spec:
           ports:
             - containerPort: 4180
               protocol: TCP
+          args:
+            - --http-address=0.0.0.0:4180
+            - --https-address=0.0.0.0:4430
           env:
             - name: OAUTH2_PROXY_STANDARD_LOGGING
               value: "true"
