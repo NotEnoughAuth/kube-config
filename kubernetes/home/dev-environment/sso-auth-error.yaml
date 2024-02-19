@@ -7,7 +7,7 @@ spec:
   errors:
     status:
       - "401-403"
-    service:
-      name: traefikauth
-      namespace: ms-sso
+    # service:
+    #   name: traefikauth
+    #   namespace: ms-sso
     query: "/oauth2/start?rd={url}"
