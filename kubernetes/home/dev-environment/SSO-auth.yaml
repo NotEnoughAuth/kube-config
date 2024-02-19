@@ -6,6 +6,5 @@ metadata:
 spec:
   forwardAuth:
     address: https://auth.opryga.com
-    trustForwardHeader: true
     authResponseHeaders:
       - X-Forwarded-User
