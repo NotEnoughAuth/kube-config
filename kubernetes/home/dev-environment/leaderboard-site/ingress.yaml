@@ -17,7 +17,7 @@ spec:
           port: 80
       middlewares:
         # - name: dev-ip-list 
-        # - name: default-headers
+        - name: default-headers
         - name: sso-auth
         - name: sso-auth-error
         

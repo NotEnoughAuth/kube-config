@@ -5,12 +5,12 @@ metadata:
   namespace: dev-environment
 spec:
   headers:
+    sslRedirect: true
+    stsSeconds: 315360000
     browserXssFilter: true
     contentTypeNosniff: true
     forceSTSHeader: true
+    sslHost: opryga.com
     stsIncludeSubdomains: true
     stsPreload: true
-    stsSeconds: 15552000
-    customFrameOptionsValue: SAMEORIGIN
-    customRequestHeaders:
-      X-Forwarded-Proto: https
+    frameDeny: true
