@@ -10,4 +10,4 @@ spec:
     service:
       name: traefikauth
     #   namespace: ms-sso
-    query: "/oauth2/start?rd={url}"
+    query: "auth.opryga.com/oauth2/start?rd={url}"
