@@ -9,5 +9,6 @@ spec:
       - "401-403"
     service:
       name: traefikauth
+      port: 80
     #   namespace: ms-sso
     query: "auth.opryga.com/oauth2/start?rd={url}"
