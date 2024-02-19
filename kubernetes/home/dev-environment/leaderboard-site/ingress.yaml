@@ -19,7 +19,7 @@ spec:
         # - name: dev-ip-list 
         # - name: default-headers
         - name: sso-auth
-        - name: sso-auth-error
+        # - name: sso-auth-error
         
   tls:
     secretName: dev-opryga-com-tls
