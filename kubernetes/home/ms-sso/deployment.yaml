@@ -47,8 +47,6 @@ spec:
                 secretKeyRef:
                   name: authenticationserver
                   key: jwtsecret
-            - name: COOKIE_DOMAIN
-              value: "opryga.com"
             - name: LOG_LEVEL
               value: debug
           resources:
