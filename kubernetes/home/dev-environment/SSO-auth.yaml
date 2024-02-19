@@ -1,0 +1,10 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: SSO-auth
+spec:
+  forwardAuth:
+    address: https://auth.opryga.com/_oauth
+    trustForwardHeader: true
+    authResponseHeaders:
+      - X-Forwarded-User
