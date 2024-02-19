@@ -9,7 +9,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`auth.opryga.com, leaderboard.dev.opryga.com`) && PathPrefix(`/oauth2/`)
+    - match: Host(`auth.opryga.com`, `leaderboard.dev.opryga.com`) && PathPrefix(`/oauth2/`)
       kind: Rule
       services:
         - name: traefikauth
