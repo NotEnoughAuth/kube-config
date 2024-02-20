@@ -5,4 +5,5 @@ metadata:
   namespace: dev-environment
 spec:
   type: ExternalName
-  externalName: oauth-proxy.ms-sso.svc.cluster.local
+  # externalName: oauth-proxy.ms-sso.svc.cluster.local
+  externalName: auth.opryga.com

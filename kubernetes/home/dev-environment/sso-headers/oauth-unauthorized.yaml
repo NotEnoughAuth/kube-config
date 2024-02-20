@@ -10,4 +10,4 @@ spec:
     query: /oauth2/start?rd={url}
     service:
       name: oauth-unauthorized
-      port: 80
+      port: 443
