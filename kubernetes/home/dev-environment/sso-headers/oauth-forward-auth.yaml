@@ -5,7 +5,8 @@ metadata:
   namespace: dev-environment
 spec:
   forwardAuth:
-    address: http://oauth-proxy.ms-sso.svc.cluster.local:4180/oauth2/auth
+    # address: http://oauth-proxy.ms-sso.svc.cluster.local:4180/oauth2/auth
+    address: http://auth.opryga.com/oauth2/auth
     trustForwardHeader: true
     authResponseHeaders:
       - X-Auth-User
