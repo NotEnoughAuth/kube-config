@@ -28,7 +28,6 @@ spec:
         - --cookie-secure=true
         - --cookie-domain=opryga.com
         # Enable all the logs
-        - --logging-level=DEBUG
         - --standard-logging=true
         - --auth-logging=true
         - --request-logging=true
