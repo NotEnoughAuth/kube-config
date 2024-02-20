@@ -28,6 +28,7 @@ spec:
         - --whitelist-domain=oplabs.us
         - --cookie-secure=true
         - --cookie-domain=opryga.com
+        - --httponly=false
         # - --debug=true
         env:
         - name: OAUTH2_PROXY_PROVIDER
