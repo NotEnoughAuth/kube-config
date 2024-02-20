@@ -20,7 +20,9 @@ spec:
         - containerPort: 4180
         args:
         - --http-address=0.0.0.0:4180
+        - --https-address=0.0.0.0:4143
         - --redirect-url=https://auth.opryga.com/oauth2/callback
+        - --debug
         env:
         - name: OAUTH2_PROXY_PROVIDER
           value: "azure"
