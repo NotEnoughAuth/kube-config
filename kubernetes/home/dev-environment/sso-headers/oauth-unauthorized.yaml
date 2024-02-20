@@ -1,7 +1,7 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: oauth-forward-auth
+  name: oauth-unauthorized
   namespace: dev-environment
 spec:
   errors:
