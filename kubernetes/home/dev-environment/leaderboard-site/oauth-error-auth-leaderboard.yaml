@@ -7,7 +7,9 @@ spec:
   errors:
     status: 
       - "401-403"
-    service: leaderboard-site
+    service: 
+      name: leaderboard-site
+      port: 80
     query: "/oauth2/sign_in?rd=https://leaderboard.dev.opryga.com"
     
     
