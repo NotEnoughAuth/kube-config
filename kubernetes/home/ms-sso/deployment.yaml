@@ -27,6 +27,7 @@ spec:
         - --whitelist-domain=oplabs.us
         - --cookie-secure=true
         - --cookie-domain=opryga.com
+        - --cookie-domain=oplabs.us
         - --pass-access-token=true
         - --pass-authorization-header=true
         # Enable all the logs
