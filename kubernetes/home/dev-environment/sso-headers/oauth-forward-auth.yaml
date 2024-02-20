@@ -11,7 +11,12 @@ spec:
     trustForwardHeader: true
     authRequestHeaders:
       - "X-Real-IP"
-      - "X-Forwarded-*"
+      - "X-Forwarded-For"
+      - "X-Forwarded-Proto"
+      - "X-Forwarded-Host"
+      - "X-Forwarded-Uri"
+      - "X-Forwarded-Server"
+      - "X-Forwarded-Port"
       - "Authorization"
       - "Cookie"
     authResponseHeaders:
