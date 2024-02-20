@@ -1,7 +1,7 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: traefikauth-route
+  name: oauth-proxy-route
   namespace: ms-sso
   annotations: 
     kubernetes.io/ingress.class: traefik-external
@@ -12,7 +12,7 @@ spec:
     - match: Host(`auth.opryga.com`)
       kind: Rule
       services:
-        - name: traefikauth
-          port: 4180
+        - name: oauth-proxy
+          port: 80
   tls:
     secretName: auth-opryga-com-tls

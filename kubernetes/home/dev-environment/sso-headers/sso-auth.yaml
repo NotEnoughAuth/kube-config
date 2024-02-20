@@ -1,13 +1,11 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: sso-auth
-  namespace: dev-environment
+  name: oauth-forward-auth
 spec:
   forwardAuth:
-    address: https://auth.opryga.com/
+    address: http://oauth-proxy.ms-sso.svc.cluster.local:4180/oauth2/auth
     trustForwardHeader: true
-    # authResponseHeaders:
-    #   - "X-Forwarded-User"
-    #   - X-Auth-Request-Access-Token
-    #   - Authorization
+    authResponseHeaders:
+      - X-Auth-User
+      - X-Auth-Request-Email

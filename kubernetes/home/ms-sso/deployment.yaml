@@ -1,74 +1,47 @@
-kind: Deployment
 apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: traefikauth
+  name: oauth-proxy
   namespace: ms-sso
-  labels:
-    app: containous
-    name: traefikauth
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: containous
-      task: traefikauth
+      app: oauth-proxy
   template:
     metadata:
       labels:
-        app: containous
-        task: traefikauth
+        app: oauth-proxy
     spec:
       containers:
-        - name: traefikauth
-          image: quay.io/oauth2-proxy/oauth2-proxy:latest
-          ports:
-            - containerPort: 4180
-              protocol: TCP
-          args:
-            - --http-address=0.0.0.0:4180
-            - --https-address=0.0.0.0:4430
-            - --upstream=static://202
-          env:
-            - name: OAUTH2_PROXY_STANDARD_LOGGING
-              value: "true"
-            - name: OAUTH2_PROXY_AUTH_LOGGING
-              value: "true"
-            - name: OAUTH2_PROXY_REQUEST_LOGGING
-              value: "true"
-            - name: OAUTH2_PROXY_EMAIL_DOMAINS
-              value: "*"
-            - name: OAUTH2_PROXY_REVERSE_PROXY
-              value: "true"
-            - name: OAUTH2_PROXY_PROVIDER
-              value: "azure"
-            - name: OAUTH2_PROXY_OIDC_ISSUER_URL
-              valueFrom:
-                secretKeyRef:
-                  name: authenticationserver
-                  key: issuerurl
-            - name: OAUTH2_PROXY_CLIENT_ID
-              valueFrom:
-                secretKeyRef:
-                  name: authenticationserver
-                  key: clientid
-            - name: OAUTH2_PROXY_CLIENT_SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: authenticationserver
-                  key: clientsecret
-            - name: OAUTH2_PROXY_AZURE_TENANT
-              valueFrom:
-                secretKeyRef:
-                  name: authenticationserver-tennant
-                  key: tenant
-            - name: OAUTH2_PROXY_COOKIE_SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: authenticationserver
-                  key: jwtsecret
-            - name: LOG_LEVEL
-              value: debug
-          resources:
-            limits:
-              memory: "512Mi"
-              cpu: "500m"
+      - name: oauth-proxy
+        image: quay.io/oauth2-proxy/oauth2-proxy:v7.2.0
+        ports:
+        - containerPort: 4180
+        env:
+        - name: OAUTH2_PROXY_PROVIDER
+          value: "azure"
+        - name: OAUTH2_PROXY_CLIENT_ID
+          valueFrom:
+            secretKeyRef:
+              name: authenticationserver
+              key: clientid
+        - name: OAUTH2_PROXY_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: authenticationserver
+              key: clientsecret
+        - name: OAUTH2_PROXY_AZURE_TENANT
+          valueFrom:
+            secretKeyRef:
+              name: authenticationserver-tennant
+              key: tenant
+        - name: OAUTH2_PROXY_COOKIE_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: authenticationserver
+              key: jwtsecret
+        - name: OAUTH2_PROXY_EMAIL_DOMAINS
+          value: "*" # Adjust if you want to restrict to specific domains
+        - name: OAUTH2_PROXY_REDIRECT_URL
+          value: "http://auth.opryga.com/oauth2/callback" # Adjust to your OAuth Proxy's external URL
