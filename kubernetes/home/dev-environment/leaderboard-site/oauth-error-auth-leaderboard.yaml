@@ -8,6 +8,6 @@ spec:
     status: 
       - "401-403"
     service: leaderboard-site
-    query: /oauth2/sign_in?rd=https://leaderboard.dev.opryga.com
+    query: "/oauth2/sign_in?rd=https://leaderboard.dev.opryga.com"
     
     
