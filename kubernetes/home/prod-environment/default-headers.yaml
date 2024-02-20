@@ -10,7 +10,10 @@ spec:
     forceSTSHeader: true
     stsIncludeSubdomains: true
     stsPreload: true
-    stsSeconds: 15552000
+    stsSeconds: 315360000
     customFrameOptionsValue: SAMEORIGIN
+    sslRedirect: true
+    sslHost: oplabs.us
+    frameDeny: true
     customRequestHeaders:
       X-Forwarded-Proto: https

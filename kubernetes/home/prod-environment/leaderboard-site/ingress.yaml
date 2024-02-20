@@ -18,6 +18,6 @@ spec:
       middlewares:
         # - name: dev-ip-list 
         - name: default-headers
-        
+        - name: oauth-forward-auth  
   tls:
     secretName: oplabs-us-tls
