@@ -44,4 +44,4 @@ spec:
         - name: OAUTH2_PROXY_EMAIL_DOMAINS
           value: "*" # Adjust if you want to restrict to specific domains
         - name: OAUTH2_PROXY_REDIRECT_URL
-          value: "http://auth.opryga.com/oauth2/callback" # Adjust to your OAuth Proxy's external URL
+          value: "https://auth.opryga.com/oauth2/callback" # Adjust to your OAuth Proxy's external URL
