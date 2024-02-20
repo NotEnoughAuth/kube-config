@@ -27,10 +27,13 @@ spec:
         - --whitelist-domain=oplabs.us
         - --cookie-secure=true
         - --cookie-domain=opryga.com
+        - --pass-access-token=true
+        - --pass-authorization-header=true
         # Enable all the logs
         - --standard-logging=true
         - --auth-logging=true
         - --request-logging=true
+        - --set-xauthrequest=true
         env:
         - name: OAUTH2_PROXY_PROVIDER
           value: "azure"
