@@ -30,6 +30,7 @@ spec:
         - --cookie-domain=oplabs.us
         - --pass-access-token=true
         - --pass-authorization-header=true
+        - --force-https=true
         # Enable all the logs
         - --standard-logging=true
         - --auth-logging=true

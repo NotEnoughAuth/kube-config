@@ -10,10 +10,8 @@ spec:
     address: https://auth.opryga.com/
     trustForwardHeader: true
     authRequestHeaders:
-      - "X-Forwarded-Host"
-      - "X-Forwarded-Proto"
       - "X-Real-IP"
-      - "X-Forwarded-For"
+      - "X-Forwarded-*"
       - "Authorization"
       - "Cookie"
     authResponseHeaders:
