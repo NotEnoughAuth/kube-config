@@ -7,7 +7,7 @@ spec:
   forwardAuth:
     # address: http://oauth-proxy.ms-sso.svc.cluster.local:4180/oauth2/auth
     # address: https://auth.opryga.com/oauth2/auth
-    address: https://leaderboard.dev.opryga.com/oauth2/start
+    address: https://auth.opryga.com/
     trustForwardHeader: true
     authRequestHeaders:
       - "X-Real-IP"
