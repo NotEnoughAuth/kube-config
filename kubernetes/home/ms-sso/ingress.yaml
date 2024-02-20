@@ -9,7 +9,7 @@ spec:
   entryPoints:
     - websecure # or websecure for HTTPS
   routes:
-  - match: Host(`auth.opryga.com`) # Replace with your domain
+  - match: Host(`auth.opryga.com`) || PathPrefix(`/oauth2/`) # Replace with your domain
     kind: Rule
     services:
     - name: oauth-proxy
