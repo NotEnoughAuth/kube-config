@@ -9,10 +9,10 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`auth.opryga.com`, `leaderboard.dev.opryga.com`) && PathPrefix(`/oauth2/`)
+    - match: Host(`auth.opryga.com`)
       kind: Rule
       services:
         - name: oauth-proxy
-          port: 80
+          port: 4180
   tls:
     secretName: auth-opryga-com-tls
