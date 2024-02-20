@@ -19,6 +19,7 @@ spec:
         # - name: dev-ip-list 
         - name: default-headers
         - name: oauth-forward-auth
+        - name: oauth-error-auth-leaderboard
         # - name: oauth-unauthorized
         # - name: sso-auth-error
         
