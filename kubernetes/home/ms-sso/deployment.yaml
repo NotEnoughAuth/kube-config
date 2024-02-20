@@ -20,7 +20,7 @@ spec:
         - containerPort: 4180
         args:
         - --http-address=0.0.0.0:4180
-        - --redirect-url=https://auth.opryga.com/oauth2/callback
+        # - --redirect-url=https://auth.opryga.com/oauth2/callback
         - --reverse-proxy=true
         - --errors-to-info-log=true
         - --whitelist-domain=opryga.com
