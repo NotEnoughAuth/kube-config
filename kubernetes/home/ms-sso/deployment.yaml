@@ -29,10 +29,12 @@ spec:
         - --whitelist-domain=.oplabs.us
         - --cookie-secure=true
         - --cookie-domain=opryga.com
+        - --cookie-domain=.opryga.com
+        - --cookie-domain=.oplabs.us
         - --cookie-domain=oplabs.us
         - --pass-access-token=true
         - --pass-authorization-header=true
-        - --skip-provider-button=true
+        # - --skip-provider-button=true
         # - --force-https=true
         # Enable all the logs
         - --standard-logging=true
