@@ -12,8 +12,11 @@ spec:
     - match: Host(`longhorn.local.opryga.com`)
       kind: Rule
       middlewares:
-        - name: longhorn-dashboard-basicauth
-          namespace: longhorn-system
+        # - name: longhorn-dashboard-basicauth
+        #   namespace: longhorn-system
+        - name: default-headers
+        - name: local-ip-list
+        - name: oauth-forward-auth
       services:
         - name: longhorn-frontend
           port: 80
