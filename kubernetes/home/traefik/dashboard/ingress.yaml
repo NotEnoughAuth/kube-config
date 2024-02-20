@@ -12,8 +12,11 @@ spec:
     - match: Host(`traefik.local.opryga.com`)
       kind: Rule
       middlewares:
-        - name: traefik-dashboard-basicauth
-          namespace: traefik
+        # - name: traefik-dashboard-basicauth
+        #   namespace: traefik
+        - name: default-headers
+        - name: local-ip-list
+        - name: oauth-forward-auth
       services:
         - name: api@internal
           kind: TraefikService
