@@ -17,6 +17,7 @@ spec:
       - "X-Forwarded-Uri"
       - "X-Forwarded-Server"
       - "X-Forwarded-Port"
+      - "Origin"
       - "Authorization"
       - "Cookie"
     authResponseHeaders:
