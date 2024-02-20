@@ -6,9 +6,8 @@ metadata:
 spec:
   errors:
     status:
-    - 401
-    - 402
-    - 403
+    - "401"
+    - "403"
     query: /oauth2/start?rd={url}
     service:
       name: oauth-unauthorized
