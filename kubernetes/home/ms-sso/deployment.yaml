@@ -23,6 +23,7 @@ spec:
         - --https-address=0.0.0.0:4143
         - --redirect-url=https://auth.opryga.com/oauth2/callback
         - --reverse-proxy=true
+        - --errors-to-info-log=true
         # - --debug=true
         env:
         - name: OAUTH2_PROXY_PROVIDER
