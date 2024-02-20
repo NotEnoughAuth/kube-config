@@ -14,3 +14,5 @@ spec:
     stsIncludeSubdomains: true
     stsPreload: true
     frameDeny: true
+    customRequestHeaders:
+      X-Forwarded-Proto: "https"
