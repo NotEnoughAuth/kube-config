@@ -10,5 +10,5 @@ spec:
     - "403"
     query: /oauth2/start?rd={url}
     service:
-      name: leaderboard-site
+      name: oauth-unauthorized
       port: 443
