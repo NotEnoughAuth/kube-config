@@ -23,7 +23,7 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: oauth-proxy
+  name: oauth-proxy-path
   namespace: ms-sso
   annotations: 
     kubernetes.io/ingress.class: traefik-external
@@ -31,7 +31,7 @@ spec:
   entryPoints:
     - websecure # or websecure for HTTPS
   routes:
-  - match: PathPrefix(`/oauth2`) # Replace with your domain
+  - match: PathPrefix(`/oauth2/`) # Replace with your domain
     kind: Rule
     services:
     - name: oauth-proxy
