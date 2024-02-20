@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: oauth-forward-auth
+  namespace: dev-environment
+spec:
+  errors:
+    status:
+    - "401-403"
+    query: /oauth2/auth
+    service:
+      name: oauth-unauthorized
+      port: 80
