@@ -25,6 +25,8 @@ spec:
         - --errors-to-info-log=true
         - --whitelist-domain=opryga.com
         - --whitelist-domain=oplabs.us
+        - --whitelist-domain=.opryga.com
+        - --whitelist-domain=.oplabs.us
         - --cookie-secure=true
         - --cookie-domain=opryga.com
         - --cookie-domain=oplabs.us
