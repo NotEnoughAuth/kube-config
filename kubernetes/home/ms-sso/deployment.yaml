@@ -35,6 +35,7 @@ spec:
         - --pass-access-token=true
         - --pass-authorization-header=true
         - --cookie-expire=0 # Session cookie
+        - --cookie-refresh=0 # Not used by MS SSO
         # - --skip-provider-button=true
         # - --force-https=true
         # Enable all the logs
