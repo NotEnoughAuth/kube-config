@@ -34,6 +34,7 @@ spec:
         - --cookie-domain=oplabs.us
         - --pass-access-token=true
         - --pass-authorization-header=true
+        - --cookie-expire=0 # Session cookie
         # - --skip-provider-button=true
         # - --force-https=true
         # Enable all the logs
