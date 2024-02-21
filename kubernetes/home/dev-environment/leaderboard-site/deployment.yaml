@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: leaderboard-site
-        image: "registry.opryga.com/root/leaderboard-site:dev-39" # {"$imagepolicy": "flux-system:leaderboard-site"}
+        image: "registry.opryga.com/root/leaderboard-site:dev-40" # {"$imagepolicy": "flux-system:leaderboard-site"}
         # image: "nginx:latest"
         imagePullPolicy: IfNotPresent
       imagePullSecrets:
