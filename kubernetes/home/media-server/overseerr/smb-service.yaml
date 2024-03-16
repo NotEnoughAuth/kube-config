@@ -9,10 +9,10 @@ spec:
     - name: smb
       port: 445
       targetPort: 445
-      nodePort: 31446
+      nodePort: 445
     - name: netbios-ssn
       port: 139
       targetPort: 139
-      nodePort: 31391 # Optional: Only if you need NetBIOS Session Service
+      nodePort: 139 # Optional: Only if you need NetBIOS Session Service
   selector:
     app: samba-server
