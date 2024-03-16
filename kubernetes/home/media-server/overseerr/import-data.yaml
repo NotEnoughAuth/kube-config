@@ -2,9 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: samba-server
-  namespace: media-server
-  labels:
-    app: samba-server
 spec:
   replicas: 1
   selector:
@@ -22,9 +19,18 @@ spec:
         - containerPort: 139
         - containerPort: 445
         securityContext:
-          add: ["SYS_ADMIN", "SETGID", "SETUID"]
+          capabilities:
+            add: ["SYS_ADMIN", "SETGID", "SETUID"]
           allowPrivilegeEscalation: true
-        args: ["-p", "-s", "public;/share"]
+        env:
+        - name: TZ
+          value: "UTC"
+        - name: USERID
+          value: "1000"
+        - name: GROUPID
+          value: "1000"
+        command: ["samba.sh"]
+        args: ["-u", "exampleUser;examplePass", "-s", "public;/share;yes;no;yes;all;none", "-p"]
         volumeMounts:
         - mountPath: /share
           name: samba-share
