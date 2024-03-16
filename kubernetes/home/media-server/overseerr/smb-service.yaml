@@ -13,6 +13,6 @@ spec:
     - name: netbios-ssn
       port: 139
       targetPort: 139
-      nodePort: 31390 # Optional: Only if you need NetBIOS Session Service
+      nodePort: 31391 # Optional: Only if you need NetBIOS Session Service
   selector:
     app: samba-server
