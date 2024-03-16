@@ -22,9 +22,8 @@ spec:
         - containerPort: 139
         - containerPort: 445
         securityContext:
-          capabilities:
-            add: ["SYS_ADMIN"]
-            drop: ["ALL"]
+          add: ["SYS_ADMIN", "SETGID", "SETUID"]
+          allowPrivilegeEscalation: true
         env:
         - name: TZ
           value: "UTC"

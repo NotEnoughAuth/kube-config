@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: samba-server
+  namespace: media-server
+spec:
+  type: NodePort
+  ports:
+    - port: 139
+      nodePort: 31390
+      name: smb
+    - port: 445
+      nodePort: 31445
+      name: smb-direct
+  selector:
+    app: samba-server
