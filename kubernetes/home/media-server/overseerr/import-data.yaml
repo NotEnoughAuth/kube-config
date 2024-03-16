@@ -24,9 +24,9 @@ spec:
         securityContext:
           add: ["SYS_ADMIN", "SETGID", "SETUID"]
           allowPrivilegeEscalation: true
-        args: ["-p"]
+        args: ["-p", "-s", "public;/share"]
         volumeMounts:
-        - mountPath: /mount
+        - mountPath: /share
           name: samba-share
       volumes:
       - name: samba-share
