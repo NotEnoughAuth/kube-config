@@ -34,7 +34,7 @@ spec:
         command: ["samba.sh"]
         args: ["-u", "exampleUser;examplePass", "-s", "public;/share;yes;no;yes;all;none", "-p"]
         volumeMounts:
-        - mountPath: /share
+        - mountPath: /mount
           name: samba-share
       volumes:
       - name: samba-share
