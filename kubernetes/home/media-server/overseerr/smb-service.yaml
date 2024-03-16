@@ -1,16 +1,18 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: samba-server
+  name: samba-server-service
   namespace: media-server
 spec:
   type: NodePort
   ports:
-    - port: 139
-      nodePort: 31390
-      name: smb
-    - port: 445
+    - name: smb
+      port: 445
+      targetPort: 445
       nodePort: 31445
-      name: smb-direct
+    - name: netbios-ssn
+      port: 139
+      targetPort: 139
+      nodePort: 31390 # Optional: Only if you need NetBIOS Session Service
   selector:
     app: samba-server
