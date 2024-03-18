@@ -10,11 +10,11 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`request.dev.opryga.com`) && PathPrefix(`/`)
+    - match: Host(`request.dev.opryga.com`)
       kind: Rule
       services:
         - name: overseerr
-          port: 80
+          port: 5055
       middlewares:
         # - name: dev-ip-list 
         - name: default-headers
