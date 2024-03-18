@@ -1,0 +1,19 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: default-headers
+  namespace: media-server
+spec:
+  headers:
+    browserXssFilter: true
+    contentTypeNosniff: true
+    forceSTSHeader: true
+    stsIncludeSubdomains: true
+    stsPreload: true
+    stsSeconds: 315360000
+    customFrameOptionsValue: SAMEORIGIN
+    sslRedirect: true
+    sslHost: oplabs.us
+    frameDeny: true
+    customRequestHeaders:
+      X-Forwarded-Proto: https

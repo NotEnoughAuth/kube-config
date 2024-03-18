@@ -16,6 +16,7 @@ spec:
         - name: overseerr
           port: 5055
       middlewares:
+        - name: default-headers
         # - name: dev-ip-list 
         # - name: default-headers
         # - name: oauth-forward-auth
