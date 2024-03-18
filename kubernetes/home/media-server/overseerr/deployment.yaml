@@ -27,6 +27,6 @@ spec:
         environment:
         - LOG_LEVEL=debug
         - TZ=America/Chicago
-        - containerPort: 5055
-            hostPort: 5055
+        # - containerPort: 5055
+        #     hostPort: 5055
 
