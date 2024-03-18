@@ -27,6 +27,11 @@ spec:
         environment:
         - LOG_LEVEL=debug
         - TZ=America/Chicago
-        # - containerPort: 5055
-        #     hostPort: 5055
+        volumeMounts:
+        - mountPath: /app/config
+          name: appdata
+      volumes:
+      - name: appdata
+        persistentVolumeClaim:
+          claimName: overseerr-longhorn-pvc # change to data target pvc
 
