@@ -1,0 +1,32 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: overseerr
+  namespace: media-server
+  labels:
+    app: overseerr
+spec:
+  replicas: 3
+  progressDeadlineSeconds: 600
+  revisionHistoryLimit: 2
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: overseerr
+  template:
+    metadata:
+      labels:
+        app: overseerr
+    spec:
+      containers:
+      - name: overseerr
+        image: "sctx/overseerr:latest"
+        # image: "nginx:latest"
+        imagePullPolicy: IfNotPresent
+        environment:
+        - LOG_LEVEL=debug
+        - TZ=America/Chicago
+        - containerPort: 5055
+            hostPort: 5055
+

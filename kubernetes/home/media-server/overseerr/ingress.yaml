@@ -1,0 +1,26 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: overseerr
+  namespace: media-server
+  annotations: 
+    kubernetes.io/ingress.class: traefik-external
+    # traefik.ingress.kubernetes.io/router.middlewares: traefik-dev-ip-list@kubernetescrd
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`request.dev.opryga.com`) && PathPrefix(`/`)
+      kind: Rule
+      services:
+        - name: overseerr
+          port: 80
+      middlewares:
+        # - name: dev-ip-list 
+        - name: default-headers
+        # - name: oauth-forward-auth
+        # - name: oauth-unauthorized
+        # - name: sso-auth-error
+        
+  tls:
+    secretName: dev-opryga-com-tls
