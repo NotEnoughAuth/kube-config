@@ -17,7 +17,7 @@ spec:
           port: 5055
       middlewares:
         # - name: dev-ip-list 
-        - name: default-headers
+        # - name: default-headers
         # - name: oauth-forward-auth
         # - name: oauth-unauthorized
         # - name: sso-auth-error
