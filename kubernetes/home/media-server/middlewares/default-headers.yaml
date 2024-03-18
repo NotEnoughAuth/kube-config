@@ -13,7 +13,7 @@ spec:
     stsSeconds: 315360000
     customFrameOptionsValue: SAMEORIGIN
     sslRedirect: true
-    sslHost: oplabs.us
+    sslHost: opryga.com
     frameDeny: true
     customRequestHeaders:
       X-Forwarded-Proto: https
