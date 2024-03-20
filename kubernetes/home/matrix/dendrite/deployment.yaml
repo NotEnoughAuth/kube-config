@@ -1,61 +1,61 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: dendrite-matrix
-  namespace: matrix
-  labels:
-    app: dendrite-matrix
-spec:
-  replicas: 1
-  strategy:
-    type: Recreate
-  selector:
-    matchLabels:
-      app: dendrite-matrix
-  template:
-    metadata:
-      labels:
-        app: dendrite-matrix
-    spec:
-      containers:
-        - name: dendrite-matrix
-          image: matrixdotorg/dendrite-monolith:v0.13.5
-          ports:
-          - containerPort: 8008
-            hostPort: 8008
-          - containerPort: 8448
-            hostPort: 8448
-          volumeMounts:
-          - name: config
-            mountPath: /etc/dendrite
-          - name: media
-            mountPath: /media
-          - name: jetstream
-            mountPath: /var/dendrite
-      volumes:
-        # - name: config
-        #   projected:
-        #     sources:
-        #       - secret:
-        #         name: matrix-config
-        #         items:
-        #           - key: dendrite.yaml
-        #       - secret:
-        #         name: matrix-key
-        #         items:
-        #           - key: matrix_key.pem
-        #             mode: 511
-        #       # - persistentVolumeClaim:
-        #       #   claimName: media-matrix-pvc
-        #       #   items:
-        - name: config
-          secret:
-            secretName: matrix-config
-        - name: media
-          persistentVolumeClaim:
-            claimName: media-matrix-pvc
-        - name: jetstream
-          persistentVolumeClaim:
-            claimName: jetstream-pvc
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: dendrite-matrix
+#   namespace: matrix
+#   labels:
+#     app: dendrite-matrix
+# spec:
+#   replicas: 1
+#   strategy:
+#     type: Recreate
+#   selector:
+#     matchLabels:
+#       app: dendrite-matrix
+#   template:
+#     metadata:
+#       labels:
+#         app: dendrite-matrix
+#     spec:
+#       containers:
+#         - name: dendrite-matrix
+#           image: matrixdotorg/dendrite-monolith:v0.13.5
+#           ports:
+#           - containerPort: 8008
+#             hostPort: 8008
+#           - containerPort: 8448
+#             hostPort: 8448
+#           volumeMounts:
+#           - name: config
+#             mountPath: /etc/dendrite
+#           - name: media
+#             mountPath: /media
+#           - name: jetstream
+#             mountPath: /var/dendrite
+#       volumes:
+#         # - name: config
+#         #   projected:
+#         #     sources:
+#         #       - secret:
+#         #         name: matrix-config
+#         #         items:
+#         #           - key: dendrite.yaml
+#         #       - secret:
+#         #         name: matrix-key
+#         #         items:
+#         #           - key: matrix_key.pem
+#         #             mode: 511
+#         #       # - persistentVolumeClaim:
+#         #       #   claimName: media-matrix-pvc
+#         #       #   items:
+#         - name: config
+#           secret:
+#             secretName: matrix-config
+#         - name: media
+#           persistentVolumeClaim:
+#             claimName: media-matrix-pvc
+#         - name: jetstream
+#           persistentVolumeClaim:
+#             claimName: jetstream-pvc
 
-        #Changing some stuff so things can commit
+#         #Changing some stuff so things can commit
