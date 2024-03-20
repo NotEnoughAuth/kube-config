@@ -16,7 +16,7 @@ spec:
       labels:
         app: auvik-collector
     spec:
-      restartPolicy: OnFailure
+      restartPolicy: Always
       containers:
         - name: auvik-collector
           image: auviknetworks/collector:latest
