@@ -41,26 +41,35 @@ spec:
                 mountPath: /etc/auvik/
               - name: logs
                 mountPath: /usr/share/agent/logs/
-    volumeClaimTemplates:
-      - metadata:
-          name: config
-        spec:
-          accessModes: [ "ReadWriteOnce" ]
-          resources:
-            requests:
-              storage: 16Mi
-      - metadata:
-          name: etcauvik
-        spec:
-          accessModes: [ "ReadWriteOnce" ]
-          resources:
-            requests:
-              storage: 32Mi
-      - metadata:
-          name: logs
-        spec:
-          accessModes: [ "ReadWriteOnce" ]
-          resources:
-            requests:
-              storage: 16Gi
+      volumes:
+      - name: config
+        emptyDir: {}
+      - name: etcauvik
+        emptyDir: {}
+      - name: logs
+        emptyDir: {}
+
+
+    # volumeClaimTemplates:
+    #   - metadata:
+    #       name: config
+    #     spec:
+    #       accessModes: [ "ReadWriteOnce" ]
+    #       resources:
+    #         requests:
+    #           storage: 16Mi
+    #   - metadata:
+    #       name: etcauvik
+    #     spec:
+    #       accessModes: [ "ReadWriteOnce" ]
+    #       resources:
+    #         requests:
+    #           storage: 32Mi
+    #   - metadata:
+    #       name: logs
+    #     spec:
+    #       accessModes: [ "ReadWriteOnce" ]
+    #       resources:
+    #         requests:
+    #           storage: 16Gi
   
