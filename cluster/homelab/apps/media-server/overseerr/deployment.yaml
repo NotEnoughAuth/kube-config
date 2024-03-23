@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: overseerr
-        image: "sctx/overseerr:latest"
+        image: "lscr.io/linuxserver/overseerr:1.33.2"
         # image: "nginx:latest"
         imagePullPolicy: IfNotPresent
         environment:
