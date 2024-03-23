@@ -4,3 +4,5 @@ resources:
     - dev-opryga-com.yaml
     - oplabs-us.yaml
     - auth-opryga-com.yaml
+    - local-opryga-com.yaml
+    - opryga-com.yaml
