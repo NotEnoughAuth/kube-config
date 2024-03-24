@@ -1,0 +1,29 @@
+kind: Secret
+apiVersion: v1
+type: Opaque
+metadata:
+    name: template
+    namespace: default
+data:
+    BOT_TOKEN: ENC[AES256_GCM,data:jyMUG5aJ35vXcBP3bmumIrt3f247sUYXP3jwIVBGC8m8oHvXXBEN8VDeXgOtaaYSAqRVDAoY5RQk,iv:HRPu9df1fh7URckk2nlVUWox5k994SISdjR89DuSaUo=,tag:0o1SxdcqrMO7zLhzZmACUQ==,type:str]
+    user: ENC[AES256_GCM,data:3JQ8Y/972dpspXym,iv:XRjEpX7oMn+dBIy04K5nKqcnvQqVKl9ClBDqASmUcrU=,tag:+bNV5RzI62lNOYCJf2LAqw==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA3Q0xScUIycWRwL0N1WFl6
+            OXRCZWJCRkIrcXpudkRTZ2V6VzJDdFZPN0ZJCnNYTGtiYUMrUkIvSkR6dFBCZkYr
+            ZGVnajJPV0drYkRkODFiazB6YUhCTlkKLS0tIFZibzRGTXhUNzlkcEZnUElnc1py
+            WGZkWWEyRVRWYWE5NTVyQ2JKTFRYNU0KWSb5WOvFyqJmLUEQYiqAFW/w2G8aYtsc
+            SitelsrIVennocI8hAcDdfSXPTuF7GjQwlJyEn33FdfejV6BC5k7pw==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-03-24T04:06:22Z"
+    mac: ENC[AES256_GCM,data:ondU+/FuUdvT5SbZHEXroLP/tcOf9N241b6i/Y60XhUNDtd0UfQ5dEh8mwDxIPfjXI7SYc1C3GfWmnz29him8bv9GNQ2LTYcAO54Gy14Hd9GNffrSY9MnSiBoCP3g/NojGmtLV4FkP6FyxJbSQT89qOpFSynHm27YQx/rfQ8iwc=,iv:OLUgT8tAFf1I79758kyon4J5Wg0eHL2U5/dzmw2hc9c=,tag:qbkT1uYuWp3dWJE+oKoVLQ==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData|annotations|)$
+    version: 3.8.1
