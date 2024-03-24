@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: traefik
-      version: '26.0.0'
+      version: "26.0.0"
       sourceRef:
         kind: HelmRepository
         name: traefik
@@ -16,8 +16,8 @@ spec:
       interval: 1m
   values:
     additionalArguments:
-    - --serversTransport.insecureSkipVerify=true
-    - --log.level=DEBUG
+      - --serversTransport.insecureSkipVerify=true
+      - --log.level=DEBUG
     deployment:
       additionalContainers: []
       annotations: {}
@@ -26,8 +26,8 @@ spec:
       podAnnotations: {}
       replicas: 3
     globalArguments:
-    - --global.sendanonymoususage=false
-    - --global.checknewversion=false
+      - --global.sendanonymoususage=false
+      - --global.checknewversion=false
     ingressRoute:
       dashboard:
         enabled: false
