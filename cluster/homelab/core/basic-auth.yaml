@@ -1,0 +1,29 @@
+apiVersion: v1
+data:
+    password: ENC[AES256_GCM,data:Yktn4taYwLk0ZjF3,iv:csuRf2P6rHYRAsQVxFqjv0vLKafbGxxU/cCyfFs/0IM=,tag:n5yZXS285qgQgtTfdSaieg==,type:str]
+    user: ENC[AES256_GCM,data:5zP9n1J5PR4=,iv:DGLy09NFTqQXd1rU09FcK0Z3u7KKcy0aDV18AvRC4ek=,tag:m0WYinnGk9MAn7ij2UNRXw==,type:str]
+kind: Secret
+metadata:
+    creationTimestamp: null
+    name: basic-auth
+    namespace: default
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSByZWtCNVVNektWZnllcjEy
+            cUIvalJ3NnNocnN1cFRnTGs0bkZuRVpvTFdFCnFQaXdoL2FIcXYzdWVzSGdnZGx5
+            WmxjVWp5cng2T0psMW1ndjJJTGtXcFkKLS0tIDhiNzZKOXBqYjBjeXlGeE5mWVc5
+            VlZkU3BNQjVwNVN5L1U1WTVacHJLRFEKC8fsqD3lhI2VoAfRwvV1VQkq41CzzPYw
+            FXshP2ekPpiITGgEdo5ZBIEIDhtMHvb4+u7uNUeYVv491OfOaURvdQ==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-03-24T05:32:04Z"
+    mac: ENC[AES256_GCM,data:L9Sy8z0S80qYZTgp+BNlM3gEJ2VQdZWvfemC0wQQzxLLZzdEhgh91AnQ+fPjSTzpaObnKw3LP7MrQyvFGZKBaCYXyrAoq/kSzsVPAwSnpSfJzIZRcxJ/TE1HjxrjcCsv+O6JVyUP653B8dlkN7m05zrR+fGq2gHduse/PXDceZs=,iv:cZYzcyGlgP7E9lubhe11YeH2a75G+Oi3IoqXuqSepWI=,tag:H4Xx5J/GiKsjcVY8Q7O5Jg==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData|annotations|)$
+    version: 3.8.1
