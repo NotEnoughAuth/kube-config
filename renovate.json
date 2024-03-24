@@ -2,5 +2,14 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
-  ]
+  ],
+  "kubernetes": {
+    "fileMatch": [
+      "\\.yaml$"
+    ],
+    "ignorePaths": [
+      "**/kustomization.yaml",
+      "**/*.sops.yaml"
+    ]
+  }
 }
