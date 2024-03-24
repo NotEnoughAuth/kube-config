@@ -1,0 +1,28 @@
+kind: Secret
+apiVersion: v1
+type: Opaque
+metadata:
+  name: template
+  namespace: default
+data:
+  BOT_TOKEN: ENC[AES256_GCM,data:M9Czyjr297boJM7UtmI1D9DvPoppOnimOvbYdV2qKZetlky12Kgj9lM1X6WQqGtBWsZF2ai5ZVxc,iv:JciQ1HJafvRG0vmT13Fqqi7pvTYJqI17qRBACBtgWgw=,tag:cJuw+K4S5SgD63PsbP7wSA==,type:str]
+sops:
+  kms: []
+  gcp_kms: []
+  azure_kv: []
+  hc_vault: []
+  age:
+    - recipient: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBVamU2OURmbHRxeUsvcHhk
+        T3ZjcWpRMCtVbE4zelFVZlpPVHRXTkEwY2swClByTmNLOTVhYVlCSjJYdlI1NXZE
+        ckZBc0JWSzRMN3JZbHd2b1ZGRWZwVVEKLS0tIGlDNFpOVTdMUFZ6WTRSOVJpL05V
+        eHZxcXc3cEtoZmV0Kzl0TmIwN0JuM3cKdHfQB+j/ol5VmTIsBldEd5vi44NFOLEo
+        aog9XA8lQD44kaE4ZBaRcqrMftXNMt0D1GTYXufViIIBGtx1E6FlUA==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2024-03-24T05:06:28Z"
+  mac: ENC[AES256_GCM,data:ZA65NXmhBEESo6loL9AaAefLKqeHS6vKJKLe6wDw+PhB9A/b+nIwi87I8p88/xW0Pfo4vcPPl6h422MHL70Nydnjh3fS3Q4DJyJMmeE0Y9yB1jrwIBnYmAQqP8zMZQWetEOCQChsXNT9t/WPrCRIdLkTFSMQBjZgxe+mBhtnT1g=,iv:HFAhqR6Szcfnd2NcXN0CpzSuD3SUqlgt4eA6GnUaJHQ=,tag:rcfTHP0c5LuiTFZGaBP3hA==,type:str]
+  pgp: []
+  encrypted_regex: ^(data|stringData|annotations|)$
+  version: 3.8.1
