@@ -3,6 +3,9 @@ kind: Middleware
 metadata:
   name: oauth-forward-auth
   namespace: traefik
+  annotations:
+    reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
+    reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: "traefik, longhorn-system, dev-environment"
 spec:
   forwardAuth:
     # address: http://oauth-proxy.ms-sso.svc.cluster.local:4180/oauth2/auth
@@ -26,3 +29,14 @@ spec:
     # authResponseHeaders:
     #   - X-Auth-User
     #   - X-Auth-Request-Email
+  headers:
+    sslRedirect: true
+    stsSeconds: 315360000
+    browserXssFilter: true
+    contentTypeNosniff: true
+    forceSTSHeader: true
+    stsIncludeSubdomains: true
+    stsPreload: true
+    frameDeny: true
+    customRequestHeaders:
+      X-Forwarded-Proto: "https"

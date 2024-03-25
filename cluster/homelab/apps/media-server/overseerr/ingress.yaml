@@ -3,7 +3,7 @@ kind: IngressRoute
 metadata:
   name: overseerr
   namespace: media-server
-  annotations: 
+  annotations:
     kubernetes.io/ingress.class: traefik-external
     # traefik.ingress.kubernetes.io/router.middlewares: traefik-dev-ip-list@kubernetescrd
 spec:
@@ -17,11 +17,12 @@ spec:
           port: 5055
       middlewares:
         - name: default-headers
-        # - name: dev-ip-list 
+        - name: local-ip-list
+        # - name: dev-ip-list
         # - name: default-headers
         # - name: oauth-forward-auth
         # - name: oauth-unauthorized
         # - name: sso-auth-error
-        
+
   tls:
     secretName: dev-opryga-com-tls

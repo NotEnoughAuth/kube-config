@@ -3,7 +3,7 @@ kind: IngressRoute
 metadata:
   name: leaderboard-site
   namespace: prod-environment
-  annotations: 
+  annotations:
     kubernetes.io/ingress.class: traefik-external
     # traefik.ingress.kubernetes.io/router.middlewares: traefik-dev-ip-list@kubernetescrd
 spec:
@@ -16,8 +16,6 @@ spec:
         - name: leaderboard-site
           port: 80
       middlewares:
-        # - name: dev-ip-list 
         - name: default-headers
-        # - name: oauth-forward-auth  
   tls:
     secretName: oplabs-us-tls
