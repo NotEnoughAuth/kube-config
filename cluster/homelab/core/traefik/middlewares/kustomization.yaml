@@ -4,3 +4,4 @@ resources:
   - default-headers.yaml
   - local-ip-list.yaml
   - oauth-forward-auth.yaml
+  - oauth-headers.yaml
