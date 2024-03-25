@@ -11,10 +11,10 @@ spec:
   routes:
     - match: Host(`traefik.local.opryga.com`) && PathPrefix(`/`)
       kind: Rule
-      middlewares:
-        # - name: default-headers
-        # - name: local-ip-list
-        # - name: oauth-forward-auth
+      # middlewares:
+      # - name: default-headers
+      # - name: local-ip-list
+      # - name: oauth-forward-auth
       services:
         - name: api@internal
           kind: TraefikService
