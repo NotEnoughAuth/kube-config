@@ -3,9 +3,6 @@ kind: Middleware
 metadata:
   name: local-ip-list
   namespace: traefik
-  annotations:
-    reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
-    reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: "traefik, longhorn-system, dev-environment, external, media-server"
 spec:
   ipWhiteList:
     sourceRange:

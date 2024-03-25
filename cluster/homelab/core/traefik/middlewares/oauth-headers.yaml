@@ -1,11 +1,8 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: oauth-forward-auth
+  name: oauth-headers
   namespace: traefik
-  annotations:
-    reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
-    reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: "traefik, longhorn-system, dev-environment"
 spec:
   headers:
     sslRedirect: true

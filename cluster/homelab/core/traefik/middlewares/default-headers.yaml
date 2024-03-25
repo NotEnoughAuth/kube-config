@@ -3,9 +3,6 @@ kind: Middleware
 metadata:
   name: default-headers
   namespace: traefik
-  annotations:
-    reflector.v1.k8s.emberstack.com/reflection-auto-enabled: "true"
-    reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
 spec:
   headers:
     # Enforce the use of HTTPS
