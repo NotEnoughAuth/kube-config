@@ -17,7 +17,9 @@ spec:
           port: 80
       middlewares:
         - name: local-ip-list
+          namespace: traefik
         - name: oauth-forward-auth
+          namespace: traefik
   tls:
     secretName: dev-opryga-com-tls
 

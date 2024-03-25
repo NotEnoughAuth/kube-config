@@ -13,6 +13,7 @@ spec:
       kind: Rule
       middlewares:
         - name: default-headers
+          namespace: traefik
       services:
         - name: gitlab
           port: 80
