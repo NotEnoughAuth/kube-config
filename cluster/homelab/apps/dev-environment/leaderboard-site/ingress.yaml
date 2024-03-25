@@ -16,9 +16,13 @@ spec:
         - name: leaderboard-site
           port: 80
       middlewares:
+        - name: default-headers
+          namespace: traefik
         - name: local-ip-list
           namespace: traefik
         - name: oauth-forward-auth
+          namespace: traefik
+        - name: oauth-headers
           namespace: traefik
   tls:
     secretName: dev-opryga-com-tls
