@@ -16,7 +16,9 @@ spec:
           port: 8008
       middlewares:
         - name: default-headers
+          namespace: traefik
         - name: local-ip-list
+          namespace: traefik
     # - match: Host(`matrix.oplabs.us`) && PathPrefix(`/_matrix`)
     #   kind: Rule
     #   services:
