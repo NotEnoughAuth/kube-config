@@ -14,8 +14,8 @@ spec:
       middlewares:
         # - name: longhorn-dashboard-basicauth
         #   namespace: longhorn-system
-        - name: default-headers
-          namespace: traefik
+        # - name: default-headers
+        #   namespace: traefik
         - name: local-ip-list
           namespace: traefik
         - name: oauth-forward-auth
