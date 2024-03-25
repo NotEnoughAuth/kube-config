@@ -16,8 +16,6 @@ spec:
         - name: overseerr
           port: 5055
       middlewares:
-        - name: default-headers
-          namespace: traefik
         - name: local-ip-list
           namespace: traefik
         # - name: dev-ip-list
