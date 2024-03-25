@@ -34,7 +34,7 @@ spec:
     # Content Security Policy (CSP)
     # Customize based on your site's specific needs. This is a basic policy for demonstration.
     # Please test thoroughly as CSP can interfere with legitimate site functionality.
-    contentSecurityPolicy: "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self';"
+    # contentSecurityPolicy: "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self';"
 
     # HSTS Preloading
     # If you use HSTS preloading, remember to submit your domain to the HSTS preload list (https://hstspreload.org/)
