@@ -13,6 +13,8 @@ spec:
         namespace: flux-system
       version: "0.24.0"
   interval: 15m
+  timeout: 5m
+  releaseName: mariadb-operator
   values:
     metrics:
       enabled: true
