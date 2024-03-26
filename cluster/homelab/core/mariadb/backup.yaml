@@ -1,18 +1,18 @@
-apiVersion: k8s.mariadb.com/v1alpha1
-kind: Backup
-metadata:
-  name: mariadb
-spec:
-  mariaDbRef:
-    name: mariadb
-  schedule:
-    cron: "0 */12 * * *"
-  maxRetention: 720h # 30d
-  storage:
-    persistentVolumeClaim:
-      resources:
-        requests:
-          storage: 100Mi
-      accessModes:
-        - ReadWriteOnce
-      storageClassName: longhorn-crypto
+# apiVersion: k8s.mariadb.com/v1alpha1
+# kind: Backup
+# metadata:
+#   name: mariadb
+# spec:
+#   mariaDbRef:
+#     name: mariadb
+#   schedule:
+#     cron: "0 */12 * * *"
+#   maxRetention: 720h # 30d
+#   storage:
+#     persistentVolumeClaim:
+#       resources:
+#         requests:
+#           storage: 100Mi
+#       accessModes:
+#         - ReadWriteOnce
+#       storageClassName: longhorn-crypto
