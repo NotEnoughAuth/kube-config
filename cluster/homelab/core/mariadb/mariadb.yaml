@@ -1,19 +1,19 @@
-# apiVersion: k8s.mariadb.com/v1alpha1
-# kind: MariaDB
-# metadata:
-#   name: mariadb
-# spec:
-#   volumeClaimTemplate:
-#     resources:
-#       requests:
-#         storage: 1Gi
-#     accessModes:
-#       - ReadWriteOnce
-#   galera:
-#     enabled: true
-#   affinity:
-#     enableAntiAffinity: true
-#   podDisruptionBudget:
-#     maxUnavailable: 33%
-#   metrics:
-#     enabled: true
+apiVersion: k8s.mariadb.com/v1alpha1
+kind: MariaDB
+metadata:
+  name: mariadb
+spec:
+  volumeClaimTemplate:
+    resources:
+      requests:
+        storage: 1Gi
+    accessModes:
+      - ReadWriteOnce
+  galera:
+    enabled: true
+  affinity:
+    enableAntiAffinity: true
+  podDisruptionBudget:
+    maxUnavailable: 33%
+  metrics:
+    enabled: true
