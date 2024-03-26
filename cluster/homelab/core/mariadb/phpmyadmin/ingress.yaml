@@ -23,7 +23,7 @@ spec:
         - name: oauth-headers
           namespace: traefik
       services:
-        - name: longhorn-frontend
+        - name: phpmyadmin
           port: 80
   tls:
     secretName: local-opryga-com-tls # give it the ole tls cert
