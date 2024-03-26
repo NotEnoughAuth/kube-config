@@ -10,7 +10,7 @@ spec:
         kind: HelmRepository
         name: mariadb-operator
       version: "0.24.0"
-  interval: 1h0m0s
+  interval: 15m
   values:
     metrics:
       enabled: true
