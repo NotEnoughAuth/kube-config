@@ -711,7 +711,7 @@ spec:
       enabled: true
       ## @param persistence.existingClaim Provide an existing `PersistentVolumeClaim`
       ##
-      existingClaim: "mariadb-pv-claim"
+      existingClaim: ""
       ## @param persistence.subPath Subdirectory of the volume to mount
       ##
       subPath: ""
