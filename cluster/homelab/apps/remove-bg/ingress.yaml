@@ -14,9 +14,6 @@ spec:
       services:
         - name: remove-bg
           port: 5100
-      middlewares:
-        - name: local-ip-list
-          namespace: traefik
 
   tls:
     secretName: oplabs-us-tls
