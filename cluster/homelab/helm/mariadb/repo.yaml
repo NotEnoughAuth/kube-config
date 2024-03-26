@@ -1,8 +1,8 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-    name: mariadb-operator
+    name: mariadb-galera
     namespace: flux-system
 spec:
-    url: https://mariadb-operator.github.io/mariadb-operator
+    url: oci://registry-1.docker.io/bitnamicharts/mariadb-galera
     interval: 10m
