@@ -10,7 +10,6 @@ spec:
   chart:
     spec:
       chart: mariadb-galera
-      version: v1.14.4
       interval: 5m
       sourceRef:
         kind: HelmRepository
