@@ -1,0 +1,26 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: remove-bg
+  namespace: remove-bg
+  labels:
+    app: remove-bg
+spec:
+  replicas: 1
+  progressDeadlineSeconds: 600
+  revisionHistoryLimit: 2
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: remove-bg
+  template:
+    metadata:
+      labels:
+        app: remove-bg
+    spec:
+      containers:
+      - name: remove-bg
+        image: "noobsquad1o1/remove-bg:latest"
+        # image: "nginx:latest"
+        imagePullPolicy: IfNotPresent
