@@ -11,9 +11,8 @@ spec:
   routes:
     - match: Host(`registry.opryga.com`)
       kind: Rule
-      # middlewares:
-      #   - name: default-headers
-      #     namespace: traefik
+      middlewares:
+        - name: external-special-headers
       services:
         - name: container-registry
           port: 5050
