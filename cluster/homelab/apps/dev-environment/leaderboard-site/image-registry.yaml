@@ -5,5 +5,5 @@ metadata:
   name: leaderboard-site
   namespace: flux-system
 spec:
-  image: registry.opryga.com/root/leaderboard-site
+  image: registry.oplabs.us:5050/root/leaderboard-site
   interval: 1m0s
