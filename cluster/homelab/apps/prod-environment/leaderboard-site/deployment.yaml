@@ -20,9 +20,8 @@ spec:
         app: leaderboard-site
     spec:
       containers:
-      - name: leaderboard-site
-        image: "registry.opryga.com/root/leaderboard-site:prod-61" # {"$imagepolicy": "flux-system:leaderboard-site-prod"}
-        # image: "nginx:latest"
-        imagePullPolicy: IfNotPresent
+        - name: leaderboard-site
+          image: "registry.opryga.com/root/leaderboard-site:prod-72" # {"$imagepolicy": "flux-system:leaderboard-site-prod"}
+          imagePullPolicy: IfNotPresent
       imagePullSecrets:
-      - name: regcred # pass the regcred secret to log into the private repo
+        - name: regcred # pass the regcred secret to log into the private repo
