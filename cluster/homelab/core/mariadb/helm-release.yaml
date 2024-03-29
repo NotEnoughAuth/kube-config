@@ -872,7 +872,9 @@ spec:
     customStartupProbe: {}
     ## @param customLivenessProbe Custom liveness probe for the Web component
     ##
-    customLivenessProbe: {}
+    customLivenessProbe: 
+      exec:
+        command: ["sh", "-c", "mariadb-admin", "ping", "-u", "tester"]
     ## @param customReadinessProbe Custom rediness probe for the Web component
     ##
     customReadinessProbe: {}
