@@ -22,28 +22,27 @@ spec:
       containers:
         - name: leaderboard-site #
           image: "registry.oplabs.us:5050/root/leaderboard-site:dev-94" # {"$imagepolicy": "flux-system:leaderboard-site"}
-          # image: "nginx:latest"
           imagePullPolicy: IfNotPresent
-          environment:
+          env:
             - name: LEADERBOARD_DB_SERVER
               valueFrom:
                 secretKeyRef:
-                  name: leaderboard-site
+                  name: sql-creds
                   key: LEADERBOARD_DB_SERVER
-            - name: LEADERBOARD_DB_NAME
-              valueFrom:
-                secretKeyRef:
-                  name: leaderboard-site
-                  key: LEADERBOARD_DB_NAME
             - name: LEADERBOARD_DB_USER
               valueFrom:
                 secretKeyRef:
-                  name: leaderboard-site
+                  name: sql-creds
                   key: LEADERBOARD_DB_USER
             - name: LEADERBOARD_DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: leaderboard-site
+                  name: sql-creds
                   key: LEADERBOARD_DB_PASSWORD
+            - name: LEADERBOARD_DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: sql-creds
+                  key: LEADERBOARD_DB_NAME
       imagePullSecrets:
         - name: regcred # pass the regcred secret to log into the private repo
