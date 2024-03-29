@@ -872,10 +872,7 @@ spec:
     customStartupProbe: {}
     ## @param customLivenessProbe Custom liveness probe for the Web component
     ##
-    customLivenessProbe:
-      exec:
-        command:
-          - mariadb -u tester -e "SELECT 1" || exit 1
+    customLivenessProbe: {}
     ## @param customReadinessProbe Custom rediness probe for the Web component
     ##
     customReadinessProbe: {}
