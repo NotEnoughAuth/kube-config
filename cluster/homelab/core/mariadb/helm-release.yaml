@@ -731,7 +731,7 @@ spec:
       ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
       ##   GKE, AWS & OpenStack)
       ##
-      storageClass: "longhorn-crypto"
+      storageClass: "longhorn"
       ## @param persistence.annotations Persistent Volume Claim annotations
       ##
       annotations: {}
