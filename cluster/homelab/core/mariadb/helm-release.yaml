@@ -823,7 +823,7 @@ spec:
     ## @param livenessProbe.successThreshold Minimum consecutive successes for the probe
     ##
     livenessProbe:
-      enabled: true
+      enabled: false
       ## Initializing the database could take some time
       ##
       initialDelaySeconds: 120
