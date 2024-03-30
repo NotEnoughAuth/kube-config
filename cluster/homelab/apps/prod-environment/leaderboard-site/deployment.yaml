@@ -10,7 +10,7 @@ spec:
   progressDeadlineSeconds: 600
   revisionHistoryLimit: 2
   strategy:
-    type: Recreate
+    type: RollingUpdate
   selector:
     matchLabels:
       app: leaderboard-site
@@ -46,7 +46,3 @@ spec:
                   key: LEADERBOARD_DB_NAME
       imagePullSecrets:
         - name: regcred # pass the regcred secret to log into the private repo
-      strategy:
-        type: RollingUpdate
-        rollingUpdate:
-          maxUnavailable: 25%
