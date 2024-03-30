@@ -49,4 +49,4 @@ spec:
       strategy:
         type: RollingUpdate
         rollingUpdate:
-          maxUnavailable: 75%
+          maxUnavailable: 25%
