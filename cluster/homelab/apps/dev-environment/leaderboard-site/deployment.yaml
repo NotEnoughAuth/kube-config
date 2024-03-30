@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: leaderboard-site #
-          image: "registry.oplabs.us:5050/root/leaderboard-site:dev-95" # {"$imagepolicy": "flux-system:leaderboard-site"}
+          image: "registry.oplabs.us:5050/root/leaderboard-site:dev-96" # {"$imagepolicy": "flux-system:leaderboard-site"}
           imagePullPolicy: IfNotPresent
           env:
             - name: LEADERBOARD_DB_SERVER
@@ -46,4 +46,3 @@ spec:
                   key: LEADERBOARD_DB_NAME
       imagePullSecrets:
         - name: regcred # pass the regcred secret to log into the private repo
-
