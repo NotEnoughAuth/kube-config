@@ -23,5 +23,26 @@ spec:
         - name: leaderboard-site
           image: "registry.oplabs.us:5050/root/leaderboard-site:prod-92" # {"$imagepolicy": "flux-system:leaderboard-site-prod"}
           imagePullPolicy: IfNotPresent
+          env:
+            - name: LEADERBOARD_DB_SERVER
+              valueFrom:
+                secretKeyRef:
+                  name: sql-creds
+                  key: LEADERBOARD_DB_SERVER
+            - name: LEADERBOARD_DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: sql-creds
+                  key: LEADERBOARD_DB_USER
+            - name: LEADERBOARD_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: sql-creds
+                  key: LEADERBOARD_DB_PASSWORD
+            - name: LEADERBOARD_DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: sql-creds
+                  key: LEADERBOARD_DB_NAME
       imagePullSecrets:
         - name: regcred # pass the regcred secret to log into the private repo
