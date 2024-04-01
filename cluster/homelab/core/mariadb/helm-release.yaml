@@ -402,7 +402,7 @@ spec:
       bootstrap:
         ## @param galera.bootstrap.forceBootstrap Option to force the boostraping from the indicated node in `galera.bootstarp.bootstrapFromNode`
         ##
-        forceBootstrap: false
+        forceBootstrap: true
         ## @param galera.bootstrap.bootstrapFromNode Node to bootstrap from, you will need to change this parameter in case you want to bootstrap from other node
         ##
         bootstrapFromNode: 0
@@ -873,8 +873,9 @@ spec:
     ## @param customLivenessProbe Custom liveness probe for the Web component
     ##
     customLivenessProbe:
-      exec:
-        command: ["sh", "-c", "mariadb-admin ping -u tester"]
+      {}
+      # exec:
+      #   command: ["sh", "-c", "mariadb-admin ping -u tester"]
     ## @param customReadinessProbe Custom rediness probe for the Web component
     ##
     customReadinessProbe: {}
