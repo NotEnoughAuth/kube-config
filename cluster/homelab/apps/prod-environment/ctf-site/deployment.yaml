@@ -22,6 +22,6 @@ spec:
       containers:
         - name: ctf-site
           image: "registry.oplabs.us:5050/root/ctf1:latest"
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
       imagePullSecrets:
         - name: regcred # pass the regcred secret to log into the private repo
