@@ -8,7 +8,7 @@ metadata:
     # traefik.ingress.kubernetes.io/router.middlewares: traefik-dev-ip-list@kubernetescrd
 spec:
   entryPoints:
-    - web
+    - websecure
   routes:
     - match: Host(`isp.uwstout.club`)
       kind: Rule
@@ -18,5 +18,5 @@ spec:
       middlewares:
         - name: default-headers
           namespace: traefik
-  # tls:
-  #   secretName: uwstout-club-tls
+  tls:
+    secretName: uwstout-club-tls
