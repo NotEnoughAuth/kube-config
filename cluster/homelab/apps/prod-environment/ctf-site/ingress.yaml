@@ -10,7 +10,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`ctf.oplabs.us`)
+    - match: Host(`isp.uwstout.club`)
       kind: Rule
       services:
         - name: ctf-site
