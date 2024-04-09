@@ -1,0 +1,27 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: ctf-site
+  namespace: prod-environment
+  labels:
+    app: ctf-site
+spec:
+  replicas: 3
+  progressDeadlineSeconds: 600
+  revisionHistoryLimit: 2
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: ctf-site
+  template:
+    metadata:
+      labels:
+        app: ctf-site
+    spec:
+      containers:
+        - name: ctf-site
+          image: "registry.oplabs.us:5050/root/ctf1:prod-110" # {"$imagepolicy": "flux-system:ctf-site"}
+          imagePullPolicy: IfNotPresent
+      imagePullSecrets:
+        - name: regcred # pass the regcred secret to log into the private repo
