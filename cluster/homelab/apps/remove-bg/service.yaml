@@ -4,6 +4,8 @@ metadata:
   name: remove-bg
   namespace: remove-bg
 spec:
+  type: LoadBalancer
+  loadBalancerIP: 10.28.10.11
   selector:
     app: remove-bg
   ports:
