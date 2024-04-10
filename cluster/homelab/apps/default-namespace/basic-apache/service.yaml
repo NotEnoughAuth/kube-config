@@ -4,6 +4,8 @@ metadata:
   name: httpd
   namespace: default
 spec:
+  type: LoadBalancer
+    loadBalancerIP: 10.28.10.11
   selector:
     app: httpd
   ports:
