@@ -24,8 +24,3 @@ spec:
         image: "noobsquad1o1/remove-bg:latest"
         # image: "nginx:latest"
         imagePullPolicy: IfNotPresent
-        resources:
-          limits:
-            cpu: 1000m
-          requests:
-            cpu: 1m
