@@ -15,6 +15,9 @@ spec:
         namespace: flux-system
       interval: 1m
   values:
+    experimental:
+      plugins:
+        enabled: true
     additionalArguments:
       - --providers.kubernetescrd.allowCrossNamespace=true
       - --serversTransport.insecureSkipVerify=true
@@ -66,9 +69,6 @@ spec:
         loadBalancerIP: 10.28.10.10
         externalTrafficPolicy: Local
       type: LoadBalancer
-    experimental:
-      plugins:
-        enabled: true
     volumes:
       - name: crowdsec-bouncer-tls
         mountPath: /etc/traefik/crowdsec-certs/
