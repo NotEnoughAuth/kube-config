@@ -19,6 +19,11 @@ spec:
       - --providers.kubernetescrd.allowCrossNamespace=true
       - --serversTransport.insecureSkipVerify=true
       - --log.level=DEBUG
+      - "--experimental.plugins.bouncer.moduleName=github.com/maxlerebourg/crowdsec-bouncer-traefik-plugin"
+      - "--experimental.plugins.bouncer.version=v1.1.7"
+      - "--entrypoints.web.http.middlewares=traefik-bouncer@kubernetescrd"
+      - "--entrypoints.websecure.http.middlewares=traefik-bouncer@kubernetescrd"
+      - "--providers.kubernetescrd"
     deployment:
       additionalContainers: []
       annotations: {}
@@ -61,3 +66,10 @@ spec:
         loadBalancerIP: 10.28.10.10
         externalTrafficPolicy: Local
       type: LoadBalancer
+    experimental:
+      plugins:
+        enabled: true
+    volumes:
+      - name: crowdsec-bouncer-tls
+        mountPath: /etc/traefik/crowdsec-certs/
+        type: secret
