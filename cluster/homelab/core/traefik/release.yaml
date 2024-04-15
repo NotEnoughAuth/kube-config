@@ -17,16 +17,13 @@ spec:
   values:
     experimental:
       plugins:
-        enabled: true
+        crowdsec-bouncer-traefik-plugin:
+          moduleName: "github.com/maxlerebourg/crowdsec-bouncer-traefik-plugin"
+          version: "v1.3.0-beta3"
     additionalArguments:
       - --providers.kubernetescrd.allowCrossNamespace=true
       - --serversTransport.insecureSkipVerify=true
       - --log.level=DEBUG
-      - "--experimental.plugins.bouncer.moduleName=github.com/maxlerebourg/crowdsec-bouncer-traefik-plugin"
-      - "--experimental.plugins.bouncer.version=v1.1.7"
-      - "--entrypoints.web.http.middlewares=traefik-bouncer@kubernetescrd"
-      - "--entrypoints.websecure.http.middlewares=traefik-bouncer@kubernetescrd"
-      - "--providers.kubernetescrd"
     deployment:
       additionalContainers: []
       annotations: {}
