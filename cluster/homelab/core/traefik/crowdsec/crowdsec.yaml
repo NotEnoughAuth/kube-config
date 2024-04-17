@@ -50,10 +50,10 @@ spec:
         ingress:
           host: crowdsec.local.opryga.com
           enabled: true
-      # persistentVolume:
-      #   config:
-      #     enabled: false
+      persistentVolume:
+        config:
+          enabled: false
       # env:
-        # For an internal test, disable the Online API
-        # - name: DISABLE_ONLINE_API
-        #   value: "true"
+      # For an internal test, disable the Online API
+      # - name: DISABLE_ONLINE_API
+      #   value: "true"
