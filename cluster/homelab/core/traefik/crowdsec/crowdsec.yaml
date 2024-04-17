@@ -19,7 +19,7 @@ spec:
       enabled: true
       bouncer:
         reflector:
-          namespaces: ["traefik, crowdsec"]
+          namespaces: ["traefik"]
     agent:
       tolerations:
         - key: node-role.kubernetes.io/control-plane
@@ -41,19 +41,18 @@ spec:
         # When testing, allow bans on private networks
         - name: DISABLE_PARSERS
           value: "crowdsecurity/whitelists"
+        - name: DISABLE_ONLINE_API
+          value: "true"
       persistentVolume:
         config:
           enabled: false
     lapi:
       dashboard:
         enabled: true
-        ingress:
-          host: crowdsec.local.opryga.com
-          enabled: true
       persistentVolume:
         config:
           enabled: false
-      # env:
-      # For an internal test, disable the Online API
-      # - name: DISABLE_ONLINE_API
-      #   value: "true"
+      env:
+        # For an internal test, disable the Online API
+        - name: DISABLE_ONLINE_API
+          value: "true"
