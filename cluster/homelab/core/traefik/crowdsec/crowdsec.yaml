@@ -48,7 +48,7 @@ spec:
       dashboard:
         enabled: true
         ingress:
-          host: dashboard.local
+          host: crowdsec.local.opryga.com
           enabled: true
       # persistentVolume:
       #   config:
