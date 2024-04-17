@@ -46,7 +46,7 @@ spec:
           enabled: false
     lapi:
       dashboard:
-        enabled: false
+        enabled: true
         ingress:
           host: dashboard.local
           enabled: true
