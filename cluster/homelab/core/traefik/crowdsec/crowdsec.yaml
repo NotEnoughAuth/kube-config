@@ -50,10 +50,10 @@ spec:
         ingress:
           host: dashboard.local
           enabled: true
-      persistentVolume:
-        config:
-          enabled: false
-      env:
+      # persistentVolume:
+      #   config:
+      #     enabled: false
+      # env:
         # For an internal test, disable the Online API
         # - name: DISABLE_ONLINE_API
         #   value: "true"
