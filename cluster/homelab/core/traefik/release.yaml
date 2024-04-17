@@ -67,6 +67,6 @@ spec:
         externalTrafficPolicy: Local
       type: LoadBalancer
     volumes:
-      - name: crowdsec-bouncer-tls
+      - name: crowdsec-lapi-tls
         mountPath: /etc/traefik/crowdsec-certs/
         type: secret
