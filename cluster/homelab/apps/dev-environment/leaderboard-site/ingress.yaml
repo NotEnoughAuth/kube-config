@@ -24,6 +24,8 @@ spec:
           namespace: traefik
         - name: oauth-headers
           namespace: traefik
+        - name: crowdsec-bouncer
+          namespace: traefik
   tls:
     secretName: dev-opryga-com-tls
 
