@@ -40,9 +40,9 @@ spec:
           program: nginx
       env:
         - name: PARSERS
-          value: "crowdsecurity/cri-logs"
+          value: "crowdsecurity/cri-logs crowdsecurity/docker-logs crowdsecurity/nginx-logs crowdsecurity/traefik-logs"
         - name: COLLECTIONS
-          value: "crowdsecurity/traefik"
+          value: "crowdsecurity/traefik crowdsecurity/nginx crowdsecurity/http-cve"
         # When testing, allow bans on private networks
         - name: DISABLE_PARSERS
           value: "crowdsecurity/whitelists"
