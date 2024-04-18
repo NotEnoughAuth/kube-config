@@ -13,9 +13,14 @@ spec:
       kind: Rule
       middlewares:
         # - name: default-headers
-        # - name: local-ip-list
+        - name: local-ip-list
+          namespace: traefik
         - name: oauth-forward-auth
+          namespace: traefik
         - name: oauth-headers
+          namespace: traefik
+        - name: crowdsec-bouncer
+          namespace: traefik
       services:
         - name: crowdsec-service
           port: 3000
@@ -27,7 +32,7 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: crowdsec-oauth-proxy-path
+  name: crowdsec-oauth-proxy
   namespace: crowdsec
   annotations:
     kubernetes.io/ingress.class: traefik-external
