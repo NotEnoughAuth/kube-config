@@ -2,7 +2,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: crowdsec-dashboard
-  namespace: traefik
+  namespace: crowdsec
   annotations:
     kubernetes.io/ingress.class: traefik-external
 spec:
@@ -28,7 +28,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: crowdsec-oauth-proxy-path
-  namespace: traefik
+  namespace: crowdsec
   annotations:
     kubernetes.io/ingress.class: traefik-external
 spec:
@@ -43,3 +43,18 @@ spec:
   # Uncomment and configure for HTTPS
   tls:
     secretName: auth-opryga-com-tls
+
+---
+# add externalName service for oauth-proxy
+apiVersion: v1
+kind: Service
+metadata:
+  name: oauth-proxy
+  namespace: crowdsec
+spec:
+  type: ExternalName
+  externalName: oauth-proxy.ms-sso.svc.cluster.local
+  ports:
+    - name: http
+      port: 4180
+      targetPort: 4180
