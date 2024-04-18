@@ -14,6 +14,8 @@ spec:
       middlewares:
         - name: default-headers
           namespace: traefik
+        - name: crowdsec-bouncer
+          namespace: traefik
       services:
         - name: overseerr
           port: 5055

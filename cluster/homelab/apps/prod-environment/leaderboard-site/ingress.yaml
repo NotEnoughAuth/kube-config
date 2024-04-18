@@ -18,5 +18,7 @@ spec:
       middlewares:
         - name: default-headers
           namespace: traefik
+        - name: crowdsec-bouncer
+          namespace: traefik
   tls:
     secretName: oplabs-us-tls

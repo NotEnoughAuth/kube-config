@@ -18,6 +18,8 @@ spec:
       middlewares:
         - name: local-ip-list
           namespace: traefik
+        - name: crowdsec-bouncer
+          namespace: traefik
         # - name: dev-ip-list
         # - name: default-headers
         # - name: oauth-forward-auth
