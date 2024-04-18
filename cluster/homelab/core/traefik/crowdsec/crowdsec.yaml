@@ -16,7 +16,7 @@ spec:
   values:
     container_runtime: containerd
     tls:
-      enabled: true
+      enabled: false
       bouncer:
         reflector:
           namespaces: ["traefik"]
