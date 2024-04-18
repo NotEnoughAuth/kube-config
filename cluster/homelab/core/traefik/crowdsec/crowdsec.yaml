@@ -34,6 +34,10 @@ spec:
           podName: traefik-*
           # as in crowdsec configuration, we need to specify the program name to find a matching parser
           program: traefik
+        # leaderboard site
+        - namespace: prod-environment
+          podName: leaderboard-site-*
+          program: nginx
       env:
         - name: PARSERS
           value: "crowdsecurity/cri-logs"
