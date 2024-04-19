@@ -16,8 +16,8 @@ spec:
         - name: leaderboard-site
           port: 80
       middlewares:
-        # - name: default-headers
-        #   namespace: traefik
+        - name: default-headers
+          namespace: traefik
         - name: local-ip-list
           namespace: traefik
         # - name: oauth-forward-auth

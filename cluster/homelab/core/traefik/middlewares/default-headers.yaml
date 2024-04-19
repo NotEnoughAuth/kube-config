@@ -43,5 +43,6 @@ spec:
     customRequestHeaders:
       X-Forwarded-Proto: https
 
-    # Add x-Frame-Options header
-    customFrameOptionsValue: SAMEORIGIN
+    # Add x-Frame-Options header with DENY value to prevent clickjacking
+    # If a site is intended to be embedded in an iframe, use SAMEORIGIN instead
+    customFrameOptionsValue: DENY
