@@ -20,10 +20,10 @@ spec:
         #   namespace: traefik
         - name: local-ip-list
           namespace: traefik
-        - name: oauth-forward-auth
-          namespace: traefik
-        - name: oauth-headers
-          namespace: traefik
+        # - name: oauth-forward-auth
+        #   namespace: traefik
+        # - name: oauth-headers
+        #   namespace: traefik
         - name: crowdsec-bouncer
           namespace: traefik
   tls:
