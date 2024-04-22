@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: leaderboard-site
-          image: "registry.oplabs.us:5050/root/leaderboard-site:prod-116" # {"$imagepolicy": "flux-system:leaderboard-site-prod"}
+          image: "registry.oplabs.us:5050/root/leaderboard-site:prod-118" # {"$imagepolicy": "flux-system:leaderboard-site-prod"}
           imagePullPolicy: IfNotPresent
           env:
             - name: LEADERBOARD_DB_SERVER
