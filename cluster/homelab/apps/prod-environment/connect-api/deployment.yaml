@@ -15,6 +15,7 @@ spec:
       containers:
         - name: connect-api
           image: registry.oplabs.us:5050/root/connect-api:latest
+          imagePullPolicy: Always
           resources:
             limits:
               memory: "128Mi"
