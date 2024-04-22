@@ -1,0 +1,24 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: connect-api
+  namespace: prod-environment
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+    # traefik.ingress.kubernetes.io/router.middlewares: traefik-dev-ip-list@kubernetescrd
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`connect.uwstout.club`)
+      kind: Rule
+      services:
+        - name: connect-api
+          port: 80
+      middlewares:
+        - name: default-headers
+          namespace: traefik
+        - name: crowdsec-bouncer
+          namespace: traefik
+  tls:
+    secretName: uwstout-club-tls

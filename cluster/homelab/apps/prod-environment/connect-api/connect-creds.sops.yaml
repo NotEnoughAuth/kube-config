@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: connect-creds
+  namespace: prod-environment
+type: Opaque
+data:
+  username: ENC[AES256_GCM,data:etljn0/4Vp98/JAOu4wIC4pjYPsamOUD/pee3uG2Gy1HNR9u,iv:WBIJM9H+ZzwYJ+GWFb5lemp4KkOq1AjE0IyagV2tsbs=,tag:jG6R18vulAm30F/dlGLXmQ==,type:str]
+  password: ENC[AES256_GCM,data:0gKvC/qMSQh0g311qAgycYwbJP61koe8rDPwnPbMV2W9dfO1MbjOFwKY3TINkWtlUBigS1dZgCRt63bgTJNrtebT71c=,iv:ar3FVl7eM5z6vdtv0v9CVZ/9Nb22VFhpaWH0TC9g+e4=,tag:MNPsnt3WruyUyLEA2/WvGA==,type:str]
+sops:
+  kms: []
+  gcp_kms: []
+  azure_kv: []
+  hc_vault: []
+  age:
+    - recipient: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBKWkNkS2JNMUE1R3ZkZ3Z6
+        azBiRzdXVG9aaUZKSXVGdmdaWGNZenJOS0FnCjRUZ3o2Z2pweVJYbU9kaEtkTHpt
+        ajVVVG9IVjFEQVRqY1R5UjNUWTlZYlkKLS0tIHBXbFlIODJUbzRadDVuT1hzTSty
+        Qk1Na0hZNVZXWElsMC9FNllqY21aVHcKHqjt69wHfby8Zixq3swCVM9A/zpXRQkt
+        DGVC7scs+5m/60IEwq5uRbezpaJzNW/mTB12PVVz2YCyfOYHcyd7FA==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2024-04-22T16:48:39Z"
+  mac: ENC[AES256_GCM,data:LO+2fid2BCf0azp7Jn1c64We2rB4jE6yey2DeG4+CW2ptKH2w/tfoylL/NZLRO8BAlTproigsu+w4QHaJhuGXdEVbDcNH5n4XvN2j516rplcoXl3+Q5JM4xCVDq7vmELpvWDXXIMaSfK2XOMNxxTyuU6pNn3kLCDvuVjoeVflaY=,iv:wM6Kj8teuSBGE0lV2FrunmqyWwf21181ZkXKULthcu0=,tag:8wRJ//64y9gCC+iW598gMw==,type:str]
+  pgp: []
+  encrypted_regex: ^(data|stringData|annotations|)$
+  version: 3.8.1
