@@ -2,7 +2,7 @@ apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: homepage
-  namespace: my-namespace
+  namespace: homepage
 spec:
   releaseName: homepage
   chart:
