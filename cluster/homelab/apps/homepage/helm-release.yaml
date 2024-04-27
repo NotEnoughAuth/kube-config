@@ -16,7 +16,7 @@ spec:
   releaseName: homepage
   values:
     image:
-      repository: ghcr.io/benphelps/homepage
+      repository: ghcr.io/gethomepage/homepage
       tag: v0.8.12
 
     # Enable RBAC. RBAC is necessary to use Kubernetes integration
