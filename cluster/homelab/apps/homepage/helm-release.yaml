@@ -90,13 +90,30 @@ spec:
       widgets:
         - resources:
             # change backend to 'kubernetes' to use Kubernetes integration. Requires RBAC.
-            backend: resources
+            backend: kunernetes
             expanded: true
             cpu: true
             memory: true
-        - search:
-            provider: duckduckgo
-            target: _blank
+        - kubernetes:
+          cluster:
+            # Shows the cluster node
+            show: true
+            # Shows the aggregate CPU stats
+            cpu: true
+            # Shows the aggregate memory stats
+            memory: true
+            # Shows a custom label
+            showLabel: true
+            label: "cluster"
+          nodes:
+            # Shows the clusters
+            show: true
+            # Shows the CPU for each node
+            cpu: true
+            # Shows the memory for each node
+            memory: true
+            # Shows the label, which is always the node name
+            showLabel: true
         ## Uncomment to enable Kubernetes integration
         # - kubernetes:
         #     cluster:
