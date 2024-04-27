@@ -20,13 +20,13 @@ spec:
       # tag: v0.6.0
 
     # Enable RBAC. RBAC is necessary to use Kubernetes integration
-    enableRbac: false
+    enableRbac: true
 
     serviceAccount:
       # Specify a different service account name
       name: homepage
       # Create service account. Needed when RBAC is enabled.
-      create: false
+      create: true
 
     service:
       main:
@@ -112,7 +112,7 @@ spec:
         #       showLabel: true
       kubernetes:
         # change mode to 'cluster' to use RBAC service account
-        mode: disable
+        mode: cluster
       docker:
       settings:
 
