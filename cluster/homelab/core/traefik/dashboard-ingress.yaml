@@ -5,6 +5,14 @@ metadata:
   namespace: traefik
   annotations:
     kubernetes.io/ingress.class: traefik-external
+    gethomepage.dev/href: "https://traefik.local.opryga.com"
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/name: "Traefik Dashboard"
+    gethomepage.dev/description: "Traefik Ingress Controller Dashboard"
+    gethomepage.dev/group: "Internal Services"
+    gethomepage.dev/icon: "traefik.png"
+    gethomepage.dev/widget.type: "traefik"
+    gethomepage.dev/widget.url: "https://traefik.local.opryga.com"
 spec:
   entryPoints:
     - websecure
@@ -31,11 +39,6 @@ metadata:
   namespace: traefik
   annotations:
     kubernetes.io/ingress.class: traefik-external
-    gethomepage.dev/enabled: "true"
-    gethomepage.dev/name: "Traefik Dashboard"
-    gethomepage.dev/description: "Traefik Ingress Controller Dashboard"
-    gethomepage.dev/group: "Internal Services"
-    gethomepage.dev/icon: "traefik.png"
 spec:
   entryPoints:
     - websecure # or websecure for HTTPS
