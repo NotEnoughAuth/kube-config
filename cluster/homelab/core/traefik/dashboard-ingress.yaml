@@ -28,25 +28,13 @@ spec:
       services:
         - name: api@internal
           kind: TraefikService
-  tls:
-    secretName: local-opryga-com-tls # give it the ole tls cert
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
-  name: traefik-dashboard-api
-  namespace: traefik
-spec:
-  entryPoints:
-    - websecure
-  routes:
     - match: Host(`traefik.local.opryga.com`) && PathPrefix(`/api/overview`)
       kind: Rule
-      middlewares:
-        - name: default-headers
-        - name: cluster-only-ip-list
-      #   - name: oauth-forward-auth
-      #   - name: oauth-headers
+      # middlewares:
+      # - name: default-headers
+      # - name: local-ip-list
+      # - name: oauth-forward-auth
+      # - name: oauth-headers
       priority: 1
       services:
         - name: api@internal
