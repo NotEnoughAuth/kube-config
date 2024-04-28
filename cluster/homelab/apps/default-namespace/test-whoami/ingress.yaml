@@ -22,7 +22,7 @@ spec:
       middlewares:
         - name: default-headers
           namespace: traefik
-        - name: local-ip-list
-          namespace: traefik
+        # - name: local-ip-list
+        #   namespace: traefik
   tls:
     secretName: local-opryga-com-tls
