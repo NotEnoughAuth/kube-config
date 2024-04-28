@@ -39,7 +39,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`traefik.local.opryga.com`) && PathPrefix(`/api`)
+    - match: Host(`traefik.local.opryga.com`) && PathPrefix(`/api/`)
       kind: Rule
       middlewares:
         - name: default-headers
