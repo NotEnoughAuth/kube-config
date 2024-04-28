@@ -5,3 +5,4 @@ resources:
   - local-ip-list.yaml
   - oauth-forward-auth.yaml
   - oauth-headers.yaml
+  - cluster-only.yaml
