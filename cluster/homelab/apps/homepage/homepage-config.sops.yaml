@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: homepage-config
+  namespace: homepage
+data:
+  kubernetes.yaml: ENC[AES256_GCM,data:L0FoqMGe15w2LJeHoaw=,iv:V4TUb+lJjcn5RpVqGnjXk4zDBacRJgoB7wMAoXnt90U=,tag:Fdd6/iV3wbUm9FFuXlYiRQ==,type:str]
+  settings.yaml: ENC[AES256_GCM,data:P3qxcRSZKHRpyV6EFvp7Yz9SDZSt4QCybmZqWHqi+ftw6SWZmbWMblVcFm6e3santWJg1oK0/s/2IYwYZ8HSw8/2LrmH0LekRVcu+1sbC8IP+kZZGPA5aKJKSRHytgivH5y1rayZPqZIgQ==,iv:3Pscms7KTwBwSD0E9TnBZNgdSCzPYhtIWsQX1g4VAmM=,tag:wOrUziiYSZ23lU+knNnKIQ==,type:str]
+  bookmarks: ""
+  services.yaml: ENC[AES256_GCM,data:f95rzFzytNnaUkblFEtHOFfHipM/P5fuoqCKHhiW/yZFIub75X8rNCMUuhAnTdvbqyc5ihdvd9Du6hCutehZSMRSPtvIY3nkSLmHzwWOitPkO1hzYp37vxVGvPiRVv9bNtsMDbbTxM6q+rZ+eQfxqMLnqF2DaNwUzKvSAikZ74TyWTURjMEZJge7a+Q=,iv:J56IGo3/eqJkqi/UKxQajcfKM20dC+omM6EFONF9GHc=,tag:b4zPMKB0EF3mua5UYDqvdg==,type:str]
+  widgets: ENC[AES256_GCM,data:jZxeIExe2ovZVKlP57dwTCuEwff/DEHkn4flAANYdhrHrozCKWvo7X0czD3pVlNOhaJbl8yknvroxYjklI80pulhi5JzVLQ4o1fPk82etAQtfmY3d9xc5agjcYsf7J1aDDkmKu7xovquzbtIQBiK9CLbtHmZB8lqv3IIiJaY6YemHNMlozXZ5Oy3sts71hOv74WmzXaU6yGjf8m5OKc0kPPGzpAdoSCkT/qKpK6IbFWWLfoFHeG6zEijNrLRyQ5yHAx+Se1JAL4+sibpskOeJM4=,iv:qrv2D+DnzexdHJ7KpfZeDoDkZ6KpwlSx5ZT0aK+TYdM=,tag:i/0XEmjpt2zsKOc3IzV+SQ==,type:str]
+  docker.yaml: ""
+sops:
+  kms: []
+  gcp_kms: []
+  azure_kv: []
+  hc_vault: []
+  age:
+    - recipient: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBPR045bFVxU1BNTE1wUGtm
+        UEFKNWlBdFdJbGtxZFc0eTFjUEdQTHhQd1NZCmY3Rk9hRVNZOERjclI0RDNTbWtI
+        NC9kamZQQXJESEJnM0NDVlRWZ3lBdWMKLS0tIEp1cHR3QUplTHVFU0lHWUVUSVBl
+        WE5PT1Jmc3pTR2RqcCtzZDlQQlpjbEEKwvSzewp9pVIS9aBpf/P7f/NG59EAFQNO
+        IN6XsiyMg6V9VihqdeOKaZ+1hfUU2Ef0cBzkD8ouXniQu+gSDFEvJQ==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2024-04-28T18:58:01Z"
+  mac: ENC[AES256_GCM,data:rIkoX9teRsT/eA6ngTJgUobZxTDFc83IiBri+r55QVLZ9ucyeArWPou+cxM+SKoU1EgIoFiilf/Q7yPIZU540C+EvfEdK+9TA6KNo2DypvIAtpSUDWYA6xLR1YhjLAsCfUCC1Y4Y+0nQePDABgniqhZ2ad1ajnBm6i7JOcI4HA4=,iv:81TCcTtLHwC5kZ6Hev53yDloY3xgSnwVDl1q1/FZQPE=,tag:5ffjyhE9tJQvAMrrdpmL/A==,type:str]
+  pgp: []
+  encrypted_regex: ^(data|stringData|annotations|)$
+  version: 3.8.1
