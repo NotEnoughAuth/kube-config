@@ -8,9 +8,9 @@ metadata:
     gethomepage.dev/href: "https://phpmyadmin.local.opryga.com"
     gethomepage.dev/enabled: "true"
     gethomepage.dev/name: "MariaDB Galera Cluster PHPMyAdmin"
-    gethomepage.dev/description: "Management interface for the MariaDB Galera Cluster PHPMyAdmin service."
+    gethomepage.dev/description: "MariaDB Galera Cluster PHPMyAdmin"
     gethomepage.dev/group: "Internal Services"
-    gethomepage.dev/icon: "phpmyadmin.png"
+    gethomepage.dev/icon: "mariadb.png"
 spec:
   entryPoints:
     - websecure
