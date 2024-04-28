@@ -4,11 +4,11 @@ metadata:
     name: homepage-config
     namespace: homepage
 data:
-    kubernetes.yaml: ENC[AES256_GCM,data:xT58e1Xiyac1ReQaUVw=,iv:yS0OS0hlCw7NXHiSa+gqkOKBPxXt2iHJ9A95yIHFCnQ=,tag:UAbOX7CkavMEhHnvqHkYvA==,type:str]
+    kubernetes.yaml: ENC[AES256_GCM,data:G9i99JjqQ9My20Oc/tQ=,iv:4B27Sra5RsntXlD9fFwT33/sjhCSn/BNchDU9Lr440c=,tag:on/fY3JBdVesFs9oy3zAIg==,type:str]
     settings.yaml: ""
     bookmarks.yaml: ""
-    services.yaml: ENC[AES256_GCM,data:a7IlErjbUGugydFPj40dW7h8/n10CrrM1mhvl9eUn2SSSGNhFQO1xEDJIInxr/0kWrlpgoj/5zp0WqatBuN0f9MlStkmirvGcxTKrydlEwxVaEa5aQCMJjEbkUkbP/xzasnFOwwoHTsPOX34ITvKIhhMe0vYbrkV8LJ2OfXdKkuyjnLapKAKEq/2BPyjPY4krUPlhMELAIGypree49xrIukgyXG9mMQXPDx963sT8o5kUrmlmyYj2/dzv74aA/pz15qke/ZQ4gSiWfbZTrd3W4+z7A==,iv:7bhgXK71qhOiptQ85114yeDlDhu3ZL6BFigcXR5ZjB0=,tag:Zh39Ldc3msVia1sVOuBNKg==,type:str]
-    widgets.yaml: ENC[AES256_GCM,data:V86fLcaVt3JTQ5Nvw0/QBv7+G9Vzpto4BykufxA8wDnB1tFzpPC6EY40onQf49PQD2gtkhLBLbuAZ8gPmAHf8IgHk4h0dOj8fNg4pntP10gqhJrcXYoXWlEPB6AJmtxyz/rN9RF5IjGNpfKxw6S9ZFrWFfOPc3wvWH7r+7sSvqpEGyokbvU4fN4ccYBdUhpcgoE7dKKcH81ZByC7aXkTYLXUNKUhUJ9pmQmRrbZDoScSsWo76pReHzPGfMfXQV/6i4tqN/uEhufZvFAcjUnlKDs=,iv:o61PgiNO4vZcmOpxNhZn4E7JSwBQ2N7rFO2PPF4Javs=,tag:gjlGNQYL5/Ic5GXTLgFW4Q==,type:str]
+    services.yaml: ENC[AES256_GCM,data:beL47Z3wBS9YRl1vleyKv+w7AL973DkADOK8Sm8d0oolY7GBgvwLi6osWvjQmg1AVlBsc/fdi9QcEJ5RAGGsoIvT0EdAOzThSZTA3m//M7eqIZtgRZwsn2/Lg0YOczFqtUPljuaFltzuky+SqBbnkdpwHF63nwMs+VxBapTj/9NWcAHgka6MOyTM85yxOs7aO6qVf/gqOqULBrQMYM7IyGDpEWHdvxdYomp3Micp/z2B5VQpOvSxyV0t/cn8PzmLzRqtnOIZNCZVn8rWec1RDnzmcRDGoow4h0P1YlDE4ycBV7UQqSl1fJl6VNTknd8BJoR9mutd2oUVIIf0WuCt0JkL6Yz47urR1g49QOD/AbAm/ojG2fdOEqUAv0ujsKSV3IlTlQx0iZNLmbqIi2L473p6w5ZVnj8ScwZMe/DQv/w/AWHIyrbV0Zwt9s77thanXaT5t2ajB6DqEPpxrliqvo7cC0CrMPIrEa2HAEFmcGH40tK6IPQy5lbtnX9rUTbE2rBhXnzUkUsSeOo2ydByNNcBo9hwMRNFfkcxd2zK5eGwn7Wl2rzKqU/MqBPGaHG+ANsFpOiTVcJUzb7Fy9TLahk9M4XZEUegiFRLd6WWdBaG++p3pVUwniSzJj4k,iv:obOgRY8VTGBoh8HoRoxL/bcWBxCXSR2GkSMKWT7cjsQ=,tag:Nm2gmI0nrvx4csXs/4k2oA==,type:str]
+    widgets.yaml: ENC[AES256_GCM,data:igudRNkvV30xrjGbITRDVNP83Pp7bReaTwF4xHJnGCCuYp0WXExxpBHSeaLiQuBHs6vdDQKlf2LxOkhLdop4pghLTeKk4Z2N+/F9nnxs8nATq/2tauEDKTxqymkwXkJJwsYz8ekgWXYQZv9HtuBoyXjQfe96JTBrBIz5rIFs0WEqc4TABB6VkN28OvNgS5S1dgCcJqapea0QDq/L0LHVu3iNwyhJliMkDJpFEHhtDgq+ziyOffzcE49C6OJLDFztGc7vQ7VPNH+VMHHutcbKdWs=,iv:9H5OonyCrOMCv6I3ytBRLf8veukSOZIRk6Vvx9BDDRc=,tag:kACjJ+JFGsk1dt/mzZScmg==,type:str]
     docker.yaml: ""
 sops:
     kms: []
@@ -19,14 +19,14 @@ sops:
         - recipient: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBZems0V0w0cDF3SWEzaFRX
-            RGpPeTljQ0duOFJENjluUHo5V2JQdi9kQ0hjCndlelNpRWthSHh2U0s2VTg2NW1l
-            S3BEUmVpSWxUdU40aGlUbHh5SDk4YUUKLS0tIE9TTTJ4WmRpbVBNYUJqK3ZnbFhk
-            bXB3TjA5UVUwODE3d3JMRUw1eTFXMVkKFsguz1KWEWi/yBDnz9OamvFK5yXw7UK/
-            X+2g4f3byu7+8yUXi1JJaeDBg/wgz1W8fJJ3RUrtXfybPVmTFmROqQ==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBwbzl4S01sMFZhdWdzeUZJ
+            QnNyL2REb0xwOURkdXlFTG9za2JDakJwTmdVCkVGaXFtbnNwR2EvSnlvTU53RkJ4
+            RHFvRW14TnEyZXFzalI2eThLRG1xakUKLS0tIERpS3J4a3BSV1J1V1d1VG1RUnFM
+            ZHZVa25OOCtCVlkweVFMN3hTbGlyRDQK6yZ9OLE+m2txZgnNpmGoNmmIfvlCNRZk
+            6KE6LQTVcGZWCrOb74tJdsHCa3J9ZInTjqgaPYd262wBls6VNR4XGw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-04-28T19:52:55Z"
-    mac: ENC[AES256_GCM,data:fwzOvXR7eQrVH6+O1WHthLMy5jG3oH4SIK+FCBpWX/hpSO7O1zetw1tZLrr9VQAQrZoRbJoyyRO6iqNQ2H+JAQRDSdZkJU2KyHjP1rK9whkkkSlNkYjfybE8NQwPGQgYDuLte62LAFIUCVgCY72hjp09Bqfuwbvupb+DzRJ7b8U=,iv:SJ5Is/mHGDx+Ju8Ffa2p0j5i04Wu5tGGkKm2Mix0Htg=,tag:vYDTKFfyRoLfdkTX7SSHFg==,type:str]
+    lastmodified: "2024-04-28T20:00:55Z"
+    mac: ENC[AES256_GCM,data:fnPSVPci7smzJAvHuqdje0GxYX74Ob6UKBIrXqCSjPTP8Vnt5GzdUT9+cV/SgcU2E+8DVJoy6dlpJb0Ajqvqhn4LLOnfwxVCKdM2yvGkvWl2YpROyAaSkcKHHcETTK7F/VnESzMgjLRgsAGz+Ye+23DxWkZ5BtnV9+V6zDnSE1s=,iv:2hPjiyOeXriCEMM22eohlQ5ICtIWj9tTeNTSyF163JU=,tag:ClNuPT41DxkffdI0or1Rsg==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData|annotations|)$
     version: 3.8.1
