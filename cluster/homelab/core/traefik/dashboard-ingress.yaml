@@ -18,7 +18,7 @@ spec:
     - websecure
   routes:
     # route any traffic to the dashboard that is not on the 10.43.0.0/16 network
-    - match: Host(`traefik.local.opryga.com`) && PathPrefix(`/`) && Headers(`X-Forwarded-For`, !~^10\.43\..*?$)
+    - match: Host(`traefik.local.opryga.com`) && PathPrefix(`/`) && !ClientIP(`10.42.0.0/16`)
       kind: Rule
       middlewares:
         # - name: default-headers
