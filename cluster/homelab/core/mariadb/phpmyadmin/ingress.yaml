@@ -5,6 +5,12 @@ metadata:
   namespace: mariadb
   annotations:
     kubernetes.io/ingress.class: traefik-external
+    gethomepage.dev/href: "https://phpmyadmin.local.opryga.com"
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/name: "MariaDB Galera Cluster PHPMyAdmin"
+    gethomepage.dev/description: "Management interface for the MariaDB Galera Cluster PHPMyAdmin service."
+    gethomepage.dev/group: "Internal Services"
+    gethomepage.dev/icon: "phpmyadmin.png"
 spec:
   entryPoints:
     - websecure
