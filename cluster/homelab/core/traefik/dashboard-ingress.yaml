@@ -12,7 +12,7 @@ metadata:
     gethomepage.dev/group: "Internal Services"
     gethomepage.dev/icon: "traefik.png"
     gethomepage.dev/widget.type: "traefik"
-    gethomepage.dev/widget.url: "https://traefik.local.opryga.com"
+    gethomepage.dev/widget.url: "http://traefik.traefik.svc.cluster.local"
 spec:
   entryPoints:
     - websecure
