@@ -6,7 +6,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: traefik-external
     gethomepage.dev/href: "https://traefik.local.opryga.com"
-    gethomepage.dev/enabled: "true"
+    gethomepage.dev/enabled: "false"
     gethomepage.dev/name: "Traefik Dashboard"
     gethomepage.dev/description: "Traefik Ingress Controller Dashboard"
     gethomepage.dev/group: "Internal Services"
@@ -24,28 +24,6 @@ spec:
         # - name: local-ip-list
         - name: oauth-forward-auth
         - name: oauth-headers
-      services:
-        - name: api@internal
-          kind: TraefikService
-  tls:
-    secretName: local-opryga-com-tls # give it the ole tls cert
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
-  name: traefik-dashboard-api
-  namespace: traefik
-spec:
-  entryPoints:
-    - websecure
-  routes:
-    - match: Host(`traefik.local.opryga.com`) && PathPrefix(`/api/`)
-      kind: Rule
-      # middlewares:
-      # - name: default-headers
-      # - name: cluster-only-ip-list
-      #   - name: oauth-forward-auth
-      #   - name: oauth-headers
       services:
         - name: api@internal
           kind: TraefikService
