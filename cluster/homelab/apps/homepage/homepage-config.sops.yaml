@@ -4,11 +4,11 @@ metadata:
     name: homepage-config
     namespace: homepage
 data:
-    kubernetes.yaml: ENC[AES256_GCM,data:vN1Ha1fRBDR6Ig4OxJU=,iv:hiHFQIow6Z3HFZTZq6LOwLjVIVQY3GznmqK9udluF5E=,tag:ODaqOfXtftEDBdMxi1yyOg==,type:str]
+    kubernetes.yaml: ENC[AES256_GCM,data:xT58e1Xiyac1ReQaUVw=,iv:yS0OS0hlCw7NXHiSa+gqkOKBPxXt2iHJ9A95yIHFCnQ=,tag:UAbOX7CkavMEhHnvqHkYvA==,type:str]
     settings.yaml: ""
     bookmarks.yaml: ""
-    services.yaml: ENC[AES256_GCM,data:FqajS+8NQ9LQufAUyVFfPpfuh2K1GgTRTdZVmLgarKqChiveb01lbGEGpuD+Ls4+pBPbtQ8XlkWvapeXUBNCJAxNG8Ke2VPxki9QTNJflJuLLNLSmcDiG7mTTa5i4gYlENh9Y/nKRetaJIaFlMV23m3T1JhqJY4N5pQlWD5qUD2izy5mmKNY2SiJsPVLDDZ+pHgio41667Hv2tyNoAh9D2DuBHlROZ2AqchkNoUree/TQg3qEn7BOsigZUut7hbtrBfABV7Mm8115DFkR5STscidy0Mn,iv:S2Oms6WW6csP62rlPjYJc9CzAoQa/IC1gssZl8h1BMM=,tag:YkmatXI3Mh2C9Mrv2aIFOQ==,type:str]
-    widgets.yaml: ENC[AES256_GCM,data:WakVwsuWqv2ZtbK1TChBKJXCoJBPlUY2hXfrhi4VIdpskvacLT1bpdNYaU4r4y9nvoQRannoEKDCsR8OmAaCevvUPyuDj2+K9A9vs7tyRpFAEIvKU2FRsYXlBR+nMFd+byYxLHIFa1yK55Qpu7XpEuvp2jVfE4/Q9jrhGRi0rn3mu7rpW3ivlOBd1NnBbdECT0HELJFPrPvEw5IwxR30+zKR0YFPW00zW31AE9uEkH+fCuGor2XtG/K2W3UentNBA991muE9495yK3iQrrQoTmU=,iv:OIC9sBWC7Tu0Aho6TKBg6DS5pNVPiC/TGmItwNOBRiM=,tag:YfRoL+sTyx1FbBcArizkEA==,type:str]
+    services.yaml: ENC[AES256_GCM,data:a7IlErjbUGugydFPj40dW7h8/n10CrrM1mhvl9eUn2SSSGNhFQO1xEDJIInxr/0kWrlpgoj/5zp0WqatBuN0f9MlStkmirvGcxTKrydlEwxVaEa5aQCMJjEbkUkbP/xzasnFOwwoHTsPOX34ITvKIhhMe0vYbrkV8LJ2OfXdKkuyjnLapKAKEq/2BPyjPY4krUPlhMELAIGypree49xrIukgyXG9mMQXPDx963sT8o5kUrmlmyYj2/dzv74aA/pz15qke/ZQ4gSiWfbZTrd3W4+z7A==,iv:7bhgXK71qhOiptQ85114yeDlDhu3ZL6BFigcXR5ZjB0=,tag:Zh39Ldc3msVia1sVOuBNKg==,type:str]
+    widgets.yaml: ENC[AES256_GCM,data:V86fLcaVt3JTQ5Nvw0/QBv7+G9Vzpto4BykufxA8wDnB1tFzpPC6EY40onQf49PQD2gtkhLBLbuAZ8gPmAHf8IgHk4h0dOj8fNg4pntP10gqhJrcXYoXWlEPB6AJmtxyz/rN9RF5IjGNpfKxw6S9ZFrWFfOPc3wvWH7r+7sSvqpEGyokbvU4fN4ccYBdUhpcgoE7dKKcH81ZByC7aXkTYLXUNKUhUJ9pmQmRrbZDoScSsWo76pReHzPGfMfXQV/6i4tqN/uEhufZvFAcjUnlKDs=,iv:o61PgiNO4vZcmOpxNhZn4E7JSwBQ2N7rFO2PPF4Javs=,tag:gjlGNQYL5/Ic5GXTLgFW4Q==,type:str]
     docker.yaml: ""
 sops:
     kms: []
@@ -19,14 +19,14 @@ sops:
         - recipient: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBIMWxOeUdRTXhqc0ZrTzE3
-            ZHZUTCt5eFVYVFNaSHNyRTRmdFgyd0hhTmtjCkNyMVhlS1RQaCtZSCsvcWp1MldN
-            YmEwb3Z1TXVIaHFPc1ZmaElPamgvTWMKLS0tIFdUYjgvVmU5RW5ybW40MlBTUXFW
-            Q2lZOWZ6eUFMQ2hxalFvTW95Szg1c3MKrOy9v9W5omGk9864BQP54z6hBgSy3sQb
-            zNk2yeOqmB45n4Urr1wdjlEBfpGKgQx2LKd8JqMbv4NU005AVbho9A==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBZems0V0w0cDF3SWEzaFRX
+            RGpPeTljQ0duOFJENjluUHo5V2JQdi9kQ0hjCndlelNpRWthSHh2U0s2VTg2NW1l
+            S3BEUmVpSWxUdU40aGlUbHh5SDk4YUUKLS0tIE9TTTJ4WmRpbVBNYUJqK3ZnbFhk
+            bXB3TjA5UVUwODE3d3JMRUw1eTFXMVkKFsguz1KWEWi/yBDnz9OamvFK5yXw7UK/
+            X+2g4f3byu7+8yUXi1JJaeDBg/wgz1W8fJJ3RUrtXfybPVmTFmROqQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-04-28T19:43:09Z"
-    mac: ENC[AES256_GCM,data:VvGDrXfzfyiiURsvU8BDFucODgWQn9JCb8OMcUxYXH69HSQltSS73zhI2zlaw0GWopW8sNccs366OjIKcyyciHZPzHX5+Fv4jsyZHxe4KBjvSLE5bZXkkSEypo8RXZZaRQKeoC50GASpJ65ZCxbf6UiKgbVap27GBDg5vq7TSFM=,iv:NQBAifxeP8qGx3TvL6l7+y/qc0LYuVP/Fodags5SBKc=,tag:li+xQVBIX11RjgwTVzDwDQ==,type:str]
+    lastmodified: "2024-04-28T19:52:55Z"
+    mac: ENC[AES256_GCM,data:fwzOvXR7eQrVH6+O1WHthLMy5jG3oH4SIK+FCBpWX/hpSO7O1zetw1tZLrr9VQAQrZoRbJoyyRO6iqNQ2H+JAQRDSdZkJU2KyHjP1rK9whkkkSlNkYjfybE8NQwPGQgYDuLte62LAFIUCVgCY72hjp09Bqfuwbvupb+DzRJ7b8U=,iv:SJ5Is/mHGDx+Ju8Ffa2p0j5i04Wu5tGGkKm2Mix0Htg=,tag:vYDTKFfyRoLfdkTX7SSHFg==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData|annotations|)$
     version: 3.8.1
