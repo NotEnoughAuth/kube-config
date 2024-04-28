@@ -41,9 +41,9 @@ spec:
   routes:
     - match: Host(`traefik.local.opryga.com`) && PathPrefix(`/api/`)
       kind: Rule
-      middlewares:
-        - name: default-headers
-        - name: cluster-only-ip-list
+      # middlewares:
+      # - name: default-headers
+      # - name: cluster-only-ip-list
       #   - name: oauth-forward-auth
       #   - name: oauth-headers
       services:

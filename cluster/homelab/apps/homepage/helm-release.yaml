@@ -88,12 +88,12 @@ spec:
                 href: http://localhost/
                 description: Homepage is 😎
       widgets:
-        - resources:
-            # change backend to 'kubernetes' to use Kubernetes integration. Requires RBAC.
-            backend: kunernetes
-            expanded: true
-            # cpu: true
-            # memory: true
+        # - resources:
+        #     # change backend to 'kubernetes' to use Kubernetes integration. Requires RBAC.
+        #     backend: kunernetes
+        #     expanded: true
+        #     cpu: true
+        #     memory: true
         - kubernetes:
             cluster:
               # Shows the cluster node
