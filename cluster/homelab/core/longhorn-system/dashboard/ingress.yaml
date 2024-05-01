@@ -5,6 +5,12 @@ metadata:
   namespace: longhorn-system
   annotations:
     kubernetes.io/ingress.class: traefik-external
+    gethomepage.dev/href: "https://longhorn.local.opryga.com"
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/name: "Longhorn Dashboard"
+    gethomepage.dev/description: "Manage Longhorn volumes"
+    gethomepage.dev/group: "Internal Kubernetes Services"
+    gethomepage.dev/icon: "longhorn.png"
 spec:
   entryPoints:
     - websecure

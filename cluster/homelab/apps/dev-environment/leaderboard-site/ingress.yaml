@@ -6,6 +6,12 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: traefik-external
     # traefik.ingress.kubernetes.io/router.middlewares: traefik-dev-ip-list@kubernetescrd
+    gethomepage.dev/href: "https://leaderboard.dev.opryga.com"
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/name: "Leaderboard Dev Site"
+    gethomepage.dev/description: "Devenv Leaderboard Site"
+    gethomepage.dev/group: "Dev Environment"
+    gethomepage.dev/icon: "php.png"
 spec:
   entryPoints:
     - websecure

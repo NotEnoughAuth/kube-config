@@ -5,6 +5,12 @@ metadata:
   namespace: crowdsec
   annotations:
     kubernetes.io/ingress.class: traefik-external
+    gethomepage.dev/href: "https://crowdsec.local.opryga.com"
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/name: "Crowdsec Dashboard"
+    gethomepage.dev/description: "Crowdsec Dashboard"
+    gethomepage.dev/group: "Internal Kubernetes Services"
+    gethomepage.dev/icon: "crowdsec.png"
 spec:
   entryPoints:
     - websecure
