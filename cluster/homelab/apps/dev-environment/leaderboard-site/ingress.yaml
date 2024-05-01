@@ -9,7 +9,7 @@ metadata:
     gethomepage.dev/href: "https://leaderboard.dev.opryga.com"
     gethomepage.dev/enabled: "true"
     gethomepage.dev/name: "Leaderboard Dev Site"
-    gethomepage.dev/description: "Devenv Leaderboard Site"
+    gethomepage.dev/description: "Dev Leaderboard Site"
     gethomepage.dev/group: "Dev Environment"
     gethomepage.dev/icon: "php.png"
 spec:
