@@ -2,10 +2,11 @@ apiVersion: v1
 kind: Secret
 metadata:
     name: food-tracker-pg-superuser
+    namespace: dev-environment
 type: Opaque
 data:
-    username: ENC[AES256_GCM,data:r0F4X54dVRKWW4T+yvd/eQ==,iv:VispevQIefjqdFM0UKbRx07OpH3HA4olfSaKPOOyEgw=,tag:a9VPvZQoTTIYVoH6iObKSA==,type:str]
-    password: ENC[AES256_GCM,data:ZSYsCdt2HNd9XclTEFcjft055t4EviP6jPTGdxIlAvvUL++1keczAfcXSn8f0HeEwf8PRs9S4+R+W2NdSy9GIp+E+H0=,iv:1tOrRO1KcLns7tOWq82LzpCoE+ekZmLATbLKQHCwE1Y=,tag:mSIfjTtCc2jj5f1/7o5ehA==,type:str]
+    username: ENC[AES256_GCM,data:hRaNfE+/hecWtw41uffa+A==,iv:GCB5PdQ4H0nAIyfkXnr2bvhHiy2aJqELXBif8SgZ7FM=,tag:QkkozyvqdfrpeLXrxyGR8Q==,type:str]
+    password: ENC[AES256_GCM,data:2mXfRGiK8G0iZd5oLWujepiLGjikJpEyEx/s0/NlYJT6gjU9qqm+SA44HX6vOyy9mX9/ipLtpFbWfWPtDNF16ZsK7IY=,iv:q4dSdHRVVVuTB78jhwRC8I6n1+nIvEcEC0Ojdo15FsU=,tag:FWOFdr4kuCR94Ya2kY+vJQ==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -15,14 +16,14 @@ sops:
         - recipient: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBpdUJiRHpaSThBdTd1U0JB
-            cTEvQmluRHJvMk1jem9EYnJBRWw0TjA1R0U4CkoxOWxZcEJUSnY1YkJCb1dFN3JO
-            ejZLT3Vybk5oOGJZdFcwUWU5MFFzU1EKLS0tIFhONTFvb1V1MkVMU2tMNk9mU3Nr
-            VFA2ME13LzJPeE1VSmxpUnFNOXE1bmsKK9In+DHpN3FM0zUlF0LsAB4wjdWCnGB0
-            YsWBF+hFGYKXDwKoJZfFsr29e79bhdovIEbzuXhK6g3W6S2ore2mvQ==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBCNWdvQ0pPTk1qM1JoTUJQ
+            Mjd4UTVnQnVEdzJTZmRWL3owRFlJQTd1c2xrCkk5N2VIWGU1c0ZBak1wQk9Bcjlq
+            bko0RXVwWFc0VjY2QUcrLzhBaGoyMVUKLS0tIEdRUEZtNUVFWG1RcW4xbWtsWHRp
+            elFNSDd2eFpxc3VNZ2IyOWxsaEVESjQK0fDzk4td0JGnPfT/zsBsY8rzZYWbxUeu
+            HO5rPkal7QuH00mYbUvwXhNpDUwxSJEEqnXTR7twqudH/dNYxaNRNw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-05-07T22:44:58Z"
-    mac: ENC[AES256_GCM,data:VRDkMFiznGAfhsglq97VwbRiSLEpStsc34xfkheV9MiPcoID3EOKtqAH1ASdmcBeczEnrwoFArjHxAl6vSroZZ7TUOaiBN+TWXej4MPreJXBGqNY+rk+XWcVff5hrJotwrxI0XFzZuEbMJmDaTU37Giu3cSt0c8pdB4907QNueg=,iv:xy85689kZtpcwmfDdV1x0cNIuXWISmxggYSOYtSKdl4=,tag:RT/hHS4uTbaJ4X8UP4sA8w==,type:str]
+    lastmodified: "2024-05-07T22:48:32Z"
+    mac: ENC[AES256_GCM,data:ubaXbM+jt1OM2wlXBymRufw+XZTiIbywwEUguazKTtmhN43vAYhGBn4t+YyVzpWh0inOIzDk53VtJyOOs9rU4JhJueXlsb6n3ogVEfVIY09c6KHMfjbhmtCchT3gGy8Lj9BN7mcLTskHeUTt51kQzOk8x5Lztrtgh6aojxnpXe4=,iv:bPNmiLaCDo4EPkmx7JlMA0ePiLHueP2rtsVk4EdcodE=,tag:U4Y0/gWDNHbJdBQMkP1hkQ==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData|annotations|)$
     version: 3.8.1

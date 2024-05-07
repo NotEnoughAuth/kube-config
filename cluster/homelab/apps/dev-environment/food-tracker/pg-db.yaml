@@ -2,6 +2,7 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: food-tracker-db
+  namespace: dev-environment
 spec:
   instances: 3
 
