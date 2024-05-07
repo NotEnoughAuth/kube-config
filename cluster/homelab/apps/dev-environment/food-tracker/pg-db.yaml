@@ -9,7 +9,6 @@ spec:
   enableSuperuserAccess: true
   superuserSecret:
     name: food-tracker-pg-superuser
-    namespace: dev-environment
 
   storage:
     storageClass: longhorn-crypto
