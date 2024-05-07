@@ -1,0 +1,14 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: food-tracker-db
+spec:
+  instances: 3
+
+  enableSuperuserAccess: true
+  superuserSecret:
+    name: food-tracker-pg-superuser
+
+  storage:
+    storageClass: longhorn-crypto
+    size: 1Gi
