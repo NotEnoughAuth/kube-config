@@ -7,8 +7,8 @@ spec:
   instances: 3
 
   enableSuperuserAccess: true
-  superuserSecret:
-    name: food-tracker-pg-superuser
+  # superuserSecret:
+  #   name: food-tracker-pg-superuser
 
   storage:
     storageClass: longhorn-crypto
