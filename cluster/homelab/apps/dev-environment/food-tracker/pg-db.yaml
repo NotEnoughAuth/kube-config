@@ -10,6 +10,11 @@ spec:
   # superuserSecret:
   #   name: food-tracker-pg-superuser
 
+  bootstrap:
+    initdb:
+      database: app
+      owner: app
+
   storage:
     storageClass: longhorn-crypto
     size: 1Gi
