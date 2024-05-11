@@ -5,7 +5,7 @@ metadata:
   namespace: minio-operator
   annotations:
     kubernetes.io/ingress.class: traefik-external
-    gethomepage.dev/href: "https://minio-operator.local.opryga.com"
+    gethomepage.dev/href: "https://minio.local.opryga.com"
     gethomepage.dev/enabled: "true"
     gethomepage.dev/name: "Minio Console"
     gethomepage.dev/description: "Console for the Minio Service"
