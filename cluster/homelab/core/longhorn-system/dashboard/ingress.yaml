@@ -28,8 +28,8 @@ spec:
           namespace: traefik
         - name: oauth-headers
           namespace: traefik
-        - name: crowdsec-bouncer
-          namespace: traefik
+        # - name: crowdsec-bouncer
+        #   namespace: traefik
       services:
         - name: longhorn-frontend
           port: 80
@@ -54,9 +54,9 @@ spec:
       services:
         - name: oauth-proxy
           port: 4180
-      middlewares:
-        - name: crowdsec-bouncer
-          namespace: traefik
+      # middlewares:
+      #   - name: crowdsec-bouncer
+      #     namespace: traefik
   # Uncomment and configure for HTTPS
   tls:
     secretName: auth-opryga-com-tls
