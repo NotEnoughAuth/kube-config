@@ -409,7 +409,7 @@ spec:
         ## @param galera.bootstrap.forceSafeToBootstrap Force `safe_to_bootstrap: 1` in `grastate.date` file
         ## This will set safe_to_bootstrap=1 in the node indicated by bootstrapFromNode.
         ##
-        forceSafeToBootstrap: true
+        forceSafeToBootstrap: true #
       ## Credentials to perform backups
       ##
       mariabackup:
