@@ -7,7 +7,7 @@ spec:
   imageRepositoryRef:
     name: leaderboard-site
   filterTags:
-    pattern: "(?P<build>.*)$"
+    pattern: "<build>"
     extract: "$build"
   policy:
     numerical:
