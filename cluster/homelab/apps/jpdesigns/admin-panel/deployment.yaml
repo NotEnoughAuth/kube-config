@@ -22,22 +22,22 @@ spec:
           ports:
             - containerPort: 3000
           env:
-            - name: S3_endpoint
+            - name: S3_ENDPOINT
               valueFrom:
                 secretKeyRef:
                   name: jpdesigns-env
                   key: S3_endpoint
-            - name: S3_bucket
+            - name: S3_BUCKET
               valueFrom:
                 secretKeyRef:
                   name: jpdesigns-env
                   key: S3_bucket
-            - name: S3_access_key
+            - name: S3_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
                   name: jpdesigns-env
                   key: S3_access_key
-            - name: S3_secret_key
+            - name: S3_SECRET_KEY
               valueFrom:
                 secretKeyRef:
                   name: jpdesigns-env
