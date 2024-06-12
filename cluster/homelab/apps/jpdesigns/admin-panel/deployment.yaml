@@ -24,45 +24,45 @@ spec:
             - name: S3_endpoint
               valueFrom:
                 secretKeyRef:
-                  name: jpdesigns-admin
+                  name: jpdesigns-env
                   key: S3_endpoint
             - name: S3_bucket
               valueFrom:
                 secretKeyRef:
-                  name: jpdesigns-admin
+                  name: jpdesigns-env
                   key: S3_bucket
             - name: S3_access_key
               valueFrom:
                 secretKeyRef:
-                  name: jpdesigns-admin
+                  name: jpdesigns-env
                   key: S3_access_key
             - name: S3_secret_key
               valueFrom:
                 secretKeyRef:
-                  name: jpdesigns-admin
+                  name: jpdesigns-env
                   key: S3_secret_key
             - name: DB_HOST
               valueFrom:
                 secretKeyRef:
-                  name: jpdesigns-admin
+                  name: jpdesigns-env
                   key: DB_HOST
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
-                  name: jpdesigns-admin
+                  name: jpdesigns-env
                   key: DB_USER
             - name: DB_PASS
               valueFrom:
                 secretKeyRef:
-                  name: jpdesigns-admin
+                  name: jpdesigns-env
                   key: DB_PASS
             - name: DB_NAME
               valueFrom:
                 secretKeyRef:
-                  name: jpdesigns-admin
+                  name: jpdesigns-env
                   key: DB_NAME
             - name: DB_PORT
               valueFrom:
                 secretKeyRef:
-                  name: jpdesigns-admin
+                  name: jpdesigns-env
                   key: DB_PORT
