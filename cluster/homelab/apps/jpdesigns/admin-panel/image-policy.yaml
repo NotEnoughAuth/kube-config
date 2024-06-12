@@ -6,9 +6,6 @@ metadata:
 spec:
   imageRepositoryRef:
     name: leaderboard-site
-  filterTags:
-    pattern: "<build>"
-    extract: "$build"
   policy:
     numerical:
       order: asc
