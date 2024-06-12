@@ -20,3 +20,49 @@ spec:
           #     cpu: "500m"
           ports:
             - containerPort: 3000
+          env:
+            - name: S3_endpoint
+              valueFrom:
+                secretKeyRef:
+                  name: jpdesigns-admin
+                  key: S3_endpoint
+            - name: S3_bucket
+              valueFrom:
+                secretKeyRef:
+                  name: jpdesigns-admin
+                  key: S3_bucket
+            - name: S3_access_key
+              valueFrom:
+                secretKeyRef:
+                  name: jpdesigns-admin
+                  key: S3_access_key
+            - name: S3_secret_key
+              valueFrom:
+                secretKeyRef:
+                  name: jpdesigns-admin
+                  key: S3_secret_key
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: jpdesigns-admin
+                  key: DB_HOST
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: jpdesigns-admin
+                  key: DB_USER
+            - name: DB_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: jpdesigns-admin
+                  key: DB_PASS
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: jpdesigns-admin
+                  key: DB_NAME
+            - name: DB_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: jpdesigns-admin
+                  key: DB_PORT
