@@ -5,7 +5,7 @@ metadata:
   namespace: jpdesigns
   annotations:
     kubernetes.io/ingress.class: traefik-external
-    gethomepage.dev/href: "https://admin.paintbyjpdeisgns.com"
+    gethomepage.dev/href: "https://admin.paintbyjpdesigns.com"
     gethomepage.dev/enabled: "true"
     gethomepage.dev/name: "JP Designs Dashboard"
     gethomepage.dev/description: "Manage JP Designs projects"
@@ -15,7 +15,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`admin.paintbyjpdeisgns.com`) && PathPrefix(`/`)
+    - match: Host(`admin.paintbyjpdesigns.com`) && PathPrefix(`/`)
       kind: Rule
       middlewares:
         # - name: jpdesigns-admin-basicauth
@@ -49,7 +49,7 @@ spec:
   entryPoints:
     - websecure # or websecure for HTTPS
   routes:
-    - match: Host(`admin.paintbyjpdeisgns.com`) && PathPrefix(`/oauth2/`) # Replace with your domain
+    - match: Host(`admin.paintbyjpdesigns.com`) && PathPrefix(`/oauth2/`) # Replace with your domain
       kind: Rule
       services:
         - name: oauth-proxy
