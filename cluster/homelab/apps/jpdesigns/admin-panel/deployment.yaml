@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jpdesigns-admin
+spec:
+  selector:
+    matchLabels:
+      app: jpdesigns-admin
+  template:
+    metadata:
+      labels:
+        app: jpdesigns-admin
+    spec:
+      containers:
+        - name: jpdesigns-admin
+          image: registry.oplabs.us:5050/root/jp-designs-admin:2 # {"$imagepolicy": "flux-system:jpdesigns-admin"}
+          # resources:
+          #   limits:
+          #     memory: "128Mi"
+          #     cpu: "500m"
+          ports:
+            - containerPort: 3000

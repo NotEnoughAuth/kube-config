@@ -1,0 +1,14 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: jpdesigns-admin
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: leaderboard-site
+  filterTags:
+    pattern: "(?P<build>.*)$"
+    extract: "$build"
+  policy:
+    numerical:
+      order: asc
