@@ -20,7 +20,7 @@ spec:
           #     memory: "128Mi"
           #     cpu: "500m"
           ports:
-            - containerPort: 80
+            - containerPort: 3000
           env:
             - name: S3_ENDPOINT
               valueFrom:
