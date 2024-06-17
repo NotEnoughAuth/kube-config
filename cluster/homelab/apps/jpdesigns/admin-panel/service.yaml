@@ -5,6 +5,7 @@ metadata:
   namespace: jpdesigns
 spec:
   type: LoadBalancer
+  loadBalancerIP: 10.28.10.50
   selector:
     app: jpdesigns-admin
   ports:
