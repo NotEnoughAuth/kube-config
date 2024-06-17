@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   imageRepositoryRef:
-    name: leaderboard-site
+    name: jpdesigns-admin
   policy:
     numerical:
       order: asc
