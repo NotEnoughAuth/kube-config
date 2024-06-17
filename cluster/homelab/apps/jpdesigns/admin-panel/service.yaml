@@ -4,6 +4,7 @@ metadata:
   name: jpdesigns-admin
   namespace: jpdesigns
 spec:
+  type: LoadBalancer
   selector:
     app: jpdesigns-admin
   ports:
