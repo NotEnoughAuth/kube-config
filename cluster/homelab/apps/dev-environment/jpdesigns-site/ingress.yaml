@@ -32,7 +32,7 @@ spec:
         #   namespace: traefik
       services:
         - name: jpdesigns-site
-          port: 3000
+          port: 8080
   tls:
     secretName: paintbyjpdesigns-tls # give it the ole tls cert
 
