@@ -22,8 +22,8 @@ spec:
           namespace: traefik
         - name: oauth-headers
           namespace: traefik
-        - name: crowdsec-bouncer
-          namespace: traefik
+        # - name: crowdsec-bouncer
+        #   namespace: traefik
       services:
         - name: homepage
           port: 3000
