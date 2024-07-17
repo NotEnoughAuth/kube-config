@@ -85,7 +85,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: lubelogger-logs
+  name: lubelogger-log
   namespace: lubelogger
 spec:
   resources:
