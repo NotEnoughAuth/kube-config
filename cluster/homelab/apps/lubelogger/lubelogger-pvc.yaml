@@ -7,7 +7,7 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  storageClassName: longhorn
+  storageClassName: longhorn-crypto
   accessModes:
     - ReadWriteOnce
 
@@ -21,7 +21,7 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  storageClassName: longhorn
+  storageClassName: longhorn-crypto
   accessModes:
     - ReadWriteOnce
 
@@ -35,7 +35,7 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  storageClassName: longhorn
+  storageClassName: longhorn-crypto
   accessModes:
     - ReadWriteOnce
 
@@ -49,7 +49,7 @@ spec:
   resources:
     requests:
       storage: 2Gi
-  storageClassName: longhorn
+  storageClassName: longhorn-crypto
   accessModes:
     - ReadWriteOnce
 
@@ -63,7 +63,7 @@ spec:
   resources:
     requests:
       storage: 2Gi
-  storageClassName: longhorn
+  storageClassName: longhorn-crypto
   accessModes:
     - ReadWriteOnce
 
@@ -77,7 +77,7 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  storageClassName: longhorn
+  storageClassName: longhorn-crypto
   accessModes:
     - ReadWriteOnce
 
@@ -91,7 +91,7 @@ spec:
   resources:
     requests:
       storage: 2Gi
-  storageClassName: longhorn
+  storageClassName: longhorn-crypto
   accessModes:
     - ReadWriteOnce
 
@@ -105,6 +105,6 @@ spec:
   resources:
     requests:
       storage: 2Gi
-  storageClassName: longhorn
+  storageClassName: longhorn-crypto
   accessModes:
     - ReadWriteOnce
