@@ -1,0 +1,71 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lubelogger
+  namespace: lubelogger
+spec:
+  selector:
+    matchLabels:
+      app: lubelogger
+  template:
+    metadata:
+      labels:
+        app: lubelogger
+    spec:
+      containers:
+        - name: lubelogger
+          image: ghcr.io/hargata/lubelogger:v1.3.5
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          volumeMounts:
+            - name: config
+              mountPath: /App/config
+            - name: data
+              mountPath: /App/data
+            - name: translations
+              mountPath: /App/wwwroot/translations
+            - name: documents
+              mountPath: /App/wwwroot/documents
+            - name: images
+              mountPath: /App/wwwroot/images
+            - name: temp
+              mountPath: /App/wwwroot/temp
+            - name: log
+              mountPath: /App/log
+            - name: keys
+              mountPath: /root/.aspnet/DataProtection-Keys
+          ports:
+            - containerPort: 8080
+          env:
+            - name: POSTGRES_CONNECTION
+              valueFrom:
+                secretKeyRef:
+                  name: lubelogger-db-app
+                  key: uri
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: lubelogger-config
+        - name: data
+          persistentVolumeClaim:
+            claimName: lubelogger-data
+        - name: translations
+          persistentVolumeClaim:
+            claimName: lubelogger-translations
+        - name: documents
+          persistentVolumeClaim:
+            claimName: lubelogger-documents
+        - name: images
+          persistentVolumeClaim:
+            claimName: lubelogger-images
+        - name: temp
+          persistentVolumeClaim:
+            claimName: lubelogger-temp
+        - name: log
+          persistentVolumeClaim:
+            claimName: lubelogger-log
+        - name: keys
+          persistentVolumeClaim:
+            claimName: lubelogger-keys
