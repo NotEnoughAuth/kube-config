@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: lubelogger-env
+  namespace: lubelogger
+type: Opaque
+data:
+  pg-con-string: ENC[AES256_GCM,data:dvpXHAnFyHdxUj2cT1wGYGz+75bGoiqqWGEpRMrt33rvZFlwaTo4O/fOfeQ/0pV+Re0Bte+hV4QNmNGYOVjPf8x3FhYYIxAkB3L4qrwVxrYMF7UXPWG+pXvdLsE/ydOLnCgPeWBR/bix3FkOC6uSLe+iMD2eIW8cdwc+Za9Fy1+aXwi85ydW/0/C70qM3ohxONbnd2ki2MAtIBy9v9WO4Baqy+4SK7i21c4msg==,iv:7rxqB+9cMI5yE+f2TKLxXDD5mCHLBFu5rC4ItjOvZpE=,tag:QFwiquxpGwFP7CzXCuhv3A==,type:str]
+sops:
+  kms: []
+  gcp_kms: []
+  azure_kv: []
+  hc_vault: []
+  age:
+    - recipient: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBmQkRIdXFlbWR6K2lzK3NF
+        QlRNQkRvMmFpbnc5N1NPVnM1ckh6c210K3hnClZ5YnhoZ0VMNTJndVVmVEVRam1s
+        MnRxWHY0VUYzbHd1dDJzL0JucWFjVjQKLS0tIHRHV2dhMm1STFR3bEhHQStQaFFN
+        YVFoMWZxY1JMQUw2SW9ZcGUxN2JORWMK5O0bIuo/Y5xF2EjgIzxkzZEo1Cxj1hnR
+        Vg6eFAEl2EAzUI/p4RgBg9y5aix4eeK30w11Lx69ikYz3Oc+tLQ/tA==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2024-07-17T13:09:56Z"
+  mac: ENC[AES256_GCM,data:tVUmCMzWh42WOPT1yzV2DtU94MzzKLvaYExfsvr+we5MemVXHu3Lucea8rK8NyeBxf2OPEU828VohdU6DKyhNi5QILF20KDQuxXsymPnVqiZwGfN3Ybfsv76RDKj+kX13rOV0umdQpDUWy0YEY3UqMlAOpKJ3XHsH8vuoECDFQU=,iv:jZdJz+9RfGJ4fWusRVzyNAb7iBU+wSlVHSeco3M+Vrk=,tag:VCuh9gt86M1a7AZ+RRPAOw==,type:str]
+  pgp: []
+  encrypted_regex: ^(data|stringData|annotations|)$
+  version: 3.8.1

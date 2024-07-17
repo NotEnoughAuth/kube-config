@@ -42,8 +42,8 @@ spec:
             - name: POSTGRES_CONNECTION
               valueFrom:
                 secretKeyRef:
-                  name: lubelogger-db-app
-                  key: uri
+                  name: lubelogger-env
+                  key: pg-con-string
             - name: LC_ALL
               value: en_US.UTF-8
             - name: LANG
