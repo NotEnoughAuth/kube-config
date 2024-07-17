@@ -7,9 +7,9 @@ metadata:
     kubernetes.io/ingress.class: traefik-external
     gethomepage.dev/href: "https://lubelogger.opryga.com"
     gethomepage.dev/enabled: "true"
-    gethomepage.dev/name: "JP Designs Dashboard"
-    gethomepage.dev/description: "Manage JP Designs projects"
-    gethomepage.dev/group: "JP Designs"
+    gethomepage.dev/name: "Lube Logger"
+    gethomepage.dev/description: "Manage your vehicle maintenance"
+    gethomepage.dev/group: "Extras"
     gethomepage.dev/icon: "nodejs.png"
 spec:
   entryPoints:
@@ -32,7 +32,7 @@ spec:
         #   namespace: traefik
       services:
         - name: lubelogger
-          port: 3000
+          port: 8080
   tls:
     secretName: opryga-com-tls # give it the ole tls cert
 
