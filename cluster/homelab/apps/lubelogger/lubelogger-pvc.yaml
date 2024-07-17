@@ -15,20 +15,6 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: lubelogger-data
-  namespace: lubelogger
-spec:
-  resources:
-    requests:
-      storage: 1Gi
-  storageClassName: longhorn-crypto
-  accessModes:
-    - ReadWriteOnce
-
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
   name: lubelogger-translations
   namespace: lubelogger
 spec:
