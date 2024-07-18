@@ -1,0 +1,28 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: oauth-forward-auth
+  namespace: jpdesigns
+spec:
+  forwardAuth:
+    # address: http://oauth-proxy.ms-sso.svc.cluster.local:4180/oauth2/auth
+    # address: https://auth.opryga.com/oauth2/auth
+    address: https://admin.paintbyjpdesigns.com/oauth2/
+    trustForwardHeader: true
+    authRequestHeaders:
+      - "X-Real-IP"
+      - "X-Forwarded-For"
+      - "X-Forwarded-Proto"
+      - "X-Forwarded-Host"
+      - "X-Forwarded-Uri"
+      - "X-Forwarded-Server"
+      - "X-Forwarded-Port"
+      - "Origin"
+      - "Authorization"
+      - "Cookie"
+    authResponseHeaders:
+      - X-Auth-Request-Access-Token
+      - Authorization
+    # authResponseHeaders:
+    #   - X-Auth-User
+    #   - X-Auth-Request-Email
