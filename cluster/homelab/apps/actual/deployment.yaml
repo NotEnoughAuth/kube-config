@@ -25,7 +25,7 @@ spec:
           volumeMounts:
             - name: actual-data
               mountPath: ./actual-data:/data
-    volumes:
-      - name: actual-data
-        persistentVolumeClaim:
-          claimName: actual-data
+      volumes:
+        - name: actual-data
+          persistentVolumeClaim:
+            claimName: actual-data
