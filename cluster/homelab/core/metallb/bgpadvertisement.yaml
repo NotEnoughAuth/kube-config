@@ -8,5 +8,3 @@ spec:
     - metallb-pool
   aggregationLength: 32
   localPref: 100
-  communities:
-    - 65535:65282
