@@ -63,7 +63,7 @@ spec:
       labels: {}
       loadBalancerSourceRanges: []
       spec:
-        loadBalancerIP: 10.28.10.10
+        loadBalancerIP: 10.27.50.10
         externalTrafficPolicy: Local
       type: LoadBalancer
     volumes:
