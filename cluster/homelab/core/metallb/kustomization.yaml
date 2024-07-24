@@ -6,4 +6,3 @@ resources:
     - bgppeer.yaml
     - helm-release.yaml
     - release-values.yaml
-    #
