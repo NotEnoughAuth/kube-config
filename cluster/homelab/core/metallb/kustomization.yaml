@@ -5,3 +5,4 @@ resources:
     #- bgpadvertisement.yaml
     #- bgppeer.yaml
     - helm-release.yaml
+    - namespace.yaml
