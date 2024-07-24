@@ -5,5 +5,5 @@ metadata:
   namespace: metallb-system
 spec:
   myASN: 64501
-  peerASN: 64500
+  peerASN: 64512
   peerAddress: 10.27.10.1
