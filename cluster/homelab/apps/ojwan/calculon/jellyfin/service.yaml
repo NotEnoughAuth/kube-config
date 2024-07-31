@@ -5,7 +5,7 @@ metadata:
   namespace: external
 spec:
   ports:
-    - name: overseerr-port
-      port: 5055
-      targetPort: 5055
+    - name: jellyfin-port
+      port: 8096
+      targetPort: 8096
       protocol: TCP
