@@ -1,8 +1,8 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: jellyfin
-  namespace: external
+  name: jellyfin-service
+  namespace: ojwan
 spec:
   ports:
     - name: jellyfin-port
