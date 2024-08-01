@@ -9,7 +9,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`signup.calculon.ojwan.org`)
+    - match: Host(`signup-calculon.ojwan.org`)
       kind: Rule
       middlewares:
         - name: default-headers
