@@ -13,6 +13,7 @@ spec:
   issuerRef:
     name: letsencrypt-production
     kind: ClusterIssuer
-  commonName: "ojwan.org"
+  commonName: "*.ojwan.org"
   dnsNames:
     - "ojwan.org"
+    - "*.ojwan.org"
