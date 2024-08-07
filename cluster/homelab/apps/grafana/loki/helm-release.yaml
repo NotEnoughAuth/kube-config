@@ -78,7 +78,7 @@ spec:
     bloomGateway:
       replicas: 0
 
-  gateway:
-    service:
-      type: "LoadBalancer"
-      LoadBalancerIP: 10.27.50.20/24
+    gateway:
+      service:
+        type: "LoadBalancer"
+        LoadBalancerIP: 10.27.50.20/24
