@@ -25,6 +25,8 @@ spec:
             index:
               prefix: loki_index_
               period: 24h
+      config:
+        expand-env: true
       ingester:
         chunk_encoding: snappy
       tracing:
