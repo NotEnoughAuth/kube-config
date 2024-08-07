@@ -6,3 +6,4 @@ metadata:
 spec:
   addresses:
     - 10.27.50.0/24
+  avoidBuggyIPs: true
