@@ -85,5 +85,4 @@ spec:
 
     gateway:
       service:
-        type: "LoadBalancer"
-        LoadBalancerIP: 10.27.50.20/24
+        LoadBalancerIP: 10.27.50.20
