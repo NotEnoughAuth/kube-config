@@ -68,9 +68,27 @@ spec:
     bloomGateway:
       replicas: 0
 
-    # Enable minio for storage
-    minio:
-      enabled: true
+    storage:
+      type: s3
+      s3:
+        # s3 URL can be used to specify the endpoint, access key, secret key, and bucket name
+        #s3: s3://access_key:secret_access_key@custom_endpoint/bucket_name
+        # AWS endpoint URL
+        endpoint: http://10.27.10.26:9000
+        # AWS region where the S3 bucket is located
+        #region: <your-region>
+        # AWS secret access key
+        secretAccessKey: <your-secret-access-key>
+        # AWS access key ID
+        accessKeyId: <your-access-key-id>
+        # AWS signature version (e.g., v2 or v4)
+        #signatureVersion: <your-signature-version>
+        # Forces the path style for S3 (true/false)
+        s3ForcePathStyle: false
+        # Allows insecure (HTTP) connections (true/false)
+        insecure: true
+        # HTTP configuration settings
+        http_config: {}
 
     # Zero out replica counts of other deployment modes
     backend:
@@ -86,4 +104,3 @@ spec:
     gateway:
       service:
         type: LoadBalancer
-        LoadBalancerIP: 10.27.50.20
