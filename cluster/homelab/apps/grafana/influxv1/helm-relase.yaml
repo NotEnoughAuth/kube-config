@@ -25,6 +25,8 @@ spec:
       # pullSecrets:
       #   - registry-secret
 
+    fullnameOverride: "influxv1"
+
     serviceAccount:
       create: true
       name:
