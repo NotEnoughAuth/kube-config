@@ -13,7 +13,7 @@ spec:
         namespace: flux-system
   interval: 15m
   timeout: 5m
-  releaseName: influx
+  releaseName: influxv1
   values:
     ## influxdb image version
     ## ref: https://hub.docker.com/r/library/influxdb/tags/
@@ -25,7 +25,8 @@ spec:
       # pullSecrets:
       #   - registry-secret
 
-    fullnameOverride: "influxv1"
+    nameOverride: "influxv1"
+    # fullnameOverride: "influxv1"
 
     serviceAccount:
       create: true

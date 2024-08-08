@@ -13,7 +13,7 @@ spec:
         namespace: flux-system
   interval: 15m
   timeout: 5m
-  releaseName: influx
+  releaseName: influxv2
   values:
     image:
       repository: influxdb
@@ -31,8 +31,8 @@ spec:
     ##
     podLabels: {}
 
-    nameOverride: ""
-    fullnameOverride: "influxv2"
+    nameOverride: "influxv2"
+    # fullnameOverride: "influxv2"
 
     ## Configure resource requests and limits
     ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
