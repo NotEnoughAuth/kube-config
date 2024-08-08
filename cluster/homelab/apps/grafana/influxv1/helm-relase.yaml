@@ -89,7 +89,7 @@ spec:
       # storageClass: "-"
       annotations: {}
       accessMode: ReadWriteOnce
-      size: 8Gi
+      size: 50Gi
       storageClassName: longhorn
 
     ## Deploy InfluxDB Enterprise - License required
