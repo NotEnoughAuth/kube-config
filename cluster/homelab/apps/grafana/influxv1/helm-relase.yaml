@@ -2,7 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
   name: influxv1
-  namespace: influxv1
+  namespace: grafana
 spec:
   chart:
     spec:
