@@ -6,7 +6,7 @@ metadata:
 spec:
   count: 1
   elasticsearchRefs:
-    - name: logstash
+    - name: quickstart
       clusterName: qs
   version: 8.15.0
   pipelinesRef:
