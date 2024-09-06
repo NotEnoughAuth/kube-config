@@ -1,0 +1,33 @@
+apiVersion: logstash.k8s.elastic.co/v1alpha1
+kind: Logstash
+metadata:
+  name: quickstart
+spec:
+  count: 1
+  elasticsearchRefs:
+    - name: quickstart
+      clusterName: qs
+  version: 8.15.0
+  pipelinesRef:
+    secretName: smtp-pipeline
+  services:
+    - name: beats
+      service:
+        spec:
+          type: NodePort
+          ports:
+            - port: 5044
+              name: "filebeat"
+              protocol: TCP
+              targetPort: 5044
+  podTemplate:
+    spec:
+      volumes:
+        - name: logstash-patterns
+          configMap:
+            name: logstash-patterns
+      containers:
+        - name: logstash
+          volumeMounts:
+            - name: logstash-patterns
+              mountPath: /etc/logstash/patterns.d
