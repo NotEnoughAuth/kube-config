@@ -15,7 +15,7 @@ spec:
     - name: beats
       service:
         spec:
-          type: NodePort
+          type: LoadBalancer
           ports:
             - port: 5044
               name: "filebeat"
