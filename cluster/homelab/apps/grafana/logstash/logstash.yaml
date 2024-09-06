@@ -1,11 +1,12 @@
 apiVersion: logstash.k8s.elastic.co/v1alpha1
 kind: Logstash
 metadata:
-  name: quickstart
+  name: logstash
+  namespace: grafana
 spec:
   count: 1
   elasticsearchRefs:
-    - name: quickstart
+    - name: logstash
       clusterName: qs
   version: 8.15.0
   pipelinesRef:
