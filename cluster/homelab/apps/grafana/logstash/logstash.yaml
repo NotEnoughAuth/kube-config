@@ -36,4 +36,4 @@ spec:
     - metadata:
         name: logstash-data
       spec:
-        storageClassName: longhorn
+        storageClassName: standard
