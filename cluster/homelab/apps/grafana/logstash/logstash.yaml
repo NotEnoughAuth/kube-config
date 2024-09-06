@@ -32,3 +32,8 @@ spec:
           volumeMounts:
             - name: logstash-patterns
               mountPath: /etc/logstash/patterns.d
+  volumeClaimTemplates:
+    - metadata:
+        name: logstash-data
+      spec:
+        storageClassName: standard
