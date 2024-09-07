@@ -32,13 +32,3 @@ spec:
           volumeMounts:
             - name: logstash-patterns
               mountPath: /etc/logstash/patterns.d
-  volumeClaimTemplates:
-    - metadata:
-        name: logstash-data
-      spec:
-        accessModes:
-          - ReadWriteOnce
-        storageClassName: longhorn
-        resources:
-          requests:
-            storage: 2Gi
