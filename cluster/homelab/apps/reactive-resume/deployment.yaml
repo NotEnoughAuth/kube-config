@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resume
+  namespace: react-resume
+spec:
+  selector:
+    matchLabels:
+      app: resume
+  template:
+    metadata:
+      labels:
+        app: resume
+    spec:
+      containers:
+        - name: resume
+          image: amruthpillai/reactive-resume:latest
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 3000
+          env:
+            - name: PORT
+              value: "3000"
+            - name: NODE_ENV
+              value: "production"
+            - name: "DATABASE_URL"
+              valueFrom:
+                secretKeyRef:
+                  name: resume-db-app
+                  key: uri
+            - name: "STORAGE_ENDPOINT"
+              value: "minio"
+            - name: "STORAGE_PORT"
+              value: "9000"
+            - name: "STORAGE_BUCKET"
+              value: "reactive-resume"
+            - name: "STORAGE_ACCESS_KEY"
+              valueFrom:
+                secretKeyRef:
+                  name: resume-minio
+                  key: accesskey
+            - name: "STORAGE_SECRET_KEY"
+              valueFrom:
+                secretKeyRef:
+                  name: resume-minio
+                  key: secretkey
