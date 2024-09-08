@@ -17,7 +17,7 @@ spec:
           image: amruthpillai/reactive-resume:latest
           resources:
             limits:
-              memory: "128Mi"
+              memory: "1Gi"
               cpu: "500m"
           ports:
             - containerPort: 3000
