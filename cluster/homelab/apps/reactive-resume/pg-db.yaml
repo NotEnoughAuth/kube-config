@@ -2,7 +2,7 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: resume-db
-  namespace: dev-environment
+  namespace: react-resume
 spec:
   instances: 3
 
