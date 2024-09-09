@@ -20,10 +20,10 @@ spec:
       middlewares:
         # - name: jpdesigns-admin-basicauth
         #   namespace: jpdesigns
-        # - name: default-headers
-        #   namespace: traefik
-        - name: local-ip-list
+        - name: default-headers
           namespace: traefik
+        # - name: local-ip-list
+        #   namespace: traefik
         # - name: oauth-forward-auth
         #   namespace: traefik
         # - name: oauth-headers
