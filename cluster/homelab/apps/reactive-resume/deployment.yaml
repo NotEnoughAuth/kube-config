@@ -68,3 +68,13 @@ spec:
                 secretKeyRef:
                   name: resume-minio
                   key: refresh-token-secret
+            - name: MAIL_FROM
+              valueFrom:
+                secretKeyRef:
+                  name: resume-minio
+                  key: mail-from
+            - name: SMTP_URL
+              valueFrom:
+                secretKeyRef:
+                  name: resume-minio
+                  key: smtp-url
