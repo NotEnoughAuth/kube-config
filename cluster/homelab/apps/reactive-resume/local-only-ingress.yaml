@@ -15,19 +15,35 @@ spec:
   entryPoints:
     - websecure
   routes:
+    - match: Host(`resume.opryga.com`) && PathPrefix(`/artboard/builder`)
+      kind: Rule
+      middlewares:
+        # - name: jpdesigns-admin-basicauth
+        #   namespace: jpdesigns
+        # - name: default-headers
+        #   namespace: traefik
+        - name: local-ip-list
+          namespace: traefik
+        - name: same-origin-headers
+          namespace: react-resume
+        # - name: crowdsec-bouncer
+        #   namespace: traefik
+      services:
+        - name: react-resume
+          port: 3000
     - match: Host(`resume.opryga.com`) && PathPrefix(`/`)
       kind: Rule
       middlewares:
         # - name: jpdesigns-admin-basicauth
         #   namespace: jpdesigns
-        - name: default-headers
+        # - name: default-headers
+        #   namespace: traefik
+        - name: local-ip-list
           namespace: traefik
-        # - name: local-ip-list
-        #   namespace: traefik
-        # - name: oauth-forward-auth
-        #   namespace: traefik
-        # - name: oauth-headers
-        #   namespace: traefik
+        - name: oauth-forward-auth
+          namespace: traefik
+        - name: oauth-headers
+          namespace: traefik
         # - name: crowdsec-bouncer
         #   namespace: traefik
       services:
