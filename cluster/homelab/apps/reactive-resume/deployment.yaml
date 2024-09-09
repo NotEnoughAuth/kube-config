@@ -57,7 +57,7 @@ spec:
             - name: PUBLIC_URL
               value: "https://resume.opryga.com"
             - name: STORAGE_URL
-              value: "https://10.27.10.26:9000/reactive-resume"
+              value: "https://s3.opryga.com/reactive-resume"
             - name: ACCESS_TOKEN_SECRET
               valueFrom:
                 secretKeyRef:
