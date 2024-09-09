@@ -17,19 +17,19 @@ spec:
   routes:
     - match: Host(`resume.opryga.com`) && PathPrefix(`/`)
       kind: Rule
-      # middlewares:
-      #   # - name: jpdesigns-admin-basicauth
-      #   #   namespace: jpdesigns
-      #   # - name: default-headers
-      #   #   namespace: traefik
-      #   - name: local-ip-list
-      #     namespace: traefik
-      #   - name: oauth-forward-auth
-      #     namespace: traefik
-      #   - name: same-origin-headers
-      #     namespace: react-resume
-      #   # - name: crowdsec-bouncer
-      #   #   namespace: traefik
+      middlewares:
+        # - name: jpdesigns-admin-basicauth
+        #   namespace: jpdesigns
+        # - name: default-headers
+        #   namespace: traefik
+        - name: local-ip-list
+          namespace: traefik
+        - name: oauth-forward-auth
+          namespace: traefik
+        - name: same-origin-headers
+          namespace: react-resume
+        # - name: crowdsec-bouncer
+        #   namespace: traefik
       services:
         - name: react-resume
           port: 3000
