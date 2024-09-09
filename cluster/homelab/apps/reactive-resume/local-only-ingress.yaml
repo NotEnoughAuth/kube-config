@@ -15,11 +15,6 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`resume.opryga.com`) && PathPrefix(`/artboard/builder`)
-      kind: Rule
-      services:
-        - name: react-resume
-          port: 3000
     - match: Host(`resume.opryga.com`) && PathPrefix(`/`)
       kind: Rule
       middlewares:
@@ -31,8 +26,8 @@ spec:
           namespace: traefik
         - name: oauth-forward-auth
           namespace: traefik
-        - name: oauth-headers
-          namespace: traefik
+        - name: same-origin-headers
+          namespace: react-resume
         # - name: crowdsec-bouncer
         #   namespace: traefik
       services:
