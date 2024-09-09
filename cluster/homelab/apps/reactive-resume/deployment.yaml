@@ -55,7 +55,7 @@ spec:
             - name: CHROME_URL
               value: "ws://headless-chrome:3000"
             - name: PUBLIC_URL
-              value: "https://resume.oplabs.us"
+              value: "https://resume.opryga.com"
             - name: STORAGE_URL
               value: "https://10.27.10.26:9000/reactive-resume"
             - name: ACCESS_TOKEN_SECRET
