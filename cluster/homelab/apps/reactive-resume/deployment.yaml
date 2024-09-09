@@ -47,3 +47,10 @@ spec:
                 secretKeyRef:
                   name: resume-minio
                   key: secretkey
+            - name: CHROME_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: resume-minio
+                  key: chrome-token
+            - name: CHROME_URL
+              value: "ws://headless-chrome:3000"
