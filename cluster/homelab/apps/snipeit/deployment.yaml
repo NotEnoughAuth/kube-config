@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: snipeit
+  namespace: snipeit
+spec:
+  selector:
+    matchLabels:
+      app: snipeit
+  template:
+    metadata:
+      labels:
+        app: snipeit
+    spec:
+      containers:
+        - name: snipeit
+          image: snipe/snipe-it:v5.1.7
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
+          env:
+            - name: MYSQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: snipeit-db
+                  key: mysql_database
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: snipeit-db
+                  key: mysql_user
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: snipeit-db
+                  key: mysql_password
+            - name: MYSQL_PORT_3306_TCP_ADDR
+              valueFrom:
+                secretKeyRef:
+                  name: snipeit-db
+                  key: mysql_port_3306_tcp_addr
+            - name: MYSQL_PORT_3306_TCP_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: snipeit-db
+                  key: mysql_port_3306_tcp_port
+            - name: APP_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: snipeit-env
+                  key: app_key
+            - name: APP_URL
+              value: "http://snipeit.local.opryga.com:8080"
+            - name: APP_TIMEZONE
+              value: "US/Chicago"
+            - name: APP_LOCALE
+              value: "en"
+            - name: APP_DEBUG
+              value: "false"
+            - name: APP_ENV
+              value: "production"
