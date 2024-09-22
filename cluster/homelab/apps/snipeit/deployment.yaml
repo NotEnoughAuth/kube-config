@@ -55,7 +55,7 @@ spec:
             - name: APP_URL
               value: "http://snipeit.local.opryga.com:8080"
             - name: APP_TIMEZONE
-              value: "US/Chicago"
+              value: "America/Chicago"
             - name: APP_LOCALE
               value: "en"
             - name: APP_DEBUG
