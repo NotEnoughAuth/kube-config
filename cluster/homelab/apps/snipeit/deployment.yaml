@@ -53,7 +53,7 @@ spec:
                   name: snipe-env
                   key: app_key
             - name: APP_URL
-              value: "http://snipeit.local.opryga.com:8080"
+              value: "http://127.0.0.1:8080"
             - name: APP_TIMEZONE
               value: "America/Chicago"
             - name: APP_LOCALE
