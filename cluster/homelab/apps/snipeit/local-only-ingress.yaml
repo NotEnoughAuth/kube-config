@@ -32,7 +32,7 @@ spec:
         #   namespace: traefik
       services:
         - name: snipeit
-          port: 8080
+          port: 80
   tls:
     secretName: local-opryga-com-tls # give it the ole tls cert
 
