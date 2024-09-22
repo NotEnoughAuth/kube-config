@@ -53,7 +53,7 @@ spec:
                   name: snipe-env
                   key: app_key
             - name: APP_URL
-              value: "https://snipeit.local.opryga.com"
+              value: "http://snipeit.local.opryga.com"
             - name: APP_TIMEZONE
               value: "America/Chicago"
             - name: APP_LOCALE
@@ -62,3 +62,38 @@ spec:
               value: "false"
             - name: APP_ENV
               value: "production"
+            - name: MAIL_PORT_587_TCP_ADDR
+              valueFrom:
+                secretKeyRef:
+                  name: snipe-env
+                  key: mail_port_587_tcp_addr
+            - name: MAIL_PORT_587_TCP_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: snipe-env
+                  key: mail_port_587_tcp_port
+            - name: MAIL_ENV_FROM_ADDR
+              valueFrom:
+                secretKeyRef:
+                  name: snipe-env
+                  key: mail_env_from_addr
+            - name: MAIL_ENV_FROM_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: snipe-env
+                  key: mail_env_from_name
+            - name: MAIL_ENV_ENCRYPTION
+              valueFrom:
+                secretKeyRef:
+                  name: snipe-env
+                  key: mail_env_encryption
+            - name: MAIL_ENV_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: snipe-env
+                  key: mail_env_username
+            - name: MAIL_ENV_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: snipe-env
+                  key: mail_env_password
