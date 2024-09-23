@@ -18,12 +18,12 @@ spec:
           resources:
             limits:
               memory: "1Gi"
-              cpu: "500m"
+              cpu: "1000m"
           ports:
             - containerPort: 3000
           env:
             - name: TIMEOUT
-              value: "10000"
+              value: "60000"
             - name: CONCURRENT
               value: "10"
             - name: EXIT_ON_HEALTH_FAILURE
