@@ -9,7 +9,7 @@ spec:
   ports:
     - port: 8080
       targetPort: 8080
-      appProtocol: ws
+      # appProtocol: ws
 
 ---
 apiVersion: v1
