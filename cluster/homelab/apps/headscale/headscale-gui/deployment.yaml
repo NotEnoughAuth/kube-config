@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: headscale
+  name: headscale-gui
   namespace: headscale
 spec:
   selector:
@@ -10,14 +10,14 @@ spec:
   template:
     metadata:
       labels:
-        app: headscale
+        app: headscale-gui
     spec:
       volumes:
         - name: headscale-config
           secret:
             secretName: headscale-config
       containers:
-        - name: headscale
+        - name: headscale-gui
           image: ghcr.io/ifargle/headscale-webui:latest
           resources:
             limits:
