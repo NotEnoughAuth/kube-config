@@ -30,4 +30,5 @@ spec:
             - name: headscale-config
               mountPath: /etc/headscale:ro
           command:
+            - "headscale"
             - "serve"
