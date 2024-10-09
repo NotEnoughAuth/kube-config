@@ -13,7 +13,7 @@ metadata:
     # gethomepage.dev/icon: "nodejs.png"
 spec:
   entryPoints:
-    - "https"
+    - websecure
   routes:
     - match: Host(`headscale.oplabs.us`) && PathPrefix(`/`)
       kind: Rule
