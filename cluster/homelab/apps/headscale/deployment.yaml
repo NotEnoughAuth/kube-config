@@ -14,8 +14,8 @@ spec:
     spec:
       volumes:
         - name: headscale-config
-          secret:
-            secretName: headscale-config
+          configMap:
+            name: headscale-config
       containers:
         - name: headscale
           image: headscale/headscale:0.23.0
