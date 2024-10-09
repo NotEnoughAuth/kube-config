@@ -28,4 +28,4 @@ spec:
             - containerPort: 9090
           volumeMounts:
             - name: headscale-config
-              mountPath: /etc/headscale
+              mountPath: /etc/headscale:ro
