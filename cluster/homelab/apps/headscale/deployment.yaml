@@ -28,6 +28,7 @@ spec:
             - containerPort: 9090
           volumeMounts:
             - name: headscale-config
-              mountPath: /etc/headscale:ro
+              mountPath: /etc/headscale
+              readOnly: true
           args:
             - "serve"

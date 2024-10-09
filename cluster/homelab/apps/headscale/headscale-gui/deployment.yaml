@@ -60,4 +60,5 @@ spec:
                   key: BASIC_AUTH_PASS
           volumeMounts:
             - name: headscale-config
-              mountPath: /etc/headscale:ro
+              mountPath: /etc/headscale
+              readOnly: true
