@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: headscale
+      app: headscale-gui
   template:
     metadata:
       labels:
