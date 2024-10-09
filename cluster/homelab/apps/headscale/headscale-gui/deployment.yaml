@@ -28,6 +28,8 @@ spec:
           env:
             - name: COLOR
               value: "red"
+            - name: LOG_LEVEL
+              value: "debug"
             - name: HS_SERVER
               valueFrom:
                 secretKeyRef:
@@ -43,21 +45,6 @@ spec:
                 secretKeyRef:
                   name: gui-secrets
                   key: encrypt-key
-            - name: AUTH_TYPE
-              valueFrom:
-                secretKeyRef:
-                  name: gui-secrets
-                  key: AUTH_TYPE
-            - name: BASIC_AUTH_USER
-              valueFrom:
-                secretKeyRef:
-                  name: gui-secrets
-                  key: BASIC_AUTH_USER
-            - name: BASIC_AUTH_PASS
-              valueFrom:
-                secretKeyRef:
-                  name: gui-secrets
-                  key: BASIC_AUTH_PASS
           volumeMounts:
             - name: headscale-config
               mountPath: /etc/headscale
