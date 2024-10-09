@@ -57,7 +57,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`headscale.oplabs.us`) && PathPrefix(`/admin/`)
+    - match: Host(`headscale.oplabs.us`) && PathPrefix(`/admin`)
       kind: Rule
       middlewares:
         # - name: jpdesigns-admin-basicauth
