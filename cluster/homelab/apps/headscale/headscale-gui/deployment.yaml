@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: headscale
+  namespace: headscale
+spec:
+  selector:
+    matchLabels:
+      app: headscale
+  template:
+    metadata:
+      labels:
+        app: headscale
+    spec:
+      volumes:
+        - name: headscale-config
+          secret:
+            secretName: headscale-config
+      containers:
+        - name: headscale
+          image: ghcr.io/ifargle/headscale-webui:latest
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
+          env:
+            - name: COLOR
+              value: "red"
+            - name: HS_SERVER
+              valueFrom:
+                secretKeyRef:
+                  name: gui-secrets
+                  key: HS_SERVER
+            - name: DOMAIN_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: gui-secrets
+                  key: DOMAIN_NAME
+            - name: KEY
+              valueFrom:
+                secretKeyRef:
+                  name: gui-secrets
+                  key: encrypt-key
+            - name: AUTH_TYPE
+              valueFrom:
+                secretKeyRef:
+                  name: gui-secrets
+                  key: AUTH_TYPE
+            - name: BASIC_AUTH_USER
+              valueFrom:
+                secretKeyRef:
+                  name: gui-secrets
+                  key: BASIC_AUTH_USER
+            - name: BASIC_AUTH_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: gui-secrets
+                  key: BASIC_AUTH_PASS
+          volumeMounts:
+            - name: headscale-config
+              mountPath: /etc/headscale:ro

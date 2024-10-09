@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: headscale
+  namespace: headscale
+spec:
+  selector:
+    matchLabels:
+      app: headscale
+  template:
+    metadata:
+      labels:
+        app: headscale
+    spec:
+      volumes:
+        - name: headscale-config
+          secret:
+            secretName: headscale-config
+      containers:
+        - name: headscale
+          image: headscale/headscale:0.23.0
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
+            - containerPort: 9090
+          volumeMounts:
+            - name: headscale-config
+              mountPath: /etc/headscale
