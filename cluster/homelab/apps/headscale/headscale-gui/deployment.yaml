@@ -14,8 +14,8 @@ spec:
     spec:
       volumes:
         - name: headscale-config
-          secret:
-            secretName: headscale-config
+          configMap:
+            name: headscale-config
       containers:
         - name: headscale-gui
           image: ghcr.io/ifargle/headscale-webui:latest
