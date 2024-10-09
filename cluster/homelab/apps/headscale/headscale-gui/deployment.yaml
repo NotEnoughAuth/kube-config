@@ -24,7 +24,7 @@ spec:
               memory: "128Mi"
               cpu: "500m"
           ports:
-            - containerPort: 8080
+            - containerPort: 5000
           env:
             - name: COLOR
               value: "red"
