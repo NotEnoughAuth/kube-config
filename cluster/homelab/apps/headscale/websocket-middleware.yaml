@@ -5,6 +5,15 @@ metadata:
   namespace: headscale
 spec:
   headers:
+    frameDeny: true
+    browserXssFilter: true
+    contentTypeNosniff: true
+    forceSTSHeader: true
+    stsIncludeSubdomains: true
+    stsPreload: true
+    stsSeconds: 15552000
+    customFrameOptionsValue: SAMEORIGIN
     customRequestHeaders:
-      Connection: keep-alive, Upgrade
+      X-Forwarded-Proto: https
       Upgrade: WebSocket
+      Connection: Upgrade
