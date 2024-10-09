@@ -1,26 +1,26 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-    name: headscale-config
-    namespace: headscale
+  name: headscale-acl
+  namespace: headscale
 data: {}
 sops:
-    kms: []
-    gcp_kms: []
-    azure_kv: []
-    hc_vault: []
-    age:
-        - recipient: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
-          enc: |
-            -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB2Smllbk5CVEI4VFlQRU1C
-            ZW10bXlaem5FaEl0VXN1LytBbzUzeXZqMmtjCi9YdkdFUW9CdEdOVlovQ0YxeFJp
-            djdxUEZIbGh3Q1RCbGF4TnFJNnhoYW8KLS0tIG5WR080cW5Xd3o3RXdNNDZ3S2pJ
-            cUU1TEtoQ2wrS1RoRzdIUC9TMDZDSGcKQvHMbyxNJ/JLbx7Bv46lV7jgDTxHxvQg
-            +k/umD5wg6gPqqZ4ftgRkl1mzPcprrxJHolqQpEka5n1h5/2JlpO/Q==
-            -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-10-09T02:37:57Z"
-    mac: ENC[AES256_GCM,data:tyqe4LNvKyG8BxlbAdTzZz8Pxx4qUWaablzmiryVNwAXFkPLGjcp00hQw8jZ7cruYjpn1cvMu7TA8L8ZIlpzTGTB9H2y3tOB1yEDfgDqkv4uDytN0gVuw+weA3gTFhS0rPl4d3v6/q1Nbrx6aFBrC3X2Vm5B2/7CbjPe1vQM3/o=,iv:InCFw0eNK9i/GYPVTL4SFt56ZYqf6dDbwiqdst9ZNmk=,tag:uK2G5b/cik7nH9R8XWF1WA==,type:str]
-    pgp: []
-    encrypted_regex: ^(data|stringData|annotations|)$
-    version: 3.8.1
+  kms: []
+  gcp_kms: []
+  azure_kv: []
+  hc_vault: []
+  age:
+    - recipient: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBYUDMxQjdiV0hnWWZmd21R
+        K2F5ZkpzMmV1VDJRYWRhaTJNZHFUdWhQbVZnCjNRU2JwaFVMaTg0VlpDcE91Sisy
+        bDF0THdUemZwNFVIemVqVVA2ck5yN2cKLS0tIGZNc245dm9sMlNUMjl0dlNndWU4
+        YUsvTlc2WjJHNVVjOEpqeDFLWnh4LzAKejiOzkSnIpJXoPIx8nEJu1DasVsEKPBA
+        37LFvaphEwNWedwviuPbvOoywg3v8itf4hmx1Zb9hg+ZQDPdyeszLA==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2024-10-09T02:43:36Z"
+  mac: ENC[AES256_GCM,data:eA4Z0laaneLQbf1Zi10uC2VTIrKvDnZp/Va/d4RuVtMGx85QqEQRZK8sIEsi/IT1LZaqNN47KZCXLB63Z9yRQEcR6ipw5N9Yd7oQwGwd9FL8CvV7AZmfURtnluXAKHZkGRX//cAClwGK266ZprGRq7zL476JL1DExXirC1HR+rA=,iv:4Gw21Kjkw2TJq+6YK+vN/wG9PbdGPi6e8cLaY3F9tLI=,tag:gTznh3RGux9roqkktfjGSA==,type:str]
+  pgp: []
+  encrypted_regex: ^(data|stringData|annotations|)$
+  version: 3.8.1
