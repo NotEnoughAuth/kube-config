@@ -18,13 +18,13 @@ spec:
             name: headscale-config
       containers:
         - name: headscale-gui
-          image: ghcr.io/gurucomputing/headscale-ui:2024.02.24-beta1
+          image: ghcr.io/gurucomputing/headscale-ui:latest
           resources:
             limits:
               memory: "128Mi"
               cpu: "500m"
           ports:
-            - containerPort: 80
+            - containerPort: 8080
           #   - name: COLOR
           #     value: "blue"
           #   - name: LOG_LEVEL

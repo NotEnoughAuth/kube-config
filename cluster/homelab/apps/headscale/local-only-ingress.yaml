@@ -57,7 +57,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`headscale.local.opryga.com`) && PathPrefix(`/`)
+    - match: Host(`headscale.oplabs.us`) && PathPrefix(`/admin/`)
       kind: Rule
       middlewares:
         # - name: jpdesigns-admin-basicauth
@@ -73,10 +73,10 @@ spec:
         # - name: crowdsec-bouncer
         #   namespace: traefik
       services:
-        - name: headscale-metrics
-          port: 9090
+        - name: headscale-ui
+          port: 8080
   tls:
-    secretName: local-opryga-com-tls # give it the ole tls cert
+    secretName: oplabs-us-tls # give it the ole tls cert
 
 ---
 # Authenticated requests to /oauth2/ will be forwarded to the oauth-proxy service
@@ -91,7 +91,7 @@ spec:
   entryPoints:
     - websecure # or websecure for HTTPS
   routes:
-    - match: Host(`headscale.local.opryga.com`) && PathPrefix(`/oauth2/`) # Replace with your domain
+    - match: Host(`headscale.oplabs.us`) && PathPrefix(`/oauth2/`) # Replace with your domain
       kind: Rule
       services:
         - name: oauth-proxy
@@ -101,7 +101,7 @@ spec:
       #     namespace: traefik
   # Uncomment and configure for HTTPS
   tls:
-    secretName: local-opryga-com-tls # give it the ole tls cert
+    secretName: oplabs-us-tls # give it the ole tls cert
 ---
 # add externalName service for oauth-proxy
 apiVersion: v1
