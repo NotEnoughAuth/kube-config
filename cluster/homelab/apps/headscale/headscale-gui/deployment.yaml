@@ -18,34 +18,33 @@ spec:
             name: headscale-config
       containers:
         - name: headscale-gui
-          image: ghcr.io/ifargle/headscale-webui:latest
+          image: ghcr.io/gurucomputing/headscale-ui:latest
           resources:
             limits:
               memory: "128Mi"
               cpu: "500m"
           ports:
-            - containerPort: 5000
-          env:
-            - name: COLOR
-              value: "blue"
-            - name: LOG_LEVEL
-              value: "debug"
-            - name: HS_SERVER
-              valueFrom:
-                secretKeyRef:
-                  name: gui-secrets
-                  key: HS_SERVER
-            - name: DOMAIN_NAME
-              valueFrom:
-                secretKeyRef:
-                  name: gui-secrets
-                  key: DOMAIN_NAME
-            - name: KEY
-              valueFrom:
-                secretKeyRef:
-                  name: gui-secrets
-                  key: encrypt-key
-          volumeMounts:
-            - name: headscale-config
-              mountPath: /etc/headscale
-              readOnly: true
+            - containerPort: 8080
+          #   - name: COLOR
+          #     value: "blue"
+          #   - name: LOG_LEVEL
+          #     value: "debug"
+          #   - name: HS_SERVER
+          #     valueFrom:
+          #       secretKeyRef:
+          #         name: gui-secrets
+          #         key: HS_SERVER
+          #   - name: DOMAIN_NAME
+          #     valueFrom:
+          #       secretKeyRef:
+          #         name: gui-secrets
+          #         key: DOMAIN_NAME
+          #   - name: KEY
+          #     valueFrom:
+          #       secretKeyRef:
+          #         name: gui-secrets
+          #         key: encrypt-key
+          # volumeMounts:
+          #   - name: headscale-config
+          #     mountPath: /etc/headscale
+          #     readOnly: true
