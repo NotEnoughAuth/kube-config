@@ -6,6 +6,7 @@ metadata:
 spec:
   selector:
     app: headscale
+  type: LoadBalancer
   loadBalancerIP: 10.27.50.20
   ports:
     - port: 8080
