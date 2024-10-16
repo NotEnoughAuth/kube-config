@@ -23,5 +23,13 @@ spec:
       services:
         - name: jpdesigns-site
           port: 8080
+    - match: Host(`www.paintbyjpdesigns.com`) && PathPrefix(`/`)
+      kind: Rule
+      middlewares:
+        - name: default-headers
+          namespace: traefik
+      services:
+        - name: jpdesigns-site
+          port: 8080
   tls:
     secretName: paintbyjpdesigns-tls # give it the ole tls cert
