@@ -1,14 +1,14 @@
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
 metadata:
-  name: jpdesigns-site
+  name: jpdesigns-site-prod
   namespace: flux-system
 spec:
   imageRepositoryRef:
     name: jpdesigns-site
-  filterTags:
-    pattern: "^dev-(?P<build>.*)$"
-    extract: "$build"
   policy:
+    filterTags:
+      pattern: "^main-(?P<build>.*)$"
+      extract: "$build"
     numerical:
       order: asc

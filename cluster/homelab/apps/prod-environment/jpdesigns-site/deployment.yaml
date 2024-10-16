@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: jpdesigns-site
-  namespace: dev-environment
+  namespace: prod-environment
 spec:
   selector:
     matchLabels:
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: jpdesigns-site
-          image: registry.oplabs.us:5050/root/new-jp-designs:dev-31 # {"$imagepolicy": "flux-system:jpdesigns-site"}
+          image: registry.oplabs.us:5050/root/new-jp-designs:main-32 # {"$imagepolicy": "flux-system:jpdesigns-site-prod"}
           # resources:
           #   limits:
           #     memory: "128Mi"
