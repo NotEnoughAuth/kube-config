@@ -6,9 +6,9 @@ metadata:
 spec:
   imageRepositoryRef:
     name: jpdesigns-site
+  filterTags:
+    pattern: "^main-(?P<build>.*)$"
+    extract: "$build"
   policy:
-    filterTags:
-      pattern: "^main-(?P<build>.*)$"
-      extract: "$build"
     numerical:
       order: asc
