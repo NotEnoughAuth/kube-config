@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: jpdesigns-site
-          image: registry.oplabs.us:5050/root/new-jp-designs:dev-31 # {"$imagepolicy": "flux-system:jpdesigns-site"}
+          image: registry.oplabs.us:5050/root/new-jp-designs:dev-33 # {"$imagepolicy": "flux-system:jpdesigns-site"}
           # resources:
           #   limits:
           #     memory: "128Mi"
