@@ -4,6 +4,7 @@ metadata:
   name: jpdesigns-site
   namespace: prod-environment
 spec:
+  replicas: 3
   selector:
     matchLabels:
       app: jpdesigns-site
@@ -20,7 +21,7 @@ spec:
           #     memory: "128Mi"
           #     cpu: "500m"
           ports:
-            - containerPort: 3000
+            - containerPort: 8080
           env:
             - name: S3_ENDPOINT
               valueFrom:
