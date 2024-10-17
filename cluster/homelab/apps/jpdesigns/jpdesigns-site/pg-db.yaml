@@ -2,7 +2,7 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: jpdesigns-db
-  namespace: prod-environment
+  namespace: jpdesigns
 spec:
   instances: 3
 
@@ -26,3 +26,6 @@ spec:
     limits:
       memory: "1Gi"
       cpu: "2"
+
+  monitoring:
+    enablePodMonitor: true
