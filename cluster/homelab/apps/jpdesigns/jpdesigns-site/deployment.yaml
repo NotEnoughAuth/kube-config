@@ -44,7 +44,10 @@ spec:
                   name: jpdesigns-env
                   key: S3_secret_key
             - name: DB_HOST
-              value: "jpdesigns-db-ro"
+              valueFrom:
+                secretKeyRef:
+                  name: jpdesigns-db-app
+                  key: host
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
