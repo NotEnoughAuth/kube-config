@@ -45,28 +45,28 @@ spec:
             - name: DB_HOST
               valueFrom:
                 secretKeyRef:
-                  name: jpdesigns-env
-                  key: DB_HOST
+                  name: jpdesigns-db-app
+                  key: host
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
-                  name: jpdesigns-env
-                  key: DB_USER
+                  name: jpdesigns-db-app
+                  key: user
             - name: DB_PASS
               valueFrom:
                 secretKeyRef:
-                  name: jpdesigns-env
-                  key: DB_PASS
+                  name: jpdesigns-db-app
+                  key: password
             - name: DB_NAME
               valueFrom:
                 secretKeyRef:
-                  name: jpdesigns-env
-                  key: DB_NAME
+                  name: jpdesigns-db-app
+                  key: dbname
             - name: DB_PORT
               valueFrom:
                 secretKeyRef:
-                  name: jpdesigns-env
-                  key: DB_PORT
+                  name: jpdesigns-db-app
+                  key: port
             - name: HCAPTCHA_SITEKEY
               valueFrom:
                 secretKeyRef:
