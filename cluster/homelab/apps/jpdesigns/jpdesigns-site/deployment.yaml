@@ -100,3 +100,7 @@ spec:
                   key: EMAIL_PASS
             - name: PORT
               value: "8080"
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
