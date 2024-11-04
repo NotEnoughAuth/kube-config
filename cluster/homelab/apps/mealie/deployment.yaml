@@ -27,7 +27,7 @@ spec:
             - name: LOG_LEVEL
               value: "debug"
             - name: DB_ENGINE
-              value: "postgres"
+              value: "sqlite"
             - name: POSTGRES_SERVER
               valueFrom:
                 secretKeyRef:
