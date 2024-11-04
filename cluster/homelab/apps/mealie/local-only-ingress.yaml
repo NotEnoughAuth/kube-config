@@ -1,0 +1,76 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: mealie
+  namespace: mealie
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+    gethomepage.dev/href: "https://mealie.local.opryga.com"
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/name: "Mealie"
+    gethomepage.dev/description: "Manage your recipies and meal plans"
+    gethomepage.dev/group: "FOOD"
+    gethomepage.dev/icon: "nodejs.png"
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`mealie.local.opryga.com`) && PathPrefix(`/`)
+      kind: Rule
+      middlewares:
+        # - name: jpdesigns-admin-basicauth
+        #   namespace: jpdesigns
+        # - name: default-headers
+        #   namespace: traefik
+        - name: local-ip-list
+          namespace: traefik
+        - name: oauth-forward-auth
+          namespace: traefik
+        - name: oauth-headers
+          namespace: traefik
+        # - name: crowdsec-bouncer
+        #   namespace: traefik
+      services:
+        - name: mealie
+          port: 9000
+  tls:
+    secretName: local-opryga-com-tls # give it the ole tls cert
+
+---
+# Authenticated requests to /oauth2/ will be forwarded to the oauth-proxy service
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: oauth-proxy-path
+  namespace: mealie
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+spec:
+  entryPoints:
+    - websecure # or websecure for HTTPS
+  routes:
+    - match: Host(`mealie.local.opryga.com`) && PathPrefix(`/oauth2/`) # Replace with your domain
+      kind: Rule
+      services:
+        - name: oauth-proxy
+          port: 4180
+      # middlewares:
+      #   - name: crowdsec-bouncer
+      #     namespace: traefik
+  # Uncomment and configure for HTTPS
+  tls:
+    secretName: local-opryga-com-tls
+---
+# add externalName service for oauth-proxy
+apiVersion: v1
+kind: Service
+metadata:
+  name: oauth-proxy
+  namespace: mealie
+spec:
+  type: ExternalName
+  externalName: oauth-proxy.ms-sso.svc.cluster.local
+  ports:
+    - name: http
+      port: 4180
+      targetPort: 4180
