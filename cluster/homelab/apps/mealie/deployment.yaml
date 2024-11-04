@@ -24,6 +24,8 @@ spec:
           env:
             - name: ALLOW_SIGNUPS
               value: "false"
+            - name: LOG_LEVEL
+              value: "DEBUG"
             - name: DB_ENGINE
               value: "postgres"
             - name: POSTGRES_SERVER
