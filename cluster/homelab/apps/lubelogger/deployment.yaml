@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: lubelogger
-          image: ghcr.io/hargata/lubelogger:v1.3.5
+          image: ghcr.io/hargata/lubelogger:v1.4.1
           resources:
             limits:
               memory: "128Mi"
