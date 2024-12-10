@@ -9,7 +9,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`ctf.uwstout.club`)
+    - match: Host(`ctf.oplabs.us`)
       kind: Rule
       middlewares:
         []
@@ -23,4 +23,4 @@ spec:
         - name: ctfd-service
           port: 8000
   tls:
-    secretName: uwstout-club-tls # give it the ole tls cert
+    secretName: oplabs-us-tls # give it the ole tls cert
