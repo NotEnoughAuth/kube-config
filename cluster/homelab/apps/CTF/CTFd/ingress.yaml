@@ -9,13 +9,14 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`ctf.uwstout.club`) && PathPrefix(`/`)
+    - match: Host(`ctf.uwstout.club`)
       kind: Rule
       middlewares:
+        []
         # - name: jpdesigns-admin-basicauth
         #   namespace: jpdesigns
-        - name: default-headers
-          namespace: traefik
+        # - name: default-headers
+        #   namespace: traefik
         # - name: crowdsec-bouncer
         #   namespace: traefik
       services:
