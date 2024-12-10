@@ -21,6 +21,6 @@ spec:
         #   namespace: traefik
       services:
         - name: nuclearsite
-          port: 8000
+          port: 80
   tls:
     secretName: oplabs-us-tls # give it the ole tls cert
