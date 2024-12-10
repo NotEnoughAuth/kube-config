@@ -1,0 +1,25 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ctfd
+  namespace: ctf
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`ctf.uwstout.club`) && PathPrefix(`/`)
+      kind: Rule
+      middlewares:
+        # - name: jpdesigns-admin-basicauth
+        #   namespace: jpdesigns
+        - name: default-headers
+          namespace: traefik
+        # - name: crowdsec-bouncer
+        #   namespace: traefik
+      services:
+        - name: ctfd
+          port: 8000
+  tls:
+    secretName: uwstout-club-tls # give it the ole tls cert
