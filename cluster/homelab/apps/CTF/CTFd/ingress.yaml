@@ -19,7 +19,7 @@ spec:
         # - name: crowdsec-bouncer
         #   namespace: traefik
       services:
-        - name: ctfd
+        - name: ctfd-service
           port: 8000
   tls:
     secretName: uwstout-club-tls # give it the ole tls cert
