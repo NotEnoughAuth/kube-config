@@ -37,3 +37,10 @@ spec:
               value: "true"
           ports:
             - containerPort: 8000
+          volumeMounts:
+            - mountPath: /var/uploads
+              name: uploads
+      volumes:
+        - name: uploads
+          persistentVolumeClaim:
+            claimName: uploads-pvc
