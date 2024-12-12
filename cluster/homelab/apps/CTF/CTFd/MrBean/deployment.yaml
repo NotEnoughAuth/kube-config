@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: mrbean
-          image: registry.oplabs.us:5050/root/ctf-web-fourm:latest
+          image: registry.oplabs.us:5050/root/ctf-web-forum:latest
           pull-policy: Always
           resources:
             limits:
