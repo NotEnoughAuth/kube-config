@@ -42,5 +42,5 @@ spec:
             - containerPort: 8000
       volumes:
         - name: uploads
-          persistantVolumeClaim:
+          persistentVolumeClaim:
             claimName: uploads-pvc
