@@ -13,10 +13,6 @@ spec:
       labels:
         app: ctfd
     spec:
-      volumes:
-        - name: uploads
-          persistantVolumeClaim:
-            claimName: uploads-pvc
       containers:
         - name: ctfd
           image: ctfd/ctfd
@@ -44,3 +40,7 @@ spec:
               name: uploads
           ports:
             - containerPort: 8000
+      volumes:
+        - name: uploads
+          persistantVolumeClaim:
+            claimName: uploads-pvc
