@@ -40,7 +40,7 @@ spec:
             - name: REVERSE_PROXY
               value: "true"
           volumeMounts:
-            - name: uploads
-              mountPath: /var/uploads
+            - mountPath: /var/uploads
+              name: uploads
           ports:
             - containerPort: 8000
