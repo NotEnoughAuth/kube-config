@@ -35,12 +35,5 @@ spec:
                   key: REDIS_URL
             - name: REVERSE_PROXY
               value: "true"
-          volumeMounts:
-            - mountPath: /var/uploads
-              name: uploads
           ports:
             - containerPort: 8000
-      volumes:
-        - name: uploads
-          persistentVolumeClaim:
-            claimName: uploads-pvc
