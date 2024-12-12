@@ -13,6 +13,8 @@ spec:
       labels:
         app: ctfd
     spec:
+      securityContext:
+        fsGroup: 1001
       containers:
         - name: ctfd
           image: ctfd/ctfd
