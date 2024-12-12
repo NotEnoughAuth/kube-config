@@ -22,8 +22,8 @@ spec:
           image: ctfd/ctfd
           resources:
             limits:
-              memory: "128Mi"
-              cpu: "500m"
+              memory: "1Gi"
+              cpu: "5000m"
           env:
             - name: UPLOAD_FOLDER
               value: /var/uploads
