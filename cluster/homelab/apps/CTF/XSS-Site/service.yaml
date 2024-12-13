@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: xss-site
+  namespace: ctf
+spec:
+  selector:
+    app: xss-site
+  ports:
+    - port: 80
+      targetPort: 80
