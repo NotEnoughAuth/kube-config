@@ -18,7 +18,7 @@ spec:
           pull-policy: Always
           resources:
             limits:
-              memory: "128Mi"
-              cpu: "500m"
+              memory: "1GiMi"
+              cpu: "5000m"
           ports:
             - containerPort: 80
