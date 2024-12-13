@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: xss-site
-          image: registry.oplabs.us:5050/root/ctf-web-fu6:latest
+          image: registry.oplabs.us:5050/root/ctf-web-xss:latest
           pull-policy: Always
           resources:
             limits:
