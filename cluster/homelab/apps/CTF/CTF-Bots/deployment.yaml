@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bloodbyte
+  namespace: ctf
+spec:
+  selector:
+    matchLabels:
+      app: bloodbyte
+  template:
+    metadata:
+      labels:
+        app: bloodbyte
+    spec:
+      containers:
+        - name: bloodbyte
+          image: registry.oplabs.us:5050/root/ctf-bots:latest
+          pull-policy: Always
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80
