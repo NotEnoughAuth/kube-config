@@ -22,3 +22,10 @@ spec:
               cpu: "500m"
           ports:
             - containerPort: 80
+          volumeMounts:
+            - mountPath: /databases
+              name: databases
+      volumes:
+        - name: databases
+          persistentVolumeClaim:
+            claimName: bot-db
