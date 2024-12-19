@@ -1,7 +1,7 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: commandInjection1
+  name: command-injection1
   namespace: ctf
   annotations:
     kubernetes.io/ingress.class: traefik-external
@@ -20,7 +20,7 @@ spec:
         # - name: crowdsec-bouncer
         #   namespace: traefik
       services:
-        - name: commandInjection1
+        - name: command-injection1
           port: 80
   tls:
     secretName: oplabs-us-tls # give it the ole tls cert
@@ -28,7 +28,7 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: commandInjection2
+  name: command-injection2
   namespace: ctf
   annotations:
     kubernetes.io/ingress.class: traefik-external
@@ -47,7 +47,7 @@ spec:
         # - name: crowdsec-bouncer
         #   namespace: traefik
       services:
-        - name: commandInjection2
+        - name: command-injection2
           port: 80
   tls:
     secretName: oplabs-us-tls # give it the ole tls cert
@@ -55,7 +55,7 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: commandInjection3
+  name: command-injection3
   namespace: ctf
   annotations:
     kubernetes.io/ingress.class: traefik-external
@@ -74,7 +74,7 @@ spec:
         # - name: crowdsec-bouncer
         #   namespace: traefik
       services:
-        - name: commandInjection3
+        - name: command-injection3
           port: 80
   tls:
     secretName: oplabs-us-tls # give it the ole tls cert
@@ -82,7 +82,7 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: commandInjection4
+  name: command-injection4
   namespace: ctf
   annotations:
     kubernetes.io/ingress.class: traefik-external
@@ -101,7 +101,7 @@ spec:
         # - name: crowdsec-bouncer
         #   namespace: traefik
       services:
-        - name: commandInjection4
+        - name: command-injection4
           port: 80
   tls:
     secretName: oplabs-us-tls # give it the ole tls cert

@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: commandInjection1
+  name: command-injection1
   namespace: ctf
 spec:
   selector:
     matchLabels:
-      app: commandInjection1
+      app: command-injection1
   template:
     metadata:
       labels:
-        app: commandInjection1
+        app: command-injection1
     spec:
       containers:
-        - name: commandInjection1
+        - name: command-injection1
           image: registry.oplabs.us:5050/root/ctf-ci:lvl1
           pull-policy: Always
           resources:
@@ -27,19 +27,19 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: commandInjection2
+  name: command-injection2
   namespace: ctf
 spec:
   selector:
     matchLabels:
-      app: commandInjection2
+      app: command-injection2
   template:
     metadata:
       labels:
-        app: commandInjection2
+        app: command-injection2
     spec:
       containers:
-        - name: commandInjection2
+        - name: command-injection2
           image: registry.oplabs.us:5050/root/ctf-ci:lvl2
           pull-policy: Always
           resources:
@@ -53,19 +53,19 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: commandInjection3
+  name: command-injection3
   namespace: ctf
 spec:
   selector:
     matchLabels:
-      app: commandInjection3
+      app: command-injection3
   template:
     metadata:
       labels:
-        app: commandInjection3
+        app: command-injection3
     spec:
       containers:
-        - name: commandInjection3
+        - name: command-injection3
           image: registry.oplabs.us:5050/root/ctf-ci:lvl3
           pull-policy: Always
           resources:
@@ -78,19 +78,19 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: commandInjection4
+  name: command-injection4
   namespace: ctf
 spec:
   selector:
     matchLabels:
-      app: commandInjection4
+      app: command-injection4
   template:
     metadata:
       labels:
-        app: commandInjection4
+        app: command-injection4
     spec:
       containers:
-        - name: commandInjection4
+        - name: command-injection4
           image: registry.oplabs.us:5050/root/ctf-ci:lvl4
           pull-policy: Always
           resources:
