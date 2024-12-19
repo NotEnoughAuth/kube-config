@@ -10,7 +10,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`ci1.oplabs.us`)
+    - match: Host(`ci.oplabs.us`)
       kind: Rule
       middlewares:
         []
