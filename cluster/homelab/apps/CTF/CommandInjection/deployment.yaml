@@ -1,0 +1,101 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: commandInjection1
+  namespace: ctf
+spec:
+  selector:
+    matchLabels:
+      app: commandInjection1
+  template:
+    metadata:
+      labels:
+        app: commandInjection1
+    spec:
+      containers:
+        - name: commandInjection1
+          image: registry.oplabs.us:5050/root/ctf-ci:lvl1
+          pull-policy: Always
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: commandInjection2
+  namespace: ctf
+spec:
+  selector:
+    matchLabels:
+      app: commandInjection2
+  template:
+    metadata:
+      labels:
+        app: commandInjection2
+    spec:
+      containers:
+        - name: commandInjection2
+          image: registry.oplabs.us:5050/root/ctf-ci:lvl2
+          pull-policy: Always
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: commandInjection3
+  namespace: ctf
+spec:
+  selector:
+    matchLabels:
+      app: commandInjection3
+  template:
+    metadata:
+      labels:
+        app: commandInjection3
+    spec:
+      containers:
+        - name: commandInjection3
+          image: registry.oplabs.us:5050/root/ctf-ci:lvl3
+          pull-policy: Always
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: commandInjection4
+  namespace: ctf
+spec:
+  selector:
+    matchLabels:
+      app: commandInjection4
+  template:
+    metadata:
+      labels:
+        app: commandInjection4
+    spec:
+      containers:
+        - name: commandInjection4
+          image: registry.oplabs.us:5050/root/ctf-ci:lvl4
+          pull-policy: Always
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80
