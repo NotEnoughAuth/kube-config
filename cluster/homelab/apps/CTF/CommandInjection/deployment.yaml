@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: command-injection1
-          image: registry.oplabs.us:5050/root/ctf-ci:lvl1
+          image: registry.oplabs.us:5050/root/ctf-ci@sha256:019dda540ab8083ac3f7f4fc084ab50cf1fb7a34c983b760e1029e9db4801a8e
           pull-policy: Always
           resources:
             limits:
@@ -41,7 +41,7 @@ spec:
     spec:
       containers:
         - name: command-injection2
-          image: registry.oplabs.us:5050/root/ctf-ci:lvl2
+          image: registry.oplabs.us:5050/root/ctf-ci@sha256:72648eab39364abd871be92e90883be0d54f9de0613b068758d76b25b837bb9c
           pull-policy: Always
           resources:
             limits:
@@ -67,7 +67,7 @@ spec:
     spec:
       containers:
         - name: command-injection3
-          image: registry.oplabs.us:5050/root/ctf-ci:lvl3
+          image: registry.oplabs.us:5050/root/ctf-ci@sha256:d537f3bddd3649c10f85f2ee4aa2b86e265639ed5d7cd4d3666e52f0a6b30ad4
           pull-policy: Always
           resources:
             limits:
@@ -92,7 +92,7 @@ spec:
     spec:
       containers:
         - name: command-injection4
-          image: registry.oplabs.us:5050/root/ctf-ci:lvl4
+          image: registry.oplabs.us:5050/root/ctf-ci@sha256:44057b57f57caf2ca98e52060e19fad796b85c790cc9a8e116a8ea3106c05785
           pull-policy: Always
           resources:
             limits:
