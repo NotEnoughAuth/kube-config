@@ -1,4 +1,3 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -21,43 +20,3 @@ spec:
       containers:
         - name: deathstar
           image: quay.io/cilium/starwars:v2.1
----
-apiVersion: apps/v1
-kind: Pod
-metadata:
-  name: tiefighter
-  labels:
-    org: empire
-    class: tiefighter
-    app.kubernetes.io/name: tiefighter
-spec:
-  containers:
-    - name: spaceship
-      image: quay.io/cilium/json-mock:v1.3.8
----
-apiVersion: apps/v1
-kind: Pod
-metadata:
-  name: xwing
-  labels:
-    app.kubernetes.io/name: xwing
-    org: alliance
-    class: xwing
-spec:
-  containers:
-    - name: spaceship
-      image: quay.io/cilium/json-mock:v1.3.8
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: deathstar
-  labels:
-    app.kubernetes.io/name: deathstar
-spec:
-  type: ClusterIP
-  ports:
-    - port: 80
-  selector:
-    org: empire
-    class: deathstar
