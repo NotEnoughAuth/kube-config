@@ -1,0 +1,15 @@
+apiVersion: cilium.io/v2alpha1
+kind: CiliumBGPClusterConfig
+metadata:
+  name: cilium-bgp
+  namespace: kube-system
+spec:
+  bgpInstances:
+    - name: "main-instance"
+      localASN: 65000
+      peers:
+        - name: "pfsense-router"
+          peerASN: 64512
+          peerAddress: 10.27.15.1
+          peerConfigRef:
+            name: "cilium-peer"
