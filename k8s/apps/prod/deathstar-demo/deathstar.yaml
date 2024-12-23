@@ -22,7 +22,7 @@ spec:
         - name: deathstar
           image: quay.io/cilium/starwars:v2.1
 ---
-apiVersion: v1
+apiVersion: apps/v1
 kind: Pod
 metadata:
   name: tiefighter
@@ -35,7 +35,7 @@ spec:
     - name: spaceship
       image: quay.io/cilium/json-mock:v1.3.8
 ---
-apiVersion: v1
+apiVersion: apps/v1
 kind: Pod
 metadata:
   name: xwing
