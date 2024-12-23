@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+    - dev-opryga-com.yaml
+    - oplabs-us.yaml
+    - auth-opryga-com.yaml
+    - local-opryga-com.yaml
+    - opryga-com.yaml
+    - paintbyjpdesigns-com.yaml
+    - uwstout-club.yaml
+    - ojwan-org.yaml

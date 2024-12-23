@@ -1,0 +1,25 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: signup-ingress
+  namespace: ojwan
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`signup-calculon.ojwan.org`)
+      kind: Rule
+      middlewares:
+        - name: default-headers
+          namespace: traefik
+        - name: ojwan-ip-list
+          namespace: traefik
+        # - name: crowdsec-bouncer
+        #   namespace: traefik
+      services:
+        - name: signup
+          port: 8056
+  tls:
+    secretName: ojwan-org-tls

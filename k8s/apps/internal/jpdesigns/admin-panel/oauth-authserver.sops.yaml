@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: authenticationserver
+    namespace: jpdesigns
+type: Opaque
+data:
+    clientid: ENC[AES256_GCM,data:sdmoeWsd7jsRzZkP/9Dd9/46S92SYMp2PEudFK36ZfaFEKGDVHDM1cqzRBnvE4a9,iv:Ox30lZv5c5fFnzN8Kr/gU92RiiK+WO6xUBwhelspdww=,tag:prYzVSCA9tzjY2/ZCiQ9TQ==,type:str]
+    clientsecret: ENC[AES256_GCM,data:B0g0Z23s7T2ayiq/EVUM3TWQYWvw820jAkP61BDf1ia9UfEDOvKFvxQi0ujH1PViGcRP4H7dNkg=,iv:nYqjIOLMVvKqmSFJ5EGpX3NL0RT3nURKuNr2cD8+z6A=,tag:DK8kr/uG1PvlFioDvt+x5w==,type:str]
+    tenant: ENC[AES256_GCM,data:dllbl5dxEyoveIof9nXRAEOAve9b5ymq+/+uYKWk7hFoNzUDW4kGyD3smUu+pgo3,iv:RWHCP6+ozgtToX+LOrjbsMhlcPSmezqQuYK7UMcipAk=,tag:S4V0CFsWSGgR6rmTqhXpqg==,type:str]
+    jwtsecret: ENC[AES256_GCM,data:iky0RHx8BEX2oztCy0PILWCr9MMdFjG2F7DZqvP8LZ1zpP/WJXQi+zE2dgABOfOEHLivtscACZmeTowg,iv:KJnSEq590OamR7mvKL7yL7ek741YZKYm6KkzFwkh9t8=,tag:rcL7redSMag2gLR6fGhHkQ==,type:str]
+    issuerurl: ENC[AES256_GCM,data:V4GzpaX7wzE7JjHxjKCMQEQ7Y/LwgCA/7w9ZCpaatfoQcjDKbufooQbpDEwvC9GBacoVms3jnrH0M2q9YIkuhqy0Jo2RncM0rl6X2E1kCtkb8HGxkkBo9+TM6mPFMKF7Kr2YoQ==,iv:e52eHo7m8UMGzPyJYqzsGGckUVzb4tOmUY0L/mnKICY=,tag:M9VWvitPoI4zSKbNanfM7g==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBDQjg3ODBPelNLbC9MaTV1
+            WUQyVkNkREdCMmpieXE4dytKZ3pmNGJWLzBFClllT1l2Y3RkSXhybkNtRUcyclc3
+            YXI1MWtYanl4eHMrT0JDL1dsZzlTOTAKLS0tIGxNbVJJV05DVVBiVHh3TnZqcEpN
+            UnhOajc1d08yZzhOc3daUDBpaFpTMWsKQVuLecmZwQFG1zJnU/AyjkktOKbvTJQe
+            A7S6Qkfuv53SC0y1/4iMpLmy9HHtzqH4DvwGimEJWLMOMgaY48o16w==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-07-18T18:58:39Z"
+    mac: ENC[AES256_GCM,data:PRiGZE66/NWmpSzx9HaBS5UgSt3Koi9+tAAcn4p/UhcvWvOAYM2ngn8LZuz2Lkasqf+r99dWvmKROAscF+yXKsTDWCg+g1DwcLTpkgEaQGUXtxzyjoJ8vUkY2FojrPHyGzyA9947G/z631BS+okQAvBF6NCxnUFcdBZImFhWego=,iv:TSZ3ONGvw7c7sYW2mFv/cWWxN5o6rw9IM5PaVWLcXLg=,tag:o3zcfbHbIIBXFDw3NlXo4w==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData|annotations|)$
+    version: 3.8.1

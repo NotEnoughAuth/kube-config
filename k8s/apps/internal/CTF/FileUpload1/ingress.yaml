@@ -1,0 +1,26 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: upload1
+  namespace: ctf
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`upload1.oplabs.us`)
+      kind: Rule
+      middlewares:
+        []
+        # - name: jpdesigns-admin-basicauth
+        #   namespace: jpdesigns
+        # - name: default-headers
+        #   namespace: traefik
+        # - name: crowdsec-bouncer
+        #   namespace: traefik
+      services:
+        - name: upload1
+          port: 80
+  tls:
+    secretName: oplabs-us-tls # give it the ole tls cert

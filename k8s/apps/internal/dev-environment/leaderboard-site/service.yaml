@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: leaderboard-site
+  namespace: dev-environment
+spec:
+  selector:
+    app: leaderboard-site
+  ports:
+  - name: http
+    targetPort: 80
+    port: 80

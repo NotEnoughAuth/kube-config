@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: container-registry
+  namespace: external
+spec:
+  ports:
+    - name: container-registry-port
+      port: 5050
+      targetPort: 5050
+      protocol: TCP

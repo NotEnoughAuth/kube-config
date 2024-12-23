@@ -1,0 +1,20 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: container-registry-ingress
+  namespace: external
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`registry.opryga.com`)
+      kind: Rule
+      middlewares:
+        - name: external-special-headers
+      services:
+        - name: container-registry
+          port: 5050
+  tls:
+    secretName: opryga-com-tls

@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: accounts-mariadb
+    namespace: mariadb
+type: Opaque
+data:
+    mariadb-root-password: ENC[AES256_GCM,data:bwYnAkCz3qQckO8dZdwR1pMxjadHLxdL9eeAXYWiz7nr4dGFod3XrayZry0=,iv:0zp/iNlK/VK30GDs1zoZObfXaInmRCupmXRHLap/9Q8=,tag:jGyNyCkEmDLwmj6KhCGvnw==,type:str]
+    mariadb-galera-mariabackup-password: ENC[AES256_GCM,data:9JfQSbR4P9fy9V3h1LnQeiQqwpTnVBKmGzrquZunlUWKh4UVManJ4vxdI5M=,iv:GOeHGGqqlXOvmzxk8U8KrYBnGqAenp7fpn8lIDzZ+mE=,tag:kFbVvcqRXRNatBJnZ/klkw==,type:str]
+    mariadb-password: ENC[AES256_GCM,data:eLXeB91BSKRqLtq24AtUIUrZ9zNWNzD/TDm/4R7bJFBtxu6/BFLfJhwlkUE=,iv:CKKO8FTZ1rUq5V3kjIDNimp7bFrc79KwKr+Ai98gJyw=,tag:2MrGouLwxfrbckfdt7YZJQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB1eWVPVFYzZGp3MElPU2V1
+            Mm90R05ITWlxRnNaMDVMM2NBd2FpU1doRVJzCmREUXg2a2FsR1VJTEZHNXlBUmVW
+            YjRWWnQySmg3VldjM0lNRmtXeVFMUEEKLS0tIFo1bXMzdTYwdVhaT0Vpb25QY3NR
+            MHVrdnUwTFI2TlRKNXNxYW1GczdvdDAKuyfQ3kunIwF+/kOEobMCyRE8mdDt/J9p
+            sT51KtWNo7Qz9OGh0n0e4eyIjtynIvKE4AxTNhQOG+VFRCZ0ajEnFw==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-03-26T19:42:53Z"
+    mac: ENC[AES256_GCM,data:jd7g/+EVLDN6nOJIZfwzoZwUczc07or2hXtFfloY4Dv65INyZxyba7a38ttbiizO9tfrCtQu2ZNaPkpNop5vXcIM71mytTuxDtaKUmLwALUAU1KiiQ5MCG+Y//tGIY8ttudn/L4i2KJiwcXJUGA4BgMeM/fBW7BU/qR2raChHXY=,iv:y88A10Ui/t3JGPMscy6yxA15EiHO7Tet33klePLdCGU=,tag:tHbE2oxtd/2lGNFncN37kQ==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData|annotations|)$
+    version: 3.8.1

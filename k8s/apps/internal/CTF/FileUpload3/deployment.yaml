@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: upload3
+  namespace: ctf
+spec:
+  selector:
+    matchLabels:
+      app: upload3
+  template:
+    metadata:
+      labels:
+        app: upload3
+    spec:
+      containers:
+        - name: upload3
+          image: registry.oplabs.us:5050/root/ctf-web-fu3:latest
+          pull-policy: Always
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80

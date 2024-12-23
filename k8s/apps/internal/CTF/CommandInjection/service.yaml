@@ -1,0 +1,48 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: command-injection1
+  namespace: ctf
+spec:
+  selector:
+    app: command-injection1
+  ports:
+    - port: 80
+      targetPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: command-injection2
+  namespace: ctf
+spec:
+  selector:
+    app: command-injection2
+  ports:
+    - port: 80
+      targetPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: command-injection3
+  namespace: ctf
+spec:
+  selector:
+    app: command-injection3
+  ports:
+    - port: 80
+      targetPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: command-injection4
+  namespace: ctf
+spec:
+  selector:
+    app: command-injection4
+  ports:
+    - port: 80
+      targetPort: 80

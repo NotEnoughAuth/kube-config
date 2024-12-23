@@ -1,0 +1,12 @@
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: overseerr
+  namespace: external
+subsets:
+  - addresses:
+    - ip: 10.27.10.8
+    ports:
+      - name: overseerr-port
+        protocol: TCP
+        port: 5055

@@ -1,0 +1,48 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: leaderboard-site
+  namespace: dev-environment
+  labels:
+    app: leaderboard-site
+spec:
+  replicas: 3
+  progressDeadlineSeconds: 600
+  revisionHistoryLimit: 2
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: leaderboard-site
+  template:
+    metadata:
+      labels:
+        app: leaderboard-site
+    spec:
+      containers:
+        - name: leaderboard-site #
+          image: "registry.oplabs.us:5050/root/leaderboard-site:dev-117" # {"$imagepolicy": "flux-system:leaderboard-site"}
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: LEADERBOARD_DB_SERVER
+              valueFrom:
+                secretKeyRef:
+                  name: sql-creds
+                  key: LEADERBOARD_DB_SERVER
+            - name: LEADERBOARD_DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: sql-creds
+                  key: LEADERBOARD_DB_USER
+            - name: LEADERBOARD_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: sql-creds
+                  key: LEADERBOARD_DB_PASSWORD
+            - name: LEADERBOARD_DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: sql-creds
+                  key: LEADERBOARD_DB_NAME
+      imagePullSecrets:
+        - name: regcred # pass the regcred secret to log into the private repo

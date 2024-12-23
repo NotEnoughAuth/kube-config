@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: longhorn-crypto
+    namespace: longhorn-system
+stringData:
+    CRYPTO_KEY_VALUE: ENC[AES256_GCM,data:hnr4X4awtjR01aGFXG7QVRlc20lVcAfz8lhZeBuJh/tXhUWDvzTBDiVh1xFWW9fny4hD7YXgrqUtDyEcC4gZ6hCZZaOEMDrQqWZeh5MYf8Rr+F1EV+bXcOMaVz1TmqF9I5Pt9fStt/IIkooepEB+Me9fBbTu5cH2fzIwPDSR1D8=,iv:SADCo6L+Pr2a1Yp9XL0UGr8mqQtQEfXQPq6UzJGzpOk=,tag:yqBwiHBl+O5dVqbtL4ZcKg==,type:str]
+    CRYPTO_KEY_PROVIDER: ENC[AES256_GCM,data:ha2JfnoZ,iv:BEtBsbIhR/GI2Olfexh8tiO66GRALK/1weD/BqLANcE=,tag:cpUaCy/ny5CYjaw7fr6e/w==,type:str]
+    CRYPTO_KEY_CIPHER: ENC[AES256_GCM,data:VGGeGGMP8v8DNKFcpKJx,iv:UoeEeFf9xq2uy8D3kS7VW1j5zfRf6D1ABecBHILV+B8=,tag:TBmmhMQPHTp/mgnikhOpxQ==,type:str]
+    CRYPTO_KEY_HASH: ENC[AES256_GCM,data:4dzxIrqn,iv:cTuz37TqWSpW++qSTt6lDsuMwB8opCAFm0JaDGmASgY=,tag:WOmWDK1tRU6TpyROmdcklQ==,type:str]
+    CRYPTO_KEY_SIZE: ENC[AES256_GCM,data:bLo4,iv:t21WgG/CdIcDNdz+wnw/ViIN2KjJA6rJOYqrFQocLDo=,tag:eYn5ivykvSTjN//2S5Jl4g==,type:str]
+    CRYPTO_PBKDF: ENC[AES256_GCM,data:BCVbKpgQ3A==,iv:ZCLyaTbxe+X8pQKorG4dWDCEXPFSjn4gSipgYaajtA4=,tag:hGWNpcp+uaceMUT9Wi5s7A==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBmTDZvTTNpYTBQQmE1Wi9k
+            WTZPTm44TVNoSmtCUEpvc1FOeVJ6Y1dIeEhvCjVRYUJFYnI3M0s4T0hCNFMybU1K
+            Nzk5RXZNQnc4VituMXFJbFpvTzRCMGsKLS0tIFl0Q2MzSENRekJ1cG9rQWh3K1RC
+            YjV6SU9iMkoreVBHdEhUUi9pL0FNN0UKyezGH4Ku10du30a5DgIu2jZRrdYwLHpS
+            Xin0S5PinrXhBseFYvAtKyi0m+p6NbTObj3Ex9jPr/rf8s2AHuwg1A==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-03-26T13:56:30Z"
+    mac: ENC[AES256_GCM,data:dv6mRkUhSqqMCuFDtv4uSEtOAObKXgU3pWZdMTqT9g6iheabC02EmvCEEwEhpEvCrkIfoOPihfsLLKh5+Q8cI4ljJiIhrZer2PmNq8tP3s/NPlVeLRqJuzrJlPVqkQKraziN7Cl223QRSotmqFjhbGdaImDe7Hsmmn5Wum9PQLg=,iv:3SwdVUlVRjSl+T5+MUIw6z8AI/AvImJme8vMIT/P2aM=,tag:j1LVjDLFRvLNokGvi3G7wQ==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData|annotations|)$
+    version: 3.8.1

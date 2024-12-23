@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: headscale
+  namespace: headscale
+spec:
+  selector:
+    matchLabels:
+      app: headscale
+  template:
+    metadata:
+      labels:
+        app: headscale
+    spec:
+      volumes:
+        - name: headscale-config
+          configMap:
+            name: headscale-config
+        - name: headscale-db
+          persistantVolumeClaim:
+            claimName: headscale-db
+      containers:
+        - name: headscale
+          image: headscale/headscale:v0.23.0
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
+            - containerPort: 9090
+          volumeMounts:
+            - name: headscale-config
+              mountPath: /etc/headscale
+              readOnly: true
+            - name: headscale-db
+              mountPath: /var/lib/headscale
+          args:
+            - "serve"

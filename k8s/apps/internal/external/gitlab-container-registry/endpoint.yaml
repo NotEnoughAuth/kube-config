@@ -1,0 +1,12 @@
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: container-registry
+  namespace: external
+subsets:
+  - addresses:
+    - ip: 10.27.10.24
+    ports:
+      - name: container-registry-port
+        protocol: TCP
+        port: 5050

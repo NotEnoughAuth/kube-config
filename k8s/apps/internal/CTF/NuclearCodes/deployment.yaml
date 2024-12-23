@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nuclearsite
+  namespace: ctf
+spec:
+  selector:
+    matchLabels:
+      app: nuclearsite
+  template:
+    metadata:
+      labels:
+        app: nuclearsite
+    spec:
+      containers:
+        - name: nuclearsite
+          image: registry.oplabs.us:5050/root/ctf-web-php:latest
+          pull-policy: Always
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80

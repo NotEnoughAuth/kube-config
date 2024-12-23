@@ -1,0 +1,9 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: jpdesigns-site
+  namespace: flux-system
+spec:
+  image: registry.oplabs.us:5050/root/new-jp-designs
+  interval: 1m0s

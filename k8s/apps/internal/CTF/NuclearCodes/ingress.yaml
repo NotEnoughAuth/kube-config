@@ -1,0 +1,26 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: nuclearsite
+  namespace: ctf
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`ctf.oplabs.us`) && PathPrefix(`/web/NuclearCodes`)
+      kind: Rule
+      middlewares:
+        []
+        # - name: jpdesigns-admin-basicauth
+        #   namespace: jpdesigns
+        # - name: default-headers
+        #   namespace: traefik
+        # - name: crowdsec-bouncer
+        #   namespace: traefik
+      services:
+        - name: nuclearsite
+          port: 80
+  tls:
+    secretName: oplabs-us-tls # give it the ole tls cert

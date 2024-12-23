@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: lubelogger-env
+  namespace: lubelogger
+type: Opaque
+data:
+  pg-con-string: ENC[AES256_GCM,data:QdABXN3DZmmkXmBo5fWrq1A5i6NZxL6/osTkCayMM2dIoykTj7h4xDx4nPx+SKBdnQJD/ojGclam2qm5/N5PNKeoibmz0/8GVo4HQpNxjqpiBQj0QTbozUUdj5PKWd6T6rqv0xzMyoz6IqBQWrH99LR43Kd4KNTwDToftmq1M2Z0e9qpeKjN5PvrDfHDl+AuREQyHHGW0qEnGPkMqsBmwGx18ON/lYJMkyGzRA==,iv:JLkYitpXwP3nuhQEPHPrz9Zwg9TmQdxhBHDWoeBEjec=,tag:JecdQ2Hcojp3QXnSInTsjA==,type:str]
+  emailserver: ENC[AES256_GCM,data:79VjrODaeTwDrqgFMHFd+Utl4/c=,iv:/SW58IuG5JTlYGnZAGR361pWfuLWoLj+xPE3gXwApjM=,tag:iUgGIWlIly0MO00HyJ2qKQ==,type:str]
+  emailport: ENC[AES256_GCM,data:+6p/VA==,iv:E2R4sJ1B/0Ac6v8/jdIaD0ZB70sswiYs4VbXYlfBxi4=,tag:/QbzsL1g4LvKKHpGh3ziqg==,type:str]
+  emailusessl: ENC[AES256_GCM,data:LWlrqTIsI6g=,iv:xOOix/6z0BMr/imVb1if9/InwdkLeXaRlFvyl9eC7/o=,tag:u26vbNro4j4RblNAHzilZg==,type:str]
+  emailuser: ENC[AES256_GCM,data:Onf8QmaH06jWo0LH0ybJKNZ0mBDHfSzJDv3MNA==,iv:YjtS6E4bfRMiqYZXT9NwYTDcVKRB4bRmPDBESsGxYAg=,tag:YXQC2/grK57H2aPyaAgYtQ==,type:str]
+  emailpassword: ENC[AES256_GCM,data:oupUB1OHB7pqR9dyMXGysS/QBHbSRt7RAc8xH6b+N11pi52fEPdQ0K3bZRvBjy8P58+fHYJdjHE=,iv:+qHh/O5CkCmUPhG9fuF5OSJ8z9ZsNZOknCbAxJni7XU=,tag:5ExCK7qqkzNT+waaACuJhg==,type:str]
+sops:
+  kms: []
+  gcp_kms: []
+  azure_kv: []
+  hc_vault: []
+  age:
+    - recipient: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBCWHA3Ti9sZndycjNUbVR5
+        R0NZODdidGVNRDRpRnBiTlNrTkRUVnV0RVM4Cjc1UlZ3YUNSeGhqZjEwR0J2czg1
+        aEhvOWIzeDhKclM4YlRnK3ByTWdGd2sKLS0tIGZzYjNJMkhMWkEzZnJYOVY5L2o4
+        NmNXRmlucjY3dWV3dkFjT0hodHQyY00KFU71JUfYQ1hVW6XLvyPRafy/ks9brzOZ
+        ORK82tSYcTeP+qwJnyMXMlNPpoCb5WQ9DxfF3f36siABT5XkJoo4EA==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2024-07-20T02:35:54Z"
+  mac: ENC[AES256_GCM,data:45FTDJOirqUVOhQ7qBugJ7Nr0MI/9vv1WMU64HUWkw4G1FjLxZb3TO9vo6NzHlZfLj6bjc6H1tBdDoPKvTA1hFxFp1aO9JOTN20TvsqQSvlwjcfEBDAfpw58Ynd1l5xOSselHcsMG8Y3RgIsmspLLi9aZxKmF7hFSGo25jfxOww=,iv:qFnEMAx7DfSF31AAnu2b0VBpvo8QD2eb+miBDID88Ns=,tag:2zCflBR1AX9LLrfWAdwqhA==,type:str]
+  pgp: []
+  encrypted_regex: ^(data|stringData|annotations|)$
+  version: 3.8.1

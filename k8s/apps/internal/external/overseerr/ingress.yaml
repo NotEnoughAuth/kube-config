@@ -1,0 +1,23 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: overseerr-ingress
+  namespace: external
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`request.oplabs.us`)
+      kind: Rule
+      middlewares:
+        - name: default-headers
+          namespace: traefik
+        # - name: crowdsec-bouncer
+        #   namespace: traefik
+      services:
+        - name: overseerr
+          port: 5055
+  tls:
+    secretName: oplabs-us-tls
