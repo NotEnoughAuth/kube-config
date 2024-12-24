@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: bgp-auth-secret
+type: Opaque
+data:
+  password: ENC[AES256_GCM,data:OX2xvXyARz72lQAPu/y34yOi6CiOtWAxtCc8hCiMxKbsUZqvPy5CTus6j5AEmNiz+Bn1MebUmaA9+hsuyaA9iBO+UeKjiBcpD7kQxScJgSqKiTMjIuSQ6w==,iv:Q0Ul+yGK3dE7D97L/jTDxV+vsGAiCI+k4pIPBfsCVOQ=,tag:CKQdywsuEpHyr76qfxsMXA==,type:str]
+sops:
+  kms: []
+  gcp_kms: []
+  azure_kv: []
+  hc_vault: []
+  age:
+    - recipient: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSByQlRBUFFyVWl4NVVpOEhh
+        cjBCWk1YeDl1cmJQWWJGd3lNb0UwcjM1b25RCmZNUTQ4N2hwN2xQNWEvSXRrREhp
+        WldsZGpRTFdGZkhyUjhxNXNBa2lQWHcKLS0tIFBpK1dWd1BqRmh4WFFwZzU3UnE2
+        Y0c0MUdlamZtNzkxUVlhMUFIdE5tejgK3aTWrPR7Je95yzX5LNulmSecObu1ovIA
+        MyWgpfBW/4cG3h8LJRdek2LXVZuIZzyZQ0Z3HAl/PImtCYZCwv9XAg==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2024-12-24T01:54:54Z"
+  mac: ENC[AES256_GCM,data:01MtAE6G/8UD61jrO48Nc/AOMKnNjDcq9WNZ8K132tq66fd7YtBnHhSL4ITkd8njYWJICDVMA19JFaSvWORPDXkSw4wcBSzsY0BtHQ+Cz4gw9RKRmV17ZF68figSdEeWrqTv1+4pAixF4rIuwi5+GzV5P9ylYnmokzFAfxdoVLM=,iv:DCvGec++NuhPCFtgDvyIg8xb1qgj38pP9o3CKIEd4LI=,tag:MmsCtAzCqAeGx/MT0C8YNg==,type:str]
+  pgp: []
+  encrypted_regex: ^(data|stringData|annotations|)$
+  version: 3.8.1
