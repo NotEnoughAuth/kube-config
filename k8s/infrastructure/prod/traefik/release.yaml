@@ -62,8 +62,8 @@ spec:
       externalIPs: []
       labels:
         scope: public
+        "lbipam.cilium.io/ips": "10.27.55.10"
       loadBalancerSourceRanges: []
       spec:
-        loadBalancerIP: 10.27.55.10
         externalTrafficPolicy: Local
       type: LoadBalancer
