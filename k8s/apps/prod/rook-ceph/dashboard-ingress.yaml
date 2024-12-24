@@ -1,0 +1,24 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ceph-dashboard
+  namespace: rook-ceph
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    # route any traffic to the dashboard that is not on the 10.43.0.0/16 network
+    - match: Host(`ceph.prod.opryga.com`) && PathPrefix(`/`) && !ClientIP(`10.96.0.0/12`)
+      kind: Rule
+      # middlewares:
+      #   # - name: default-headers
+      #   # - name: local-ip-list
+      #   - name: oauth-forward-auth
+      #   - name: oauth-headers
+      priority: 2
+      services:
+        - name: rook-ceph-mgr-dashboard
+  tls:
+    secretName: prod-opryga-com-tls # give it the ole tls cert
