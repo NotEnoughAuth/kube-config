@@ -30,8 +30,9 @@ spec:
       services:
         - name: api@internal
           kind: TraefikService
-  # tls:
-  #   secretName: local-opryga-com-tls # give it the ole tls cert
+  tls:
+    # secretName: local-opryga-com-tls # give it the ole tls cert
+    passthrough: true # use the tls from the service
 # ---
 # # Authenticated requests to /oauth2/ will be forwarded to the oauth-proxy service
 # apiVersion: traefik.containo.us/v1alpha1
