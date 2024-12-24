@@ -5,7 +5,7 @@ metadata:
   namespace: traefik
 spec:
   entryPoints:
-    - websecure
+    - web
   routes:
     # route any traffic to the dashboard that is not on the 10.43.0.0/16 network
     - match: Host(`traefik.prod.oplabs.us`) && PathPrefix(`/`) && !ClientIP(`10.42.0.0/16`)
@@ -30,9 +30,9 @@ spec:
       services:
         - name: api@internal
           kind: TraefikService
-  tls:
-    # secretName: local-opryga-com-tls # give it the ole tls cert
-    passthrough: true # use the tls from the service
+  # tls:
+  #   # secretName: local-opryga-com-tls # give it the ole tls cert
+  #   passthrough: true # use the tls from the service
 # ---
 # # Authenticated requests to /oauth2/ will be forwarded to the oauth-proxy service
 # apiVersion: traefik.containo.us/v1alpha1
