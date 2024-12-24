@@ -9,7 +9,6 @@ spec:
   entryPoints:
     - websecure
   routes:
-    # route any traffic to the dashboard that is not on the 10.43.0.0/16 network
     - match: Host(`ceph.prod.opryga.com`) && PathPrefix(`/`) && !ClientIP(`10.96.0.0/12`)
       kind: Rule
       # middlewares:
@@ -20,5 +19,6 @@ spec:
       priority: 2
       services:
         - name: rook-ceph-mgr-dashboard
+          port: 8443
   tls:
     secretName: prod-opryga-com-tls # give it the ole tls cert
