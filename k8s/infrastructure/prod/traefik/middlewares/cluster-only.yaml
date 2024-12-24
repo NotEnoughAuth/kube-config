@@ -1,0 +1,9 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: cluster-only-ip-list
+  namespace: traefik
+spec:
+  ipWhiteList:
+    sourceRange:
+      - 10.43.0.0/16
