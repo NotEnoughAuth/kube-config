@@ -34,7 +34,6 @@ spec:
           kind: TraefikService
   tls:
     secretName: prod-oplabs-us-tls # give it the ole tls cert
-    namespace: cert-manager
   #   passthrough: true # use the tls from the service
 # ---
 # # Authenticated requests to /oauth2/ will be forwarded to the oauth-proxy service

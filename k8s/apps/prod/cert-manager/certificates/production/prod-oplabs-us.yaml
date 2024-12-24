@@ -2,7 +2,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: dev-opryga-com
-  namespace: cert-manager # Same namespace as service you are using
+  namespace: traefik # Same namespace as service you are using
 spec:
   secretTemplate:
     annotations:
