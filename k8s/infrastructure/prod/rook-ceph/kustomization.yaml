@@ -4,4 +4,4 @@ resources:
     - encryption-config.yaml
     - encryption-secret.sops.yaml
     - namespace.yaml
-    - operator.yaml
+    - operator-release.yaml
