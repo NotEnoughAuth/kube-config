@@ -185,7 +185,7 @@ spec:
           # you can set the "mounter: rbd-nbd" in the rbd storage class, or "mounter: fuse" in the cephfs storage class.
           # The nbd and fuse drivers are *not* recommended in production since restarting the csi driver pod will disconnect the volumes.
           encryption:
-            enabled: false
+            enabled: true
           # Whether to compress the data in transit across the wire. The default is false.
           # The kernel requirements above for encryption also apply to compression.
           compression:
