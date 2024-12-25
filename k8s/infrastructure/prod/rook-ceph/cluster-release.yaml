@@ -313,7 +313,7 @@ spec:
           limits:
             memory: "2Gi"
           requests:
-            cpu: "1000m"
+            cpu: "5000m"
             memory: "1Gi"
         osd:
           limits:
