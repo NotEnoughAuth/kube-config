@@ -6,4 +6,4 @@ resources:
     - namespace.yaml
     - operator-release.yaml
     # - cluster-release.yaml
-    - cluster.yaml
+    # - cluster.yaml
