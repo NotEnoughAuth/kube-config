@@ -334,7 +334,7 @@ spec:
   healthCheck:
     daemonHealth:
       mon:
-        disabled: true
+        disabled: false
         interval: 45s
       osd:
         disabled: false
@@ -345,7 +345,7 @@ spec:
     # Change pod liveness probe timing or threshold values. Works for all mon,mgr,osd daemons.
     livenessProbe:
       mon:
-        disabled: true
+        disabled: false
       mgr:
         disabled: false
       osd:
