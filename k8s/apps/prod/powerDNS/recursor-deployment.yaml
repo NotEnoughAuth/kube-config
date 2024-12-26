@@ -35,7 +35,7 @@ spec:
                 secretKeyRef:
                   name: powerdns-recursor-secret
                   key: api_key
-            - name: TEMPLATE_FILES
+            # - name: TEMPLATE_FILES
           securityContext:
             runAsUser: 0
             runAsGroup: 0
