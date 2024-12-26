@@ -29,13 +29,13 @@ spec:
             - name: api
               protocol: TCP
               containerPort: 8082
-          env:
-            - name: PDNS_RECURSOR_API_KEY
-              valuefrom:
-                secretKeyRef:
-                  name: powerdns-recursor-secret
-                  key: api_key
-            # - name: TEMPLATE_FILES
+          # env:
+          #   - name: PDNS_RECURSOR_API_KEY
+          #     valuefrom:
+          #       secretKeyRef:
+          #         name: powerdns-recursor-secret
+          #         key: api_key
+          # - name: TEMPLATE_FILES
           securityContext:
             runAsUser: 0
             runAsGroup: 0
