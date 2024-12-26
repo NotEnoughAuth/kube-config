@@ -19,6 +19,6 @@ spec:
       priority: 2
       services:
         - name: rook-ceph-mgr-dashboard
-          port: 8443
+          port: 8555
   tls:
     secretName: prod-opryga-com-tls # give it the ole tls cert
