@@ -31,7 +31,7 @@ spec:
               containerPort: 8082
           env:
             - name: PDNS_RECURSOR_API_KEY
-              valuefrom:
+              valueFrom:
                 secretKeyRef:
                   name: powerdns-recursor-secret
                   key: api_key

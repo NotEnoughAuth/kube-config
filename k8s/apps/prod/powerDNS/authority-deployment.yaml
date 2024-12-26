@@ -31,7 +31,7 @@ spec:
               containerPort: 8081
           env:
             - name: PDNS_AUTH_API_KEY
-              valuefrom:
+              valueFrom:
                 secretKeyRef:
                   name: powerdns-auth-secret
                   key: api_key

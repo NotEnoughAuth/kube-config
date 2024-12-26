@@ -23,7 +23,7 @@ spec:
             - containerPort: 80
           env:
             - name: SECRET_KEY
-              valuefrom:
+              valueFrom:
                 secretKeyRef:
                   name: powerdns-admin-secret
                   key: secret_key
