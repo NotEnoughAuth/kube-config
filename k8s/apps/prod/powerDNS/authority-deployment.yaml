@@ -35,6 +35,7 @@ spec:
                 secretKeyRef:
                   name: powerdns-auth-secret
                   key: api_key
+            - name: TEMPLATE_FILES
           securityContext:
             runAsUser: 0
             runAsGroup: 0
