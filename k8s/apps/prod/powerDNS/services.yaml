@@ -18,6 +18,8 @@ spec:
       protocol: UDP
       port: 53
       targetPort: 53
+  externalIPs:
+    - 10.27.55.11
 
 ---
 apiVersion: v1
