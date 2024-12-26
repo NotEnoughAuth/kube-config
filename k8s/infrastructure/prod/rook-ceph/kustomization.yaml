@@ -5,5 +5,5 @@ resources:
     - encryption-secret.sops.yaml
     - namespace.yaml
     - operator-release.yaml
-    - cluster-release.yaml
+    # - cluster-release.yaml
     # - cluster.yaml
