@@ -3,8 +3,8 @@ kind: Service
 metadata:
   name: dns-auth
   namespace: powerdns
-labels:
-  scope: public
+  labels:
+    scope: public
 spec:
   selector:
     app: dns-auth
