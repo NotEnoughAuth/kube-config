@@ -31,3 +31,5 @@ spec:
               containerPort: 8081
           env:
             - name: PDNS_AUTH_API_KEY
+          securityContext:
+            allowPrivilegeEscalation: true

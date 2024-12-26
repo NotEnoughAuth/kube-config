@@ -31,3 +31,5 @@ spec:
               containerPort: 8082
           env:
             - name: PDNS_RECURSOR_API_KEY
+          securityContext:
+            allowPrivilegeEscalation: true
