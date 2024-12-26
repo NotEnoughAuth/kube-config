@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dns-auth
+  namespace: powerdns
+spec:
+  selector:
+    matchLabels:
+      app: dns-auth
+  template:
+    metadata:
+      labels:
+        app: dns-auth
+    spec:
+      containers:
+        - name: dns-auth
+          image: powerdns/pdns-auth-49:4.9.3
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - name: dns-tcp
+              protocol: TCP
+              containerPort: 53
+            - name: dns-udp
+              protocol: UDP
+              containerPort: 53
+            - name: api
+              protocol: TCP
+              containerPort: 8081
+          env:
+            - name: PDNS_AUTH_API_KEY

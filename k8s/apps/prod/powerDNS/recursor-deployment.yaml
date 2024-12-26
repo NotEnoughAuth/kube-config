@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dns-recursor
+  namespace: powerdns
+spec:
+  selector:
+    matchLabels:
+      app: dns-recursor
+  template:
+    metadata:
+      labels:
+        app: dns-recursor
+    spec:
+      containers:
+        - name: dns-recursor
+          image: powerdns/pdns-recursor-51:5.1.3
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - name: dns-tcp
+              protocol: TCP
+              containerPort: 53
+            - name: dns-udp
+              protocol: UDP
+              containerPort: 53
+            - name: api
+              protocol: TCP
+              containerPort: 8082
+          env:
+            - name: PDNS_RECURSOR_API_KEY

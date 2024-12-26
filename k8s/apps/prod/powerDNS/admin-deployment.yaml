@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dns-admin
+  namespace: powerdns
+spec:
+  selector:
+    matchLabels:
+      app: dns-admin
+  template:
+    metadata:
+      labels:
+        app: dns-admin
+    spec:
+      containers:
+        - name: dns-admin
+          image: powerdnsadmin/pda-legacy:latest
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80
+          env:
+            - name: SECRET_KEY
+              valuefrom:
+                secretKeyRef:
+                  name: powerdns-admin-secret
+                  key: secret_key
