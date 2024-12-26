@@ -32,4 +32,8 @@ spec:
           env:
             - name: PDNS_RECURSOR_API_KEY
           securityContext:
-            allowPrivilegeEscalation: true
+            runAsUser: 0
+            runAsGroup: 0
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
