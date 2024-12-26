@@ -51,6 +51,8 @@ kind: Service
 metadata:
   name: dns-admin
   namespace: powerdns
+  labels:
+    scope: public
 spec:
   selector:
     app: dns-admin
@@ -58,3 +60,5 @@ spec:
     - name: admin
       port: 80
       targetPort: 80
+  externalIPs:
+    - 10.27.55.1
