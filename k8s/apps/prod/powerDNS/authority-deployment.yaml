@@ -15,10 +15,10 @@ spec:
       containers:
         - name: dns-auth
           image: powerdns/pdns-auth-49:4.9.3
-          resources:
-            limits:
-              memory: "128Mi"
-              cpu: "500m"
+          # resources:
+          #   limits:
+          #     memory: "128Mi"
+          #     cpu: "500m"
           ports:
             - name: dns-tcp
               protocol: TCP
