@@ -29,12 +29,12 @@ spec:
             - name: api
               protocol: TCP
               containerPort: 8081
-          # env:
-          # - name: PDNS_AUTH_API_KEY
-          #   valuefrom:
-          #     secretKeyRef:
-          #       name: powerdns-auth-secret
-          #       key: api_key
+          env:
+            - name: PDNS_AUTH_API_KEY
+              valuefrom:
+                secretKeyRef:
+                  name: powerdns-auth-secret
+                  key: api_key
           # - name: TEMPLATE_FILES
           securityContext:
             runAsUser: 0
