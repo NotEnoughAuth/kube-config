@@ -21,7 +21,14 @@ spec:
     - name: source-db
       connectionParameters:
         host: 10.27.50.6
-        user: app
-      password:
-        name: external-app-db-user
-        key: password
+        user: streaming_replica
+        sslmode: verify-full
+      sslKey:
+        name: jpdesigns-db-replication
+        key: tls.key
+      sslCert:
+        name: jpdesigns-db-replication
+        key: tls.crt
+      sslRootCert:
+        name: jpdesigns-db-ca
+        key: ca.crt
