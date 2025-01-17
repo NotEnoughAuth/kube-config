@@ -9,8 +9,6 @@ spec:
   bootstrap:
     pg_basebackup:
       source: source-db
-      database: app
-      owner: app
 
   storage:
     size: 5Gi
