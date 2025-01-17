@@ -1,0 +1,26 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: target-db
+spec:
+  instances: 3
+  imageName: ghcr.io/cloudnative-pg/postgresql:17.2
+
+  bootstrap:
+    pg_basebackup:
+      source: source-db
+      database: app
+      owner: app
+
+  storage:
+    size: 5Gi
+    storageClass: local-path
+
+  externalClusters:
+    - name: source-db
+      connectionParameters:
+        host: 10.27.20.2
+        user: app
+      password:
+        name: external-app-db-user
+        key: password
