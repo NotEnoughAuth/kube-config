@@ -13,7 +13,6 @@ spec:
 
   storage:
     size: 5Gi
-    storageClass: local-path
 
   externalClusters:
     - name: source-db
