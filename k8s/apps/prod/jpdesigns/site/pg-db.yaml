@@ -18,7 +18,7 @@ spec:
   externalClusters:
     - name: source-db
       connectionParameters:
-        host: 10.27.20.2
+        host: 10.27.50.6
         user: app
       password:
         name: external-app-db-user
