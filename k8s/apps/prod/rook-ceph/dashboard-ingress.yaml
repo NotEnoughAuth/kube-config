@@ -18,7 +18,7 @@ spec:
       #   - name: oauth-headers
       priority: 2
       services:
-        - name: rook-ceph-mgr-dashboard
+        - name: rook-ceph-mgr
           port: 8555
   tls:
     secretName: prod-opryga-com-tls # give it the ole tls cert
