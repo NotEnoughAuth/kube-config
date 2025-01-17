@@ -22,13 +22,13 @@ spec:
       connectionParameters:
         host: 10.27.50.6
         user: streaming_replica
-        sslmode: verify-full
+        sslmode: verify-ca
       sslKey:
-        name: jpdesigns-db-replication
+        name: jpdesigns-db-replication-old
         key: tls.key
       sslCert:
-        name: jpdesigns-db-replication
+        name: jpdesigns-db-replication-old
         key: tls.crt
       sslRootCert:
-        name: jpdesigns-db-ca
+        name: jpdesigns-db-ca-old
         key: ca.crt
