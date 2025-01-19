@@ -21,7 +21,7 @@ spec:
             claimName: headscale-db
       containers:
         - name: headscale
-          image: headscale/headscale:v0.23.0
+          image: headscale/headscale:v0.24.0
           resources:
             limits:
               memory: "128Mi"
