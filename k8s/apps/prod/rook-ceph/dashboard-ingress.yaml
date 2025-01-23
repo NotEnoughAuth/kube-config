@@ -16,7 +16,6 @@ spec:
       #   # - name: local-ip-list
       #   - name: oauth-forward-auth
       #   - name: oauth-headers
-      priority: 2
       services:
         - name: rook-ceph-mgr
           port: 8555
