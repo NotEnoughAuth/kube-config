@@ -17,7 +17,7 @@ spec:
       #   - name: oauth-forward-auth
       #   - name: oauth-headers
       services:
-        - name: rook-ceph-mgr
+        - name: rook-ceph-mgr-dashboard
           port: 8555
   tls:
     secretName: prod-opryga-com-tls # give it the ole tls cert
