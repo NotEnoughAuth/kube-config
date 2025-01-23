@@ -9,7 +9,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`ceph.prod.opryga.com`) && PathPrefix(`/`) && !ClientIP(`10.96.0.0/12`)
+    - match: Host(`ceph.prod.opryga.com`) && PathPrefix(`/`) # && !ClientIP(`10.96.0.0/12`)
       kind: Rule
       # middlewares:
       #   # - name: default-headers
