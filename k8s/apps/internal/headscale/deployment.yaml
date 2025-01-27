@@ -19,6 +19,10 @@ spec:
         - name: headscale-db
           persistantVolumeClaim:
             claimName: headscale-db
+        - name: headscale-dns
+          configMap:
+            name: headscale-dns
+
       containers:
         - name: headscale
           image: headscale/headscale:v0.24.1
@@ -35,5 +39,8 @@ spec:
               readOnly: true
             - name: headscale-db
               mountPath: /var/lib/headscale
+            - name: headscale-dns
+              mountPath: /var/lib/headscale/dns
+              readOnly: true
           args:
             - "serve"
