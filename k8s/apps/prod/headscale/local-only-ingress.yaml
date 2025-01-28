@@ -57,7 +57,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`headscale.prod.opryga.com`) && PathPrefix(`/`)
+    - match: Host(`headscale.oplabs.us`) && PathPrefix(`/web`)
       kind: Rule
       middlewares:
         []
