@@ -1,15 +1,15 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: authenticationserver
+  name: authenticationserver-tennant
   namespace: ms-sso
 type: Opaque
 data:
-  clientid: ENC[AES256_GCM,data:52gY0JgAB2+hiABXNfOkixerDZGmIA8K0mxGuCRkmXlTlG2bhg4ADrd9g0nXDP2V,iv:bv0lBgDV36KxZSpmwLTinLMJla2ox2xD+q5bW5GYMF4=,tag:8s7PEc7Tq9Skq1mNXQjPlQ==,type:str]
-  clientsecret: ENC[AES256_GCM,data:XpjJgIcIU7lmkwg5SGUmY+rKZLf6oxxuWCFm2ud33EoyOV5bcactbEPYaojKiQwLBGEH7BZ7mDk=,iv:0nRxam5X3m/wkEn/+Yl4Ya9cyEclosNP4nUeNwECTqw=,tag:y/3UQZjfmWABwOcClTwfkg==,type:str]
-  tenant: ENC[AES256_GCM,data:l2J0SPiPe72QhjZ8nJNuJILI9+IlVxNAKnpT7U2C3AbIwjP+2tkNtMOvUHG9Y4ae,iv:e+49XVx0HYiTTUNQj9MJTCRysT+aCkacxeH312KzylI=,tag:kB68ul6IRyl4e6apn1oeEw==,type:str]
-  jwtsecret: ENC[AES256_GCM,data:UTleVmpUyDZi86hjxHiUEIjzPmIKGdfCq1N8fTFZdXbjfZYLP4L93JR41LbBFZbN44LAI7xe0fxzj37L,iv:nAA2i53keWV+U6YKnKR3ItP8bXQaLgCJdJLIuXipfkQ=,tag:yScl8oj0Is4OnsNZKSYQjw==,type:str]
-  issuerurl: ENC[AES256_GCM,data:AcIz3XMwWUnGo8LeA4NQgTDskDru1m0d7Sqb+pgb51LvOCEMA0xCzSEYuoclNghUNWCIEmO6DwnzU/CSmZPVzySzLtesrePKcA14LIA07hC8nkdbOLjpf9nWshpRzWSQi1dJTg==,iv:UyZIyizntxYxzZ650YMLAzUxEAtMpe5K9zsQm5lM4AE=,tag:Z6XORhdqC37sXJwlOcEJ4Q==,type:str]
+  clientid: ENC[AES256_GCM,data:1eHJFBgwzEWgFyB0EWWbzPhXoiszxEeHR49T0o3BZ4FJQF+xX8DopQ9Y+IN/HTzq,iv:DW3DYHCitURKJW+O6AImDoIcM15ZIvE5JgH/jgSdplk=,tag:xp44+XrtHVUa8mwlZtEHfQ==,type:str]
+  clientsecret: ENC[AES256_GCM,data:6UBYAYFDW0I/+9VuBTZhkcnu15DzccszV54sfll6EKG8UvSdjAaoDmJZVUVBOg2nXwkQMaTaP1E=,iv:IO4Qo9VmM+HcJTkNkOD2qW2d7Ud/GxZkXXoHi5EWZcQ=,tag:4fky9z2JVIFuHoWtUZbxLw==,type:str]
+  tenant: ENC[AES256_GCM,data:CUkmhqvLBlh+knHFk4v3+gna67ChYnQAf1gZX2kAz8Zu920bAi63Skf06MnyA1SX,iv:Q9JIZOeaWTSB+qpXvLD4m+HkZLGpaVktgPjr9jDge4w=,tag:bnLVxQ4tXUjCsYaN1EWGKA==,type:str]
+  jwtsecret: ENC[AES256_GCM,data:XP8nF/LrbcIkNrOI6U2OCqtkfn3vgXWBt5Lb870W1SMnOwl00pCJA/B+Sz9fnZkJih/8nYEfElUiQF3d,iv:jizPY3UjrSGjzxKdd31P1X+Ftv/2HCcbnpsBDAU46aI=,tag:T38j++W03tY//FVR7IPhHQ==,type:str]
+  issuerurl: ENC[AES256_GCM,data:mhJU63aJnBL0e5hOSgS80Kf7GzwXTXXlCYHfoJ6QTtNGVMWtSccytBk8lMbM7gZBfy/AvEySEewfoj58olKRPv2gnZA3d/Y5Vs/2AzcvtbTExr18+u9ESfT/iHdQY03chXC9Qg==,iv:sc1GaN+AwiQw/dWTnbsXsLEv/tyXv9pqzgnlHIR1SOE=,tag:luG6RI87AKpGqsHh+t+ECg==,type:str]
 sops:
   kms: []
   gcp_kms: []
@@ -19,14 +19,14 @@ sops:
     - recipient: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
       enc: |
         -----BEGIN AGE ENCRYPTED FILE-----
-        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBjREFGdVNZeTZPTzRyNENj
-        WnN1Mnlra2hmZVUzYzE0dnVRSkkxTXk2RGo0CmVjSmw4dVkzM3lXYmM4WmxCa1h4
-        U0ZHalNpMGJzVU0yMVEycTY5a0RESU0KLS0tIHc0VEpreFU3aW1LK2IwMXR6L0Vh
-        bW1RSW96a0ZxcVVteEUrK0VSZ3BUVEEKwgy8IDYiJqsOcXWgek6IfIiZ2PpbO78F
-        Zwcw9g/rNqa/KPvOze9kpC5ixe2LU9o7xPPTjJ9t/FJrXMBsJn3frg==
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBlNkNsYUJTWWJzK0VFdUxG
+        SWw5RnhZTm9yMmMybHJ3Tk5pb3ZXNkZjVkMwCkhrMi9MUTlsOUF4VzZLdnB3VVF0
+        RjFOQjVFcG0wU3c3RkVTbGtnUmFSNFUKLS0tIFZNb2NsajFQeFA5ZExiWEsyWG4y
+        eVVxSThvWTFsZnkyemVNaDNrbEJSQ28K4kI6EeYG5wYc/dGHR0A+MFuyjGXF/B3u
+        eZm565Lr/Gj2gcswq65irWzKGNURrNvIhpQgnVd7/jl7bZj1ckCXBA==
         -----END AGE ENCRYPTED FILE-----
-  lastmodified: "2025-01-28T17:58:59Z"
-  mac: ENC[AES256_GCM,data:DA5JWPwOwfFK8jN2HMO7cOU3EhxDtipAAHON1QHU+3rTyOkrgMNIt82IkPOR84vf1vNE+WvNKFc/Wn7XqeP3Ey3/rCIbpCZacD11dOrdjHbpSTaj2wdzATtIgPRN4yzcR/PE0GqF2PSpo6SME7Z18XUnEsfReVKKJ5+eqnwfrXw=,iv:6pWUKomWgfDdwSgpnR4RC+plMHn4WfaRZ8ODMKLys2U=,tag:8zcJgPfjwqxVJayNwWj1Iw==,type:str]
+  lastmodified: "2025-01-28T18:25:02Z"
+  mac: ENC[AES256_GCM,data:Ss21yiXu0yQcH1HGsCuVRzfrulOIuEB7apm461yoGVAJQVGScldkn8kcIZ4Sj+fFcQERbIq6ZcS8u2W0jQqd5yIW2rvlt3zunRecser384hNpmUVKYgFeITAxDRNSYXqLe5MF/az3KCyuIZXMNya8WM8gG9g4CrHZ2Mphez9j7Y=,iv:FM673freQJ1OavGttnZKv9p5IfZzXLeivFYb3GhXyUA=,tag:x7v1KdebiLdVAhfSk8bLZQ==,type:str]
   pgp: []
   encrypted_regex: ^(data|stringData|annotations|)$
   version: 3.8.1
