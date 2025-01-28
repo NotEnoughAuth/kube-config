@@ -16,9 +16,6 @@ spec:
         - name: headscale-config
           configMap:
             name: headscale-config
-        - name: headscale-db
-          persistantVolumeClaim:
-            claimName: headscale-db
         - name: headscale-dns
           configMap:
             name: headscale-dns
@@ -37,8 +34,6 @@ spec:
             - name: headscale-config
               mountPath: /etc/headscale
               readOnly: true
-            - name: headscale-db
-              mountPath: /var/lib/headscale
             - name: headscale-dns
               mountPath: /var/lib/headscale/dns
               readOnly: true
