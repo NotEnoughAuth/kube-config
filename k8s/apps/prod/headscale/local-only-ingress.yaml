@@ -1,4 +1,4 @@
-apiVersion: traefik.containo.us/v1alpha1
+apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: headscale-auth
@@ -40,7 +40,7 @@ spec:
     secretName: oplabs-us-tls # give it the ole tls cert
 
 ---
-apiVersion: traefik.containo.us/v1alpha1
+apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: headscale-admin
@@ -80,7 +80,7 @@ spec:
 
 ---
 # Authenticated requests to /oauth2/ will be forwarded to the oauth-proxy service
-apiVersion: traefik.containo.us/v1alpha1
+apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: oauth-proxy-path
