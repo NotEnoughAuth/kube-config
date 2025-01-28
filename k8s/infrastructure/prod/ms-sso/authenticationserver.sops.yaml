@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: authenticationserver
+  namespace: ms-sso
+type: Opaque
+data:
+  clientid: ENC[AES256_GCM,data:fUXV7RBy4ae3nIeVro/WQMQszeq0vNlm6Pgd0X2haXLIRP2+dqtMvcjkorAXeEmY,iv:feCNagNK+aGIAUQpijLWNrN1sXFKA9xPgg3OrlVl/Jg=,tag:7qsGTfPye4cQsbQEun/J8g==,type:str]
+  clientsecret: ENC[AES256_GCM,data:EPE5CUjpa1Kkn7xN8UjaQKmPKsBZnhI5ERk6b3lpe0clqziTgqcHIy1zRRIgmLK0Ozp1LWMPuRE=,iv:ru6hTTx2JTC+PBdU19F9M1BAaMSMzaLz2pGuh27X2vA=,tag:zLY0Macs0TXHWurkVB/5xA==,type:str]
+  tenant: ENC[AES256_GCM,data:nb2/9yQasLOjHnOy+YWnl/xpr2dA4iRW2LFitxBpg9DqYboPjSbq0t9LGmxvJI5c,iv:/mnLRxS3Kv7vNn+DBDQARjok9NJmYeHB7SjX7BoWc94=,tag:ZoE1jLGL4pLNAT3N6PJlSA==,type:str]
+  jwtsecret: ENC[AES256_GCM,data:lV5W+RELjj1hzkYGzAXYO48SToswBTjEQo4JpV5rDHkDeZQ9yJ+1IqlPs8WhxC1W,iv:yxoiJKFPoQD55BMHHPwLf1MFTvrd6mcZZeMzbCyDxYA=,tag:y/brwODdTM9p3o5G2YyhJQ==,type:str]
+  issuerurl: ENC[AES256_GCM,data:2s838mVDSmYt37Szzm/RgUq0/soFyM9U0dDTh6VxiC+ZviSbvn4gDvA1ncxpsmC/SwngfQz5r+TQhPaOac5UzdYZTpbha5FBafg0KlqzwKcCHJD3QsTnEETawiLMllUDmOdCNQ==,iv:3TbpV5/ldifATHdmqxMItXQuyD++bI6U/LaUOdBhcrk=,tag:SKihVPYQGmwt6zXODLLLoA==,type:str]
+sops:
+  kms: []
+  gcp_kms: []
+  azure_kv: []
+  hc_vault: []
+  age:
+    - recipient: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAreldYN21OYUpJTkpMcExR
+        akh3eFRBMVlITnAvcTZCWWpzTWZIbVZ4b1ZFCm9LQ3Y5eEZqREJMYmp3YUJFMFI0
+        cVJFREdpTTRTZ0tlKzBIeVJXZ0dGdDQKLS0tIEFCTzlqWDRXSEFqS1M3NmZjTytr
+        b3JOMzhQUTg0c281bHVrR0lzWnNxRHMKM42YyH0cKINATW4dcmDwqdoTH6wKsZy/
+        JB1kdhBmq/J5JeqAmYFXoyR3r251Dr/OsunwvHAeyNJz5JWrZ+gGYQ==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2025-01-28T17:55:53Z"
+  mac: ENC[AES256_GCM,data:E/7sJ5MEWUDdHM7j5GRNJGtacHBBKR6fyJduZH6iT48s9hDFCu7+rphNIzDPtBU13byLFNWcDaxtXUks7MFwT8Q6ZbKCtWZCJdhMyesHZJ1Ar0VqxmBZa+bN5O1lDBHLXKo1uyDt4f/+cgIeChHK4jVoEmLMl6H2jYmKxAgLF+k=,iv:HitG56p4xGFVBv2NB7zJLg8Gep2OkbgKicaOyWkl6G4=,tag:EzXLFrkHCCVcGFRO4kFMmw==,type:str]
+  pgp: []
+  encrypted_regex: ^(data|stringData|annotations|)$
+  version: 3.8.1

@@ -1,0 +1,28 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: headscale-db
+  namespace: headscale
+spec:
+  instances: 3
+
+  enableSuperuserAccess: false
+  # superuserSecret:
+  #   name: food-tracker-pg-superuser
+
+  bootstrap:
+    initdb:
+      database: app
+      owner: app
+
+  storage:
+    storageClass: ceph-block
+    size: 1Gi
+
+  resources:
+    requests:
+      memory: "512Mi"
+      cpu: "1"
+    limits:
+      memory: "1Gi"
+      cpu: "2"
