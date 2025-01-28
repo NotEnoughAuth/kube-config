@@ -60,6 +60,7 @@ spec:
     - match: Host(`headscale.prod.opryga.com`) && PathPrefix(`/`)
       kind: Rule
       middlewares:
+        []
         # - name: jpdesigns-admin-basicauth
         #   namespace: jpdesigns
         # - name: default-headers
