@@ -18,7 +18,7 @@ spec:
             name: headscale-config
       containers:
         - name: headscale-gui
-          image: ghcr.io/gurucomputing/headscale-ui:latest
+          image: ghcr.io/gurucomputing/headscale-ui:2024.10.10
           resources:
             limits:
               memory: "128Mi"
