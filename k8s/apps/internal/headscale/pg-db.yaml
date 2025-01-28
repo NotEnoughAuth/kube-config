@@ -16,7 +16,7 @@ spec:
       owner: app
 
   storage:
-    storageClass: longhorn-crypto
+    storageClass: longhorn
     size: 2Gi
 
   resources:
