@@ -18,9 +18,8 @@ spec:
     - match: Host(`headscale.oplabs.us`) && PathPrefix(`/`)
       kind: Rule
       middlewares:
-        []
-        # - name: ws-header
-        #   namespace: headscale
+        - name: ws-header
+          namespace: headscale
         # - name: jpdesigns-admin-basicauth
         #   namespace: jpdesigns
         # - name: default-headers
