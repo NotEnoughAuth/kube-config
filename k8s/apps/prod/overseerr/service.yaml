@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: overseerr
+  namespace: overseerr
+spec:
+  ports:
+    - name: overseerr-port
+      port: 5055
+      targetPort: 5055
+      protocol: TCP
