@@ -1,9 +1,0 @@
----
-apiVersion: image.toolkit.fluxcd.io/v1beta2
-kind: ImageRepository
-metadata:
-  name: jpdesigns-admin
-  namespace: flux-system
-spec:
-  image: registry.oplabs.us:5050/root/jp-designs-admin
-  interval: 1m0s
