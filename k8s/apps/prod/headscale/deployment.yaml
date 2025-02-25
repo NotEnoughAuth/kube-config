@@ -22,7 +22,7 @@ spec:
 
       containers:
         - name: headscale
-          image: headscale/headscale:v0.23.0
+          image: headscale/headscale:v0.25.1
           resources:
             limits:
               memory: "128Mi"
