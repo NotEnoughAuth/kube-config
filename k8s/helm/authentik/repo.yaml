@@ -1,7 +1,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-    name: authentiks
+    name: authentik
     namespace: flux-system
 spec:
     url: https://charts.goauthentik.io
