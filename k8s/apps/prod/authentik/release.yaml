@@ -15,5 +15,5 @@ spec:
       interval: 1m
   valuesFrom:
     - kind: ConfigMap
-      name: authentik
+      name: authentik-values
       valuesKey: values.yaml
