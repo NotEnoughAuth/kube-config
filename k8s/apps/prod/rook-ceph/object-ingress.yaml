@@ -1,0 +1,16 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: authentik-s3-ingress
+  namespace: rook-ceph
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`s3.auth.opryga.com`) && PathPrefix(`/authentik-media`)
+      kind: Rule
+      services:
+        - name: rook-ceph-rgw-ceph-objectstore
+          port: 80
+  tls:
+    secretName: oplabs-us-tls # give it the ole tls cert
