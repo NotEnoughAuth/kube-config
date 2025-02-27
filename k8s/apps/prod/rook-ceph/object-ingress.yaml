@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`s3.auth.opryga.com`) && PathPrefix(`/authentik-media`)
+    - match: Host(`s3.auth.opryga.com`) && PathPrefix(`/authentik-media-78db7dad-f63a-47aa-bf49-cfe303eecbe5`)
       kind: Rule
       services:
         - name: rook-ceph-rgw-ceph-objectstore
