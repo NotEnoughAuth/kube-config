@@ -13,4 +13,4 @@ spec:
         - name: rook-ceph-rgw-ceph-objectstore
           port: 80
   tls:
-    secretName: oplabs-us-tls # give it the ole tls cert
+    secretName: auth-oplabs-us-tls # give it the ole tls cert
