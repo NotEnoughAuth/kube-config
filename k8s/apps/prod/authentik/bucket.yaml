@@ -17,7 +17,7 @@ spec:
                   "Effect": "Allow",
                   "Principal": "*",
                   "Action": "s3:GetObject",
-                  "Resource": "arn:aws:s3:::your-bucket-name/*"
+                  "Resource": "arn:aws:s3:::authentik-media-78db7dad-f63a-47aa-bf49-cfe303eecbe5/*"
               }
           ]
       }
