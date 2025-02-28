@@ -1,0 +1,12 @@
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: s3-storage
+  namespace: s3-storage
+subsets:
+  - addresses:
+      - ip: 10.27.15.132
+    ports:
+      - name: s3-storage-port
+        protocol: TCP
+        port: 9000

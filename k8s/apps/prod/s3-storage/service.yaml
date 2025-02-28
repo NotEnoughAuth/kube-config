@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: s3-storage
+  namespace: s3-storage
+spec:
+  ports:
+    - name: s3-storage-port
+      port: 9000
+      targetPort: 9000
+      protocol: TCP
