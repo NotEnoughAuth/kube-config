@@ -1,0 +1,8 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: open-appsec
+  namespace: flux-system
+spec:
+  url: https://downloads.openappsec.io/packages/helm-charts/
+  interval: 10m
