@@ -8,6 +8,7 @@ spec:
   chart:
     spec:
       chart: open-appsec-k8s-nginx-ingress
+      version: 1.1.22
       sourceRef:
         kind: HelmRepository
         name: open-appsec
