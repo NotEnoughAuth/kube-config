@@ -395,7 +395,7 @@ spec:
       # -- Annotations to be added to controller pods
       ##
       podAnnotations: {}
-      replicaCount: 1
+      replicaCount: 3
       # -- Minimum available pods set in PodDisruptionBudget.
       # Define either 'minAvailable' or 'maxUnavailable', never both.
       minAvailable: 1
@@ -453,7 +453,7 @@ spec:
         ## apiVersion changes with keda 1.x vs 2.x
         ## 2.x = keda.sh/v1alpha1
         ## 1.x = keda.k8s.io/v1alpha1
-        enabled: true
+        enabled: false
         minReplicas: 1
         maxReplicas: 11
         pollingInterval: 30
