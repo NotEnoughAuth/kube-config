@@ -1,17 +1,16 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: open-appsec
-  namespace: open-appsec
+  name: ingress-nginx
+  namespace: ingress-nginx
 spec:
   interval: 5m
   chart:
     spec:
-      chart: open-appsec-k8s-nginx-ingress
-      version: 1.1.22
+      chart: ingress-nginx
       sourceRef:
         kind: HelmRepository
-        name: open-appsec
+        name: ingress-nginx
         namespace: flux-system
       interval: 1m
   values:
@@ -19,6 +18,10 @@ spec:
     ## Ref: https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/nginx-configuration/index.md
     ##
 
+    global:
+      image:
+        # -- Registry host to pull images from.
+        registry: registry.k8s.io
     ## Overrides for generated resource names
     # See templates/_helpers.tpl
     # nameOverride:
@@ -34,34 +37,38 @@ spec:
 
     controller:
       name: controller
-      enableAnnotationValidations: false
+      enableAnnotationValidations: true
       image:
         ## Keep false as default for now!
         chroot: false
-        registry: registry.k8s.io
+        # registry: registry.k8s.io
         image: ingress-nginx/controller
         ## for backwards compatibility consider setting the full image url via the repository value below
         ## use *either* current default registry/image or repository format or installing chart by providing the values.yaml will fail
         ## repository:
-        tag: "v1.10.0"
-        digest: sha256:42b3f0e5d0846876b1791cd3afeb5f1cbbe4259d6f35651dcc1b5c980925379c
-        digestChroot: sha256:7eb46ff733429e0e46892903c7394aff149ac6d284d92b3946f3baf7ff26a096
+        tag: "v1.12.0"
+        digest: sha256:e6b8de175acda6ca913891f0f727bca4527e797d52688cbe9fec9040d6f6b6fa
+        digestChroot: sha256:87c88e1c38a6c8d4483c8f70b69e2cca49853bb3ec3124b9b1be648edf139af3
+        pullPolicy: IfNotPresent
         runAsNonRoot: true
-        # www-data -> uid 101
+        # -- This value must not be changed using the official image.
+        # uid=101(www-data) gid=82(www-data) groups=82(www-data)
         runAsUser: 101
+        # -- This value must not be changed using the official image.
+        # uid=101(www-data) gid=82(www-data) groups=82(www-data)
+        runAsGroup: 82
         allowPrivilegeEscalation: false
         seccompProfile:
           type: RuntimeDefault
         readOnlyRootFilesystem: false
-      # -- Use an existing PSP instead of creating one
-      existingPsp: ""
       # -- Configures the controller container name
       containerName: controller
       # -- Configures the ports that the nginx-controller listens on
       containerPort:
         http: 80
         https: 443
-      # -- Will add custom configuration options to Nginx https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/
+      # -- Global configuration passed to the ConfigMap consumed by the controller. Values may contain Helm templates.
+      # Ref.: https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/
       config: {}
       # -- Annotations to be added to the controller config configuration configmap.
       configAnnotations: {}
@@ -99,6 +106,10 @@ spec:
       # -- This configuration enables Topology Aware Routing feature, used together with service annotation service.kubernetes.io/topology-mode="auto"
       # Defaults to false
       enableTopologyAwareRouting: false
+      # -- This configuration disable Nginx Controller Leader Election
+      disableLeaderElection: false
+      # -- Duration a leader election is valid before it's getting re-elected, e.g. `15s`, `10m` or `1h`. (Default: 30s)
+      electionTTL: ""
       # -- This configuration defines if Ingress Controller should allow users to set
       # their own *-snippet annotations, otherwise this is forbidden / dropped
       # when users add those annotations.
@@ -124,24 +135,42 @@ spec:
         enabled: false
       # -- Election ID to use for status update, by default it uses the controller name combined with a suffix of 'leader'
       electionID: ""
-      ## This section refers to the creation of the IngressClass resource
-      ## IngressClass resources are supported since k8s >= 1.18 and required since k8s >= 1.19
+      # -- This section refers to the creation of the IngressClass resource.
+      # IngressClasses are immutable and cannot be changed after creation.
+      # We do not support namespaced IngressClasses, yet, so a ClusterRole and a ClusterRoleBinding is required.
       ingressClassResource:
-        # -- Name of the ingressClass
-        name: appsec-nginx
-        # -- Is this ingressClass enabled or not
+        # -- Name of the IngressClass
+        name: nginx
+        # -- Create the IngressClass or not
         enabled: true
-        # -- Is this the default ingressClass for the cluster
+        # -- If true, Ingresses without `ingressClassName` get assigned to this IngressClass on creation.
+        # Ingress creation gets rejected if there are multiple default IngressClasses.
+        # Ref: https://kubernetes.io/docs/concepts/services-networking/ingress/#default-ingress-class
         default: false
-        # -- Controller-value of the controller that is processing this ingressClass
-        controllerValue: "k8s.io/appsec-nginx"
-        # -- Parameters is a link to a custom resource containing additional
-        # configuration for the controller. This is optional if the controller
-        # does not require extra parameters.
+        # -- Annotations to be added to the IngressClass resource.
+        annotations: {}
+        # -- Controller of the IngressClass. An Ingress Controller looks for IngressClasses it should reconcile by this value.
+        # This value is also being set as the `--controller-class` argument of this Ingress Controller.
+        # Ref: https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class
+        controllerValue: k8s.io/ingress-nginx
+        # -- Aliases of this IngressClass. Creates copies with identical settings but the respective alias as name.
+        # Useful for development environments with only one Ingress Controller but production-like Ingress resources.
+        # `default` gets enabled on the original IngressClass only.
+        aliases: []
+        # aliases:
+        # - nginx-alias-1
+        # - nginx-alias-2
+        # -- A link to a custom resource containing additional configuration for the controller.
+        # This is optional if the controller consuming this IngressClass does not require additional parameters.
+        # Ref: https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class
         parameters: {}
+        # parameters:
+        #   apiGroup: k8s.example.com
+        #   kind: IngressParameters
+        #   name: external-lb
       # -- For backwards compatibility with ingress.class annotation, use ingressClass.
       # Algorithm is as follows, first ingressClassName is considered, if not present, controller looks for ingress.class annotation
-      ingressClass: appsec-nginx
+      ingressClass: nginx
       # -- Labels to add to the pod container metadata
       podLabels: {}
       #  key: value
@@ -187,7 +216,7 @@ spec:
         # -- Annotations to be added to the udp config configmap
         annotations: {}
       # -- Maxmind license key to download GeoLite2 Databases.
-      ## https://blog.maxmind.com/2019/12/18/significant-changes-to-accessing-and-using-geolite2-databases
+      ## https://blog.maxmind.com/2019/12/significant-changes-to-accessing-and-using-geolite2-databases/
       maxmindLicenseKey: ""
       # -- Additional command line arguments to pass to Ingress-Nginx Controller
       # E.g. to specify the default SSL certificate you can use
@@ -227,6 +256,9 @@ spec:
       #    maxUnavailable: 1
       #  type: RollingUpdate
 
+      # -- Specifies the number of seconds you want to wait for the controller deployment to progress before the system reports back that it has failed.
+      # Ref.: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#progress-deadline-seconds
+      progressDeadlineSeconds: 0
       # -- `minReadySeconds` to avoid killing pods before we are ready
       ##
       minReadySeconds: 0
@@ -253,11 +285,11 @@ spec:
       #         - key: app.kubernetes.io/name
       #           operator: In
       #           values:
-      #           - ingress-nginx
+      #           - '{{ include "ingress-nginx.name" . }}'
       #         - key: app.kubernetes.io/instance
       #           operator: In
       #           values:
-      #           - ingress-nginx
+      #           - '{{ .Release.Name }}'
       #         - key: app.kubernetes.io/component
       #           operator: In
       #           values:
@@ -272,16 +304,16 @@ spec:
       #       - key: app.kubernetes.io/name
       #         operator: In
       #         values:
-      #         - ingress-nginx
+      #         - '{{ include "ingress-nginx.name" . }}'
       #       - key: app.kubernetes.io/instance
       #         operator: In
       #         values:
-      #         - ingress-nginx
+      #         - '{{ .Release.Name }}'
       #       - key: app.kubernetes.io/component
       #         operator: In
       #         values:
       #         - controller
-      #     topologyKey: "kubernetes.io/hostname"
+      #     topologyKey: kubernetes.io/hostname
 
       # -- Topology spread constraints rely on node labels to identify the topology domain(s) that each Node is in.
       ## Ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/
@@ -292,6 +324,8 @@ spec:
       #       app.kubernetes.io/name: '{{ include "ingress-nginx.name" . }}'
       #       app.kubernetes.io/instance: '{{ .Release.Name }}'
       #       app.kubernetes.io/component: controller
+      #   matchLabelKeys:
+      #   - pod-template-hash
       #   topologyKey: topology.kubernetes.io/zone
       #   maxSkew: 1
       #   whenUnsatisfiable: ScheduleAnyway
@@ -300,6 +334,8 @@ spec:
       #       app.kubernetes.io/name: '{{ include "ingress-nginx.name" . }}'
       #       app.kubernetes.io/instance: '{{ .Release.Name }}'
       #       app.kubernetes.io/component: controller
+      #   matchLabelKeys:
+      #   - pod-template-hash
       #   topologyKey: kubernetes.io/hostname
       #   maxSkew: 1
       #   whenUnsatisfiable: ScheduleAnyway
@@ -365,7 +401,9 @@ spec:
       minAvailable: 1
       # -- Maximum unavailable pods set in PodDisruptionBudget. If set, 'minAvailable' is ignored.
       # maxUnavailable: 1
-
+      # -- Eviction policy for unhealthy pods guarded by PodDisruptionBudget.
+      # Ref: https://kubernetes.io/blog/2023/01/06/unhealthy-pod-eviction-policy-for-pdbs/
+      unhealthyPodEvictionPolicy: ""
       ## Define requests resources to avoid probe issues due to CPU utilization in busy nodes
       ## ref: https://github.com/kubernetes/ingress-nginx/issues/4735#issuecomment-551204903
       ## Ideally, there should be no limits.
@@ -415,7 +453,7 @@ spec:
         ## apiVersion changes with keda 1.x vs 2.x
         ## 2.x = keda.sh/v1alpha1
         ## 1.x = keda.k8s.io/v1alpha1
-        enabled: false
+        enabled: true
         minReplicas: 1
         maxReplicas: 11
         pollingInterval: 30
@@ -494,7 +532,7 @@ spec:
 
         # -- External traffic policy of the external controller service. Set to "Local" to preserve source IP on providers supporting it.
         # Ref: https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/#preserving-the-client-source-ip
-        externalTrafficPolicy: "Local"
+        externalTrafficPolicy: ""
         # -- Session affinity of the external controller service. Must be either "None" or "ClientIP" if set. Defaults to "None".
         # Ref: https://kubernetes.io/docs/reference/networking/virtual-ips/#session-affinity
         sessionAffinity: ""
@@ -668,11 +706,11 @@ spec:
       #   image: busybox
       #   command: ['sh', '-c', 'until nslookup myservice; do echo waiting for myservice; sleep 2; done;']
 
-      # -- Modules, which are mounted into the core nginx image. See values.yaml for a sample to add opentelemetry module
+      # -- Modules, which are mounted into the core nginx image.
       extraModules: []
       # - name: mytestmodule
       #   image:
-      #     registry: registry.k8s.io
+      #     # registry: registry.k8s.io
       #     image: ingress-nginx/mytestmodule
       #     ## for backwards compatibility consider setting the full image url via the repository value below
       #     ## use *either* current default registry/image or repository format or installing chart by providing the values.yaml will fail
@@ -683,6 +721,7 @@ spec:
       #   containerSecurityContext:
       #     runAsNonRoot: true
       #     runAsUser: <user-id>
+      #     runAsGroup: <group-id>
       #     allowPrivilegeEscalation: false
       #     seccompProfile:
       #       type: RuntimeDefault
@@ -696,30 +735,6 @@ spec:
       # will be executed as initContainers, to move its config files within the
       # mounted volume.
 
-      opentelemetry:
-        enabled: false
-        name: opentelemetry
-        image:
-          registry: registry.k8s.io
-          image: ingress-nginx/opentelemetry
-          ## for backwards compatibility consider setting the full image url via the repository value below
-          ## use *either* current default registry/image or repository format or installing chart by providing the values.yaml will fail
-          ## repository:
-          tag: "v20230721-3e2062ee5"
-          digest: sha256:13bee3f5223883d3ca62fee7309ad02d22ec00ff0d7033e3e9aca7a9f60fd472
-          distroless: true
-        containerSecurityContext:
-          runAsNonRoot: true
-          # -- The image's default user, inherited from its base image `cgr.dev/chainguard/static`.
-          runAsUser: 65532
-          allowPrivilegeEscalation: false
-          seccompProfile:
-            type: RuntimeDefault
-          capabilities:
-            drop:
-              - ALL
-          readOnlyRootFilesystem: true
-        resources: {}
       admissionWebhooks:
         name: admission
         annotations: {}
@@ -747,8 +762,6 @@ spec:
         objectSelector: {}
         # -- Labels to be added to admission webhooks
         labels: {}
-        # -- Use an existing PSP instead of creating one
-        existingPsp: ""
         service:
           annotations: {}
           # clusterIP: ""
@@ -763,6 +776,7 @@ spec:
           securityContext:
             runAsNonRoot: true
             runAsUser: 65532
+            runAsGroup: 65532
             allowPrivilegeEscalation: false
             seccompProfile:
               type: RuntimeDefault
@@ -783,6 +797,7 @@ spec:
           securityContext:
             runAsNonRoot: true
             runAsUser: 65532
+            runAsGroup: 65532
             allowPrivilegeEscalation: false
             seccompProfile:
               type: RuntimeDefault
@@ -794,13 +809,14 @@ spec:
         patch:
           enabled: true
           image:
-            registry: registry.k8s.io
+            # registry: registry.k8s.io
             image: ingress-nginx/kube-webhook-certgen
             ## for backwards compatibility consider setting the full image url via the repository value below
             ## use *either* current default registry/image or repository format or installing chart by providing the values.yaml will fail
             ## repository:
-            tag: v1.4.0
-            digest: sha256:44d1d0e9f19c63f58b380c5fddaca7cf22c7cee564adeff365225a5df5ef3334
+            tag: v1.5.0
+            digest: sha256:aaafd456bda110628b2d4ca6296f38731a3aaf0bf7581efae824a41c770a8fc4
+            pullPolicy: IfNotPresent
           # -- Provide a priority class name to the webhook patching job
           ##
           priorityClassName: ""
@@ -816,6 +832,18 @@ spec:
           labels: {}
           # -- Security context for secret creation & webhook patch pods
           securityContext: {}
+          # -- Admission webhook patch job RBAC
+          rbac:
+            # -- Create RBAC or not
+            create: true
+          # -- Admission webhook patch job service account
+          serviceAccount:
+            # -- Create a service account or not
+            create: true
+            # -- Custom service account name
+            name: ""
+            # -- Auto-mount service account token or not
+            automountServiceAccountToken: true
         # Use certmanager to generate webhook certs
         certManager:
           enabled: false
@@ -835,6 +863,8 @@ spec:
         # if this port is changed, change healthz-port: in extraArgs: accordingly
         enabled: false
         service:
+          # -- Enable the metrics service or not.
+          enabled: true
           annotations: {}
           # prometheus.io/scrape: "true"
           # prometheus.io/port: "10254"
@@ -855,6 +885,7 @@ spec:
         serviceMonitor:
           enabled: false
           additionalLabels: {}
+          # -- Annotations to be added to the ServiceMonitor.
           annotations: {}
           ## The label to use to retrieve the job name from.
           ## jobLabel: "app.kubernetes.io/name"
@@ -872,6 +903,8 @@ spec:
         prometheusRule:
           enabled: false
           additionalLabels: {}
+          # -- Annotations to be added to the PrometheusRule.
+          annotations: {}
           # namespace: ""
           rules: []
           # # These are just examples rules, please adapt them to your needs
@@ -935,21 +968,21 @@ spec:
       enabled: false
       name: defaultbackend
       image:
-        registry: registry.k8s.io
+        # registry: registry.k8s.io
         image: defaultbackend-amd64
         ## for backwards compatibility consider setting the full image url via the repository value below
         ## use *either* current default registry/image or repository format or installing chart by providing the values.yaml will fail
         ## repository:
         tag: "1.5"
+        pullPolicy: IfNotPresent
         runAsNonRoot: true
         # nobody user -> uid 65534
         runAsUser: 65534
+        runAsGroup: 65534
         allowPrivilegeEscalation: false
         seccompProfile:
           type: RuntimeDefault
         readOnlyRootFilesystem: true
-      # -- Use an existing PSP instead of creating one
-      existingPsp: ""
       extraArgs: {}
       serviceAccount:
         create: true
@@ -992,7 +1025,72 @@ spec:
       #    value: "value"
       #    effect: "NoSchedule|PreferNoSchedule|NoExecute(1.6 only)"
 
+      # -- Affinity and anti-affinity rules for server scheduling to nodes
+      ## Ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
       affinity: {}
+      # # An example of preferred pod anti-affinity, weight is in the range 1-100
+      # podAntiAffinity:
+      #   preferredDuringSchedulingIgnoredDuringExecution:
+      #   - weight: 100
+      #     podAffinityTerm:
+      #       labelSelector:
+      #         matchExpressions:
+      #         - key: app.kubernetes.io/name
+      #           operator: In
+      #           values:
+      #           - '{{ include "ingress-nginx.name" . }}'
+      #         - key: app.kubernetes.io/instance
+      #           operator: In
+      #           values:
+      #           - '{{ .Release.Name }}'
+      #         - key: app.kubernetes.io/component
+      #           operator: In
+      #           values:
+      #           - default-backend
+      #       topologyKey: kubernetes.io/hostname
+
+      # # An example of required pod anti-affinity
+      # podAntiAffinity:
+      #   requiredDuringSchedulingIgnoredDuringExecution:
+      #   - labelSelector:
+      #       matchExpressions:
+      #       - key: app.kubernetes.io/name
+      #         operator: In
+      #         values:
+      #         - '{{ include "ingress-nginx.name" . }}'
+      #       - key: app.kubernetes.io/instance
+      #         operator: In
+      #         values:
+      #         - '{{ .Release.Name }}'
+      #       - key: app.kubernetes.io/component
+      #         operator: In
+      #         values:
+      #         - default-backend
+      #     topologyKey: kubernetes.io/hostname
+
+      # -- Topology spread constraints rely on node labels to identify the topology domain(s) that each Node is in.
+      # Ref.: https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/
+      topologySpreadConstraints: []
+      # - labelSelector:
+      #     matchLabels:
+      #       app.kubernetes.io/name: '{{ include "ingress-nginx.name" . }}'
+      #       app.kubernetes.io/instance: '{{ .Release.Name }}'
+      #       app.kubernetes.io/component: default-backend
+      #   matchLabelKeys:
+      #   - pod-template-hash
+      #   topologyKey: topology.kubernetes.io/zone
+      #   maxSkew: 1
+      #   whenUnsatisfiable: ScheduleAnyway
+      # - labelSelector:
+      #     matchLabels:
+      #       app.kubernetes.io/name: '{{ include "ingress-nginx.name" . }}'
+      #       app.kubernetes.io/instance: '{{ .Release.Name }}'
+      #       app.kubernetes.io/component: default-backend
+      #   matchLabelKeys:
+      #   - pod-template-hash
+      #   topologyKey: kubernetes.io/hostname
+      #   maxSkew: 1
+      #   whenUnsatisfiable: ScheduleAnyway
       # -- Security context for default backend pods
       podSecurityContext: {}
       # -- Security context for default backend containers
@@ -1010,7 +1108,14 @@ spec:
       ##
       podAnnotations: {}
       replicaCount: 1
+      # -- Minimum available pods set in PodDisruptionBudget.
+      # Define either 'minAvailable' or 'maxUnavailable', never both.
       minAvailable: 1
+      # -- Maximum unavailable pods set in PodDisruptionBudget. If set, 'minAvailable' is ignored.
+      # maxUnavailable: 1
+      # -- Eviction policy for unhealthy pods guarded by PodDisruptionBudget.
+      # Ref: https://kubernetes.io/blog/2023/01/06/unhealthy-pod-eviction-policy-for-pdbs/
+      unhealthyPodEvictionPolicy: ""
       resources: {}
       # limits:
       #   cpu: 10m
@@ -1074,10 +1179,6 @@ spec:
     rbac:
       create: true
       scope: false
-    ## If true, create & use Pod Security Policy resources
-    ## https://kubernetes.io/docs/concepts/policy/pod-security-policy/
-    podSecurityPolicy:
-      enabled: false
     serviceAccount:
       create: true
       name: ""
@@ -1093,13 +1194,13 @@ spec:
     ## Ref: https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/exposing-tcp-udp-services.md
     ##
     tcp: {}
-    #  8080: "default/example-tcp-svc:9000"
+    #  "8080": "default/example-tcp-svc:9000"
 
     # -- UDP service key-value pairs
     ## Ref: https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/exposing-tcp-udp-services.md
     ##
     udp: {}
-    #  53: "kube-system/kube-dns:53"
+    #  "53": "kube-system/kube-dns:53"
 
     # -- Prefix for TCP and UDP ports names in ingress controller service
     ## Some cloud providers, like Yandex Cloud may have a requirements for a port name regex to support cloud load balancer integration
@@ -1108,129 +1209,3 @@ spec:
     # This can be generated with: `openssl dhparam 4096 2> /dev/null | base64`
     ## Ref: https://github.com/kubernetes/ingress-nginx/tree/main/docs/examples/customization/ssl-dh-param
     dhParam: ""
-
-    appsec:
-      mode: managed
-      name: open-appsec
-      image:
-        #registry:
-        repository: ghcr.io/openappsec
-        image: "agent"
-        tag: "latest"
-
-        securityContext:
-          {}
-          # capabilities:
-          #   drop:
-          #   - ALL
-          # readOnlyRootFilesystem: true
-          # runAsNonRoot: true
-          # runAsUser: 1000
-      nginx:
-        image:
-          repository: "ghcr.io/openappsec/nginx-ingress-attachment"
-          tag: "latest"
-      configMapName: appsec-settings-configmap
-      configMapContent:
-        crowdsec:
-          enabled: true
-          mode: prevent
-          logging: enabled
-          api:
-            url: http://crowdsec-service:8080/v1/decisions/stream
-          auth:
-            method: apikey
-      secretName: appsec-settings-secret
-      # If you would like to use your own secret with CrowdSec authentication data, please remove the following block
-      secretContent:
-        crowdsec:
-          auth:
-            data: "00000000000000000000000000000000"
-      resources:
-        #  limits:
-        #    cpu: 100m
-        #    memory: 90Mi
-        requests:
-          cpu: 100m
-          memory: 90Mi
-
-      agentToken:
-
-      command: /cp-nano-agent
-      customFog:
-        enabled: true
-        fogAddress: "https://inext-agents.cloud.ngen.checkpoint.com/"
-
-      #proxy:
-
-      playground: false
-
-      persistence:
-        ## open-appsec data Persistent Volume Storage Class
-        ## If defined, storageClassName: <storageClass>
-        ## If set to "-", storageClassName: "", which disables dynamic provisioning
-        ## If undefined (the default) or set to null, no storageClassName spec is
-        ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
-        ##   GKE, AWS & OpenStack)
-        ##
-        # storageClass: "-"
-        enabled: true
-        data:
-          volumeName: appsec-data
-          size: 1Gi
-        conf:
-          volumeName: appsec-conf
-          size: 1Gi
-        learning:
-          ## required a storage class with read write many access mode
-          storageClass:
-            ## Azure recommended:
-            # name: azurefile
-            ## AWS: follow this guide https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html
-            # name: efs-csi
-            name: ceph-filesystem
-            accessModes: ReadWriteMany
-          volumeName: appsec-learning-storage
-          size: 1Gi
-
-      learning:
-        name: open-appsec-learning
-        replicas: 1
-        image:
-          registry: ghcr.io/openappsec
-          image: smartsync
-          tag: latest
-
-      storage:
-        name: open-appsec-shared-storage
-        replicas: 1
-        image:
-          registry: ghcr.io/openappsec
-          image: smartsync-shared-files
-          tag: latest
-
-      tuning:
-        name: open-appsec-tuning
-        image:
-          registry: ghcr.io/openappsec
-          image: smartsync-tuning
-          tag: latest
-        enabled: false
-        replicaCount: 1
-        securityContext:
-          fsGroup: 2000
-          runAsGroup: 2000
-          runAsUser: 1000
-        port: 8080
-        failureThreshold: 3
-        initialDelaySeconds: 5
-        periodSeconds: 5
-        timeoutSeconds: 10
-        successThreshold: 1
-        serviceAccount:
-          create: true
-
-    # -- For nginx vanilla installation use kind Vanilla (no appsec components).
-    # -- For nginx with appsec installation use kind AppSec (default: nginx + appsec without state).
-    # -- For nginx with appsec (statefulset) installation use kind AppSecStateful.
-    kind: AppSec
