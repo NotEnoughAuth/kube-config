@@ -1,0 +1,26 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: cyberstout-auth
+  namespace: authentik
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+    # gethomepage.dev/href: "https://headscale.oplabs.us"
+    # gethomepage.dev/enabled: "true"
+    # gethomepage.dev/name: "JP Designs Dashboard"
+    # gethomepage.dev/description: "Manage JP Designs projects"
+    # gethomepage.dev/group: "JP Designs"
+    # gethomepage.dev/icon: "nodejs.png"
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`auth.cyberstout.org`) && PathPrefix(`/`)
+      kind: Rule
+      middlewares:
+        []
+      services:
+        - name: authentik-server
+          port: 80
+  tls:
+    secretName: cyberstout-org-tls # give it the ole tls cert
