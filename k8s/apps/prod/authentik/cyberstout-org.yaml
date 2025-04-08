@@ -12,7 +12,7 @@ spec:
   issuerRef:
     name: letsencrypt-production
     kind: ClusterIssuer
-  commonName: "*.oplabs.us"
+  commonName: "*.cyberstout.org"
   dnsNames:
     - "cyberstout.org"
     - "*.cyberstout.org"
