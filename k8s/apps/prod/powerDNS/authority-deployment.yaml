@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: dns-auth
-          image: powerdns/pdns-auth-49:4.9.4
+          image: powerdns/pdns-auth-49:4.9.5
           # resources:
           #   limits:
           #     memory: "128Mi"
