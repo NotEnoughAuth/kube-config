@@ -13,3 +13,8 @@ spec:
           peerAddress: 10.27.15.1
           peerConfigRef:
             name: "cilium-peer"
+        - name: "pfsense-router-ipv6"
+          peerASN: 64512
+          peerAddress: 2600:1700:6e0f:f81c:ec4:7aff:fe99:39bf
+          peerConfigRef:
+            name: "cilium-peer"
