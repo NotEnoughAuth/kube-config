@@ -6,7 +6,7 @@ metadata:
 spec:
   blocks:
     - cidr: "10.27.55.0/24"
-    - cidr: "2600:1700:6e0f:f81d:1000::/72"
+    # - cidr: "2600:1700:6e0f:f81d:1000::/72"
   serviceSelector:
     matchLabels:
       scope: "public"
