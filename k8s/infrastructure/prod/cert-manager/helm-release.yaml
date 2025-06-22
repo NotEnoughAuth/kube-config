@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: cert-manager
-      version: v1.14.4
+      version: v1.18.1
       interval: 5m
       sourceRef:
         kind: HelmRepository
