@@ -31,5 +31,10 @@ spec:
       services:
         - name: jpdesigns-site
           port: 8080
+    - match: Host(`paintbyjpdesigns.com`) && PathPrefix(`/oauth2/`)
+      kind: Rule
+      services:
+        - name: oauth-proxy
+          port: 4180
   tls:
     secretName: paintbyjpdesigns-tls # give it the ole tls cert

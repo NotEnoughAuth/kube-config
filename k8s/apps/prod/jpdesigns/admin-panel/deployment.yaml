@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jpdesigns-admin
+  namespace: jpdesigns
+spec:
+  selector:
+    matchLabels:
+      app: jpdesigns-admin
+  template:
+    metadata:
+      labels:
+        app: jpdesigns-admin
+    spec:
+      containers:
+        - name: jpdesigns-admin
+          image: registry.oplabs.us:5050/root/jp-designs-admin:15 # {"$imagepolicy": "flux-system:jpdesigns-admin"}
+          # resources:
+          #   limits:
+          #     memory: "128Mi"
+          #     cpu: "500m"
+          ports:
+            - containerPort: 3000
+          env:
+            - name: S3_ENDPOINT
+              valueFrom:
+                secretKeyRef:
+                  name: jpdesigns-env-admin
+                  key: S3_endpoint
+            - name: S3_BUCKET
+              valueFrom:
+                secretKeyRef:
+                  name: jpdesigns-env-admin
+                  key: S3_bucket
+            - name: S3_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jpdesigns-env-admin
+                  key: S3_access_key
+            - name: S3_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jpdesigns-env-admin
+                  key: S3_secret_key
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: jpdesigns-db-app
+                  key: host
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: jpdesigns-db-app
+                  key: user
+            - name: DB_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: jpdesigns-db-app
+                  key: password
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: jpdesigns-db-app
+                  key: dbname
+            - name: DB_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: jpdesigns-db-app
+                  key: port
