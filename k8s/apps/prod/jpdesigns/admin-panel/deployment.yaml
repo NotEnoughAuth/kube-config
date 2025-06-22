@@ -12,6 +12,8 @@ spec:
       labels:
         app: jpdesigns-admin
     spec:
+      imagePullSecrets:
+        - name: regcred
       containers:
         - name: jpdesigns-admin
           image: repo.oplabs.us/gitlab/jp-designs-admin:16 # {"$imagepolicy": "flux-system:jpdesigns-admin"}
