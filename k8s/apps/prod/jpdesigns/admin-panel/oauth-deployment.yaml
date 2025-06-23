@@ -43,7 +43,7 @@ spec:
             - --upstream=static://202
           env:
             - name: OAUTH2_PROXY_PROVIDER
-              value: "oidc" # Use OIDC for Microsoft SSO
+              value: "oidc"
             - name: OAUTH2_PROXY_PPROVIDER_DISPLAY_NAME
               value: "OP Labs"
             - name: OAUTH2_PROXY_CLIENT_ID
@@ -68,5 +68,7 @@ spec:
                 secretKeyRef:
                   name: authenticationserver
                   key: issuerurl
+            - name: OAUTH2_PROXY_REDIRECT_URL
+              value: "https://admin.paintbyjpdesigns.com/oauth2/callback"
           # - name: OAUTH2_PROXY_REDIRECT_URL
           #   value: "https://auth.opryga.com/oauth2/callback" # Adjust to your OAuth Proxy's external URL
