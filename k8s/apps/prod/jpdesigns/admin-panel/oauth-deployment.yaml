@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: oauth-proxy
-          image: quay.io/oauth2-proxy/oauth2-proxy:v7.7.1
+          image: quay.io/oauth2-proxy/oauth2-proxy:v7.9.0
           ports:
             - containerPort: 4180
           args:
@@ -44,7 +44,7 @@ spec:
           env:
             - name: OAUTH2_PROXY_PROVIDER
               value: "oidc" # Use OIDC for Microsoft SSO
-            - name: OAUTH2_PPROVIDER_DISPLAY_NAME
+            - name: OAUTH2_PROXY_PPROVIDER_DISPLAY_NAME
               value: "OP Labs"
             - name: OAUTH2_PROXY_CLIENT_ID
               valueFrom:
