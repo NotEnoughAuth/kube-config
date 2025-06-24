@@ -78,8 +78,8 @@ spec:
                 secretKeyRef:
                   name: lubelogger-openid-secret
                   key: scope
-            # - name: OpenIDConfig__ValidateState
-            #   value: "true"
+            - name: OpenIDConfig__ValidateState
+              value: "true"
             # - name: OpenIDConfig__UsePKCE
             #   value: "true"
             - name: OpenIDConfig__DisableRegularLogin
