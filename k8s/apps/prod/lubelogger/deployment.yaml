@@ -81,8 +81,8 @@ spec:
               value: "true"
             - name: OpenIDConfig__UsePKCE
               value: "true"
-            - name: OpenIDConfig__DisableRegularLogin
-              value: "true"
+            # - name: OpenIDConfig__DisableRegularLogin
+            #   value: "true"
             - name: OpenIDConfig__UserInfoURL
               valueFrom:
                 secretKeyRef:
