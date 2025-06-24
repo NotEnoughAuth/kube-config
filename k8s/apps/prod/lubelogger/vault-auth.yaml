@@ -1,5 +1,5 @@
 apiVersion: secrets.hashicorp.com/v1beta1
-kind: VaultAuthMethod
+kind: VaultAuth
 metadata:
   name: lubelogger-kubernetes-auth
   namespace: lubelogger
