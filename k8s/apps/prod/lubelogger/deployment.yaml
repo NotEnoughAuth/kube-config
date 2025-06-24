@@ -1,0 +1,101 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lubelogger
+  namespace: lubelogger
+spec:
+  selector:
+    matchLabels:
+      app: lubelogger
+  template:
+    metadata:
+      labels:
+        app: lubelogger
+    spec:
+      containers:
+        - name: lubelogger
+          image: ghcr.io/hargata/lubelogger:v1.4.1
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          volumeMounts:
+            # - name: config
+            #   mountPath: /App/config
+            - name: data
+              mountPath: /App/data
+            # - name: translations
+            #   mountPath: /App/wwwroot/translations
+            # - name: documents
+            #   mountPath: /App/wwwroot/documents
+            # - name: images
+            #   mountPath: /App/wwwroot/images
+            # - name: temp
+            #   mountPath: /App/wwwroot/temp
+            # - name: log
+            #   mountPath: /App/log
+            - name: keys
+              mountPath: /root/.aspnet/DataProtection-Keys
+          ports:
+            - containerPort: 8080
+          env:
+            - name: POSTGRES_CONNECTION
+              valueFrom:
+                secretKeyRef:
+                  name: lubelogger-db-secret
+                  key: url
+            - name: LC_ALL
+              value: en_US.UTF-8
+            - name: LANG
+              value: en_US.UTF-8
+            - name: OpenIDConfig__name
+              value: "OP Labs"
+            - name: OpenIDConfig__ClientId
+              valueFrom:
+                secretKeyRef:
+                  name: lubelogger-openid-secret
+                  key: clientId
+            - name: OpenIDConfig__ClientSecret
+              valueFrom:
+                secretKeyRef:
+                  name: lubelogger-openid-secret
+                  key: clientSecret
+            - name: OpenIDConfig__AuthURL
+              valueFrom:
+                secretKeyRef:
+                  name: lubelogger-openid-secret
+                  key: authUrl
+            - name: OpenIDConfig__TokenURL
+              valueFrom:
+                secretKeyRef:
+                  name: lubelogger-openid-secret
+                  key: tokenUrl
+            - name: OpenIDConfig__RedirectURL
+              value: "https://lubelogger.opryga.com/Login/RemoteAuth"
+            - name: OpenIDConfig__Scope
+              valueFrom:
+                secretKeyRef:
+                  name: lubelogger-openid-secret
+                  key: scope
+            - name: OpenIDConfig__ValidateState
+              value: "true"
+            - name: OpenIDConfig__UsePKCE
+              value: "true"
+            - name: OpenIDConfig__DisableRegularLogin
+              value: "true"
+            - name: OpenIDConfig__UserInfoURL
+              valueFrom:
+                secretKeyRef:
+                  name: lubelogger-openid-secret
+                  key: userInfoUrl
+            - name: OpenIDConfig__LogOutURL
+              valueFrom:
+                secretKeyRef:
+                  name: lubelogger-openid-secret
+                  key: logoutUrl
+            - name: EnableAuth
+              value: "true"
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: lubelogger-data

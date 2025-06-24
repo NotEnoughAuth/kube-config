@@ -1,0 +1,33 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: lubelogger
+  namespace: lubelogger
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+    gethomepage.dev/href: "https://lubelogger.opryga.com"
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/name: "Lube Logger"
+    gethomepage.dev/description: "Manage your vehicle maintenance"
+    gethomepage.dev/group: "Extras"
+    gethomepage.dev/icon: "nodejs.png"
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`lubelogger.opryga.com`) && PathPrefix(`/`)
+      kind: Rule
+      middlewares:
+        # - name: lubelogger-basicauth
+        #   namespace: jpdesigns
+        # - name: default-headers
+        #   namespace: traefik
+        - name: local-ip-list
+          namespace: traefik
+        # - name: crowdsec-bouncer
+        #   namespace: traefik
+      services:
+        - name: lubelogger
+          port: 8080
+  tls:
+    secretName: opryga-com-tls # give it the ole tls cert
