@@ -10,6 +10,7 @@ spec:
   storageClassName: rook-cephfs
   accessModes:
     - ReadWriteMany
+
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
