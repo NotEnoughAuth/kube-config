@@ -7,7 +7,7 @@ spec:
   resources:
     requests:
       storage: 2Gi
-  storageClassName: rook-cephfs
+  storageClassName: ceph-filesystem
   accessModes:
     - ReadWriteMany
 
@@ -21,6 +21,6 @@ spec:
   resources:
     requests:
       storage: 2Gi
-  storageClassName: rook-cephfs
+  storageClassName: ceph-filesystem
   accessModes:
     - ReadWriteMany
