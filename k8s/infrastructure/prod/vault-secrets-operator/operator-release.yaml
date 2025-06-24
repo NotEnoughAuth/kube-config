@@ -10,7 +10,7 @@ spec:
       chart: vault-secrets-operator
       sourceRef:
         kind: HelmRepository
-        name: rook
+        name: hashicorp
         namespace: flux-system
       interval: 1m
   values:
