@@ -693,7 +693,7 @@ spec:
 
         # Kubernetes ServiceAccount associated with the default Vault Auth Role
         # @type: string
-        serviceAccount: default
+        serviceAccount: vault-secrets-operator-controller-manager
 
         # Token Audience should match the audience of the vault kubernetes auth role.
         # @type: array<string>
