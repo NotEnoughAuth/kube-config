@@ -93,8 +93,6 @@ spec:
                 secretKeyRef:
                   name: lubelogger-openid-secret
                   key: logoutUrl
-            - name: EnableAuth
-              value: "true"
       volumes:
         - name: data
           persistentVolumeClaim:
