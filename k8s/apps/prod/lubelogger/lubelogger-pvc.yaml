@@ -6,7 +6,20 @@ metadata:
 spec:
   resources:
     requests:
-      storage: 1Gi
+      storage: 2Gi
+  storageClassName: ceph-block
+  accessModes:
+    - ReadWriteMany
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: lubelogger-keys
+  namespace: lubelogger
+spec:
+  resources:
+    requests:
+      storage: 2Gi
   storageClassName: ceph-block
   accessModes:
     - ReadWriteMany

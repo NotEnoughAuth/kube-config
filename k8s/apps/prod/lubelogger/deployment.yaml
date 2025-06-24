@@ -99,3 +99,6 @@ spec:
         - name: data
           persistentVolumeClaim:
             claimName: lubelogger-data
+        - name: keys
+          persistentVolumeClaim:
+            claimName: lubelogger-keys
