@@ -96,8 +96,8 @@ spec:
                   key: logoutUrl
           readinessProbe:
             httpGet:
-              - path: /
-                port: 8080
+              path: /
+              port: 8080
       volumes:
         - name: data
           persistentVolumeClaim:
