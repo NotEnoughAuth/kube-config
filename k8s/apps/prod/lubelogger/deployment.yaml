@@ -94,6 +94,10 @@ spec:
                 secretKeyRef:
                   name: lubelogger-openid-secret
                   key: logoutUrl
+          readinessProbe:
+            httpGet:
+              - path: /
+                port: 8080
       volumes:
         - name: data
           persistentVolumeClaim:
