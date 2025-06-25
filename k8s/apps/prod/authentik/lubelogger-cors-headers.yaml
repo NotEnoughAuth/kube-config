@@ -1,0 +1,17 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: lubelogger-auth-cors
+  namespace: authentik
+spec:
+  headers:
+    accessControlAllowOriginList:
+      - "https://lubelogger.opryga.com"
+    accessControlAllowMethods:
+      - "GET"
+      - "OPTIONS"
+    accessControlAllowHeaders:
+      - "Authorization"
+      - "Content-Type"
+    accessControlAllowCredentials: true
+    accessControlMaxAge: 100
