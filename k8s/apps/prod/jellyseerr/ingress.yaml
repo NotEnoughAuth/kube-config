@@ -5,29 +5,28 @@ metadata:
   namespace: jellyseerr
   annotations:
     kubernetes.io/ingress.class: traefik-external
-    gethomepage.dev/href: "https://jellyseerr.opryga.com"
+    gethomepage.dev/href: "https://request.oplabs.us"
     gethomepage.dev/enabled: "true"
-    gethomepage.dev/name: "Lube Logger"
-    gethomepage.dev/description: "Manage your vehicle maintenance"
+    gethomepage.dev/name: "Plex Request"
+    gethomepage.dev/description: "Manage requests for Plex content"
     gethomepage.dev/group: "Extras"
-    gethomepage.dev/icon: "nodejs.png"
+    gethomepage.dev/icon: "https://raw.githubusercontent.com/jellyseerr/jellyseerr/main/public/favicon.ico"
 spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`jellyseerr.opryga.com`) && !PathPrefix(`/api/v1/status`) && PathPrefix(`/`)
+    - match: Host(`request.oplabs.us`) && !PathPrefix(`/api/v1/status`) && PathPrefix(`/`)
       kind: Rule
       middlewares:
+        []
         # - name: jellyseerr-basicauth
         #   namespace: jpdesigns
         # - name: default-headers
         #   namespace: traefik
-        - name: local-ip-list
-          namespace: traefik
         # - name: crowdsec-bouncer
         #   namespace: traefik
       services:
         - name: jellyseerr
           port: 5055
   tls:
-    secretName: opryga-com-tls # give it the ole tls cert
+    secretName: oplabs-us-tls # give it the ole tls cert

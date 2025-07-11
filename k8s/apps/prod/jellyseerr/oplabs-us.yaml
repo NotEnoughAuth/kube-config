@@ -1,18 +1,18 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: opryga-com
+  name: oplabs-us
   namespace: jellyseerr # Same namespace as service you are using
 spec:
   secretTemplate:
     annotations:
       reflector.v1.k8s.emberstack.com/reflection-auto-enabled: "true"
       reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
-  secretName: opryga-com-tls
+  secretName: oplabs-us-tls
   issuerRef:
     name: letsencrypt-production
     kind: ClusterIssuer
-  commonName: "*.opryga.com"
+  commonName: "*.oplabs.us"
   dnsNames:
-    - "opryga.com"
-    - "*.opryga.com"
+    - "oplabs.us"
+    - "*.oplabs.us"
