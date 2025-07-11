@@ -39,7 +39,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: jellyseerr-db-secret
-                  key: name
+                  key: database
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
