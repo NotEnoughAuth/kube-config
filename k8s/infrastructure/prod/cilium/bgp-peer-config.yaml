@@ -4,11 +4,6 @@ metadata:
   name: cilium-peer
   namespace: kube-system
 spec:
-  nodeSelector:
-    matchExpressions:
-      - key: node.kubernetes.io/exclude-from-external-load-balancers=
-        operator: NotIn
-        values: [""] # empty string matches label existence with empty value
   timers:
     holdTimeSeconds: 9
     keepAliveTimeSeconds: 3
