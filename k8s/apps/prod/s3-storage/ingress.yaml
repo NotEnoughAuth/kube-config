@@ -8,8 +8,7 @@ metadata:
 spec:
   entryPoints:
     - websecure
-  inFlightReq:
-    amount: 0 # no limit
+
   timeout:
     readTimeout: 300s
     writeTimeout: 300s
