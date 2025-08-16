@@ -8,11 +8,6 @@ metadata:
 spec:
   entryPoints:
     - websecure
-
-  timeout:
-    readTimeout: 300s
-    writeTimeout: 300s
-    idleTimeout: 300s
   routes:
     - match: Host(`s3.oplabs.us`)
       kind: Rule
