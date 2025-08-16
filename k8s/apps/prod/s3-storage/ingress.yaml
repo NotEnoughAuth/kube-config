@@ -8,6 +8,15 @@ metadata:
 spec:
   entryPoints:
     - websecure
+  buffering:
+    requestBodyBuffering: false
+    responseBodyBuffering: false
+  inFlightReq:
+    amount: 0 # no limit
+  timeout:
+    readTimeout: 300s
+    writeTimeout: 300s
+    idleTimeout: 300s
   routes:
     - match: Host(`s3.oplabs.us`)
       kind: Rule
