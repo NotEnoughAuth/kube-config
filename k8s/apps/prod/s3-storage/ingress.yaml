@@ -12,8 +12,9 @@ spec:
     - match: Host(`s3.oplabs.us`)
       kind: Rule
       middlewares:
-        - name: default-headers
-          namespace: traefik
+        {}
+        #- name: default-headers
+        #  namespace: traefik
         # - name: crowdsec-bouncer
         #   namespace: traefik
       services:
