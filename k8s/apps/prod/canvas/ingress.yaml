@@ -1,0 +1,24 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: canvas-ingress
+  namespace: canvas
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`canvas.oplabs.us`)
+      kind: Rule
+      middlewares:
+        []
+        #- name: default-headers
+        #  namespace: traefik
+        # - name: crowdsec-bouncer
+        #   namespace: traefik
+      services:
+        - name: canvas
+          port: 80
+  tls:
+    secretName: oplabs-us-tls
