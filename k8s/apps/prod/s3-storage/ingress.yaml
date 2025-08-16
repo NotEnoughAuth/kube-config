@@ -8,9 +8,6 @@ metadata:
 spec:
   entryPoints:
     - websecure
-  buffering:
-    requestBodyBuffering: false
-    responseBodyBuffering: false
   inFlightReq:
     amount: 0 # no limit
   timeout:
