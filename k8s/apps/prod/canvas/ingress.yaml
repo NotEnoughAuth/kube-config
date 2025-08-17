@@ -19,6 +19,6 @@ spec:
         #   namespace: traefik
       services:
         - name: canvas
-          port: 80
+          port: 443
   tls:
     secretName: oplabs-us-tls
