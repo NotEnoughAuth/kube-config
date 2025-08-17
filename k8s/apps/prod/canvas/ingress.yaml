@@ -12,7 +12,8 @@ spec:
     - match: Host(`canvas.oplabs.us`)
       kind: Rule
       middlewares:
-        []
+        - name: canvas-headers
+          namespace: traefik
         #- name: default-headers
         #  namespace: traefik
         # - name: crowdsec-bouncer
