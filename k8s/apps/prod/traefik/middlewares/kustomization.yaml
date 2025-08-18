@@ -7,3 +7,4 @@ resources:
   - oauth-headers.yaml
   - cluster-only.yaml
   - ojwan-ip-list.yaml
+  - canvas-headers.yaml
