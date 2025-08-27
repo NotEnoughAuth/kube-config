@@ -4,7 +4,7 @@ metadata:
   name: ghost-db-secret
   namespace: blog
 spec:
-  vaultAuthRef: ghost-vault-auth
+  vaultAuthRef: ghost-kubernetes-auth
   mount: database
   path: creds/ghost_db_rw
   destination:
