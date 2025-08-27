@@ -37,11 +37,6 @@ spec:
           persistentVolumeClaim:
             claimName: k8s-ghost-content
 
-        - name: ghost-config-prod
-          secret:
-            secretName: ghost-config-prod
-            defaultMode: 420
-
         - name: tmp
           emptyDir:
             sizeLimit: 64Mi
