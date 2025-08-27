@@ -2,7 +2,7 @@ apiVersion: secrets.hashicorp.com/v1beta1
 kind: VaultDynamicSecret
 metadata:
   name: ghost-db-secret
-  namespace: ghost
+  namespace: blog
 spec:
   vaultAuthRef: ghost-vault-auth
   mount: database
@@ -16,7 +16,7 @@ apiVersion: secrets.hashicorp.com/v1beta1
 kind: VaultStaticSecret
 metadata:
   name: ghost-smtp-secret
-  namespace: ghost
+  namespace: blog
 spec:
   vaultAuthRef: ghost-vault-auth
   mount: kv
