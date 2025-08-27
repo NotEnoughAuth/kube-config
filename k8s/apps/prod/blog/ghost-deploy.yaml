@@ -105,13 +105,13 @@ spec:
           securityContext:
             readOnlyRootFilesystem: true
             allowPrivilegeEscalation: false
-          resources:
-            limits:
-              cpu: 900m
-              memory: 1000Mi
-            requests:
-              cpu: 100m
-              memory: 128Mi
+          # resources:
+          #   limits:
+          #     cpu: 900m
+          #     memory: 1000Mi
+          #   requests:
+          #     cpu: 100m
+          #     memory: 128Mi
           command:
             - /bin/sh
             - "-c"
@@ -227,13 +227,13 @@ spec:
           env:
             - name: NODE_ENV
               value: production
-          resources:
-            limits:
-              cpu: 800m
-              memory: 800Mi
-            requests:
-              cpu: 100m
-              memory: 256Mi
+          # resources:
+          #   limits:
+          #     cpu: 800m
+          #     memory: 800Mi
+          #   requests:
+          #     cpu: 100m
+          #     memory: 256Mi
 
           volumeMounts:
             - name: k8s-ghost-content
