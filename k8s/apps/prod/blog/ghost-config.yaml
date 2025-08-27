@@ -10,6 +10,9 @@ spec:
   destination:
     create: true
     name: ghost-db-secret
+  rolloutRestartTargets:
+    - kind: Deployment
+      name: ghost
 
 ---
 # apiVersion: secrets.hashicorp.com/v1beta1
