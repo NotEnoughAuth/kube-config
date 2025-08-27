@@ -12,19 +12,19 @@ spec:
     name: ghost-db-secret
 
 ---
-apiVersion: secrets.hashicorp.com/v1beta1
-kind: VaultStaticSecret
-metadata:
-  name: ghost-smtp-secret
-  namespace: blog
-spec:
-  vaultAuthRef: ghost-vault-auth
-  mount: kv
-  path: smtp/ghost
-  destination:
-    create: true
-    name: ghost-smtp-secret
-  refreshAfter: 1h
+# apiVersion: secrets.hashicorp.com/v1beta1
+# kind: VaultStaticSecret
+# metadata:
+#   name: ghost-smtp-secret
+#   namespace: blog
+# spec:
+#   vaultAuthRef: ghost-vault-auth
+#   mount: kv
+#   path: smtp/ghost
+#   destination:
+#     create: true
+#     name: ghost-smtp-secret
+#   refreshAfter: 1h
 
 ---
 # apiVersion: secrets.hashicorp.com/v1beta1
