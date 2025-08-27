@@ -40,49 +40,50 @@ spec:
   destination:
     create: true
     name: ghost-config-prod
-  transform:
-    template: |
-      {
-        "url": "https://yourdomain.tld",
-        "admin": {
-          "url": "https://yourdomain.tld"
-        },
-        "server": {
-          "port": 2368,
-          "host": "0.0.0.0"
-        },
-        "mail": {
-          "transport": "SMTP",
-          "from": "{{ .secrets.ghost-smtp-secret.data.username }}",
-          "options": {
-            "service": "Google",
-            "host": "{{ .secrets.ghost-smtp-secret.data.host }}",
-            "port": 587,
-            "secure": true,
-            "auth": {
-              "user": "{{ .secrets.ghost-smtp-secret.data.username }}",
-              "pass": "{{ .secrets.ghost-smtp-secret.data.password }}"
+  transformation:
+    template:
+      config.production.json: |
+        {
+          "url": "https://yourdomain.tld",
+          "admin": {
+            "url": "https://yourdomain.tld"
+          },
+          "server": {
+            "port": 2368,
+            "host": "0.0.0.0"
+          },
+          "mail": {
+            "transport": "SMTP",
+            "from": "{{ .secrets.ghost-smtp-secret.data.username }}",
+            "options": {
+              "service": "Google",
+              "host": "{{ .secrets.ghost-smtp-secret.data.host }}",
+              "port": 587,
+              "secure": true,
+              "auth": {
+                "user": "{{ .secrets.ghost-smtp-secret.data.username }}",
+                "pass": "{{ .secrets.ghost-smtp-secret.data.password }}"
+              }
             }
+          },
+          "logging": {
+            "transports": [
+              "stdout"
+            ]
+          },
+          "database": {
+            "client": "mysql",
+            "connection": {
+              "host": "{{ .secrets.ghost-db-secret.data.host }}",
+              "user": "{{ .secrets.ghost-db-secret.data.username }}",
+              "password": "{{ .secrets.ghost-db-secret.data.password }}",
+              "database": "ghost",
+              "port": "3306"
+            }
+          },
+          "process": "local",
+          "paths": {
+            "contentPath": "/home/nonroot/app/ghost/content"
           }
-        },
-        "logging": {
-          "transports": [
-            "stdout"
-          ]
-        },
-        "database": {
-          "client": "mysql",
-          "connection": {
-            "host": "{{ .secrets.ghost-db-secret.data.host }}",
-            "user": "{{ .secrets.ghost-db-secret.data.username }}",
-            "password": "{{ .secrets.ghost-db-secret.data.password }}",
-            "database": "ghost",
-            "port": "3306"
-          }
-        },
-        "process": "local",
-        "paths": {
-          "contentPath": "/home/nonroot/app/ghost/content"
         }
-      }
   refreshAfter: 1m
