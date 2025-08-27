@@ -86,6 +86,3 @@ spec:
         }
       }
   refreshAfter: 1m
-  dependencies:
-    - name: ghost-db-secret
-    - name: ghost-smtp-secret
