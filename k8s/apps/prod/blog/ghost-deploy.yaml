@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ghost-on-kubernetes
-  namespace: ghost-on-kubernetes
+  namespace: blog
   labels:
     app: ghost-on-kubernetes
     app.kubernetes.io/name: ghost-on-kubernetes
