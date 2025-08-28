@@ -52,7 +52,7 @@ spec:
             - name: GHOST_CONTENT
               value: /home/nonroot/app/ghost/content
             - name: NODE_ENV
-              value: production
+              value: production node index.js
             - name: APP_URL
               valueFrom:
                 secretKeyRef:
@@ -172,7 +172,7 @@ spec:
                 }
               }
               EOF
-
+              cat "$OUTPUT_FILE"
               exit 0
 
           volumeMounts:
