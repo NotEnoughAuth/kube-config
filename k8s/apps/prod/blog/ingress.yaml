@@ -1,0 +1,22 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: blog
+  namespace: blog
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`blog.oplabs.us`) && PathPrefix(`/`)
+      kind: Rule
+      middlewares:
+        - name: local-ip-list
+          namespace: traefik
+      services:
+        - name: blog
+          port: 2386
+  tls:
+    secretName: oplabs-us-tls # give it the ole tls cert
+

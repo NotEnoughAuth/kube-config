@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: blog
+  namespace: blog
+spec:
+  selector:
+    app: ghost-on-kubernetes
+  ports:
+    - port: 2386
+      targetPort: 2386
