@@ -172,7 +172,6 @@ spec:
                 }
               }
               EOF
-              cat "$OUTPUT_FILE"
               exit 0
 
           volumeMounts:
