@@ -75,27 +75,27 @@ spec:
             - name: DB_HOST
               valueFrom:
                 secretKeyRef:
-                  name: ghost-db-secret
+                  name: blog-secrets
                   key: DB_HOST
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
                   name: ghost-db-secret
-                  key: DB_USER
+                  key: username
             - name: DB_PASS
               valueFrom:
                 secretKeyRef:
                   name: ghost-db-secret
-                  key: DB_PASS
+                  key: password
             - name: DB_NAME
               valueFrom:
                 secretKeyRef:
-                  name: ghost-db-secret
+                  name: blog-secrets
                   key: DB_NAME
             - name: DB_PORT
               valueFrom:
                 secretKeyRef:
-                  name: ghost-db-secret
+                  name: blog-secrets
                   key: DB_PORT
           securityContext:
             readOnlyRootFilesystem: true
