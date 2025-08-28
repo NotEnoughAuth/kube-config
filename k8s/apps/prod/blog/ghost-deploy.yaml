@@ -37,8 +37,7 @@ spec:
           persistentVolumeClaim:
             claimName: k8s-ghost-content
         - name: k8s-ghost-config
-          persistentVolumeClaim:
-            claimName: k8s-ghost-config
+          emptyDir: {}
         - name: tmp
           emptyDir:
             sizeLimit: 64Mi
@@ -182,6 +181,7 @@ spec:
               readOnly: false
             - name: k8s-ghost-config
               mountPath: /home/nonroot/app/ghost/config.production.json
+              subPath: config.production.json
               readOnly: false
 
       containers:
@@ -241,6 +241,7 @@ spec:
               readOnly: false
             - name: k8s-ghost-config
               mountPath: /home/nonroot/app/ghost/config.production.json
+              subPath: config.production.json
               readOnly: false
             - name: tmp # This is the temporary volume mount to allow loading themes
               mountPath: /tmp
