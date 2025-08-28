@@ -246,14 +246,14 @@ spec:
       restartPolicy: Always
       terminationGracePeriodSeconds: 15
       dnsPolicy: ClusterFirst
-      # Optional: Uncomment the following to specify node selectors
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-              - matchExpressions:
-                  - key: node-role.kubernetes.io/worker
-                    operator: In
-                    values:
-                      - "true"
+      # # Optional: Uncomment the following to specify node selectors
+      # affinity:
+      #   nodeAffinity:
+      #     requiredDuringSchedulingIgnoredDuringExecution:
+      #       nodeSelectorTerms:
+      #         - matchExpressions:
+      #             - key: node-role.kubernetes.io/worker
+      #               operator: In
+      #               values:
+      #                 - "true"
       securityContext: {}
