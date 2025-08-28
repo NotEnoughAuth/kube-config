@@ -76,27 +76,27 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: ghost-db-secret
-                  key: host
+                  key: DB_HOST
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
                   name: ghost-db-secret
-                  key: user
+                  key: DB_USER
             - name: DB_PASS
               valueFrom:
                 secretKeyRef:
                   name: ghost-db-secret
-                  key: password
+                  key: DB_PASS
             - name: DB_NAME
               valueFrom:
                 secretKeyRef:
                   name: ghost-db-secret
-                  key: database
+                  key: DB_NAME
             - name: DB_PORT
               valueFrom:
                 secretKeyRef:
                   name: ghost-db-secret
-                  key: port
+                  key: DB_PORT
           securityContext:
             readOnlyRootFilesystem: true
             allowPrivilegeEscalation: false
@@ -197,7 +197,7 @@ spec:
                 - name: X-Forwarded-Proto
                   value: https
                 - name: Host
-                  value: yourdomain.tld
+                  value: blog.oplabs.us
             periodSeconds: 10
             timeoutSeconds: 3
             successThreshold: 1
@@ -212,7 +212,7 @@ spec:
                 - name: X-Forwarded-Proto
                   value: https
                 - name: Host
-                  value: yourdomain.tld
+                  value: blog.oplabs.us
             periodSeconds: 300
             timeoutSeconds: 3
             successThreshold: 1
