@@ -2,7 +2,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: oplabs-us
-  namespace: canvas # Same namespace as service you are using
+  namespace: blog # Same namespace as service you are using
 spec:
   secretName: oplabs-us-tls
   issuerRef:
