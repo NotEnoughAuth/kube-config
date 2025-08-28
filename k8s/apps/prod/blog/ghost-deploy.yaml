@@ -125,7 +125,7 @@ spec:
                 chown -Rfv 65532:65532 $GHOST_CONTENT/$dir && echo "chown ok on $dir" || echo "Error changing ownership of $GHOST_CONTENT/$dir directory"
               done
 
-              OUTPUT_FILE='/home/nonroot/app/ghost/config.production.json'
+              OUTPUT_FILE='/tmp/config.production.json'
 
               cat > "$OUTPUT_FILE" <<EOF
               {
@@ -180,8 +180,7 @@ spec:
               mountPath: /home/nonroot/app/ghost/content
               readOnly: false
             - name: k8s-ghost-config
-              mountPath: /home/nonroot/app/ghost/config.production.json
-              subPath: config.production.json
+              mountPath: /tmp
               readOnly: false
 
       containers:
