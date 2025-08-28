@@ -176,7 +176,7 @@ spec:
 
           volumeMounts:
             - name: k8s-ghost-content
-              mountPath: /home/nonroot/app/ghost/content
+              mountPath: /home/nonroot/app/ghost
               readOnly: false
 
       containers:
@@ -232,7 +232,7 @@ spec:
 
           volumeMounts:
             - name: k8s-ghost-content
-              mountPath: /home/nonroot/app/ghost/content
+              mountPath: /home/nonroot/app/ghost
               readOnly: false
             - name: tmp # This is the temporary volume mount to allow loading themes
               mountPath: /tmp
