@@ -36,7 +36,9 @@ spec:
         - name: k8s-ghost-content
           persistentVolumeClaim:
             claimName: k8s-ghost-content
-
+        - name: k8s-ghost-config
+          persistentVolumeClaim:
+            claimName: k8s-ghost-config
         - name: tmp
           emptyDir:
             sizeLimit: 64Mi
