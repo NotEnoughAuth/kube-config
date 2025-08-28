@@ -7,5 +7,7 @@ spec:
   selector:
     app: ghost-on-kubernetes
   ports:
-    - port: 2386
-      targetPort: 2386
+    - port: 2368
+      protocol: TCP
+      targetPort: ghk8s
+      name: ghk8s

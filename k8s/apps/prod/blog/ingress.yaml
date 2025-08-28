@@ -16,7 +16,7 @@ spec:
           namespace: traefik
       services:
         - name: blog
-          port: 2386
+          port: ghk8s
   tls:
     secretName: oplabs-us-tls # give it the ole tls cert
 
