@@ -12,7 +12,7 @@ spec:
     name: ghost-db-secret
   rolloutRestartTargets:
     - kind: Deployment
-      name: ghost
+      name: ghost-on-kubernetes
 
 ---
 # apiVersion: secrets.hashicorp.com/v1beta1
