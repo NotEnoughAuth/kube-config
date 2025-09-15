@@ -21,11 +21,31 @@ spec:
           env:
             - name: DB_ENGINE
               value: postgres
-            - name: POSTGRES_URL_OVERRIDE
+            - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
                   name: mealie-db-secret
-                  key: url
+                  key: username
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mealie-db-secret
+                  key: password
+            - name: POSTGRES_SERVER
+              valueFrom:
+                secretKeyRef:
+                  name: mealie-db-secret
+                  key: host
+            - name: POSTGRES_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: mealie-db-secret
+                  key: port
+            - name: POSTGRES_DB
+              valueFrom:
+                secretKeyRef:
+                  name: mealie-db-secret
+                  key: database
             - name: BASE_URL
               value: https://mealie.oplabs.us
             - name: OIDC_PROVIDER_NAME
