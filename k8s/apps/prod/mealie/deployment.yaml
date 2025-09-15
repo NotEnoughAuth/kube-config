@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mealie
+  namespace: mealie
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mealie
+  template:
+    metadata:
+      labels:
+        app: mealie
+    spec:
+      containers:
+        - name: mealie
+          image: ghcr.io/mealie-recipes/mealie:v3.1.2
+          ports:
+            - containerPort: 9000
+          env:
+            - name: DB_ENGINE
+              value: postgres
+            - name: POSTGRES_URL_OVERRIDE
+              valueFrom:
+                secretKeyRef:
+                  name: mealie-db-secret
+                  key: url
+            - name: BASE_URL
+              value: https://mealie.oplabs.us
+            - name: OIDC_PROVIDER_NAME
+              value: OP Labs
+            - name: OIDC_AUTH_ENABLED
+              value: "true"
+            - name: OIDC_SIGNUP_ENABLED
+              value: "true"
+            - name: OIDC_CONFIGURATION_URL
+              valueFrom:
+                secretKeyRef:
+                  name: mealie-secrets
+                  key: oidc-config-url
+            - name: OIDC_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: mealie-secrets
+                  key: oidc-client-id
+            - name: OIDC_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: mealie-secrets
+                  key: oidc-client-secret
+            - name: OIDC_USER_GROUP
+              valueFrom:
+                secretKeyRef:
+                  name: mealie-secrets
+                  key: oidc-user-group
+            - name: OIDC_ADMIN_GROUP
+              valueFrom:
+                secretKeyRef:
+                  name: mealie-secrets
+                  key: oidc-admin-group
+          volumeMounts:
+            - name: data
+              mountPath: /app/data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: mealie-data
