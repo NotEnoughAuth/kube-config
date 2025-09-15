@@ -1,0 +1,37 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: mealie
+  namespace: mealie
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+    gethomepage.dev/href: "https://mealie.oplabs.us"
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/name: "JP Designs Dashboard"
+    gethomepage.dev/description: "Manage JP Designs projects"
+    gethomepage.dev/group: "JP Designs"
+    gethomepage.dev/icon: "nodejs.png"
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`mealie.oplabs.us`) && PathPrefix(`/`)
+      kind: Rule
+      middlewares:
+        # - name: jpdesigns-admin-basicauth
+        #   namespace: jpdesigns
+        # - name: default-headers
+        #   namespace: traefik
+        - name: local-ip-list
+          namespace: traefik
+        - name: oauth-forward-auth
+          namespace: traefik
+        - name: oauth-headers
+          namespace: traefik
+        # - name: crowdsec-bouncer
+        #   namespace: traefik
+      services:
+        - name: mealie
+          port: 80
+  tls:
+    secretName: oplabs-us-tls
