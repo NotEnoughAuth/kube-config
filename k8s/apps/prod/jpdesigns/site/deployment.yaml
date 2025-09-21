@@ -23,50 +23,30 @@ spec:
           ports:
             - containerPort: 8080
           env:
-            - name: S3_ENDPOINT
-              valueFrom:
-                secretKeyRef:
-                  name: jpdesigns-env
-                  key: S3_endpoint
-            - name: S3_BUCKET
-              valueFrom:
-                secretKeyRef:
-                  name: jpdesigns-env
-                  key: S3_bucket
-            - name: S3_ACCESS_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: jpdesigns-env
-                  key: S3_access_key
-            - name: S3_SECRET_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: jpdesigns-env
-                  key: S3_secret_key
             - name: DB_HOST
               valueFrom:
                 secretKeyRef:
-                  name: jpdesigns-db-app
+                  name: jpdesigns-db-secret
                   key: host
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
-                  name: jpdesigns-db-app
-                  key: user
+                  name: jpdesigns-db-secret
+                  key: username
             - name: DB_PASS
               valueFrom:
                 secretKeyRef:
-                  name: jpdesigns-db-app
+                  name: jpdesigns-db-secret
                   key: password
             - name: DB_NAME
               valueFrom:
                 secretKeyRef:
-                  name: jpdesigns-db-app
-                  key: dbname
+                  name: jpdesigns-db-secret
+                  key: database
             - name: DB_PORT
               valueFrom:
                 secretKeyRef:
-                  name: jpdesigns-db-app
+                  name: jpdesigns-db-secret
                   key: port
             - name: HCAPTCHA_SITEKEY
               valueFrom:
