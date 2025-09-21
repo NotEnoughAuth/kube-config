@@ -84,5 +84,23 @@ spec:
             httpGet:
               path: /
               port: 8080
+          volumeMounts:
+            - name: varlog
+              mountPath: /var/log/app
+        - name: alert-sidecar
+          image: repo.oplabs.us/gitlab/alert-sidecar:latest
+          env:
+            - name: DISCORD_WEBHOOK_URL
+              valueFrom:
+                secretKeyRef:
+                  name: alert-sidecar-secret
+                  key: discord-webhook-url
+          volumeMounts:
+            - name: varlog
+              mountPath: /var/log/app
+              readOnly: true
+      volumes:
+        - name: varlog
+          emptyDir: {}
       imagePullSecrets:
         - name: regcred
