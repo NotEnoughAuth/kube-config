@@ -17,12 +17,6 @@ spec:
     size: 7Gi
     storageClass: ceph-block
 
-  service:
-    labels:
-      scope: public
-      "lbipam.cilium.io/ips": "10.27.55.20"
-    type: LoadBalancer
-
   externalClusters:
     - name: source-db
       connectionParameters:
