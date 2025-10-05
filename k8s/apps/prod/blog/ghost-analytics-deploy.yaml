@@ -28,7 +28,7 @@ spec:
     spec:
       automountServiceAccountToken: false # Disable automounting of service account token
       volumes:
-        - name: traffic_analytics_data
+        - name: traffic-analytics-data
           persistentVolumeClaim:
             claimName: traffic-analytics-pvc
       containers:
@@ -65,6 +65,6 @@ spec:
               containerPort: 3000
               protocol: TCP
           volumeMounts:
-            - name: traffic_analytics_data # This is the temporary volume mount to allow loading themes
+            - name: traffic-analytics-data
               mountPath: /data
               readOnly: false
