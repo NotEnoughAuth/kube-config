@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ghost-analytics
+  namespace: blog
+  labels:
+    app: ghost-analytics
+
+spec:
+  # If you want HA for your Ghost instance, you can increase the number of replicas AFTER creation and you need to adjust the storage class. See 02-pvc.yaml for more information.
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ghost-analytics
+  minReadySeconds: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 3
+  revisionHistoryLimit: 4
+  progressDeadlineSeconds: 600
+  template:
+    metadata:
+      namespace: ghost-analytics
+      labels:
+        app: ghost-analytics
+    spec:
+      automountServiceAccountToken: false # Disable automounting of service account token
+      volumes:
+        - name: traffic_analytics_data
+          persistentVolumeClaim:
+            claimName: traffic-analytics-pvc
+      containers:
+        - name: tinybird-analytics
+          image: ghost/traffic-analytics:1.0.16
+          imagePullPolicy: Always
+          env:
+            - name: NODE_ENV
+              value: production
+            - name: PROXY_TARGET
+              valueFrom:
+                secretKeyRef:
+                  name: blog-secrets
+                  key: TINYBIRD_API_URL
+            - name: SALT_STORE_TYPE
+              valueFrom:
+                secretKeyRef:
+                  name: blog-secrets
+                  key: SALT_STORE_TYPE
+            - name: SALT_STORE_FILE_PATH
+              valueFrom:
+                secretKeyRef:
+                  name: blog-secrets
+                  key: SALT_STORE_FILE_PATH
+            - name: TINYBIRD_TRACKER_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: blog-secrets
+                  key: TINYBIRD_TRACKER_TOKEN
+            - name: LOG_LEVEL
+              value: debug
+          ports:
+            - name: tb-analytics
+              containerPort: 3000
+              protocol: TCP
+          volumeMounts:
+            - name: traffic_analytics_data # This is the temporary volume mount to allow loading themes
+              mountPath: /data
+              readOnly: false

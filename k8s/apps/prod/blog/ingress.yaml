@@ -25,6 +25,14 @@ spec:
       services:
         - name: blog
           port: ghk8s
+    - match: Host(`blog.oplabs.us`) && PathPrefix(`/.ghost/analytics`)
+      kind: Rule
+      middlewares: []
+        # - name: local-ip-list
+        #   namespace: traefik
+      services:
+        - name: tinybird-analytics
+          port: 3000
   tls:
     secretName: oplabs-us-tls # give it the ole tls cert
 

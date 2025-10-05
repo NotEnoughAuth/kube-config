@@ -29,11 +29,11 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: k8s-ghost-config
+  name: traffic-analytics-pvc
   namespace: blog
   labels:
     app: ghost-on-kubernetes
-    app.kubernetes.io/name: k8s-ghost-config
+    app.kubernetes.io/name: traffic-analytics-pvc
     app.kubernetes.io/instance: ghost-on-kubernetes
     app.kubernetes.io/version: "5.92"
     app.kubernetes.io/component: storage

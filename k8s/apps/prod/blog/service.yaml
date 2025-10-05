@@ -11,3 +11,18 @@ spec:
       protocol: TCP
       targetPort: ghk8s
       name: ghk8s
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tinybird-analytics
+  namespace: blog
+spec:
+  selector:
+    app: ghost-analytics
+  ports:
+    - port: 3000
+      protocol: TCP
+      targetPort: tb-analytics
+      name: tb-analytics
