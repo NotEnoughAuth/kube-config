@@ -27,9 +27,8 @@ spec:
           port: ghk8s
     - match: Host(`blog.oplabs.us`) && PathPrefix(`/.ghost/analytics`)
       kind: Rule
-      middlewares: []
-        # - name: local-ip-list
-        #   namespace: traefik
+      middlewares:
+        - name: strip-ghost-analytics
       services:
         - name: tinybird-analytics
           port: 3000

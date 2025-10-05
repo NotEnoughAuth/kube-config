@@ -1,0 +1,9 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: strip-ghost-analytics
+  namespace: blog
+spec:
+  stripPrefix:
+    prefixes:
+      - /.ghost/analytics
