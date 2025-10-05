@@ -189,7 +189,7 @@ spec:
                 "process": "local",
                 "paths": {
                   "contentPath": "/home/nonroot/app/ghost/content"
-                }
+                },
                 "tinybird": {
                   "tracker": {
                     "endpoint": "${TINYBIRD_TRACKER_URL}",
