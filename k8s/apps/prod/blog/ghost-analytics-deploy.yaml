@@ -42,7 +42,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: blog-secrets
-                  key: TINYBIRD_API_URL
+                  key: TINYBIRD_PROXY_TARGET
             - name: SALT_STORE_TYPE
               valueFrom:
                 secretKeyRef:
