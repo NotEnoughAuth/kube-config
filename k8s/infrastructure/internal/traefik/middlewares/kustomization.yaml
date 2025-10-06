@@ -1,9 +1,0 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-resources:
-  - default-headers.yaml
-  - local-ip-list.yaml
-  - oauth-forward-auth.yaml
-  - oauth-headers.yaml
-  - cluster-only.yaml
-  - ojwan-ip-list.yaml
