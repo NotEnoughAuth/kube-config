@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: nuclearlaunch
-          image: registry.oplabs.us:5050/root/ctf-web-nuclearlaunch:latest
+          image: gitlab.oplabs.us:5050/root/ctf-web-nuclearlaunch:latest
           pull-policy: Always
           resources:
             limits:
