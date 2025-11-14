@@ -9,7 +9,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`ctf.oplabs.us`) && PathPrefix(`/web/NuclearLaunch`)
+    - match: Host(`ctf.oplabs.us`) && PathPrefix(`/web/NuclearCodes`)
       kind: Rule
       middlewares: []
         # - name: jpdesigns-admin-basicauth
