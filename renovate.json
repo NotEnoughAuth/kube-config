@@ -14,5 +14,16 @@
   },
   "assignees": [
     "NotEnoughAuth"
+  ],
+  "packageRules": [
+    {
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "matchDepTypes": [
+        "kubernetes"
+      ],
+      "automerge": true
+    }
   ]
 }
