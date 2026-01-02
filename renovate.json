@@ -11,5 +11,8 @@
       "**/kustomization.yaml",
       "**/*.sops.yaml"
     ]
-  }
+  },
+  "assignees": [
+    "NotEnoughAuth"
+  ]
 }
