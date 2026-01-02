@@ -9,7 +9,8 @@
     ],
     "ignorePaths": [
       "**/kustomization.yaml",
-      "**/*.sops.yaml"
+      "**/*.sops.yaml",
+      "k8s/clusters/**"
     ]
   },
   "assignees": [
