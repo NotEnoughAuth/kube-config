@@ -22,9 +22,9 @@
       "matchUpdateTypes": [
         "patch"
       ],
-      "matchDepTypes": [
-        "kubernetes"
-      ],
+      // "matchDepTypes": [
+      //   "kubernetes"
+      // ],
       "automerge": true
     }
   ]
