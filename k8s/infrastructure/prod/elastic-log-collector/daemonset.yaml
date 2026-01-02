@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: elastic-agent
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      app: elastic-agent
+  template:
+    metadata:
+      labels:
+        app: elastic-agent
+    spec:
+      serviceAccountName: elastic-agent
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
+      containers:
+        - name: elastic-agent
+          image: docker.elastic.co/beats/elastic-agent:8.11.3
+          securityContext:
+            runAsUser: 0
+          env:
+            - name: FLEET_ENROLL
+              value: "1"
+            - name: FLEET_URL
+              value: "https://fleet.corp.oplabs.us:8220"
+            - name: FLEET_ENROLLMENT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: elastic-agent-enrollment-token
+                  key: enrollment-token
+            - name: KIBERNETES_NODE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+          volumeMounts:
+            - name: varlog
+              mountPath: /var/log
+            - name: dockersock
+              mountPath: /var/run/docker.sock
+            - name: containers
+              mountPath: /var/lib/docker/containers
+      volumes:
+        - name: varlog
+          hostPath:
+            path: /var/log
+        - name: dockersock
+          hostPath:
+            path: /var/run/docker.sock
+        - name: containers
+          hostPath:
+            path: /var/lib/docker/containers

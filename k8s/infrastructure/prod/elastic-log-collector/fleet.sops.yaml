@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: elastic-agent-enrollment-token
+    namespace: kube-system
+type: Opaque
+data:
+    enrollment-token: ENC[AES256_GCM,data:Jud2nHvgVe9ofwZOgNSvX+yp55D/tP4lL964XCPkxQJHvZ99naFf/fUb7KJxKAEy95ZZRrA0WjHtcl04hTOPG362esd2LJIsBqyr9QLAqcM=,iv:3eRCUoacCaxagFMloLn9nOGucHvEEs8qGlKka2eNa10=,tag:rat+UzmFcJPrj/Ny/p3RJw==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBML0Rwbk90V0hJclNGMEY1
+            aWRmaitBL2hUcnEyZzVoL3JNS1lUdThlQmh3CnNSVVNsU0IyZVFkcDNqMVFrczlN
+            d1dnNnJmNWZLa0gzMk5OVHVYVkFKbncKLS0tIFM4aGtJY0JFQ2NtR3VDdVgyakZh
+            OUg5OFNtMGs4dGtOYWlGYzRmOHVvaDQKPdnBjTEJf2TvgwNaeqbguNJ1rznY220v
+            pvwZz0koDoJ3h0rbBZO4aX+kKuZGnYUuiAm2r09Rx/cg2Bz0XmnvJg==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2026-01-02T14:37:07Z"
+    mac: ENC[AES256_GCM,data:BSrxqwA4nTXBpssLrx0jKdhPE56eHFmTKkcHN8IqtMNpCodNkNKQ5uzH6M+9QXtErjtkPORT4UBX96QBwW5PveqxodA5Q9Kv0C+9gX6PzWkyKDKUEjX5QBmT4eeQnc0YCmNySHuOgwrfujazbjkpqIxyXmqp8YRZjqOXRkMy+dc=,iv:CAsvf5c5DCmJGvCOSt14WUiGmNr1UBNPeqanXAdCBSE=,tag:WnU7YdbQZceRjpD3OYe/6A==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData|annotations|values|)$
+    version: 3.8.1
