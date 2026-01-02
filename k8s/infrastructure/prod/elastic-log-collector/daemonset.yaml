@@ -27,6 +27,8 @@ spec:
               value: "https://fleet.corp.oplabs.us:8220"
             - name: FLEET_CA
               value: "/etc/pki/elastic-agent/ca.crt"
+            - name: FLEET_INSECURE
+              value: "true"
             - name: FLEET_ENROLLMENT_TOKEN
               valueFrom:
                 secretKeyRef:
