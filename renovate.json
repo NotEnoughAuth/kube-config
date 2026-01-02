@@ -10,7 +10,8 @@
     "ignorePaths": [
       "**/kustomization.yaml",
       "**/*.sops.yaml",
-      "k8s/clusters/**"
+      "k8s/clusters/**",
+      "k8s/apps/prod/jpdesigns/**"
     ]
   },
   "assignees": [
