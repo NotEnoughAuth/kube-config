@@ -13,7 +13,7 @@ spec:
         app: elastic-agent
     spec:
       serviceAccountName: elastic-agent
-      hostNetwork: true
+      # hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: elastic-agent
