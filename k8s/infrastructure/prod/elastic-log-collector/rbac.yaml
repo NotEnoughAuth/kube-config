@@ -15,6 +15,7 @@ rules:
       - nodes
       - namespaces
       - leases
+      - cronjobs
     verbs: ["get", "list", "watch"]
 
   - apiGroups: ["coordination.k8s.io"]
