@@ -31,6 +31,7 @@ spec:
             - --pass-access-token=true
             - --pass-authorization-header=true
             - --email-domain=*
+            - --code-challenge-method=S256
             # - --cookie-expire=60s # Session cookie
             # - --cookie-refresh=0 # Not used by MS SSO
             # - --skip-provider-button=true
