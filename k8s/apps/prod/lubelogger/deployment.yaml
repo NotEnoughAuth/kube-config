@@ -105,6 +105,9 @@ spec:
               value: "true"
             - name: OpenIDConfig__DisableStateValidation
               value: "true"
+          envFrom:
+            - secretRef:
+                name: lubelogger-mail-secret
           readinessProbe:
             httpGet:
               path: /
