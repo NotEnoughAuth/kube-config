@@ -78,6 +78,11 @@ spec:
                 secretKeyRef:
                   name: jpdesigns-env
                   key: EMAIL_PASS
+            - name: EMAIL_TO
+              valueFrom:
+                secretKeyRef:
+                  name: jpdesigns-env
+                  key: EMAIL_TO
             - name: PORT
               value: "8080"
           livenessProbe:
