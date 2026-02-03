@@ -72,7 +72,7 @@ spec:
                   name: lubelogger-openid-secret
                   key: tokenUrl
             - name: OpenIDConfig__RedirectURL
-              value: "https://lubelogger.opryga.com/Login/RemoteAuth"
+              value: "https://lubelogger.opryga.com/Login/RemoteAuthDebug"
             - name: OpenIDConfig__Scope
               valueFrom:
                 secretKeyRef:
