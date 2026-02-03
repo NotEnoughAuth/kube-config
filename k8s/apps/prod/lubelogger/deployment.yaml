@@ -103,6 +103,8 @@ spec:
               value: "true"
             - name: ASPNETCORE_FORWARDEDHEADERS_ENABLED
               value: "true"
+            - name: OpenIDConfig__DisableStateValidation
+              value: "true"
           readinessProbe:
             httpGet:
               path: /
