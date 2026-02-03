@@ -119,3 +119,6 @@ spec:
         - name: keys
           persistentVolumeClaim:
             claimName: lubelogger-keys
+        - name: config
+          secret:
+            secretName: lubelogger-config-secret
