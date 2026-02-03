@@ -107,7 +107,7 @@ spec:
               value: "true"
           envFrom:
             - secretRef:
-                name: lubelogger-mail-secret
+                name: lubelogger-email-secret
           readinessProbe:
             httpGet:
               path: /
