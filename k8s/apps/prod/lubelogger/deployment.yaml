@@ -101,6 +101,8 @@ spec:
                   key: DefaultReminderEmail
             - name: EnableRootUserOIDC
               value: "true"
+            - name: ASPNETCORE_FORWARDEDHEADERS_ENABLED
+              value: "true"
           readinessProbe:
             httpGet:
               path: /
