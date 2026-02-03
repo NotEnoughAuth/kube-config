@@ -94,6 +94,13 @@ spec:
                 secretKeyRef:
                   name: lubelogger-openid-secret
                   key: logoutUrl
+            - name: DefaultReminderEmail
+              valueFrom:
+                secretKeyRef:
+                  name: lubelogger-openid-secret
+                  key: DefaultReminderEmail
+            - name: EnableRootUserOIDC
+              value: "true"
           readinessProbe:
             httpGet:
               path: /
