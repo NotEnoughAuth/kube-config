@@ -8,7 +8,7 @@ metadata:
 
 spec:
   # If you want HA for your Ghost instance, you can increase the number of replicas AFTER creation and you need to adjust the storage class. See 02-pvc.yaml for more information.
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: ghost-analytics
