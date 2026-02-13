@@ -22,7 +22,7 @@ spec:
         #   namespace: jpdesigns
         # - name: default-headers
         #   namespace: traefik
-        - name: local-ip-list
+        - name: local-ip-list-pangolin
           namespace: traefik
         # - name: crowdsec-bouncer
         #   namespace: traefik
