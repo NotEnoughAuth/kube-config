@@ -1,0 +1,31 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: pangolin-newt
+  namespace: pangolin
+spec:
+  chart:
+    spec:
+      chart: newt
+      sourceRef:
+        kind: HelmRepository
+        name: fossorial
+        namespace: flux-system
+  interval: 15m
+  timeout: 5m
+  values:
+    # @section Newt instances
+    newtInstances:
+      - name: "k8s-tunnel" # @schema pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?$ ; minLength: 1 ; maxLength: 63
+        # Preferred: use an existing Secret to source all credentials
+        auth:
+          # -- Name of the existing Secret with endpoint/id/secret keys
+          existingSecretName: "newt-secret"
+          # -- Key mappings used inside the existing Secret
+          keys:
+            # -- Key name for the Pangolin endpoint (default: PANGOLIN_ENDPOINT)
+            endpointKey: PANGOLIN_ENDPOINT
+            # -- Key name for the Newt ID (default: NEWT_ID)
+            idKey: NEWT_ID
+            # -- Key name for the Newt secret (default: NEWT_SECRET)
+            secretKey: NEWT_SECRET
