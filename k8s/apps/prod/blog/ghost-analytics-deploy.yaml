@@ -33,7 +33,7 @@ spec:
             claimName: traffic-analytics-pvc
       containers:
         - name: tinybird-analytics
-          image: ghost/traffic-analytics:1.0.47
+          image: ghost/traffic-analytics:1.0.78
           imagePullPolicy: Always
           env:
             - name: NODE_ENV
