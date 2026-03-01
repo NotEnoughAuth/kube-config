@@ -15,3 +15,6 @@ spec:
       selector:
         matchLabels:
           scope: public
+    - advertisementType: "Interface"
+      interface:
+        name: vip-dummy
