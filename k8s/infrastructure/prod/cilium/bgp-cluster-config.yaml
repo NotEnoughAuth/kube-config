@@ -15,10 +15,7 @@ spec:
       peers:
         - name: "pfsense-router"
           peerASN: 64512
-          autoDiscovery:
-            mode: "DefaultGateway"
-            defaultGateway:
-              addressFamily: ipv4
+          peerAddress: 10.27.15.1
           peerConfigRef:
             name: "cilium-peer"
         # - name: "pfsense-router-ipv6"
