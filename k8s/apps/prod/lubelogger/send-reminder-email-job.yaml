@@ -16,12 +16,10 @@ spec:
           containers:
             - name: network-client
               image: curlimages/curl
-              command:
-                [
-                  "/bin/sh",
-                  "-c",
-                  'curl -X POST http://lubelogger/api/vehicle/reminders/send?urgencies=NotUrgent&urgencies=Urgent&urgencies=VeryUrgent&urgencies=PastDue -H "x-api-key ${API_TOKEN}"',
-                ]
+              command: ["/bin/sh", "-c"]
+              args:
+                - |
+                  curl -X POST http://lubelogger/api/vehicle/reminders/send?urgencies=NotUrgent&urgencies=Urgent&urgencies=VeryUrgent&urgencies=PastDue -H "x-api-key ${API_TOKEN}"
               env:
                 - name: API_TOKEN
                   valueFrom:
