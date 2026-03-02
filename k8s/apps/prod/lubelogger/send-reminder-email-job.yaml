@@ -1,0 +1,30 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: lubelogger-email-reminders
+  namespace: lubelogger
+spec:
+  # This runs at 00:00 (midnight) every day
+  schedule: "0 10 * * *"
+  timeZone: "America/Chicago"
+  successfulJobsHistoryLimit: 5 # Keep the last 5 successful runs
+  failedJobsHistoryLimit: 2 # Keep the last 2 failed runs
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: network-client
+              image: curlimages/curl:8.5.0
+              command: ["/bin/sh", "-c"]
+              args:
+                - |
+                  curl -X POST http://lubelogger/api/vehicle/reminders/send?urgencies=NotUrgent&urgencies=Urgent&urgencies=VeryUrgent&urgencies=PastDue \
+                  -H "x-api-key $API_TOKEN" && echo "Reminders sent successfully" || echo "Failed to send reminders"
+              env:
+                - name: API_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: my-api-secrets
+                      key: token
+          restartPolicy: OnFailure
