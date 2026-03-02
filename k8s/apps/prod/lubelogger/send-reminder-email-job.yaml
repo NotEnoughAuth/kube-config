@@ -19,7 +19,7 @@ spec:
               command: ["/bin/sh", "-c"]
               args:
                 - |
-                  curl -X POST "http://lubelogger:8080/api/vehicle/reminders/send?urgencies=NotUrgent&urgencies=Urgent&urgencies=VeryUrgent&urgencies=PastDue" -H "x-api-key: ${API_TOKEN}"
+                  curl -X GET "http://lubelogger:8080/api/vehicle/reminders/send?urgencies=NotUrgent&urgencies=Urgent&urgencies=VeryUrgent&urgencies=PastDue" -H "x-api-key: ${API_TOKEN}"
               env:
                 - name: API_TOKEN
                   valueFrom:
