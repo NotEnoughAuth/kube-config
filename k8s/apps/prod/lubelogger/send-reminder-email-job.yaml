@@ -25,6 +25,6 @@ spec:
                 - name: API_TOKEN
                   valueFrom:
                     secretKeyRef:
-                      name: my-api-secrets
-                      key: token
+                      name: lubelogger-api-secret
+                      key: api-token
           restartPolicy: OnFailure
