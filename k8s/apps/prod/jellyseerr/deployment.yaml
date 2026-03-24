@@ -81,7 +81,7 @@ spec:
           - 1000:1000
           - /app/config
         volumeMounts:
-          - name: jellyseerr-config
+          - name: config
             mountPath: /app/config
       volumes:
         - name: config
