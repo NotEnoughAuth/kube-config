@@ -72,6 +72,17 @@ spec:
             runAsGroup: 1000
             seccompProfile:
               type: RuntimeDefault
+      initContainers:
+      - name: take-data-dir-ownership
+        image: alpine:3
+        command:
+          - chown
+          - -R
+          - 1000:1000
+          - /app/config
+        volumeMounts:
+          - name: jellyseerr-config
+            mountPath: /app/config
       volumes:
         - name: config
           persistentVolumeClaim:
