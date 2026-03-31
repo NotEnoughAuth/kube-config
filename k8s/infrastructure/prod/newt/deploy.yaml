@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: newt
-          image: fosrl/newt:1.10.3
+          image: fosrl/newt:1.10.4
           envFrom:
             - secretRef:
                 name: newt-secret
