@@ -55,7 +55,7 @@ spec:
               mountPath: /app/config
           readinessProbe:
             httpGet:
-              path: /api/v1/status
+              path: /api/v1/settings/public
               port: 5055
           podSecurityContext:
             fsGroup: 1000

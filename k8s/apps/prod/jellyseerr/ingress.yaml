@@ -15,10 +15,9 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`request.oplabs.us`) && !PathPrefix(`/api/v1/status`) && PathPrefix(`/`)
+    - match: Host(`request.oplabs.us`) && !PathPrefix(`/api/v1/status`) && !PathPrefix(`/api/v1/settings/public`) && PathPrefix(`/`)
       kind: Rule
-      middlewares:
-        []
+      middlewares: []
         # - name: jellyseerr-basicauth
         #   namespace: jpdesigns
         # - name: default-headers
