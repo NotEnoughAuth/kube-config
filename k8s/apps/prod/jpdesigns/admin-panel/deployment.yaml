@@ -16,7 +16,7 @@ spec:
         - name: regcred
       containers:
         - name: jpdesigns-admin
-          image: nexus.oplabs.us/gitlab/jp-designs-admin:19 # {"$imagepolicy": "flux-system:jpdesigns-admin"}
+          image: nexus.oplabs.us/gitlab/jp-designs-admin:21 # {"$imagepolicy": "flux-system:jpdesigns-admin"}
           # resources:
           #   limits:
           #     memory: "128Mi"
