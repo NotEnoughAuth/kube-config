@@ -5,7 +5,7 @@ metadata:
   name: jpdesigns-site
   namespace: flux-system
 spec:
-  image: repo.oplabs.us/gitlab/new-jp-designs
+  image: nexus.oplabs.us/gitlab/new-jp-designs
   interval: 1m0s
   secretRef:
     name: regcred

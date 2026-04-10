@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: jpdesigns-site
-          image: repo.oplabs.us/gitlab/new-jp-designs:main-88 # {"$imagepolicy": "flux-system:jpdesigns-site-prod"}
+          image: nexus.oplabs.us/gitlab/new-jp-designs:main-88 # {"$imagepolicy": "flux-system:jpdesigns-site-prod"}
           # resources:
           #   limits:
           #     memory: "128Mi"
@@ -93,7 +93,7 @@ spec:
             - name: varlog
               mountPath: /var/log/app
         - name: alert-sidecar
-          image: repo.oplabs.us/gitlab/alert-sidecar:latest
+          image: nexus.oplabs.us/gitlab/alert-sidecar:latest
           env:
             - name: DISCORD_WEBHOOK_URL
               valueFrom:
