@@ -15,7 +15,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`request.oplabs.us`) && !PathPrefix(`/api/v1/status`) && !PathPrefix(`/api/v1/settings/public`) && PathPrefix(`/`)
+    - match: Host(`request.oplabs.us`) && PathPrefix(`/`) # && !PathPrefix(`/api/v1/status`) && !PathPrefix(`/api/v1/settings/public`)
       kind: Rule
       middlewares: []
         # - name: jellyseerr-basicauth
