@@ -13,10 +13,6 @@ spec:
       labels:
         app: jellyseerr
     spec:
-      dnsConfig:
-        options:
-          - name: ndots
-            value: "1"
       containers:
         - name: jellyseerr
           image: ghcr.io/seerr-team/seerr:v3.1.1
