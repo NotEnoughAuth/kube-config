@@ -6,9 +6,9 @@ metadata:
 spec:
   nodeSelector:
     matchExpressions:
-      - key: node.kubernetes.io/exclude-from-external-load-balancers=
+      - key: node.kubernetes.io/exclude-from-external-load-balancers
         operator: NotIn
-        values: [""] # empty string matches label existence with empty value
+        values: [ "" ] # empty string matches label existence with empty value
   bgpInstances:
     - name: "main-instance"
       localASN: 65000
