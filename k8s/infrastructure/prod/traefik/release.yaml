@@ -19,7 +19,7 @@ spec:
       plugins:
         crowdsec-bouncer-traefik-plugin:
           moduleName: "github.com/maxlerebourg/crowdsec-bouncer-traefik-plugin"
-          version: "v1.3.0-beta3"
+          version: "v1.6.0"
     additionalArguments:
       - --providers.kubernetescrd.allowCrossNamespace=true
       - --serversTransport.insecureSkipVerify=true
