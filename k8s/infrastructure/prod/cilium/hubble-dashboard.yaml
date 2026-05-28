@@ -13,8 +13,10 @@ spec:
     - match: Host(`hubble.prod.opryga.com`) && PathPrefix(`/`) && !ClientIP(`10.96.0.0/12`)
       kind: Rule
       middlewares:
-        - name: default-headers
         - name: local-ip-list
+          namespace: traefik
+        - name: default-headers
+          namespace: traefik
       services:
         - name: hubble-ui
           port: 80
