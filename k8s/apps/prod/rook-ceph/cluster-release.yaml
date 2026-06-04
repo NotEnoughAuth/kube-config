@@ -98,6 +98,9 @@ spec:
     # All values below are taken from the CephCluster CRD
     # -- Cluster configuration.
     # @default -- See [below](#ceph-cluster-spec)
+    cephImage:
+      allowUnsupported: true
+      
     cephClusterSpec:
       # This cluster spec example is for a converged cluster where all the Ceph daemons are running locally,
       # as in the host-based example (cluster.yaml). For a different configuration such as a
@@ -106,7 +109,7 @@ spec:
       # with the specs from those examples.
 
       # For more details, check https://rook.io/docs/rook/v1.10/CRDs/Cluster/ceph-cluster-crd/
-      # cephVersion:
+      # cephImage:
       # The container image used to launch the Ceph daemon pods (mon, mgr, osd, mds, rgw).
       # v18 is Reef, v19 is Squid
       # RECOMMENDATION: In production, use a specific version tag instead of the general v18 flag, which pulls the latest release and could result in different
@@ -117,7 +120,7 @@ spec:
       # Whether to allow unsupported versions of Ceph. Currently Reef and Squid are supported.
       # Future versions such as Tentacle (v20) would require this to be set to `true`.
       # Do not set to true in production.
-      # allowUnsupported: false
+        allowUnsupported: false
 
       # The path on the host where configuration files will be persisted. Must be specified. If there are multiple clusters, the directory must be unique for each cluster.
       # Important: if you reinstall the cluster, make sure you delete this directory from each host or else the mons will fail to start on the new cluster.
