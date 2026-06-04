@@ -98,8 +98,30 @@ spec:
     # All values below are taken from the CephCluster CRD
     # -- Cluster configuration.
     # @default -- See [below](#ceph-cluster-spec)
+    # Labels and annotations to add to the CephCluster CR
+    cephClusterMetadata:
+      annotations: {}
+      labels: {}
+
+    # Specify these values to override the Ceph image in the cephClusterSpec below.
+    # If specifying these values, do not include the cephVersion section in the cephClusterSpec.
     cephImage:
+      # The repository from which to pull the ceph image
+      # repository: quay.io/ceph/ceph
+      # In production, use a specific version tag instead of the general v20 flag, which pulls the latest release and could result in different
+      # versions running within the cluster. See tags available at https://hub.docker.com/r/ceph/ceph/tags/.
+      # To be more precise, you can always use a timestamp tag such as quay.io/ceph/ceph:v20.2.1-20260402
+      # tag: v20.2.1
+      # Whether to allow unsupported versions of Ceph. Currently Squid and Tentacle are supported.
+      # Future versions would require this to be set to `true`.
+      # Do not set to true in production.
       allowUnsupported: true
+      # The image pull policy for pulling the ceph image in the ceph daemon pods, defaults to IfNotPresent
+      # imagePullPolicy: IfNotPresent
+
+    # All values below are taken from the CephCluster CRD
+    # -- Cluster configuration.
+    # @default -- See [below](#ceph-cluster-spec)
       
     cephClusterSpec:
       # This cluster spec example is for a converged cluster where all the Ceph daemons are running locally,
