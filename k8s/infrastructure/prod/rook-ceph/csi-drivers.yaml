@@ -1,26 +1,26 @@
-# RBD CSI Driver
-apiVersion: csi.ceph.io/v1
-kind: Driver
-metadata:
-  name: rook-ceph.rbd.csi.ceph.com # csi-provisioner-name
-  namespace: rook-ceph # namespace:operator
-spec:
-  fsGroupPolicy: File
-  nodePlugin:
-    updateStrategy:
-      type: RollingUpdate
-  controllerPlugin: {}
----
-# CephFS CSI Driver
-apiVersion: csi.ceph.io/v1
-kind: Driver
-metadata:
-  name: rook-ceph.cephfs.csi.ceph.com # csi-provisioner-name
-  namespace: rook-ceph # namespace:operator
-spec:
-  fsGroupPolicy: File
-  cephFsClientType: kernel
-  nodePlugin:
-    updateStrategy:
-      type: RollingUpdate
-  controllerPlugin: {}
+# # RBD CSI Driver
+# apiVersion: csi.ceph.io/v1
+# kind: Driver
+# metadata:
+#   name: rook-ceph.rbd.csi.ceph.com # csi-provisioner-name
+#   namespace: rook-ceph # namespace:operator
+# spec:
+#   fsGroupPolicy: File
+#   nodePlugin:
+#     updateStrategy:
+#       type: RollingUpdate
+#   controllerPlugin: {}
+# ---
+# # CephFS CSI Driver
+# apiVersion: csi.ceph.io/v1
+# kind: Driver
+# metadata:
+#   name: rook-ceph.cephfs.csi.ceph.com # csi-provisioner-name
+#   namespace: rook-ceph # namespace:operator
+# spec:
+#   fsGroupPolicy: File
+#   cephFsClientType: kernel
+#   nodePlugin:
+#     updateStrategy:
+#       type: RollingUpdate
+#   controllerPlugin: {}
