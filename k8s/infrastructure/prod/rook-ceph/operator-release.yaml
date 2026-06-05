@@ -94,9 +94,9 @@ spec:
     # needed
     csi:
       # -- Enable Ceph CSI RBD driver
-      enableRbdDriver: true
+      enableRbdDriver: false
       # -- Enable Ceph CSI CephFS driver
-      enableCephfsDriver: true
+      enableCephfsDriver: false
       # -- Disable the CSI driver.
       disableCsiDriver: "false"
 
