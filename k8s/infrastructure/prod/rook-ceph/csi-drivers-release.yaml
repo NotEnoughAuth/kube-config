@@ -18,4 +18,9 @@ spec:
     force: true # Matches the '--force' flag
     remediation:
       retries: 3
-  # values:
+  values:
+    drivers:
+      rbd:
+        name: rook-ceph.rbd.csi.ceph.com
+      cephfs:
+        name: rook-ceph.cephfs.csi.ceph.com
