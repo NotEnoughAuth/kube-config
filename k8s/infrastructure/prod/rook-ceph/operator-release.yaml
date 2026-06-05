@@ -13,6 +13,10 @@ spec:
         name: rook
         namespace: flux-system
       interval: 1m
+  upgrade:
+    force: true # Matches the '--force' flag
+    remediation:
+      retries: 3
   values:
     # Default values for rook-ceph-operator
     # This is a YAML-formatted file.
