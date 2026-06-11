@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ota-update-repo
+  namespace: ota-update-repo
+spec:
+  selector:
+    app: ota-update-repo
+  ports:
+    - port: 8080
+      targetPort: 8080
