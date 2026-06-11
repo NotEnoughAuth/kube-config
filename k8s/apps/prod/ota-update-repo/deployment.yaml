@@ -28,7 +28,7 @@ spec:
             - name: OTA_API_KEY
               valueFrom:
                 secretKeyRef:
-                  name: ota-update-repo-secret
+                  name: api-key
                   key: api_key
           volumeMounts:
             - name: data
