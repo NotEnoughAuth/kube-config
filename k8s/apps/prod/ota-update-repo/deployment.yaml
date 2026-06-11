@@ -29,7 +29,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: api-key
-                  key: api_key
+                  key: api-key
           volumeMounts:
             - name: data
               mountPath: /data
