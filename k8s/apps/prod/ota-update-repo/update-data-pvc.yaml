@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ota-update-repo-pvc
+  namespace: ota-update-repo
+spec:
+  resources:
+    requests:
+      storage: 128Mi
+  storageClassName: ceph-filesystem
+  accessModes:
+    - ReadWriteMany

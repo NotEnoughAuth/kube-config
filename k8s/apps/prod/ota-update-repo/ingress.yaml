@@ -1,0 +1,39 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ota-update-repo
+  namespace: ota-update-repo
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+    gethomepage.dev/href: "https://ota.oplabs.us"
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/name: "OTA Update Repo"
+    gethomepage.dev/description: "Houses updated for ESP32 OTA updates"
+    gethomepage.dev/group: "Extras"
+    gethomepage.dev/icon: "https://raw.githubusercontent.com/jellyseerr/jellyseerr/main/public/favicon.ico"
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`ota.oplabs.us`) && PathPrefix(`/api/status`) && Method(`POST`)
+      kind: Rule
+      middlewares: []
+      services:
+        - name: ota-update-repo
+          port: 8080
+    - match: Host(`ota.oplabs.us`) && PathPrefix(`/`) && !PathPrefix(`/api/`)
+      kind: Rule
+      middlewares: []
+      services:
+        - name: ota-update-repo
+          port: 8080
+    - match: Host(`ota.oplabs.us`) && PathPrefix(`/api/`) && !PathPrefix(`/api/status`)
+      kind: Rule
+      middlewares:
+        - name: local-ip-list
+          namespace: traefik
+      services:
+        - name: ota-update-repo
+          port: 8080
+  tls:
+    secretName: oplabs-us-tls # give it the ole tls cert

@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: api-key
+  namespace: ota-update-repo
+type: Opaque
+data:
+  api-key: ENC[AES256_GCM,data:JI3ZKGuv50hX/NZ3VPdWKyEcv2DDMfMFqa8jNW6E3FDil7rc1RmfME12mxs=,iv:MfyXXZVECRiqWB8nTWAmQo05MxEZndhCdEYcA8Y0o4w=,tag:w0oCPPIobPrzqlLJ4uUGXw==,type:str]
+sops:
+  kms: []
+  gcp_kms: []
+  azure_kv: []
+  hc_vault: []
+  age:
+    - recipient: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBRVUc0eVk1L2l2aUN5TXdo
+        Z0RPTVl3RzFqSXpSNDdGNnd4Um12UDV0K1JvCjNaZzBaL0Ryais1bjc4bnlKN3lP
+        NUVGVVoxSExlUGRYTzh2cWtLNzMvWEkKLS0tIFJuQVpkeTdkWUdxaDA0blUzL0do
+        R1pxQ0FYSFJtSTJWM0ExRlR3WndNQ28KtNmgWPNYJZg/xqrV7oZlgMIBNH9xDGeq
+        ACwniGWlukG+RS8qxHDouRmFXGXHUJkkr3o3XhPixCbV1xC3T4ry7Q==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2026-06-11T02:30:37Z"
+  mac: ENC[AES256_GCM,data:RIF25vwNkENPdVwUs978EaaxFovE7Kf7Jzi6VYjdkLnrojrRXbldT2ewvwFlRjCvgMeBnzCd0gtVKCtA+pXYPAXZmQcqGIgXVNYW4SP/6f1FVNVNh7xrQz0KTuwoK+ZERxMxcjLaX/IqPHGp7t1bzPASX1ax1mpCHDDKCOFf3Ac=,iv:MSyqXsUk7Xo8edeVNLzpLHrxX8vutYNcqWeQ7QQzzhc=,tag:mkPbrNzFVq9MF8R54ymd9g==,type:str]
+  pgp: []
+  encrypted_regex: ^(data|stringData|annotations|values|)$
+  version: 3.8.1

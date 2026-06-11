@@ -1,0 +1,14 @@
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImagePolicy
+metadata:
+  name: ota-update-repo-prod
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: ota-update-repo
+  filterTags:
+    pattern: "^(?P<build>.*)$"
+    extract: "$build"
+  policy:
+    numerical:
+      order: asc

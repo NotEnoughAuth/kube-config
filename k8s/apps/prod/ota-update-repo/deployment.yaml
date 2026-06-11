@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ota-update-repo
+  namespace: ota-update-repo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ota-update-repo
+  template:
+    metadata:
+      labels:
+        app: ota-update-repo
+    spec:
+      containers:
+        - name: ota-update-repo
+          image: nexus.oplabs.us/gitlab/ota-update-server:1 # {"$imagepolicy": "flux-system:ota-update-repo-prod"}
+          # resources:
+          #   limits:
+          #     memory: "128Mi"
+          #     cpu: "500m"
+          ports:
+            - containerPort: 8080
+          env:
+            - name: OTA_COMPRESS_FIRMWARE
+              value: "true"
+            - name: OTA_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: ota-update-repo-secret
+                  key: api_key
+          volumeMounts:
+            - name: data
+              mountPath: /data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: ota-update-repo-pvc

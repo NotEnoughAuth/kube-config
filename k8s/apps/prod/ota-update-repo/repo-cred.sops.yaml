@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: regcred
+    namespace: ota-update-repo
+type: kubernetes.io/dockerconfigjson
+data:
+    .dockerconfigjson: ENC[AES256_GCM,data:U1P4mzXp+VBD9n3b94EO/71aSEXZ/ub1UeH5edMbv1UVBdXp01+bUTaP154lEyJYSeHxtiLDvIOMVnXv0wQfwFsq45Pp9q277t+O7bWDI2RCS3610cc2IAluyyR5STsi2hSKhZG085F5xRikD3Q4KW/YYKFb0/OlMtJgNamidb7s/FBC8Dvtbp+/lbeMYwBljB/8X755uVnmGnBqT2ud1/9h3FT48Rmj3F0rkOgVuDqwjMaaO+lm01YlLCwNK1ClbDeOqgJgV9CLA7uaILe039B9oOht2RVa/zaf82LxarBWqoN/oF72EA17OWoD2dsu76nepA==,iv:LoCJXlzCO3Ayg50DonsTm6o+21EWV5mfq1bHpSkf5os=,tag:Q0K2Y36M4f6qOmYisn7RrA==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBaOFhTcEdWRUhWVDhnVVdu
+            Skd0elFaYWNKbVJnV3JhSFIwWktDSTUreTJBCmMvMnhiU1NOVXdndHFEMXJXUzR6
+            Z25mQ1FoMWwybXVIT3EzTlZadjJNR3MKLS0tIE9ucmVPZVRKNzBPNytxSEhwazBB
+            RkFkb0VTY2VuUzRvZVBIS0YxQk16V28K4MgE6RJ1Gevx1vJuHkhDoxXAwdFjYFWD
+            BdGcbJw2AfM5ssHEzvDErYEPpu5RzGmjzRRXH4jD5arCh52VqJfDsQ==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2026-06-11T02:22:52Z"
+    mac: ENC[AES256_GCM,data:SqV/WWOn43td91i3A8DY6pu/WARZZZBOhufq6u54c6/pQgl+h7aFpFNdKW6SQeWF9zxUUNyGRZwkV93ZHuKEOviuTib/uCAzfh/zfa5W0z/57WVZ1PlSN0b1FEECe65Ud+f6WyNgNqWa7AEhAvS3OkgIJeZ8DLltlZx0Ubv3L7M=,iv:EVgKfVsDMz/j9Sm63iVXWk+j3/UQ7VnZ8Iu9b2Q2hHo=,tag:ZhtEbPaYqaofZ5+f6y1P2w==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData|annotations|values|)$
+    version: 3.8.1
