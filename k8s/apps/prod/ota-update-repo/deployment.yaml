@@ -33,6 +33,12 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /data
+        - name: dev
+          image: alpine:latest
+          command: ["sh", "-c", "while true; do echo hello; sleep 10; done"]
+          volumeMounts:
+            - name: data
+              mountPath: /data
       volumes:
         - name: data
           persistentVolumeClaim:
