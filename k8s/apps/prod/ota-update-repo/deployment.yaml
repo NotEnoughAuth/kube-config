@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: ota-update-repo
-          image: nexus.oplabs.us/gitlab/ota-update-server:1 # {"$imagepolicy": "flux-system:ota-update-repo-prod"}
+          image: nexus.oplabs.us/gitlab/ota-update-server:5 # {"$imagepolicy": "flux-system:ota-update-repo-prod"}
           # resources:
           #   limits:
           #     memory: "128Mi"
