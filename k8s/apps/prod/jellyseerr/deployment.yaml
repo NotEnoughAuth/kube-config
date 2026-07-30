@@ -13,6 +13,20 @@ spec:
       labels:
         app: jellyseerr
     spec:
+      
+
+      # 2. The Init Container runs first to prepare the certificate
+      initContainers:
+      - name: cert-downloader
+        image: alpine:latest
+        command: ["/bin/sh", "-c"]
+        # Downloads your custom cert and places it into the shared volume path
+        args: 
+          - |
+            wget -O /usr/local/share/ca-certificates/OP-Labs-Root-CA.crt https://nexus.oplabs.us/repository/public-content/pki/OP-Labs-Root-CA.crt
+        volumeMounts:
+        - name: trusted-certs
+          mountPath: /usr/local/share/ca-certificates
       containers:
         - name: jellyseerr
           image: ghcr.io/seerr-team/seerr:v3.4.0
@@ -57,6 +71,8 @@ spec:
           volumeMounts:
             - name: config
               mountPath: /app/config
+            - name: trusted-certs
+              mountPath: /usr/local/share/ca-certificates
           readinessProbe:
             httpGet:
               path: /api/v1/settings/public
@@ -80,3 +96,5 @@ spec:
         - name: config
           persistentVolumeClaim:
             claimName: jellyseerr-config
+        - name: trusted-certs
+          emptyDir: {}
