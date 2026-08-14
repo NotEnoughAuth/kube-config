@@ -1,10 +1,14 @@
 creation_rules:
   # Secrets / ConfigMaps
-  - path_regex: .*.yaml
+  - path_regex: .sops.yaml
     encrypted_regex: ^(data|stringData|annotations|values|)$
     age: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
 
     # Ingress Hosts
-  - path_regex: .*.yaml
+  - path_regex: .sops.yaml
     encrypted_regex: ^(host)$
+    age: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
+
+  - path_regex: open-appsec/release.yaml
+    encrypted_regex: ^(userEmail|agentToken)$
     age: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
