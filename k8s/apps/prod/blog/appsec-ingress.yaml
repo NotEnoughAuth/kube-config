@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: defaultbackend
+  namespace: blog
 spec:
   selector:
     matchLabels:
@@ -27,6 +28,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: defaultbackend
+  namespace: blog
 spec:
   selector:
     app: defaultbackend
