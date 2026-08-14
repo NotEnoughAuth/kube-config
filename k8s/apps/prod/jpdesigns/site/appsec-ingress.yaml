@@ -1,0 +1,40 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jpdesigns-site
+  namespace: jpdesigns
+  annotations:
+    # Set protection mode via annotation (detect-learn, prevent-learn, or off)
+    openappsec.io/mode: "prevent-learn"
+    
+    # Force HTTPS redirection (equivalent to Traefik's websecure entrypoint behavior)
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+spec:
+  # Set to the ingress class configured in your open-appsec NGINX deployment
+  ingressClassName: appsec-nginx 
+  tls:
+    - hosts:
+        - paintbyjpdesigns.com
+        - www.paintbyjpdesigns.com
+      secretName: paintbyjpdesigns-tls
+  rules:
+    - host: paintbyjpdesigns.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: jpdesigns-site
+                port:
+                  number: 8080
+    - host: www.paintbyjpdesigns.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: jpdesigns-site
+                port:
+                  number: 8080
