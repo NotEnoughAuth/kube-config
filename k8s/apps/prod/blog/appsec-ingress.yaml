@@ -1,3 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: defaultbackend
+spec:
+  selector:
+    matchLabels:
+      app: defaultbackend
+  template:
+    metadata:
+      labels:
+        app: defaultbackend
+    spec:
+      containers:
+      - name: defaultbackend
+        image: k8s.gcr.io/defaultbackend-amd64:1.5
+        resources:
+          requests:
+            memory: 10M
+            cpu: 5m
+          limits:
+            memory: 10M
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: defaultbackend
+spec:
+  selector:
+    app: defaultbackend
+  ports:
+  - port: 80
+    targetPort: 8080
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -9,10 +45,6 @@ metadata:
     
     # Force HTTPS redirection (equivalent to Traefik's websecure entrypoint behavior)
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/server-snippet: |
-      location /ghost {
-          return 404;
-      }
 spec:
   # Set to the ingress class configured in your open-appsec NGINX deployment
   ingressClassName: appsec-nginx 
@@ -31,3 +63,10 @@ spec:
                 name: blog
                 port:
                   number: 2368
+          - path: /ghost
+            pathType: Prefix
+            backend:
+              service:
+                name: defaultbackend
+                port:
+                  number: 80
