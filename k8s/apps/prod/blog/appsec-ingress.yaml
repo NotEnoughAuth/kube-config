@@ -29,4 +29,5 @@ spec:
             backend:
               service:
                 name: blog
-                port: ghk8s
+                port:
+                  number: 2368
