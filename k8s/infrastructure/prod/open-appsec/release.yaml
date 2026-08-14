@@ -11,7 +11,7 @@ spec:
         createNamespace: true
     chart:
         spec:
-            chart: open-appsec-nginx-ingress
+            chart: open-appsec
             version: '>=0.1.0' # Specify your desired chart version
             sourceRef:
                 kind: HelmRepository

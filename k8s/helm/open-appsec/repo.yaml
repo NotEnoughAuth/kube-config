@@ -4,5 +4,5 @@ metadata:
   name: open-appsec
   namespace: flux-system
 spec:
-  url: https://downloads.openappsec.io/packages/helm-charts/
+  url: https://charts.openappsec.io
   interval: 10m
