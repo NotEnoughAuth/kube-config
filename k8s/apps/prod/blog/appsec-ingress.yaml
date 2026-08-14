@@ -1,8 +1,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: jellyseerr
-  namespace: jellyseerr
+  name: blog
+  namespace: blog
   annotations:
     # Set protection mode via annotation (detect-learn, prevent-learn, or off)
     openappsec.io/mode: "prevent-learn"
