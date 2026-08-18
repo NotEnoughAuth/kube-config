@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: defaultbackend
-        image: k8s.gcr.io/defaultbackend-amd64:1.5
+        image: registry.k8s.io/defaultbackend-amd64:1.5
         resources:
           requests:
             memory: 10M
