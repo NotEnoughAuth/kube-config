@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  labels:
+    prometheus: kube-prometheus-prometheus
+    role: scrape-config
+  name: calculon-scrape-config
+  namespace: prometheus
+spec:
+  staticConfigs:
+    - targets:
+      - calculon.corp.oplabs.us:8082
+      labels:
+        service: calculon
