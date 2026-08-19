@@ -23,3 +23,10 @@ spec:
         podAntiAffinity: "hard"
         externalLabels:
           cluster: prod-eu1
+        additionalScrapeConfigs:
+          - job_name: 'calculon-external'
+            static_configs:
+              - targets: ['calculon.corp.oplabs.us:8082']
+                labels:
+                  service: calculon
+
