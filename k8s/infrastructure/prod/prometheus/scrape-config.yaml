@@ -5,7 +5,6 @@ metadata:
     prometheus: kube-prometheus-prometheus
     role: scrape-config
   name: calculon-scrape-config
-  namespace: prometheus
 spec:
   staticConfigs:
     - targets:
