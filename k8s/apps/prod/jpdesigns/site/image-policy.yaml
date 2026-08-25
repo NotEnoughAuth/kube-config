@@ -7,7 +7,7 @@ spec:
   imageRepositoryRef:
     name: jpdesigns-site
   filterTags:
-    pattern: "^main-(?P<build>.*)$"
+    pattern: "^(?P<build>.*)$"
     extract: "$build"
   policy:
     numerical:
