@@ -94,6 +94,7 @@ spec:
               mountPath: /var/log/app
         - name: alert-sidecar
           image: nexus.oplabs.us/gitlab/alert-sidecar:latest
+          imagePullPolicy: Always
           env:
             - name: DISCORD_WEBHOOK_URL
               valueFrom:
