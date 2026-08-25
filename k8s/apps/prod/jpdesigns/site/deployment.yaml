@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: jpdesigns-site
-          image: nexus.oplabs.us/gitlab/new-jp-designs:111 # {"$imagepolicy": "flux-system:jpdesigns-site-prod"}
+          image: nexus.oplabs.us/gitlab/new-jp-designs:112 # {"$imagepolicy": "flux-system:jpdesigns-site-prod"}
           # resources:
           #   limits:
           #     memory: "128Mi"
