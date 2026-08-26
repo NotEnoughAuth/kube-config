@@ -4,7 +4,7 @@ metadata:
   name: open-appsec
   namespace: flux-system
 spec:
-  url: https://charts.openappsec.io
+  url: https://nexus.oplabs.us/repository/helm
   interval: 10m
   certSecretRef:
     name: open-appsec-cert
