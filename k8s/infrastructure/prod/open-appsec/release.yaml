@@ -51,9 +51,9 @@ spec:
             # Use 'managed' if connecting to open-appsec SaaS portal
             mode: managed
             # Required if connecting to SaaS
-            userEmail: ENC[AES256_GCM,data:e3KSzMoR2+p2f9CyMYgDmg==,iv:z2XOlBLga5q4LqhOkIYcQ6XljOliN+2ZGWyaBxdifFU=,tag:uagZHwUyNLJmMoB3bRCRaA==,type:str]
+            userEmail: ENC[AES256_GCM,data:W00HepGANuPdXgDKULOVTg==,iv:lzDAAOxlsZFeMXetntpY2Q2BBhd52qN86w0xX3ODyEM=,tag:rhlS0ASCMPLRNySdq9vVvQ==,type:str]
             # Provided by open-appsec portal if using managed mode
-            agentToken: ENC[AES256_GCM,data:uFiEkhKTIpdiSInzvFr2ftc0vESjXCkP6idNBJgIYL52125WuuCi7/5gKBHnhYq035ZgwrqL8YrAoPkCay2X4F84OreZI46FDxXL,iv:klWznX1dL0CALADf62P4w77qT0SOdinid7nkVramAd0=,tag:GrUVpJ1uAk1LMaXVso2Dvg==,type:str]
+            agentToken: ENC[AES256_GCM,data:+K4yH9CI7Li3O3oQABMQMNRMK4Pa+6FI3xndMUAXqhRVWYGNiyFhQrj+e1cbhRV49uHexlws1Z+d1lqbJ3doWwYdVEz3PmIjxukU,iv:LoXA+2CifM29VA2FlwOAaD+EhobYfDKkZH3fZjUGQ24=,tag:58n1TdFqIBasXfxVhGegwg==,type:str]
             persistence:
                 # Set to true if persistent storage is available for ML learning
                 enabled: true
@@ -67,14 +67,14 @@ sops:
     age:
         - enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB3WmJxMlRxZFMvaGdBUCtL
-            c0QxR2NycFdCcm5aTmI2Z2lTbzQxcEtUZVg4CllhR1VmUmhoTWFGM2dNclVsNXNi
-            QlRVS1hpWXc1OFVVRjFpN1ZmYXprMkUKLS0tIEVURkdLbDlGaHB1UDFzVG81eEs5
-            dUZIbStyWnk3QUNUd0tqU3ZDYXBVQ3MKHtvPK9u6tdtMb3bLyB1QmfTr0Lbo1dN3
-            G6kvM6paGaSKgIhHWDhqSZGkOps8rsVHVkB4zXX6h2r0ZPdntWPH3w==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBBZXZrSEJaSEdXQ1lNUW1i
+            STY3T2hHM1dRSGZkRUVsUkxqSlFjTDdhWFdvCnVVZHBMK05rcTJ3ZWorRURVMGdP
+            RVRaMGsyRWtsNi9KV2UrVk1mdHJERGMKLS0tIDRDSlZ5NjU2Y2czbEFsVFFEblgx
+            UWZYTmFWYWtSVG5vQVFvSGVyeGdzWjQK+0ZNia2yL4l1VI9lVghy+BGy4f24nz+k
+            5rx14fMe8Yt9fV2DYN7zh334NzLS8lv8vU3XJICwX0Iqe0QQoovwEQ==
             -----END AGE ENCRYPTED FILE-----
           recipient: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
     encrypted_regex: ^(userEmail|agentToken)$
-    lastmodified: "2026-08-26T01:16:34Z"
-    mac: ENC[AES256_GCM,data:LuZt4cAE0Fqcsk8wiskzRwYdZauLm+wd1j4gJIlG6AyxFicrePeZVvYmBT5iuCLLbYurILYJtpskgv8pStrvTVY2O+hzChW7MEngPY+r6v1GTXgNRqxl0VK34LwTAlYCNWwPhYc0pgvOUytx96Ij0405C0mXr7g/Uv6Et2oIoZc=,iv:96EiF7P/aIdEbMxNXhOuvZjk5x6P7BDgrM5d/r14Ido=,tag:6ZS2Hw8NxnQ7qPPEqJObhA==,type:str]
+    lastmodified: "2026-08-26T01:21:08Z"
+    mac: ENC[AES256_GCM,data:BAvKwoIRtyItJFuv+5swABDVNDVfa7g0ejI2Bom2CGT906pZBsZUjALI6ApiNzDdIZIjaRI9SAMwlsTkmJMEQYd+sfMRS8RyJ1fUZGp3+iGCXh/F9O0AJ+LMBhBwJjhykuxh4MeCc8nD8tKIE9xQcyAQPloLlXDSMLeLB8wgkmk=,iv:NXxh1b68CoH4f1dhWCdauoZG5jwFsQONzPzN9FkT+TM=,tag:2JwwcviaWjg16e60A4aASg==,type:str]
     version: 3.13.2
