@@ -2,7 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
     name: open-appsec-nginx
-    namespace: flux-system
+    namespace: appsec
 spec:
     interval: 30m
     releaseName: open-appsec-nginx
@@ -50,9 +50,9 @@ spec:
             # Use 'managed' if connecting to open-appsec SaaS portal
             mode: managed
             # Required if connecting to SaaS
-            userEmail: ENC[AES256_GCM,data:s6HD9tm57qGSyRrsw3Oudg==,iv:8pAABWghzAyDa89fMlQiYjT90huFbbChHVQHyitIM7Y=,tag:9+IwkvM97qSuaGl+mQOKxg==,type:str]
+            userEmail: ENC[AES256_GCM,data:XJb2iYmSo/GmAUi4L/TTUg==,iv:Q3VpSPKtXcOvusq/PcbLeYLy32Mk3EbWerSAzxUKzjA=,tag:IgM3xnPc9a1EEx2eYNolWw==,type:str]
             # Provided by open-appsec portal if using managed mode
-            agentToken: ENC[AES256_GCM,data:AZGjKu7bMD7pwOCub/EpOMNuytrD6bO+RFkueUfNBAfUJf0sxH9GPevIBPpK2FyP0bd/y2eNd7OGJgpwTSx214Od6moXrTDgNp5o,iv:NWVMfMGTJU2Prq+A2TaFyx1GWO64BNRYhoBTL/rL3u8=,tag:9TdPmz9P4ydGeLhBWzGzMA==,type:str]
+            agentToken: ENC[AES256_GCM,data:Ob3ScvCrzIqOLHWM5PbL392CEXZkxAAQXstA6ZoiJnUDraeFPPT0zYuJHKoU2prmFlAMf3RUmz69Q5x8OYxm4kukX0h5JTsyBxk5,iv:QgznSSTVpdB5iKyYjSgejHy1m1WlC+7jbO2C06hkom4=,tag:TTZOM6yV/I6Zs7jC4Zr0xg==,type:str]
             persistence:
                 # Set to true if persistent storage is available for ML learning
                 enabled: true
@@ -68,14 +68,14 @@ sops:
     age:
         - enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBTbzlwYzJ4YnNsMllxZmVQ
-            Y09iZm8ydHd0RCtWc3RKYVdXNWJ2RjdQaGprCktYblllQmdnMytUcDRZRE9oNWpm
-            YWV1Mm1ISWJHd2RVcHFiR0lVV0lpOXMKLS0tIEhMTGR5MUdUOUMzckxxeEJrbTdr
-            RXhGbXBiZk10N1k5SE44QzNjRjFKbDQKmMRu34PpDSY+1PaWupR6bmkLiNR4Ymuc
-            jJjBiHTUh7Vzi+MRhWIszg9k0FDqZVV4paE4RFwo8+oG173FnZSi8A==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBLQ3lyUmhna3IvNjVvaXFG
+            cGN5N2szaE5JZERJamx0STlRUm1vVklES3lBClRvRjZJTU8wUTJUekNuQzZGcUNU
+            dmNoYnVRWDR6L2F3cmVBMHFxaGdMSUUKLS0tIEJYMzk5cnZ2RGNTOVBUN0QvRk9w
+            ckVjTmVneHBvY2xkeXpMVW04Y0NBdEUKEW8EY055qLh/lEeNMyEyAXSYV9VAqjAp
+            KjFfUBIJpJ9LpeHIJGSGuyDNot2RZx06AMHBXQIgQ8qWbVj2j1JGIQ==
             -----END AGE ENCRYPTED FILE-----
           recipient: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
     encrypted_regex: ^(userEmail|agentToken)$
-    lastmodified: "2026-08-26T01:04:26Z"
-    mac: ENC[AES256_GCM,data:ZwAgXIoom0z3dHy6ui38ZskzioVghVgdIpztXbT9WWM2kPw40183+b3/6/XnyHBNx3gzP6Y+1a7yGDz9OYfr7gmX/THKTpS7S3tSDgkiI6ZSStidSBX8Qp3zWxk1pjYGjVD4i0nN5Xp9A4e4DvreYGcmkRZ+ywfPNAniFHDlcOY=,iv:3NsMPu4f/b8WC903cZ4OJJUAbQRhdlrk2ezZXdFGdAg=,tag:2WtJIxL49E9ZNSaaExP/cw==,type:str]
+    lastmodified: "2026-08-26T01:08:24Z"
+    mac: ENC[AES256_GCM,data:Q5ixLaVrloL9Mv88baqo6iRjb7HAlQw9ABE57tHxc9MBPmFwXT00Pbm3hLR+0s6kt5P9l8nHVDxzFptjZRomwSuqNhctkq3y74rjruknq8ohQafi+8jUA1iyk+OpSZU1M0/RYvJ5juEMA57imGgfnvMqnQk2TECZmm08a995flo=,iv:JkBYkPuGfjX1a7NaoT8zo52gVBwCOnfin7wL7V7HqxM=,tag:4QJ6mZotqGYNvJ2PGt91UA==,type:str]
     version: 3.13.2
