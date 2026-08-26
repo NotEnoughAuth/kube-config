@@ -6,3 +6,4 @@ metadata:
 spec:
   url: https://nexus.oplabs.us/repository/helm/
   interval: 10m
+  insecure: true
