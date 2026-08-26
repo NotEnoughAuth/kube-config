@@ -3,6 +3,8 @@ kind: HelmRepository
 metadata:
   name: open-appsec
   namespace: flux-system
+labels:
+  test: test
 spec:
   url: https://charts.openappsec.io
   interval: 10m
