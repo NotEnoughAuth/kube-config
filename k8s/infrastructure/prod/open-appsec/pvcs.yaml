@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: open-appsec-conf
+  namespace: appsec
+  labels:
+    app.kubernetes.io/component: open-appsec
+    app.kubernetes.io/name: appsec-nx
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ceph-filesystem
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: open-appsec-data
+  namespace: appsec
+  labels:
+    app.kubernetes.io/component: open-appsec
+    app.kubernetes.io/name: appsec-nx
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ceph-filesystem
+  resources:
+    requests:
+      storage: 1Gi
