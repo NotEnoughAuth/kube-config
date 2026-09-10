@@ -17,7 +17,7 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: elastic-agent
-          image: docker.elastic.co/beats/elastic-agent:8.19.20
+          image: docker.elastic.co/beats/elastic-agent:8.19.21
           securityContext:
             runAsUser: 0
           env:
