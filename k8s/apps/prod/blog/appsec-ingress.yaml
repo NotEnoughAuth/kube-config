@@ -17,10 +17,11 @@ spec:
         image: registry.k8s.io/defaultbackend-amd64:1.5
         resources:
           requests:
-            memory: 10M
+            memory: 12M
             cpu: 5m
           limits:
-            memory: 10M
+            memory: 12M
+            cpu: 10m
         ports:
         - containerPort: 8080
 ---
