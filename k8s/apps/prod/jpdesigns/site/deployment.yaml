@@ -13,6 +13,16 @@ spec:
       labels:
         app: jpdesigns-site
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - jpdesigns-site
+              topologyKey: "kubernetes.io/hostname"
       containers:
         - name: jpdesigns-site
           image: nexus.oplabs.us/gitlab/new-jp-designs:112 # {"$imagepolicy": "flux-system:jpdesigns-site-prod"}

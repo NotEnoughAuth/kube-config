@@ -13,7 +13,16 @@ spec:
       labels:
         app: jellyseerr
     spec:
-      
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - jellyseerr
+              topologyKey: "kubernetes.io/hostname"
 
       # 2. The Init Container runs first to prepare the certificate
       initContainers:
