@@ -4,25 +4,20 @@ metadata:
     name: cloudflare-token-secret
     namespace: cert-manager
 type: Opaque
-stringData:
-    cloudflare-token: ENC[AES256_GCM,data:eg9rUjpqtKb3dhT9znVOG9jliSyCUWRJPgsgmbWXNN3T8Z3+VbxM1sJvtzG9MdKhoh3PhUsyuFcVixF09mvpBFlzhuOzNm8t,iv:EPSbj7FQMvmwmVjNlJqaVR9bMXMY27bkl+RprIY9rKw=,tag:qBVKRqAgcfkBG3GHXbF3hQ==,type:str]
+data:
+    cloudflare-token: ENC[AES256_GCM,data:sSJW0LynBEStGvSFx2wCvWC4xFcMp0iAm6fbuXoajQYIMBGAXPuPKMs2NkoSFBiIr9fRcSayC6Y1US1FBW/Xjy4EE8sM2Iai,iv:ejXUdYhEntJNtU89jbW946XT3eaOMenLmDIaDkL4d6Y=,tag:QSqpMzH2RzouTOZf65cAAQ==,type:str]
 sops:
-    kms: []
-    gcp_kms: []
-    azure_kv: []
-    hc_vault: []
     age:
-        - recipient: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
-          enc: |
+        - enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBiUjF3R2FmRlBHVGNpazFY
-            MTBFQlBTUFpocDRadS9FL1B4VXNoU2w5akE4ClhJS1MwdWt3eHNIcisyK2dURkJk
-            aUo4ckk5ZDBqWk1wbEdrQk5rd3A4dUkKLS0tIEk0VmlhaFdTL1JuWGxWMzRvaTNK
-            dlVvMzR6WWJXd3o1a3hnamtudTIxYmMK24f4KtGKxhiHrkjD605HO2mHFdYWHjvk
-            s+D0wYe6QKRHxBAKx5Z9upKy/rv1lL8bKTOwy/vjtJ1jMXh04cbRtA==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB1dkdlcW9tM3dKeDNiY1Q3
+            Z3YyckpXY2J6SkpZeXhTT2tScmNVdURPSVhjCjFiNE14U1NPMVc1NXlpZldSYXF1
+            aEs1MkdqVTVkb2w5VFA0Zm5hOWl1em8KLS0tIE4rYWQ4U0I4RStkcjQveWZTVHJD
+            WDVzdVZNdUhvd2RsTU9Ta1JCVFB3dzQKvAvtknPNql1XHyXhTYhXCGpBAVVga1j3
+            sPD87+9KTOI7WdtQ/K9nnQJMvkxYNgeqoaRgIR7k2gQWtvGKUoMklw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2026-06-25T11:44:44Z"
-    mac: ENC[AES256_GCM,data:ViNR8QVvMffSEKPj5ZqGc4OEkEltMqHgOjvwduTY9LDH3xXgEABcJGjOSodgJ5uYdJuSCSoaReeV3xNVL08GiV0oRvubePQiFIU5oneWxhWlHUNytEkN3U7N5gcSIiefTQkgLEKFK9Fg/qs614XlM4UzNaBk6KkTCHZtzqH38A4=,iv:tTiqsW6zUqmsh5NmqdehNZwKTpi4ukKTzJtrUQ4qy9A=,tag:c4MLJ2V0oH+Nk60Nh+jxlQ==,type:str]
-    pgp: []
+          recipient: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
     encrypted_regex: ^(data|stringData|annotations|values|)$
-    version: 3.8.1
+    lastmodified: "2026-09-23T11:58:42Z"
+    mac: ENC[AES256_GCM,data:BIX+/WjWcFTh/6GQ9rtDzTFOoG+C90MdZsYdfMOYAI+OWVDb2zu/2bIhzKJOK2OhaxNP0gTTLHuFCI060EDoObQXYn4RpspXGLJci9o+CRQbvadRWhY6NUCJf9ZD0SbN/2qbsH6OZnFn8KQsdGcrn0FSbPcGP5Qgy6mXRjFkKIg=,iv:5Pu8nlM5Q2jUuln/hrHH6BBspepyevNNOTwdT1/WQEU=,tag:apuyzdOaih7Mj6JnHbey4Q==,type:str]
+    version: 3.13.2
