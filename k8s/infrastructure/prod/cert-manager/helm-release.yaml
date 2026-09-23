@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: cert-manager
-      version: v1.18.1
+      version: v1.21.2
       interval: 5m
       sourceRef:
         kind: HelmRepository
@@ -22,7 +22,7 @@ spec:
       - --dns01-recursive-nameservers=1.1.1.1:53,9.9.9.9:53
       - --dns01-recursive-nameservers-only
     podDnsPolicy: None
-    podDnsConfig:
-      nameservers:
-        - 1.1.1.1
-        - 9.9.9.9
+    # podDnsConfig:
+    #   nameservers:
+    #     - 1.1.1.1
+    #     - 9.9.9.9
