@@ -51,32 +51,32 @@ spec:
             # Use 'managed' if connecting to open-appsec SaaS portal
             mode: managed
             # Required if connecting to SaaS
-            userEmail: ENC[AES256_GCM,data:YZGd3a2GZqvxliP5txCbjA==,iv:+pYDQRABE564XF0kDTx7ZzzFxdDXdUzGr+VELAQCMJI=,tag:EeVvUZ4MvcMkrdxHdbIkxQ==,type:str]
+            userEmail: ENC[AES256_GCM,data:0PEmSUkJ3gYwwjpMk6w+0A==,iv:5yBkpva7Jh4pLOxdLcDkGrsu0/rofwZC1S+v5kLffgE=,tag:9bbKch7xXivVnnv5GroI7A==,type:str]
             # Provided by open-appsec portal if using managed mode
-            agentToken: ENC[AES256_GCM,data:aIn1kRsozEJK1lXmXyabOG5QpcvivsgtV6PSB8nudeCr8bc63an3y20e10TeZ50MHw+kGpmvYgJQRNGz3QwMMqpN8PGgWuuK6hEP,iv:H5zKcltJdb9FamvA15TZn/STFbXeQ4yp4ztOdAbmibQ=,tag:B88oX//fyMrZuDPz6BTnEQ==,type:str]
-            persistence:
-                # Set to true if persistent storage is available for ML learning
-                enabled: true
-                storageClass: ceph-block
-                accessModes:
-                    - ReadWriteOnce
-                learning:
-                    # Set to true if persistent storage is available for ML learning
-                    storageClass:
-                        name: ceph-filesystem
-                        accessModes: ReadWriteMany
+            agentToken: ENC[AES256_GCM,data:kduZbkLrXZ9Hb86n3alBkxzqFu+58h8yLsbOb1WlXn8VJ17mtQOkabZ7mliZ9092tVVXSMDjDGO+UjHLKrc8aZFHQh+eFZRzgg0Y,iv:37ocnfb7Mm2qBYrocBKOxqxIYzR1TRTirNyLmsm2Ulk=,tag:vRct0Gu1JyLtIE+d16IoGg==,type:str]
+            # persistence:
+            #     # Set to true if persistent storage is available for ML learning
+            #     enabled: true
+            #     storageClass: ceph-block
+            #     accessModes:
+            #         - ReadWriteOnce
+            #     learning:
+            #         # Set to true if persistent storage is available for ML learning
+            #         storageClass:
+            #             name: ceph-filesystem
+            #             accessModes: ReadWriteMany
 sops:
     age:
         - enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBzZmpXcDBqYko0Q1dtcXhQ
-            Yi85WWRQdlBkUUZ3Z1RaWmtFcC9QaHNJN2gwCjZLTVVrNGFWRGlMd056b0huYVlB
-            M1VRUzdWNmNHRVV1WitFVncvbHp3d28KLS0tIDZiRVEzQllmanB6a2Nac0pZZXdO
-            aSsvYXZub0RCakZkTmNSbkNjZEhhNGsKxJodmdU5KhQrQ435IeSzAGpU0q4oluID
-            4QhVcGDM1qGcAARqLMaU2kuCV4+xwGfw4cxNCFiP7ok86x6A1To22w==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA3Zy9YdlpuM0ZGQmFuOU9l
+            YzJQYUJEbHNmeElnY3grRW9jcmZuUTZ6MkZvCitPenJOL3ZFMGxyR3RDVUpCYndw
+            c3B1ZTlnM2FJcHYvNUZVTGlsZ05rMm8KLS0tIHNTdHErYW53blFVa0dPZmxLQ3ln
+            VGMwWll0dnhzS0c5K1RXSFlmMzlkS1kK+70wYQjF6G3EqzXVwVFbb+js73NtaBIA
+            k67XVSxvqVbTW2cjs0jH29EOvEt0yFiLQRjXr0S6mAQnQ11xiwOi4A==
             -----END AGE ENCRYPTED FILE-----
           recipient: age1jnxnx6ppeusvyhuqqk2n8ak2ntvj8pkc223yjfve500au0jyp42q9ckf20
     encrypted_regex: ^(userEmail|agentToken)$
-    lastmodified: "2026-10-22T17:50:17Z"
-    mac: ENC[AES256_GCM,data:O/jEsMJkVhTy5OBXij7Mbh2TWt66548Ubq7lGjdejazd1lZMvmbnoJlOs+yk1C6jU8+vrMDiCqNyqD/f0qJU4NVY38ABXBPOsMYUhwQSJNuLI80LesPNSqs9t5Oi2fThP9awgY25Xuy7/qKkLAqtJSKasMALE72QseGLzWxFn2M=,iv:NS9L6LzEG0lscQ/iOa1x96xYqGtJjAxpqPUakxkQ9oY=,tag:1VbID+LNr1Ukblajv41U1A==,type:str]
+    lastmodified: "2026-10-22T17:55:43Z"
+    mac: ENC[AES256_GCM,data:r6+5yHvbXIZkxAlyLYKYJh19hNXV7Ms/xiiaWBEudbWjZqzEji5DABjRkZ5WOtM2t6NaSqHYyxDRw2yKiD99X1PJ4EJmDg0/1UB41sZlvCQOBHzkx8Z7QJET2BqDUaMHkfsB3Y7RH7K7f5uKixmsss3ocx24mVqgA69mXFMKWWI=,iv:nkNS4Z2N/GCdvWBwyhrpql+PgHJdKnh6xyGcQK5+j1Q=,tag:NQHxPJ1XmOgKVH3kvMMrOg==,type:str]
     version: 3.13.2
