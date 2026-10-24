@@ -25,7 +25,7 @@ spec:
               topologyKey: "kubernetes.io/hostname"
       containers:
         - name: jpdesigns-site
-          image: nexus.oplabs.us/gitlab/new-jp-designs:112 # {"$imagepolicy": "flux-system:jpdesigns-site-prod"}
+          image: nexus.oplabs.us/gitlab/new-jp-designs:113 # {"$imagepolicy": "flux-system:jpdesigns-site-prod"}
           # resources:
           #   limits:
           #     memory: "128Mi"
