@@ -252,10 +252,6 @@ spec:
             successThreshold: 1
             failureThreshold: 1
             initialDelaySeconds: 30
-          lifecycle:
-            pre-stop:
-              exec:
-                command: ["/bin/sh", "-c", "sleep 10000"]
 
           env:
             - name: NODE_ENV
