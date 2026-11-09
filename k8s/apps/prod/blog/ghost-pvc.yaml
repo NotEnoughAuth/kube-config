@@ -23,7 +23,7 @@ spec:
     - ReadWriteMany # Change this to your accessModes if needed, we suggest ReadWriteMany so we can scale the deployment later.
   resources:
     requests:
-      storage: 1Gi
+      storage: 2Gi
 
 ---
 apiVersion: v1
