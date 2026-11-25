@@ -16,6 +16,6 @@ spec:
           namespace: traefik
       services:
         - name: spoolman-web
-          port: 8080
+          port: 8000
   tls:
     secretName: filaments-tls # give it the ole tls cert
