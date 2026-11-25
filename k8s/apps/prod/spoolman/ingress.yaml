@@ -3,6 +3,8 @@ kind: IngressRoute
 metadata:
   name: spoolman-web
   namespace: spoolman
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
 spec:
   entryPoints:
     - websecure
