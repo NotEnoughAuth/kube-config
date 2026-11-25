@@ -34,13 +34,13 @@ spec:
             - containerPort: 8000
           env:
             - name: TZ
-              value: America/Chicago
+              value: "America/Chicago"
             - name: PUID
-              value: 1000
+              value: "1000"
             - name: PGID
-              value: 1000
+              value: "1000"
             - name: SPOOLMAN_LOGGING_LEVEL
-              value: DEBUG
+              value: "DEBUG"
             - name: SPOOLMAN_DB_HOST
               valueFrom:
                 secretKeyRef:
@@ -67,4 +67,4 @@ spec:
                   name: spoolman-db-secret
                   key: port
             - name: SPOOLMAN_DB_TYPE
-              value: postgres
+              value: "postgres"
