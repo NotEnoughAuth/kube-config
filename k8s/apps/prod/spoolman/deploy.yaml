@@ -25,7 +25,7 @@ spec:
               topologyKey: "kubernetes.io/hostname"
       containers:
         - name: spoolman-web
-          image: ghcr.io/donkie/spoolman:v0.27.1
+          image: ghcr.io/donkie/spoolman:0.27.1
           # resources:
           #   limits:
           #     memory: "128Mi"
