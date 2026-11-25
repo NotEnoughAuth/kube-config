@@ -1,0 +1,21 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: spoolman-web
+  namespace: spoolman
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`filaments.opryga.com`) && PathPrefix(`/`)
+      kind: Rule
+      middlewares:
+        - name: default-headers
+          namespace: traefik
+        - name: local-ip-list
+          namespace: traefik
+      services:
+        - name: spoolman-web
+          port: 8080
+  tls:
+    secretName: filaments-tls # give it the ole tls cert
