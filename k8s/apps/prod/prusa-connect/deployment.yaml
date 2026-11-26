@@ -55,7 +55,7 @@ spec:
       # database and skips the check.
       initContainers:
         - name: upgrade-check
-          image: prusa-connect:local
+          image: ghcr.io/prusa3d/prusa-connect:0.1.0-beta.2
           imagePullPolicy: IfNotPresent
           command: [/bin/sh, -ec]
           args:
@@ -86,7 +86,7 @@ spec:
           # closed that on 2026-08-28, so nothing here names a registry. Build
           # the image with `make docker-check`, push it to a registry the
           # cluster can pull from, and name that reference here.
-          image: prusa-connect:local
+          image: ghcr.io/prusa3d/prusa-connect:0.1.0-beta.2
           imagePullPolicy: IfNotPresent
           # The image's own CMD is ["core"], and this adds the file to read.
           # The first word names the server this pod runs. It is the binary's
