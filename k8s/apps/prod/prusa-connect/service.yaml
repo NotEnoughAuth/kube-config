@@ -1,0 +1,24 @@
+# The one listener the core binds. Browsers, API callers and printers all reach
+# it here.
+#
+# ClusterIP, so what publishes it outside the cluster is an Ingress or a Gateway
+# the deployment chooses. A printer dials in over a websocket and holds it, so
+# whatever sits in front has to allow an upgrade and must not close an idle
+# connection sooner than core.events.heartbeat, which is 15s.
+apiVersion: v1
+kind: Service
+metadata:
+  name: prusa-connect
+  labels:
+    app.kubernetes.io/name: prusa-connect
+    app.kubernetes.io/component: server
+  namespace: prusa
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: prusa-connect
+  ports:
+    - name: api
+      port: 8080
+      targetPort: api
+      protocol: TCP

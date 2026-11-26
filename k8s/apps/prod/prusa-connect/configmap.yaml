@@ -1,0 +1,61 @@
+# The tenant's configuration file. The core reads one file and its flags and
+# reads no environment variable, so everything an operator sets
+# is here.
+#
+# The Deployment mounts this whole ConfigMap as a directory at
+# /etc/prusa-connect and passes -config, rather than mounting the single
+# key over /config/config.yaml with subPath. subPath is the one mount mode
+# Kubernetes documents as never receiving an update, and mounting the directory
+# /config would hide /config/config.d, which the core must be able to write.
+#
+# Editing this ConfigMap does not reach a running pod. The core reads the file
+# once at startup and nothing re-reads it, so a change needs
+# `kubectl rollout restart deployment/prusa-connect`.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prusa-connect-config
+  labels:
+    app.kubernetes.io/name: prusa-connect
+    app.kubernetes.io/component: server
+  namespace: prusa
+data:
+  config.yaml: |
+    core:
+      api:
+        # The one listener. Printers dial it too, unless a connector's own
+        # listener.addr sets a second socket, which then needs its own port on
+        # the Service.
+        addr: ":8080"
+      log:
+        level: info
+        # json, because a cluster log pipeline parses rather than reads.
+        format: json
+      # Both paths are set rather than derived. An unset key derives from the
+      # directory holding the file, and that directory is a read-only ConfigMap
+      # mount here.
+      overlay: /config/config.d/resources.json
+      authz:
+        database: /config/config.d/authz.db
+      # The subject every request is served as while core.auth.issuer is empty,
+      # and the holder of the first grant. Nobody is authenticated in this
+      # state, so put an issuer here before the instance is reachable by anyone
+      # you do not trust.
+      principal: operator
+      # This node's token in every event source URN it publishes. Two tenants
+      # calling themselves the same thing publish events a federated parent
+      # cannot tell apart, so set it per tenant.
+      site: local
+      shutdown_timeout: 15s
+    resources:
+      storage:
+        local:
+          type: filesystem
+          enabled: true
+          # Required, so a volume that is not there makes the pod unready and
+          # takes it out of the Service. The default is false, which is right
+          # for an optional sink and wrong for the disk this instance stores
+          # every uploaded file on.
+          required: true
+          config:
+            root: /storage

@@ -1,0 +1,45 @@
+# The two volumes the core writes. They are separate claims because they have
+# different sizes and different consequences: losing the state volume loses
+# every grant this instance ever issued, and losing the storage volume loses
+# uploaded files.
+#
+# Both are ReadWriteOnce. The authorization graph is SQLite and one process
+# writes it, which is why the Deployment stays at one replica and uses the
+# Recreate strategy: two pods on one ReadWriteOnce claim is a rollout that
+# deadlocks, and two writers on one SQLite file is a corrupted graph.
+#
+# No storageClassName is set, so each claim binds through the cluster's default
+# class. Name a class here on a cluster that has no default.
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: prusa-connect-state
+  labels:
+    app.kubernetes.io/name: prusa-connect
+    app.kubernetes.io/component: server
+  namespace: prusa
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      # The authorization graph and the resource overlay. Both are small: the
+      # graph holds one row per grant and the overlay one entry per instance the
+      # API declared.
+      storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: prusa-connect-storage
+  labels:
+    app.kubernetes.io/name: prusa-connect
+    app.kubernetes.io/component: server
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      # Uploaded files. A single G-code is megabytes and a 3MF can be more, so
+      # this is the number to raise for a tenant that keeps a library.
+      storage: 20Gi

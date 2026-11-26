@@ -1,0 +1,174 @@
+# One tenant instance. Apply this set into a namespace of its own, so a tenant's
+# ConfigMap, claims and Service cannot be confused with another's.
+#
+# Not applied against a real cluster. See the "What is proved and what is not"
+# section of docs/src/content/docs/kubernetes.md.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prusa-connect
+  labels:
+    app.kubernetes.io/name: prusa-connect
+    app.kubernetes.io/component: server
+  namespace: prusa
+spec:
+  # One, and the claims below say why: ReadWriteOnce volumes and a SQLite
+  # authorization graph that one process writes.
+  replicas: 1
+  # Recreate rather than RollingUpdate. A RollingUpdate starts the new pod
+  # before the old one goes, and a second pod cannot attach a ReadWriteOnce
+  # claim that the first still holds, so the rollout waits until it times out.
+  # The cost is a gap with nothing serving, which a rolling update would not
+  # remove anyway: a printer holds a long-lived websocket and every session ends
+  # when its pod does.
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: prusa-connect
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: prusa-connect
+        app.kubernetes.io/component: server
+    spec:
+      # Above core.shutdown_timeout in the ConfigMap, which bounds the drain and
+      # then bounds waiting for the supervision plane. A grace period at or
+      # below that budget kills the drain the orchestrator asked for.
+      terminationGracePeriodSeconds: 30
+      securityContext:
+        runAsNonRoot: true
+        # The uid and gid the image builds, fixed rather than assigned by
+        # useradd, so a volume can be owned by a number somebody can predict.
+        # docker/server/Dockerfile sets both as build args.
+        runAsUser: 10001
+        runAsGroup: 10001
+        # The volumes below arrive owned by root. fsGroup makes the kubelet
+        # give their root directory to this gid, which is what lets a process
+        # that is not root write them.
+        fsGroup: 10001
+        fsGroupChangePolicy: OnRootMismatch
+        seccompProfile:
+          type: RuntimeDefault
+      # The candidate image proves its migrations against snapshots before it
+      # is allowed to start on an existing volume. A first install has no host
+      # database and skips the check.
+      initContainers:
+        - name: upgrade-check
+          image: prusa-connect:local
+          imagePullPolicy: IfNotPresent
+          command: [/bin/sh, -ec]
+          args:
+            - >-
+              if [ -e /config/config.d/authz.db ]; then
+                exec /prusa_connect upgrade check
+                -config /etc/prusa-connect/config.yaml;
+              fi
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: [ALL]
+          volumeMounts:
+            - name: config
+              mountPath: /etc/prusa-connect
+              readOnly: true
+            - name: state
+              mountPath: /config/config.d
+            - name: storage
+              mountPath: /storage
+            - name: tmp
+              mountPath: /tmp
+      containers:
+        - name: server
+          # No image is published for this project yet, and the registry that
+          # will publish one arrives with Prusa's own CI and packages. The owner
+          # closed that on 2026-08-28, so nothing here names a registry. Build
+          # the image with `make docker-check`, push it to a registry the
+          # cluster can pull from, and name that reference here.
+          image: prusa-connect:local
+          imagePullPolicy: IfNotPresent
+          # The image's own CMD is ["core"], and this adds the file to read.
+          # The first word names the server this pod runs. It is the binary's
+          # default, and it is written out so a reader of this manifest does not
+          # have to know that. The binary also answers to `serve`, which reaches
+          # the retired server and 404s on every path the probes below read.
+          args:
+            - core
+            - -config
+            - /etc/prusa-connect/config.yaml
+          ports:
+            - name: api
+              containerPort: 8080
+              protocol: TCP
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: [ALL]
+          # Two questions, two paths. /api/v1/health reads no dependency and
+          # says whether this process is serving; /api/v1/readiness says whether
+          # every instance the configuration declares required is serving. A pod
+          # that is running correctly and refusing traffic on purpose must not
+          # be restarted for it, which is why liveness never reads readiness.
+          startupProbe:
+            httpGet:
+              path: /api/v1/health
+              port: api
+            periodSeconds: 2
+            # 60 seconds to bind, which covers opening the authorization graph
+            # and starting every declared resource on a cold volume.
+            failureThreshold: 30
+          livenessProbe:
+            httpGet:
+              path: /api/v1/health
+              port: api
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /api/v1/readiness
+              port: api
+            periodSeconds: 5
+          resources:
+            requests:
+              cpu: 500m
+              memory: 256Mi
+            limits:
+              cpu: "2"
+              memory: 2Gi
+          volumeMounts:
+            # Read-only, and mounted as a directory rather than with subPath.
+            # subPath never receives an update, and mounting the single key over
+            # /config/config.yaml would need the mount point to be /config,
+            # which hides the writable directory below.
+            - name: config
+              mountPath: /etc/prusa-connect
+              readOnly: true
+            # The two files the core writes beside the operator's own: the
+            # resource overlay the API rewrites, and the authorization graph.
+            # Without it the core stops at startup under readOnlyRootFilesystem
+            # with `mkdir config/config.d: read-only file system`.
+            - name: state
+              mountPath: /config/config.d
+            - name: storage
+              mountPath: /storage
+            # Scratch, which a read-only root filesystem otherwise denies. The
+            # core stages every file it writes beside the destination rather
+            # than here, so nothing in this repository is known to need it;
+            # SQLite is what reaches for a system temporary directory, on a
+            # sort or a temporary table it cannot hold in memory.
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: config
+          configMap:
+            name: prusa-connect-config
+        - name: state
+          persistentVolumeClaim:
+            claimName: prusa-connect-state
+        - name: storage
+          persistentVolumeClaim:
+            claimName: prusa-connect-storage
+        - name: tmp
+          emptyDir:
+            sizeLimit: 1Gi
